@@ -110,10 +110,10 @@ steps:
       - tool: wooden-spoon
 
   - id: simmer
-    title: Add the rest and simmer
+    title: Add the tomatoes and simmer
     component: sauce
     kind: cook
-    text: Add the remaining ingredients and season, then bring to the boil and simmer for 20 to 30 minutes until thickened.
+    text: Add {tomatoes}, {garlic}, {sugar}, {vinegar}, {worcestershire}, {tomato-puree} and {chilli}, season with {salt} and {pepper}, then bring to the boil and simmer for 20 to 30 minutes until thickened.
     substeps:
       - Add {tomatoes}, the garlic, {sugar}, {vinegar}, {worcestershire}, {tomato-puree} and the chilli.
       - Season with {salt} and {pepper} and mix.

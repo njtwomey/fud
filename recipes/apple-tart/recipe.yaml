@@ -165,7 +165,7 @@ steps:
       - Spoon the apple mixture in to fill each cavity.
       - Put another layer of rolled pastry on top.
       - Crimp the edge of each tart with a fork to bond the two layers, and trim the outside.
-    cue: Each tart is sealed and crimped all the way round, with the trimmed edge neat.
+    cue: Each tart is sealed and crimped right round, with the trimmed edge neat.
     active_min: 25
     tools:
       - tool: rolling-pin

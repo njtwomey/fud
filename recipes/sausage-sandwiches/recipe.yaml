@@ -39,7 +39,7 @@ steps:
     component: sandwich
     kind: cook
     text: Cook {sausages} according to the cooking instructions on the packet.
-    cue: The sausages are browned all over and cooked through, with no pink in the middle.
+    cue: The sausages are browned evenly on every side and cooked through, with no pink in the middle.
     active_min: 5
     passive_min: 15
     tools:

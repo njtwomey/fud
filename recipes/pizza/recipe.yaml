@@ -108,7 +108,7 @@ steps:
     text: Make a well in the flour and salt, pour in the yeast mixture, then stir from the well outwards and finish by hand.
     substeps:
       - Put {flour} and {salt} in a large bowl and make a well in the middle.
-      - Pour all of the yeast mixture into the well.
+      - Pour the whole yeast mixture into the well.
       - Using a large fork or spoon, slowly stir the contents together, working from the well to the edge of the bowl.
       - When it starts to come together, switch to your hands and mix and knead.
     cue: A soft, cohesive dough with no dry flour left in the bowl.
@@ -167,7 +167,7 @@ steps:
       - Halve the dough 3 times to make 8 small balls.
       - Arrange the balls in a grid on a floured surface, with space between them so they do not prove and stick together.
       - Dust with flour and cover with a towel so the dough does not dry out.
-      - If you want to roll all the pizzas out ahead to save time, stack them on floured and oiled sheets of baking paper or tin foil.
+      - If you want to roll the pizzas out ahead to save time, stack them on floured and oiled sheets of baking paper or tin foil.
     cue: Eight smooth, evenly sized balls that are not touching.
     active_min: 10
     tools:

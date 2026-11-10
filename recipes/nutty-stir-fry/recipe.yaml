@@ -178,7 +178,7 @@ steps:
     title: Prepare the carrots, ginger and garlic
     component: pot
     kind: prep
-    text: Cut everything before the pot goes on, so the sauce can be made without stopping.
+    text: Cut {carrot}, {ginger} and {garlic} before the pot goes on, so the sauce can be made without stopping.
     substeps:
       - Julienne {carrot}.
       - Finely dice {ginger}.
@@ -255,11 +255,11 @@ steps:
     title: Combine and season
     component: finish
     kind: cook
-    text: Tip the roasted vegetables and the cooked rice into the pot of sauce and stir until the rice is coated, then season.
+    text: Tip the roasted vegetables and the cooked rice into the pot of sauce and stir until the rice is coated, then stir in {five-spice} and adjust the salt.
     substeps:
       - Stir in {five-spice}.
       - Taste and adjust the salt.
-    cue: The rice is evenly coated and coloured by the sauce, and tastes seasoned all the way through.
+    cue: The rice is evenly coated and coloured by the sauce, and tastes seasoned right through.
     active_min: 4
     tools:
       - tool: large-pot
@@ -296,4 +296,4 @@ open_questions:
   - How much oil goes on the tray and in the pot, and how much honey when used?
   - Is 200 °C a fan setting or conventional? (Fan assumed.)
   - "How is the rice cooked: rinsed or not, water volume, lid on or off?"
-  - Do all 250 g of peanuts go on top, or are some stirred in?
+  - Do the full 250 g of peanuts go on top, or are some stirred in?

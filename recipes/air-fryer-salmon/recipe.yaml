@@ -50,7 +50,7 @@ steps:
     kind: prep
     text: Pat the fillets dry, spray with oil and season with salt and thyme.
     substeps:
-      - Pat the fillets dry on all surfaces, because surface moisture prevents browning.
+      - Pat the fillets dry on every side, because surface moisture prevents browning.
       - Spray lightly with {oil-spray}, coating the flesh and the skin.
       - Season with {salt}, then sprinkle evenly with {thyme}.
     cue: The surface is dry to the touch before oiling, then lightly glossy.

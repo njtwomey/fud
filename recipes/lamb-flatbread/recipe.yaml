@@ -134,10 +134,10 @@ steps:
     title: Make the rainbow slaw
     component: slaw
     kind: prep
-    text: Grate the raw vegetables into a bowl and dress them, so the slaw is ready to pile on.
+    text: Grate the cabbages, carrot and radish into a bowl and dress them, so the slaw is ready to pile on.
     substeps:
       - Grate {red-cabbage}, {white-cabbage}, {carrot} and {radish} finely using a box grater.
-      - Add {slaw-salt}, {slaw-oil} and {slaw-mayo} and mix until everything is coated.
+      - Add {slaw-salt}, {slaw-oil} and {slaw-mayo} and mix until the cabbage, carrot and radish are coated.
     cue: Every shred of vegetable is lightly coated.
     active_min: 10
     make_ahead: true
@@ -163,7 +163,7 @@ steps:
     after: []
 
   - id: prep-lamb
-    title: Cut the lamb, chop the aromatics
+    title: Cut the lamb, chop the garlic and mint
     component: lamb
     kind: prep
     text: Chop the meat into bite-sized chunks and chop the garlic and mint finely.
@@ -181,7 +181,7 @@ steps:
     title: Cook the lamb
     component: lamb
     kind: cook
-    text: Brown the meat in a medium pan, stir in the garlic, herbs and spices, then finish with lemon juice and honey until it is glossy.
+    text: Brown the meat in a medium pan, stir in {garlic}, {herbs}, {cumin} and {mint}, then finish with {lemon} and {honey} until it is glossy.
     substeps:
       - Heat a pan to a medium heat with a bit of {oil}.
       - Cook the meat for a few minutes, stirring continuously.

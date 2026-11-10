@@ -154,7 +154,7 @@ steps:
     title: Prepare the salad
     component: salad
     kind: prep
-    text: While the chicken roasts, prepare the other ingredients and mix them in a shallow bowl.
+    text: While the chicken roasts, prepare {lettuce:name}, {cucumber:name}, {avocado:name}, {cheese:name}, {tomatoes:name} and {spring-onion:name} and mix them in a shallow bowl.
     substeps:
       - Shred {lettuce:name}.
       - Halve {cucumber:name} lengthwise and slice into half moons.

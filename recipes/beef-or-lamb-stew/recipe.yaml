@@ -120,9 +120,9 @@ steps:
     title: Fill the slow cooker
     component: base
     kind: prep
-    text: Put everything except the beef and cornflour into the slow cooker.
+    text: Put {onion}, {potato}, {carrot}, {garlic}, {stock}, {tomato-puree}, {red-wine}, {worcestershire} and {thyme} into the slow cooker.
     substeps:
-      - Add the vegetables, {stock}, {tomato-puree}, {red-wine}, {worcestershire} and {thyme} to the slow cooker.
+      - Add {onion}, {potato}, {carrot}, {garlic}, {stock}, {tomato-puree}, {red-wine}, {worcestershire} and {thyme} to the slow cooker.
     active_min: 3
     tools:
       - tool: slow-cooker
@@ -139,7 +139,7 @@ steps:
       - Sear it in a hot pan until it gets a good colour.
       - If anything sticks, deglaze the pan with a little of the stock or wine.
       - Add the beef (and the pan juices) to the slow cooker.
-    cue: The meat is well browned on all sides and the pan has a fond that lifts with a splash of liquid.
+    cue: The meat is well browned on every side and the pan has a fond that lifts with a splash of liquid.
     heat: high
     active_min: 10
     tools:

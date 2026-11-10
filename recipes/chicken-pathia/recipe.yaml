@@ -142,7 +142,7 @@ steps:
     kind: prep
     text: Take the chicken out of the fridge to air, then chop the onion, garlic, ginger and chicken.
     substeps:
-      - Remove {chicken:name} from the fridge to air while you prepare the rest.
+      - Remove {chicken:name} from the fridge to air while you chop the onion, garlic, ginger and chicken.
       - Peel and finely chop {onion}, {garlic} and {ginger}.
       - Chop the chicken thighs into large, bite-sized pieces.
     active_min: 10
@@ -195,7 +195,7 @@ steps:
     title: Add the spices and tamarind
     component: pathia
     kind: cook
-    text: Cook the ginger and garlic, stir in the spices and tomato puree, then add the tamarind, water and sugar.
+    text: Cook the ginger and garlic, stir in {ground-cumin:name}, {curry-powder:name}, {cayenne:name} and {tomato-puree:name}, then add the tamarind, water and sugar.
     substeps:
       - Once the onion has softened, add the ginger and garlic and cook for 1 to 2 minutes until fragrant.
       - Stir in {ground-cumin}, {curry-powder}, {cayenne} and {tomato-puree}. Add a drizzle of oil if the pan looks dry.

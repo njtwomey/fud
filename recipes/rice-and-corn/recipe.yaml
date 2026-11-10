@@ -55,7 +55,7 @@ steps:
       - Bring to the boil, and once it bubbles turn the heat to the lowest setting.
       - Leave for 8 to 9 minutes.
       - Take off the hob, fluff lightly with a fork, replace the lid and leave for about 10 minutes.
-    cue: All the water has gone and the grains are tender and separate.
+    cue: The water has been absorbed and the grains are tender and separate.
     heat: low
     active_min: 6
     passive_min: 19

@@ -35,6 +35,12 @@ Read `docs/schema.md` first if you have not this session. The Zod schemas in `we
    - `kind`: `prep` (mise en place), `cook` (hands-on heat or assembly), `wait` (passive rest, marinate, chill), `serve`.
    - Always refer to ingredients with tokens, never by hardcoded name, so quantities scale and swaps flow through:
      `{line-id}` gives quantity and name, `{line-id:name}` just the name.
+   - **Name every ingredient; never use a collective.** Do not write "all the spices", "season everything", "and all
+     seasonings", "the remaining ingredients", "etc." or "and so on": list them with tokens in `text` and `substeps`
+     ("Mix {flour}, {salt}, {bran} and {bicarb}"), and in plain words in cues, notes, titles and line notes, where
+     tokens are not rendered. Reword spatial uses ("browned evenly on every side", "right through"). `make doctor`
+     rejects _all_, _everything_, _seasoning(s)_, _etc._, _and so on_ and _the remaining ingredients_ unless a
+     parenthesis after them names what they cover.
    - Name component titles as plain nouns ("Peanut sauce", "Rice"), not "For the pot".
    - Timings: `active_min` (attention) and `passive_min` (hands-off). Pair every timing with a `cue` (what to see,
      smell or hear). If the source gives none, write a reasonable one and note it in `open_questions`.

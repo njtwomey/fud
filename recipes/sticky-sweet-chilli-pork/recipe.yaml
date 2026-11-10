@@ -229,7 +229,7 @@ steps:
     title: Serve
     component: finish
     kind: serve
-    text: Chop the coriander, stalks and all, and serve the pork with the rice on the side, garnished with spring onion, coriander and a lime wedge.
+    text: Chop the coriander, stalks included, and serve the pork with the rice on the side, garnished with spring onion, coriander and a lime wedge.
     substeps:
       - Finely chop {coriander}, including the stalks.
       - Serve the pork with the basmati rice on the side.

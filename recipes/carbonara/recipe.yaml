@@ -164,11 +164,11 @@ steps:
     title: Toss with the sauce
     component: pasta
     kind: cook
-    text: Take the pan off the heat, stir in the cheese mixture, then add the drained pasta and toss until everything is coated.
+    text: Take the pan off the heat, stir in the cheese mixture, then add the drained pasta and toss until the pasta is coated in the bacon, butter, garlic and cheese sauce.
     substeps:
       - Take the sauté pan off the heat and add the cheese and egg mixture.
       - Drain the pasta, keeping some of the cooking water.
-      - Add the pasta to the sauté pan and stir until everything is coated.
+      - Add the pasta to the sauté pan and stir until it is coated in the bacon, butter, garlic and cheese sauce.
       - If the sauce looks dry, add a few teaspoons of the pasta water.
     cue: The pasta is glossily coated in a creamy sauce, with no scrambled egg.
     active_min: 4

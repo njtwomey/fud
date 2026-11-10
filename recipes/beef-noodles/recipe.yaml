@@ -124,9 +124,9 @@ steps:
     title: Wash and cut the vegetables
     component: stir-fry
     kind: prep
-    text: Wash everything, then cut all the vegetables into spears.
+    text: Wash {red-onion:name}, {carrot:name}, {courgette:name}, {baby-corn:name}, {sugar-snap:name} and {pak-choi:name}, then cut them into spears.
     substeps:
-      - Wash all of the vegetables.
+      - Wash {red-onion:name}, {carrot:name}, {courgette:name}, {baby-corn:name}, {sugar-snap:name} and {pak-choi:name}.
       - Slice {red-onion}, {carrot}, {courgette}, {baby-corn} and {sugar-snap} into spears.
       - Cut the thick stem out of {pak-choi} and square up the rest into your desired size.
     active_min: 12
@@ -163,9 +163,9 @@ steps:
     kind: cook
     text: Stir the chopped vegetables in the same pan until they are steaming and warm.
     substeps:
-      - Add all of the chopped vegetables and {pak-choi:name} to the pan.
+      - Add the chopped {red-onion:name}, {carrot:name}, {courgette:name}, {baby-corn:name}, {sugar-snap:name} and {pak-choi:name} to the pan.
       - Stir for 5 to 10 minutes.
-    cue: Everything is steaming and hot, with the vegetables still holding some bite.
+    cue: The vegetables are steaming and hot, still holding some bite.
     heat: medium
     active_min: 8
     tools:
@@ -186,7 +186,7 @@ steps:
       - Return the beef to the pan.
       - Add {soy-stir} and {udon}.
       - Stir and cook for a further 5 minutes.
-    cue: The udon is soft and hot all the way through and everything is coated in soy.
+    cue: The udon is soft and hot right through and the beef and vegetables are coated in soy.
     heat: medium
     active_min: 6
     tools:

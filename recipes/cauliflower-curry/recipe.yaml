@@ -121,7 +121,7 @@ steps:
     title: Prepare the ingredients
     component: vegetables
     kind: prep
-    text: Dice the vegetables, cut the cauliflower into florets and finely cut the garlic and ginger.
+    text: Dice {potato}, {carrot}, {onion} and {tomato}, cut {cauliflower} into florets and finely cut {garlic} and {ginger}.
     substeps:
       - Dice {potato}, {carrot}, {onion} and {tomato}.
       - Cut {cauliflower} into florets.
@@ -141,7 +141,7 @@ steps:
     substeps:
       - Heat {oil-aromatics} in a large saucepan.
       - Fry the onion, garlic and ginger on a medium heat, stirring constantly, for about 10 minutes.
-      - Move the mixture to a bowl and set it aside.
+      - Move the onion, garlic and ginger to a bowl and set them aside.
     cue: The onion is soft and translucent and the garlic and ginger smell fragrant without browning.
     heat: medium
     active_min: 10
@@ -158,7 +158,7 @@ steps:
     title: Cook the spiced tomatoes
     component: sauce
     kind: cook
-    text: Heat the tomatoes in a little oil, then stir in the mixed spices and curry leaves and cook on a medium heat for about 10 minutes.
+    text: Heat the tomatoes in a little oil, then stir in the spice mixture (mustard seeds, cumin seeds, ground cumin, coriander, turmeric and cayenne) and curry leaves and cook on a medium heat for about 10 minutes.
     substeps:
       - Mix {mustard-seeds}, {cumin-seeds}, {ground-cumin}, {coriander}, {turmeric} and {cayenne} together. The whole seeds may need toasting or grinding first.
       - Add {oil-tomato} to the same saucepan and heat the chopped tomatoes in it.
@@ -214,9 +214,9 @@ steps:
     after:
       - simmer-potato-carrot
 notes:
-  - "Spices: the mustard and cumin seeds may need to be toasted or ground before they are mixed with the other spices."
+  - "Spices: the mustard and cumin seeds may need to be toasted or ground before they are mixed with the ground cumin, coriander, turmeric and cayenne."
 open_questions:
   - Servings are assumed (4).
-  - The onion mixture is set aside early and it is not said when it goes back in. It is assumed to join the potatoes and carrots with the stock; check.
+  - The onion, garlic and ginger are set aside early and it is not said when they go back in. They are assumed to join the potatoes and carrots with the stock; check.
   - Which lentils? It says just "lentils", with only 10 minutes of cooking, so red lentils (dried) are assumed.
   - No serving suggestion is given; it can be eaten as a bowl of curry on its own.

@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=../../schemas/recipe.schema.json
 slug: beef-stir-fry
 title: Beef Stir Fry
-summary: Marinated rump steak browned and set aside, then vegetable spears and udon noodles stir fried in curry, garlic and ginger seasoning with the beef folded back in.
+summary: Marinated rump steak browned and set aside, then vegetable spears and udon noodles stir fried with curry powder, garlic and ginger powder, stock and soy sauce, the beef folded back in.
 version: 1
 date: 2026-11-10
 status: draft
@@ -147,9 +147,9 @@ steps:
     title: Wash and cut the vegetables
     component: stir-fry
     kind: prep
-    text: Wash all the vegetables and slice them into spears.
+    text: Wash {pak-choi}, {red-onion}, {carrot}, {courgette}, {baby-corn} and {sugar-snap}, then slice them into spears.
     substeps:
-      - Wash all the vegetables.
+      - Wash {pak-choi:name}, {red-onion:name}, {carrot:name}, {courgette:name}, {baby-corn:name} and {sugar-snap:name}.
       - Slice {red-onion}, {carrot}, {courgette}, {baby-corn} and {sugar-snap} into spears.
       - Cut the thick stem out of {pak-choi} and square up the rest into your desired size.
     active_min: 12
@@ -184,12 +184,12 @@ steps:
     title: Stir fry the vegetables
     component: stir-fry
     kind: cook
-    text: Add the vegetables to the hot pan with the spices, stock and soy sauce and stir until steaming and warm.
+    text: Add {pak-choi:name}, {red-onion:name}, {carrot:name}, {courgette:name}, {baby-corn:name} and {sugar-snap:name} to the hot pan with {garlic-powder}, {ginger-powder}, {curry-powder}, {stock-cube} and {soy-stir} and stir until steaming and warm.
     substeps:
-      - Add all the chopped vegetables and the pak choi to the hot pan.
+      - Add the chopped {red-onion:name}, {carrot:name}, {courgette:name}, {baby-corn:name} and {sugar-snap:name}, and the {pak-choi:name}, to the hot pan.
       - Add {garlic-powder}, {ginger-powder}, {curry-powder}, {stock-cube} and {soy-stir}.
       - Stir for about 5 minutes, adjusting the time for how crunchy you want it.
-    cue: Everything is steaming and hot, with the vegetables as soft or crunchy as you like.
+    cue: The vegetables are steaming and hot, as soft or crunchy as you like.
     heat: high
     active_min: 7
     tools:
@@ -209,7 +209,7 @@ steps:
     substeps:
       - Add {udon} to the pot.
       - Stir for 2 to 3 minutes.
-    cue: The noodles are soft and hot all the way through.
+    cue: The noodles are soft and hot right through.
     active_min: 3
     tools:
       - tool: wok
@@ -227,7 +227,7 @@ steps:
     text: Return the beef to the pot and stir for a few minutes to spread the flavour around.
     substeps:
       - Add the beef back to the pot.
-      - Stir for a few minutes. Everything is already cooked, so this is about spreading the flavour.
+      - Stir for a few minutes. The beef, noodles and vegetables are already cooked, so this is about spreading the flavour.
     cue: The beef is hot again and the noodles and vegetables are evenly seasoned.
     active_min: 3
     tools:

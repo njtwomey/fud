@@ -190,7 +190,7 @@ steps:
       - Reduce the heat to low, cover and simmer for 15 minutes.
       - Remove from the heat and rest, covered, for 5 minutes before fluffing with a fork.
       - Keep warm until serving.
-    cue: All the water has gone and the grains are tender and separate after fluffing.
+    cue: The water has been absorbed and the grains are tender and separate after fluffing.
     heat: low
     active_min: 4
     passive_min: 20
@@ -205,7 +205,7 @@ steps:
     title: Make the slaw
     component: slaw
     kind: prep
-    text: Combine the slaw vegetables, dress them with sesame oil and rice vinegar, and keep them cold until serving.
+    text: Combine {cabbage:name}, {carrot:name}, {red-onion:name} and {spring-onion:name}, dress them with {sesame-oil-slaw:name} and {rice-vinegar:name}, and keep them cold until serving.
     substeps:
       - Finely shred {cabbage}, julienne {carrot}, finely slice {red-onion} and {spring-onion}.
       - Combine them in a large bowl.
@@ -275,7 +275,7 @@ steps:
       - make-sauce
 
 notes:
-  - "Cooking methods: shallow fry, grill or air fry; all aim for 75 °C at the thickest part."
+  - "Cooking methods: shallow fry, grill or air fry; each aims for 75 °C at the thickest part."
   - "Rice: 300 g, rinsed, then simmered in 500 ml water for 15 minutes."
 
 open_questions:

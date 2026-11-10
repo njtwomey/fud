@@ -141,7 +141,7 @@ steps:
     title: Brown the lamb
     component: pilaf
     kind: cook
-    text: Heat a large pan (it will eventually hold everything) and brown the mince without any oil, stirring continuously.
+    text: Heat a large pan (it will eventually hold the lamb, rice, lentils and spinach) and brown the mince without any oil, stirring continuously.
     substeps:
       - Heat the large pan until hot.
       - Add {lamb} without oil and stir continuously as it cooks.
@@ -161,10 +161,10 @@ steps:
     title: Add the spices and rice
     component: pilaf
     kind: cook
-    text: Stir in the spices, stock, garlic, rice and most of the mint. The rice goes into a dry pan, so stir continuously.
+    text: Stir in {ras-el-hanout:name}, {turmeric-pot:name}, {stock-cubes:name}, {garlic:name}, {rice:name} and most of {mint-pot:name}. The rice goes into a dry pan, so stir continuously.
     substeps:
       - Add {ras-el-hanout}, {turmeric-pot}, {stock-cubes}, {garlic}, {rice} and {mint-pot}.
-      - Stir continuously until the spices and stock are coating everything.
+      - Stir continuously until the ras el hanout, turmeric and stock are coating the lamb and rice.
     cue: The spices and stock cubes coat the lamb and rice, with nothing sticking to the pan.
     heat: medium
     active_min: 3
@@ -180,7 +180,7 @@ steps:
     kind: cook
     text: Pour in the boiling water to a depth of about 1 cm, stir once to unstick the bottom, then cover on a low heat.
     substeps:
-      - Pour in {water} until everything is covered to about 1 cm.
+      - Pour in {water} until the lamb and rice are covered to about 1 cm.
       - Stir one last time, checking nothing is sticking to the bottom.
       - Reduce the heat to low and cover with a lid.
       - It is ready in about 10 minutes (longer for brown rice); the lentils go in 5 minutes before the end.
@@ -231,7 +231,7 @@ steps:
     title: Mix and serve
     component: finish
     kind: serve
-    text: Mix everything together thoroughly, season, and serve in a bowl with a large dollop of the yoghurt on top.
+    text: Mix the lentils, spinach, lamb and rice together thoroughly, season with salt and pepper, and serve in a bowl with a large dollop of the yoghurt on top.
     substeps:
       - Mix the lentils, spinach and rice through the pilaf.
       - Taste and adjust with {lemon-juice}, {salt} and {pepper}.

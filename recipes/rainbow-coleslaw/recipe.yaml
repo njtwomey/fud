@@ -33,7 +33,7 @@ components:
       - id: mint
         ingredient: mint
         optional: true
-        note: optional herbs
+        note: optional herb
       - id: nuts-seeds
         ingredient: mixed-nuts-and-seeds
         optional: true
@@ -71,7 +71,7 @@ steps:
     title: Dress and mix
     component: dressing
     kind: cook
-    text: Add {salt}, {olive-oil} and {mayonnaise} and mix until everything is coated. It is done.
+    text: Add {salt}, {olive-oil} and {mayonnaise} and mix until the cabbage, carrot and radish are coated. It is done.
     cue: Every shred of vegetable is lightly coated.
     active_min: 3
     tools:

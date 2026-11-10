@@ -240,7 +240,7 @@ steps:
     substeps:
       - Make a deep slash in the thickest part, the central bulge, of each pretzel with a small sharp knife.
       - Bake at 180 °C fan for 20 to 25 minutes.
-    cue: The pretzels are a deep brown all over.
+    cue: The pretzels are a deep brown evenly on every side.
     temperature:
       celsius: 180
       mode: fan

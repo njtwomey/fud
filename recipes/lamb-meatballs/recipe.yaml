@@ -136,11 +136,11 @@ steps:
     title: Mix the meatballs
     component: meatballs
     kind: prep
-    text: Mix all the meatball ingredients together in a large bowl and season.
+    text: Mix {lamb:name}, {breadcrumbs:name}, {oregano:name} and {paprika-meat:name} in a large bowl and season with {salt-meat:name} and {pepper-meat:name}.
     substeps:
       - Put {lamb}, {breadcrumbs}, {oregano} and {paprika-meat} in a large bowl and season with {salt-meat} and {pepper-meat}.
       - Mix thoroughly with your hands.
-      - To check the seasoning, fry a small amount off and taste it.
+      - To check the salt and pepper, fry a small amount off and taste it.
     cue: The mixture is evenly mixed and holds together when squeezed.
     active_min: 10
     tools:
@@ -155,7 +155,7 @@ steps:
     substeps:
       - Halve the mixture five times to get 32 portions, or weigh the balls at roughly 30 to 40 g each, which gives very consistent sizes.
       - Roll each portion into a ball.
-    cue: The meatballs are all about the same size.
+    cue: The meatballs are about the same size.
     active_min: 15
     tools:
       - tool: digital-scales
@@ -171,7 +171,7 @@ steps:
       - Heat {oil} in a large sauté pan on a medium heat.
       - Brown the meatballs in batches.
       - Put each finished batch to one side.
-    cue: The outsides are browned all over; the middles are still raw.
+    cue: The outsides are browned evenly on every side; the middles are still raw.
     heat: medium
     active_min: 15
     tools:
@@ -183,7 +183,7 @@ steps:
     title: Sweat the onion and spices
     component: sauce
     kind: cook
-    text: In the same pan, sweat the onion on a lower heat, then stir in the garlic, chilli and spices for a minute.
+    text: In the same pan, sweat the onion on a lower heat, then stir in the garlic, chilli, paprika, cumin, coriander and turmeric for a minute.
     substeps:
       - Finely slice {onion}, mince {garlic} and deseed and finely chop {chilli}.
       - Reduce the heat and sweat the onion in the same pan for 10 to 15 minutes.

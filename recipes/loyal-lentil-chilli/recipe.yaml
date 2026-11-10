@@ -202,12 +202,12 @@ steps:
     title: Cook the chilli base
     component: base
     kind: cook
-    text: Fry the shallots until transparent, add the garlic, spices, chilli, tomatoes and pepper, then turn the heat down and simmer until the squash is done.
+    text: Fry the shallots until transparent, add the garlic, cumin, turmeric, cinnamon, coriander, chilli, tomatoes and pepper, then turn the heat down and simmer until the squash is done.
     substeps:
       - Fry the shallots in a large pot over a medium heat until transparent.
       - Add {garlic}, {cumin}, {turmeric}, {cinnamon}, {coriander}, the chilli, tomatoes and red pepper.
       - Reduce the heat and simmer until the squash is done.
-    cue: The shallots are translucent, the spices smell warm rather than burnt, and the tomatoes have broken down into a thick sauce.
+    cue: The shallots are translucent, the cumin, turmeric, cinnamon and coriander smell warm rather than burnt, and the tomatoes have broken down into a thick sauce.
     heat: medium
     active_min: 8
     passive_min: 12
@@ -271,6 +271,6 @@ notes:
 open_questions:
   - Servings are not given. 4 is assumed.
   - The red pepper is listed but the method never uses it. It is added with the tomatoes here; is that right?
-  - Paprika appears in the spice list but is used in the roasting step (with cayenne, which has no amount); the amounts for the roast seasoning are assumed.
+  - Paprika appears in the spice list but is used in the roasting step (with cayenne, which has no amount); the amounts of salt and cayenne for the roast are assumed.
   - The method says "shallots, fry in a large pot" with no oil amount.
   - Rice quantity is not given.

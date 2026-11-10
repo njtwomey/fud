@@ -154,9 +154,9 @@ steps:
     title: Blend the paste
     component: paste
     kind: cook
-    text: While the pasta and vegetables cook, blend the sun-dried tomatoes, olives, herbs and harissa into a paste.
+    text: While the pasta and vegetables cook, blend the sun-dried tomatoes, olives, basil, parsley and harissa into a paste.
     substeps:
-      - Roughly chop the herbs first if using a hand blender.
+      - Roughly chop the basil and parsley first if using a hand blender.
       - Put {sundried}, {olives}, {basil}, {parsley} and {harissa} in a container and blend to a paste.
       - Add a little water to help the blending if needed.
     cue: A thick, fairly smooth green-red paste.
@@ -193,7 +193,7 @@ steps:
     kind: serve
     text: Transfer the sauce into the pasta, stir thoroughly and serve with cheese or natural yoghurt.
     substeps:
-      - Tip all the sauce into the pasta pot and stir thoroughly.
+      - Tip the sauce into the pasta pot and stir thoroughly.
       - Serve with {yoghurt} or some cheese.
     active_min: 3
     tools:
@@ -203,7 +203,7 @@ steps:
       - cook-pasta
 
 notes:
-  - "Timing: the pasta, the tomato and courgette, and the paste are all made at the same time, so start them together."
+  - "Timing: the pasta, the tomato and courgette, and the paste are made at the same time, so start them together."
   - "Serve with cheese or natural yoghurt. The original is vegan, so use a plant-based yoghurt or leave it off."
 
 open_questions:

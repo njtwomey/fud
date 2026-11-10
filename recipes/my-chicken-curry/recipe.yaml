@@ -126,7 +126,7 @@ steps:
     title: Slice and grate
     component: curry
     kind: prep
-    text: Prepare everything before the pan goes on.
+    text: Before the pan goes on, finely slice {onion:name}, finely grate {garlic:name} and {ginger:name}, and slice {chicken:name}.
     substeps:
       - Finely slice {onion}.
       - Finely grate {garlic} and {ginger}.
@@ -181,10 +181,10 @@ steps:
     title: Brown the chicken
     component: curry
     kind: cook
-    text: Add the chicken and cook it until it is browned all over.
+    text: Add the chicken and cook it until it is browned evenly on every side.
     substeps:
       - Add the chicken to the pan.
-      - Cook for 8 to 10 minutes, until browned all over.
+      - Cook for 8 to 10 minutes, until browned evenly on every side.
     cue: The chicken is browned on every side.
     heat: medium
     active_min: 10
@@ -197,7 +197,7 @@ steps:
     title: Add the spices and coconut milk
     component: curry
     kind: cook
-    text: Stir in the chilli powder and turmeric for a minute, then pour in the coconut milk and stock and bring to a simmer.
+    text: Stir in {chilli:name} and {turmeric:name} for a minute, then pour in the coconut milk and stock and bring to a simmer.
     substeps:
       - Stir in {chilli} and {turmeric} and cook for 1 minute.
       - Stir in {coconut-milk} and {stock}.

@@ -96,7 +96,7 @@ steps:
       - Season {chicken} with {salt} and {pepper} and add to the pan.
       - Cook for about 8 minutes per side.
       - Move to a chopping board, rest for 10 minutes, then slice into strips.
-    cue: Golden brown outside, white all the way through and the juices run clear.
+    cue: Golden brown outside, white right through and the juices run clear.
     heat: medium-high
     active_min: 8
     passive_min: 18
@@ -161,7 +161,7 @@ notes:
   - "Other pasta: fettuccine is traditional, but spaghetti or angel hair also work."
   - "Veg: stir in spinach or halved grape tomatoes after cooking the pasta for colour and nutrition."
   - "Crunch: toasted panko breadcrumbs fried in butter make a good topping."
-  - "Heat: sprinkle over red pepper flakes or Cajun seasoning for a kick."
+  - "Heat: sprinkle over red pepper flakes or Cajun spice mix (paprika, garlic powder, cayenne pepper and oregano) for a kick."
 
 open_questions:
   - Cup and ounce quantities are converted (2 cups = 480 ml, 8 oz = 225 g, 1 cup grated parmesan is about 2 oz = 55 g, 1/2 cup cream = 120 ml).

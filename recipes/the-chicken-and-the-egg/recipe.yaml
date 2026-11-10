@@ -208,7 +208,7 @@ steps:
     kind: cook
     text: Cook the whole chicken in the slow cooker, resting on foil so it sits clear of its own juices.
     substeps:
-      - Pat {chicken} dry on all surfaces with kitchen paper.
+      - Pat {chicken} dry on every side with kitchen paper.
       - Roll three balls of tinfoil and set them in the base of the slow cooker.
       - Rest the chicken on the tinfoil so that it sits clear of the liquid that will gather beneath.
       - Season the skin with {salt-chicken}.
@@ -271,10 +271,10 @@ steps:
       - Add the {carrot:name} and {red-onion:name} at once and stir fry for 2 minutes, until the onion turns translucent at the edges.
       - Add the {baby-corn:name} and {courgette:name} and stir fry for a further 5 to 8 minutes, stirring constantly, until the courgette is yielding but the carrot still offers resistance.
       - Add the {mangetout:name} and the spring onion whites ({spring-onion-white}) and cook for 1 minute more.
-      - Add {soy-sauce} and {sesame-oil-veg} and turn everything through until evenly coated.
+      - Add {soy-sauce} and {sesame-oil-veg} and turn the vegetables through until evenly coated.
       - "Optional, not tested in this version, if it tastes flat: crumble in {stock-cube}."
       - Remove to a bowl and keep the pan hot.
-    cue: The mangetout turns a deeper green and stays audibly crisp, and everything is evenly coated in soy.
+    cue: The mangetout turns a deeper green and stays audibly crisp, and the vegetables are evenly coated in soy.
     heat: medium-high
     active_min: 14
     tools:

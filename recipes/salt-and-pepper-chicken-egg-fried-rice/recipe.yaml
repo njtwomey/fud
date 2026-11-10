@@ -147,7 +147,7 @@ steps:
     title: Coat the chicken
     component: chicken
     kind: prep
-    text: Mix the seasoned cornflour in a bowl and toss the chicken thigh through it.
+    text: Mix {cornflour}, {sugar}, {salt}, {five-spice} and {pepper} in a bowl and toss {chicken} through it.
     substeps:
       - Put {cornflour} in a bowl with {sugar}, {salt}, {five-spice} and {pepper}, and mix well.
       - Add {chicken} and toss until the chicken is well coated.
@@ -196,11 +196,11 @@ steps:
     title: Add the salt and pepper aromatics
     component: aromatics
     kind: cook
-    text: Add the spring onions, chilli, garlic and ginger to the crispy chicken, cook briefly, then take everything out and keep the pan.
+    text: Add the spring onions, chilli, garlic and ginger to the crispy chicken, cook briefly, then take the chicken and aromatics out and keep the pan.
     substeps:
       - Add the spring onion batons, chilli rounds, chopped garlic and chopped ginger to the pan.
       - Cook for 2 to 3 minutes.
-      - Transfer everything to a plate, saving the pan.
+      - Transfer the chicken and aromatics to a plate, saving the pan.
     cue: Fragrant, with the garlic and ginger cooked through but not burnt.
     heat: high
     active_min: 3
@@ -219,7 +219,7 @@ steps:
       - Heat {oil-rice} in the reserved pan over a medium-high heat.
       - Add the cooled rice, {peas}, {sesame-oil} and {soy-sauce}.
       - Cook for 2 to 3 minutes.
-    cue: Everything is combined and hot, and the rice is separate and coated in soy.
+    cue: The rice, peas, sesame oil and soy sauce are combined and hot, and the rice is separate and coated in soy.
     heat: medium-high
     active_min: 4
     tools:

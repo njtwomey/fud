@@ -254,6 +254,6 @@ steps:
       - cook-rice
 open_questions:
   - Servings are 6, with 450 g of rice and 6 portions of monkfish.
-  - The shallots take 60 minutes in all; the split between active and waiting time is assumed.
+  - The shallots take 60 minutes in total; the split between active and waiting time is assumed.
   - The sauce simmering time and the rice type are not given; 15 minutes and basmati are assumed.
   - How large is a monkfish portion? Entered as 6 portions of about 150 g.

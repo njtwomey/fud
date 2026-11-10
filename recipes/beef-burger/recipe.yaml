@@ -99,10 +99,10 @@ steps:
     title: Mix the patty mixture
     component: patties
     kind: prep
-    text: Mix the mince, breadcrumbs, paprika, egg, salt and pepper in a large bowl until everything is combined.
+    text: Mix {mince}, {panko}, {paprika}, {egg}, {salt} and {pepper} in a large bowl until the egg and the dry ingredients are combined.
     substeps:
       - Put {mince}, {lentils} if using, {panko}, {paprika}, {egg}, {salt} and {pepper} in a large bowl.
-      - Mix until everything is combined.
+      - Mix until the egg, breadcrumbs, paprika, salt and pepper are worked evenly through the mince.
     cue: One even mixture with no streaks of egg or dry crumbs.
     active_min: 5
     tools:

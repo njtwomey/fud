@@ -81,7 +81,7 @@ steps:
     title: Heat the oven, mix the dry
     component: dry
     kind: prep
-    text: Heat the oven first, then combine all of the dry ingredients in a large bowl.
+    text: Heat the oven first, then combine the dry ingredients (plain and wholemeal flour, sugar, bran, wheatgerm, oatmeal, salt and bicarbonate of soda) in a large bowl.
     substeps:
       - Heat the oven to 200 °C fan (220 °C conventional).
       - Put {plain-flour}, {wholemeal-flour}, {sugar}, {bran}, {wheatgerm}, {oatmeal}, {salt} and {bicarb} in a large bowl.
@@ -99,10 +99,10 @@ steps:
     title: Mix in the wet ingredients
     component: wet
     kind: cook
-    text: Add the egg and buttermilk to the dry mix and stir until everything is integrated into a relatively stiff batter.
+    text: Add {egg} and {buttermilk} to the dry mix and stir until the egg, buttermilk and dry mix are combined into a relatively stiff batter.
     substeps:
       - Add {egg} and {buttermilk} to the dry ingredients.
-      - Mix until everything has come together.
+      - Mix until the egg, buttermilk and dry mix have come together.
     cue: A relatively stiff mixture with no dry pockets of flour.
     active_min: 4
     tools:

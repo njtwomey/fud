@@ -128,7 +128,7 @@ steps:
     title: Heat the oven and prep
     component: lamb
     kind: prep
-    text: Heat the oven first, then grate the vegetables and garlic and chop the herbs so the filling can go together without a pause.
+    text: Heat the oven first, then grate the vegetables and garlic and chop the thyme and rosemary so the filling can go together without a pause.
     substeps:
       - Heat the oven to 180 °C fan (200 °C conventional).
       - Peel and grate {onion} and {carrot}.
@@ -149,7 +149,7 @@ steps:
     title: Brown the lamb
     component: lamb
     kind: cook
-    text: Fry the seasoned mince hard, stir in the grated vegetables and garlic, then cook the Worcestershire sauce, tomato purée and herbs into it.
+    text: Fry the seasoned mince hard, stir in the grated vegetables and garlic, then cook the Worcestershire sauce, tomato purée, thyme and rosemary into it.
     substeps:
       - Heat {oil} in a large pan until hot.
       - Season {lamb} with {salt} and fry over a moderate to high heat for 2 to 3 minutes.
@@ -204,12 +204,12 @@ steps:
     title: Make the Parmesan mash
     component: mash
     kind: cook
-    text: Mash the potato thoroughly, then beat in the egg yolks, cream and butter, followed by some of the Parmesan. Taste and adjust the seasoning.
+    text: Mash the potato thoroughly, then beat in the egg yolks, cream and butter, followed by some of the Parmesan. Taste and adjust the {salt:name} and {pepper:name}.
     substeps:
       - Mash the potatoes until smooth.
       - Beat in {yolk}, {cream} and {butter}.
       - Beat in {parmesan-mash}.
-      - Taste and adjust the seasoning.
+      - Taste and adjust with {salt} and {pepper}.
     cue: A smooth, glossy mash with no lumps.
     active_min: 6
     tools:

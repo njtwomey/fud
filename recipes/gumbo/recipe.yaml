@@ -156,7 +156,7 @@ steps:
     title: Prepare the vegetables, chicken and sausage
     component: vegetables
     kind: prep
-    text: Chop everything before you start the roux, because the roux needs constant stirring.
+    text: Chop the vegetables, chicken and sausage before you start the roux, because the roux needs constant stirring.
     substeps:
       - Dice {pepper}, {celery} and {onion}.
       - Mince {garlic}.
@@ -192,7 +192,7 @@ steps:
     title: Soften the vegetables and garlic
     component: vegetables
     kind: cook
-    text: Add the peppers, celery and onion to the roux with a little seasoning, then the garlic.
+    text: Add {pepper}, {celery} and {onion} to the roux with a little {salt:name} and {black-pepper:name}, then {garlic}.
     substeps:
       - Add the diced pepper, celery and onion and season lightly with {salt} and {black-pepper}.
       - Sauté for 4 to 5 minutes until beginning to soften.
@@ -210,7 +210,7 @@ steps:
     title: Coat the chicken in the spices
     component: gumbo
     kind: cook
-    text: Stir in the chicken, the spices and herbs, mixing until the chicken is coated in the spices and roux.
+    text: Stir in the chicken, then the spices and herbs (garlic powder, smoked paprika, cayenne, oregano, onion powder, bay leaves, thyme and white pepper), mixing until the chicken is coated in the spices and roux.
     substeps:
       - Stir in the sliced chicken thighs.
       - Add {garlic-powder}, {paprika}, {cayenne}, {oregano}, {onion-powder}, {bay-leaf}, {thyme} and {white-pepper}.
@@ -277,7 +277,7 @@ steps:
     title: Season and serve
     component: serving
     kind: serve
-    text: Taste and adjust the seasoning, then serve in bowls over rice, piled high with spring onions.
+    text: Taste and adjust with more {salt:name} and {hot-sauce:name}, then serve in bowls over rice, piled high with spring onions.
     substeps:
       - Slice {spring-onion}, using both the green and the white parts.
       - Taste and adjust with more {salt} and {hot-sauce}.
@@ -291,10 +291,10 @@ steps:
       - cook-rice
 notes:
   - "Roux: gumbo roux is cooked until very dark, almost mahogany. It is extremely hot and can burn skin, so keep whisking."
-  - "Thickening: the gumbo may not thicken as much as you expect, but it is still rich. For a thicker gumbo, use 1 to 1.2 litres of stock, a little more flour (90 to 100 g in all) and simmer uncovered. Optionally add okra, or a small cornflour slurry near the end."
+  - "Thickening: the gumbo may not thicken as much as you expect, but it is still rich. For a thicker gumbo, use 1 to 1.2 litres of stock, a little more flour (90 to 100 g in total) and simmer uncovered. Optionally add okra, or a small cornflour slurry near the end."
   - "Flavour: the natural sweetness of the onions and peppers balances the spices."
   - "Time-saving idea: slice the chicken and sausage while the roux cooks. The roux needs constant stirring, so the prep is listed first here."
 open_questions:
   - It serves 4 to 6; 6 is entered, which fits the 6 thighs and 1.2 litres of stock.
   - The rice is not quantified; 450 g (75 g per person) is assumed.
-  - The pepper is entered as black pepper for the seasoning step, since it just says "salt and pepper".
+  - The pepper is entered as black pepper for the salt and pepper step, since it just says "salt and pepper".

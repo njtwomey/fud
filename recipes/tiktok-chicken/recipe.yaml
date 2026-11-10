@@ -46,7 +46,7 @@ components:
         quantity:
           amount: 1
           unit: tsp
-        note: or any other spices you like
+        note: or other spices you like (cumin, turmeric)
       - id: soy-chicken
         ingredient: soy-sauce
         quantity:
@@ -176,7 +176,7 @@ steps:
     title: Slice and coat the chicken
     component: chicken
     kind: prep
-    text: Slice the chicken into thin slivers, coat it in the bicarb mix and leave it to sit while you prepare everything else.
+    text: Slice the chicken into thin slivers, coat it in the bicarb mix and leave it to sit while you prepare the vegetables and rice.
     substeps:
       - Slice {chicken-breast} finely into thin slivers and put it in a bowl.
       - Season with {salt}, {bicarb}, {cornflour} and {curry-powder}, and mix until evenly coated.
@@ -195,7 +195,7 @@ steps:
     title: Slice the vegetables
     component: vegetables
     kind: prep
-    text: Cut everything before the pan goes on, because the vegetables go in one after another with little time between.
+    text: Cut the vegetables (garlic, red onion, carrot, three peppers, broccoli, courgette and spring onion) before the pan goes on, because the vegetables go in one after another with little time between.
     substeps:
       - Thickly slice {garlic}.
       - Slice {red-onion}.
@@ -214,8 +214,8 @@ steps:
     title: Cook the rice
     component: rice
     kind: cook
-    text: Cook {rice} by the usual basmati method while the vegetables cook, and leave it covered until everything else is ready.
-    cue: The grains are tender and separate and all the water has gone.
+    text: Cook {rice} by the usual basmati method while the vegetables cook, and leave it covered until the vegetables and chicken are ready.
+    cue: The grains are tender and separate and the water has been absorbed.
     active_min: 3
     passive_min: 12
     tools:
@@ -229,7 +229,7 @@ steps:
     title: Stir fry the vegetables
     component: vegetables
     kind: cook
-    text: Add the vegetables to a hot pan of oil in order of how long they take, stirring all the time, then coat them in soy and oyster sauce.
+    text: Add the vegetables to a hot pan of oil in order of how long they take, stirring constantly, then coat them in soy and oyster sauce.
     substeps:
       - Heat {oil-veg} in a large pan or deep dish until hot.
       - Add the {garlic:name} and {red-onion:name} and stir for 3 minutes.
@@ -237,7 +237,7 @@ steps:
       - Add the {red-pepper:name}, {yellow-pepper:name} and {green-pepper:name} and stir for 2 minutes.
       - Add the {broccoli:name} and stir for 2 minutes.
       - Add the {courgette:name} and stir for 2 minutes.
-      - Add {soy-veg} and {oyster-sauce} and stir until everything is coated. If using {stock-cube}, crumble it in just before the sauces.
+      - Add {soy-veg} and {oyster-sauce} and stir until the vegetables are coated. If using {stock-cube}, crumble it in just before the sauces.
       - Add about three quarters of the {spring-onion:name} and mix until coated.
       - Turn off the heat, cover the pan and set aside.
     cue: The vegetables are shiny and coated in sauce, hot through but still with some crunch, and the garlic and onion have softened without browning.
@@ -288,11 +288,11 @@ steps:
 
 notes:
   - "Why bicarb: it apparently stops the muscle fibres tensing as the chicken cooks, which makes it very smooth."
-  - "Alternative version: garlic fried first until golden and the onion softened with a pinch of salt, all vegetables put in together over a high heat, a stock cube thrown in once the pan is steaming, hoisin sauce in place of oyster sauce, and the remaining tablespoon of soy tossed through the chicken with the honey and sesame oil. It used 3 chicken breasts, 2 tbsp cornflour, 3 tsp sesame seeds and 6 cloves of garlic."
-  - "The vegetables can be added one by one, as here, or all at once; it probably makes little difference."
+  - "Alternative version: garlic fried first until golden and the onion softened with a pinch of salt, the vegetables put in together over a high heat, a stock cube thrown in once the pan is steaming, hoisin sauce in place of oyster sauce, and the remaining tablespoon of soy tossed through the chicken with the honey and sesame oil. It used 3 chicken breasts, 2 tbsp cornflour, 3 tsp sesame seeds and 6 cloves of garlic."
+  - "The vegetables can be added one by one, as here, or together; it probably makes little difference."
   - "Serve as your mood suggests, potentially with the spring onions."
 
 open_questions:
   - Servings are not given. 4 is assumed from 450 g of rice and two chicken breasts.
   - Rice water and timings are not given; the usual basmati method is assumed.
-  - All the remaining soy can go onto the vegetables, or one tablespoon can be kept for the chicken. Which is better?
+  - The soy can go entirely onto the vegetables, or one tablespoon can be kept for the chicken. Which is better?

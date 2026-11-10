@@ -118,7 +118,7 @@ steps:
       - Since the omelette is thick, cover the pan with a heavy plate to keep the heat in.
       - Cut the omelette into two semi-circles with a spatula while it cooks, to expose the runnier mixture to the pan. The whole thing cooks faster without burning the base, and Jen does not eat runny eggs.
       - For scrambled egg instead, keep stirring the mixture with a spatula as it cooks.
-    cue: The eggs are set all the way through with no runny egg left, and the base is golden rather than burnt.
+    cue: The eggs are set right through with no runny egg left, and the base is golden rather than burnt.
     heat: medium
     active_min: 3
     passive_min: 8

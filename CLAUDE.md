@@ -75,6 +75,13 @@ anything it needs is inlined, with its own ingredients and steps, even if that d
 says where it came from (a cookbook, an import, a project); only a real web address may appear, as
 `source: {kind: web, url}`. `make doctor` enforces both.
 
+**Recipes name everything.** Wording must never hide which ingredients are meant: no "all the spices", "season
+everything", "and all seasonings", "the remaining ingredients", "etc." or "and so on". Name each ingredient, using the
+step tokens (`{line-id}`, which also shows the amount) in step text and substeps, and plain words elsewhere (tokens are
+not rendered in cues, notes, titles or line notes). The collective words are a `make doctor` error unless a
+parenthesis after them lists what they cover. Spatial uses are reworded ("browned evenly on every side", "right
+through"). This is so no ingredient is ever missed.
+
 **Steps are stages, not micro-actions.** Each step has a short `title` (headline), a `text` description and optional
 `substeps`, aiming for roughly 6 to 10 steps per recipe. Ingredients in step text are always tokens, `{line-id}` for
 quantity and name or `{line-id:name}` for just the name, never hardcoded words, so swaps flow through.

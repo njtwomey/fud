@@ -162,11 +162,11 @@ steps:
     title: Heat the oven and cut the vegetables
     component: sauce
     kind: prep
-    text: Get the oven heating while you finely dice or julienne all of the vegetables.
+    text: Get the oven heating while you finely dice or julienne {onion:name}, {carrot:name}, {garlic:name} and {ginger:name}.
     substeps:
       - Heat the oven to 220 °C fan (240 °C conventional).
       - Finely dice or julienne {onion}, {carrot} and the garlic and ginger.
-      - Keep {mangetout} and {baby-corn} separate from the rest.
+      - Keep {mangetout} and {baby-corn} to one side, separate from the diced vegetables.
     temperature:
       celsius: 220
       mode: fan
@@ -181,7 +181,7 @@ steps:
     title: Soften the onions and carrots
     component: sauce
     kind: cook
-    text: Fry the onions and carrots in oil, then turn the heat down and cook slowly until soft before adding the garlic, ginger and spices.
+    text: Fry the onions and carrots in oil, then turn the heat down and cook slowly until soft before adding the garlic, ginger and spices (curry powder, turmeric, cumin, coriander and garam masala).
     substeps:
       - Heat a pan over a medium-high heat and add {oil}.
       - Fry {onion} and {carrot} and stir fry for a while.

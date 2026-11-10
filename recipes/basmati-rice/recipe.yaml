@@ -56,7 +56,7 @@ steps:
       - Add the cleaned rice and the water to the pot and cover with the lid.
       - Bring to the boil on the hob, and as soon as it begins to bubble reduce the heat to the lowest setting.
       - Leave for about 8 to 9 minutes.
-    cue: All of the water has evaporated and the surface is dotted with small steam holes.
+    cue: The water has been absorbed and the surface is dotted with small steam holes.
     heat: low
     active_min: 2
     passive_min: 9

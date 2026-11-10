@@ -137,13 +137,13 @@ steps:
     title: Soften the onion and garlic
     component: base
     kind: cook
-    text: Heat the oil in a large pan on a medium heat and soften the onion and garlic, then stir in the spices for a minute.
+    text: Heat the oil in a large pan on a medium heat and soften the onion and garlic, then stir in {paprika} and {oregano} for a minute.
     substeps:
       - Finely chop {onion} and mince {garlic}.
       - Heat {oil} in a large frying pan on a medium heat.
       - Add the onion and garlic and fry for 3 to 4 minutes.
       - Stir in {paprika} and {oregano} and cook for another minute.
-    cue: The onion is soft and the spices smell fragrant.
+    cue: The onion is soft and the paprika and oregano smell fragrant.
     heat: medium
     active_min: 8
     tools:

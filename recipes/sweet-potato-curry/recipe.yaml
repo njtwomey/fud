@@ -140,7 +140,7 @@ steps:
     title: Roast the sweet potato
     component: roasted-sweet-potato
     kind: cook
-    text: Cube the sweet potato, coat it in oil and seasoning and roast it until soft, turning once or twice.
+    text: Cube {sweet-potato:name}, coat it in {oil-tray:name}, {salt:name}, {pepper:name} and {cayenne} and roast it until soft, turning once or twice.
     substeps:
       - Heat the oven to 200 °C fan (220 °C conventional).
       - Peel and cut {sweet-potato} into small cubes and put them on a roasting dish.
@@ -163,7 +163,7 @@ steps:
     title: Cook the onion and spice base
     component: curry-base
     kind: cook
-    text: Cook the onion on a medium heat, add the spices after 5 minutes, then the aromatics and peanut butter, and work it all together.
+    text: Cook {onion} on a medium heat, add {paprika}, {cumin} and {coriander} after 5 minutes, then {garlic}, {ginger}, {peanut-butter} and {puree}, and work them together.
     substeps:
       - Finely dice {onion}.
       - Heat {oil-pot} in the large pot over a medium heat and cook the onion, stirring continuously.
@@ -238,7 +238,7 @@ steps:
     title: Plate up and season
     component: serving
     kind: serve
-    text: Plate the rice and the curry, season to taste, and top with yoghurt and fresh coriander if you like.
+    text: Plate the rice and the curry, add {salt:name} and {pepper:name} to taste, and top with yoghurt and fresh coriander if you like.
     substeps:
       - Taste and adjust {salt} and {pepper}.
       - Top with {yoghurt} and {fresh-coriander}.

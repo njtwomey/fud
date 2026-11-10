@@ -122,9 +122,9 @@ steps:
     substeps:
       - Heat the oven to 200 °C fan.
       - Peel {squash} and dice it into small cubes of about 1 cm.
-      - Put it in a roasting dish, drizzle with {oil-squash} and season with {salt-squash} and {pepper-squash}, then toss until everything is coated.
+      - Put it in a roasting dish, drizzle with {oil-squash} and season with {salt-squash} and {pepper-squash}, then toss until the squash is coated.
       - Roast for 20 to 30 minutes.
-    cue: The cubes are soft all the way through when pierced with a knife, with some colour at the edges.
+    cue: The cubes are soft right through when pierced with a knife, with some colour at the edges.
     temperature:
       celsius: 200
       mode: fan

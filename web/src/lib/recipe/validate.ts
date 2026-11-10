@@ -25,6 +25,20 @@ const PROVENANCE = /cookbook|mealie|recipe project|recipe-project|\bthe dump\b/i
 const CROSS_REFERENCE =
   /\(see |\bsee (?:the |that |our |its )?[\w' -]{0,40}\brecipe\b|\b(?:in|from|per|following|follow|using|according to) (?:the|its|our) [\w' -]{1,40}\brecipe\b/i
 
+/**
+ * Words that hide which ingredients are meant ("add all the spices", "season everything"). They are allowed only when
+ * a parenthesis after them says what they cover, so no ingredient is missed.
+ */
+const VAGUE_COLLECTIVE =
+  /\b(?:all|everything|seasonings?|etc|and so on)\b|\bthe (?:remaining|rest of the) ingredients\b/gi
+
+/** The vague collectives in `text` that have no parenthetical after them naming what they include. */
+export function unexplainedCollectives(text: string): string[] {
+  return [...text.matchAll(VAGUE_COLLECTIVE)]
+    .filter((m) => !text.slice(m.index + m[0].length).includes('('))
+    .map((m) => m[0])
+}
+
 /** Every sentence a person reads in a recipe, with a label saying where it is. */
 function proseOf(recipe: Recipe): [string, string][] {
   const out: [string, string | undefined][] = [['summary', recipe.summary]]
@@ -37,7 +51,12 @@ function proseOf(recipe: Recipe): [string, string][] {
     out.push([line.id, line.note], ...line.swaps.map((w): [string, string | undefined] => [line.id, w.note]))
   }
   for (const step of recipe.steps) {
-    out.push([step.id, step.text], [step.id, step.cue], ...step.substeps.map((t): [string, string] => [step.id, t]))
+    out.push(
+      [`${step.id} title`, step.title],
+      [step.id, step.text],
+      [step.id, step.cue],
+      ...step.substeps.map((t): [string, string] => [step.id, t]),
+    )
     for (const tool of step.tools) out.push([step.id, tool.note])
   }
   return out.filter((pair): pair is [string, string] => typeof pair[1] === 'string')
@@ -146,6 +165,12 @@ function checkRecipe(recipe: Recipe, lib: Catalog, facts: FileFacts, issues: Iss
   for (const [at, text] of proseOf(recipe)) {
     const origin = text.match(PROVENANCE)
     if (origin) error(`${where}:${at}`, `mentions where the recipe came from ('${origin[0]}'): ${text.slice(0, 80)}`)
+    for (const word of unexplainedCollectives(text)) {
+      error(
+        `${where}:${at}`,
+        `'${word}' hides which ingredients are meant: name them, or follow it with a parenthesis listing them: ${text.slice(0, 80)}`,
+      )
+    }
     if (CROSS_REFERENCE.test(text))
       error(`${where}:${at}`, `refers to another recipe; a recipe must be complete on its own: ${text.slice(0, 80)}`)
   }

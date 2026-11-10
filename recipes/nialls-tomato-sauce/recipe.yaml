@@ -111,13 +111,13 @@ steps:
     title: Chop the vegetables
     component: veg
     kind: prep
-    text: Heat the oven, roughly chop all the vegetables and put them in a deep roasting dish with the oil, herbs and seasoning.
+    text: Heat the oven, roughly chop the onions, tomatoes, garlic and carrots and put them in a deep roasting dish with the oil, oregano, bay leaves, salt and pepper.
     substeps:
       - Heat the oven to 180 °C fan.
       - Roughly chop {onions}, {tomatoes}, {garlic} and {carrots}.
       - Put them in a deep roasting dish with {oil}, {oregano}, {bay}, {salt} and {pepper}.
       - Add {paprika}, {tapenade} and {stock} now if using them.
-    cue: Everything is in one layer or a shallow heap, evenly coated in oil and herbs.
+    cue: The vegetables are in one layer or a shallow heap, evenly coated in oil, with the oregano and bay leaves among them.
     temperature:
       celsius: 180
       mode: fan
@@ -136,7 +136,7 @@ steps:
     title: Roast until reduced
     component: roasting
     kind: wait
-    text: Roast for 2 to 3 hours, stirring now and then, until the liquid has reduced a lot and everything is soft.
+    text: Roast for 2 to 3 hours, stirring now and then, until the liquid has reduced a lot and the vegetables are soft.
     substeps:
       - Roast at 180 °C fan for about 2 to 3 hours.
       - Stir occasionally.

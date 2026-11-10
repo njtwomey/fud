@@ -109,7 +109,7 @@ steps:
     component: dressing
     kind: serve
     text: Just before serving, pour the dressing into the bowl and toss.
-    cue: Everything is glossy and evenly coated, deep magenta throughout.
+    cue: The beetroot, apple, seeds and spinach are glossy and evenly coated in dressing, deep magenta throughout.
     active_min: 3
     tools:
       - tool: mixing-bowl

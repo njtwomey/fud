@@ -162,8 +162,8 @@ steps:
     title: Add the spice mix and chicken
     component: filling
     kind: cook
-    text: Add the spice mix and the chicken and mix until everything is evenly coated and hot. If the chicken came from the fridge, this heats it.
-    cue: Everything is evenly coated in the spice mix and piping hot.
+    text: Add the spice mix and the chicken and mix until the chicken, onions and peppers are evenly coated and hot. If the chicken came from the fridge, this heats it.
+    cue: The chicken, onions and peppers are evenly coated in the spice mix and piping hot.
     heat: high
     active_min: 4
     tools:

@@ -23,7 +23,7 @@ components:
     ingredients:
       - id: potato
         ingredient: potato
-        note: desired amount; a variety sold as a good all-rounder covers all bases
+        note: desired amount; a variety sold as versatile covers every use
       - id: salt
         ingredient: salt
         note: to taste
@@ -64,7 +64,7 @@ components:
       - id: rosemary
         ingredient: rosemary
         optional: true
-        note: or other herbs
+        note: or other herbs (thyme, sage)
 
 steps:
   - id: prepare-potatoes

@@ -165,7 +165,7 @@ steps:
       - Add {rice} and {water-rice}, mix and bring to the boil over a high heat.
       - Reduce the heat to very low and cook covered for 10 to 12 minutes.
       - Remove from the heat and keep covered until serving.
-    cue: The garlic smells fragrant, and after cooking all the water has been absorbed and the rice is tender.
+    cue: The garlic smells fragrant, and after cooking the water has been absorbed and the rice is tender.
     heat: low
     active_min: 5
     passive_min: 12
@@ -200,7 +200,7 @@ steps:
       - Heat a large, wide-based pan (preferably non-stick) with {oil} over a high heat.
       - Add {lamb} with {salt-lamb} and cook for 3 to 4 minutes, breaking it up into large chunks with a wooden spoon.
       - Boil half a kettle of water for the stock.
-    cue: The mince is nicely browned all over, in large chunks.
+    cue: The mince is nicely browned evenly on every side, in large chunks.
     heat: high
     active_min: 5
     tools:
@@ -235,7 +235,7 @@ steps:
     title: Make the hoisin stock
     component: stock
     kind: prep
-    text: Dissolve the hoisin and tomato puree in boiled water, then add the seasonings.
+    text: Dissolve the hoisin and tomato puree in boiled water, then add {soy-sauce}, {rice-wine}, {five-spice} and {chilli-stock}, and season with {salt-stock} and {sugar}.
     substeps:
       - Dissolve {hoisin} and {tomato-puree} in {water-stock}.
       - Add {soy-sauce}, {rice-wine}, {five-spice} and {chilli-stock}. Go easy if you cannot handle the heat.

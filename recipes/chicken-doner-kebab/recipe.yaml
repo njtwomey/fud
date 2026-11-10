@@ -150,7 +150,7 @@ steps:
     title: Mix and bind the chicken
     component: chicken
     kind: cook
-    text: Combine the mince with the onion purée, yoghurt, lemon juice and seasonings in a large bowl, then work it hard until it binds into one mass.
+    text: Combine the mince with the onion purée, yoghurt, lemon juice, oregano, paprika, chilli, cinnamon, allspice, salt and pepper in a large bowl, then work it hard until it binds into one mass.
     substeps:
       - Put {mince} in the large bowl with the onion purée, {yoghurt}, {lemon}, {oregano}, {paprika}, {chilli}, {cinnamon}, {allspice}, {salt} and {pepper}.
       - Stir hard for about 5 minutes, pressing the mince against the side of the bowl with the back of the spoon.
@@ -221,7 +221,7 @@ steps:
     title: Prepare the salad
     component: serving
     kind: prep
-    text: Cut the salad while the chicken bakes, so everything is ready to serve together.
+    text: Cut the salad while the chicken bakes, so the lettuce, tomato, red onion and cucumber are ready to serve together.
     substeps:
       - Shred {lettuce}.
       - Slice {tomato}.

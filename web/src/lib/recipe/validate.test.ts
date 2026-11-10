@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import type { Catalog } from '../schema'
 import { makeCatalog } from '../testing/fixtures'
-import { type FileFacts, validateLibrary } from './validate'
+import { type FileFacts, unexplainedCollectives, validateLibrary } from './validate'
 
 const facts: FileFacts = { folderBySlug: { 'garlic-rice': 'garlic-rice' }, imagesBySlug: { 'garlic-rice': [] } }
 
@@ -111,6 +111,43 @@ describe('validateLibrary', () => {
       for (const c of [inNote, inStep]) {
         expect(messages(c).some((m) => m.startsWith('error:') && m.includes('refers to another recipe'))).toBe(true)
       }
+    }
+  })
+
+  it('finds vague collectives that name no ingredients', () => {
+    expect(unexplainedCollectives('Add all the spices.')).toEqual(['all'])
+    expect(unexplainedCollectives('Season everything and taste the seasoning.')).toEqual(['everything', 'seasoning'])
+    expect(unexplainedCollectives('Serve with rice, etc.')).toEqual(['etc'])
+    expect(unexplainedCollectives('Cheese, ham and so on.')).toEqual(['and so on'])
+    expect(unexplainedCollectives('Add the remaining ingredients.')).toEqual(['the remaining ingredients'])
+    expect(unexplainedCollectives('Wait until it is all gone, in all.')).toEqual(['all', 'all'])
+  })
+
+  it('accepts a collective when a parenthesis after it lists what it covers, and ignores ordinary words', () => {
+    expect(unexplainedCollectives('Add all the spices (cumin, paprika and cayenne).')).toEqual([])
+    expect(unexplainedCollectives('Season everything (the chicken and the vegetables) well.')).toEqual([])
+    expect(unexplainedCollectives('An overall plan; call it a day; tall ingredients.')).toEqual([])
+    expect(unexplainedCollectives('Season with salt and pepper.')).toEqual([])
+  })
+
+  it('reports them as errors wherever recipe text appears, including step titles', () => {
+    for (const set of [
+      (r: Record<string, any>) => {
+        r.notes = ['Add all the spices.']
+      },
+      (r: Record<string, any>) => {
+        r.steps[0].text = 'Mix everything together.'
+      },
+      (r: Record<string, any>) => {
+        r.steps[1].title = 'Season everything'
+      },
+      (r: Record<string, any>) => {
+        r.components[0].ingredients[0].note = 'plus seasoning'
+      },
+    ]) {
+      expect(
+        messages(withRecipe(set)).some((m) => m.startsWith('error:') && m.includes('hides which ingredients')),
+      ).toBe(true)
     }
   })
 

@@ -76,7 +76,7 @@ steps:
     title: Prepare the ingredients
     component: dip
     kind: prep
-    text: Rinse {peppers:name}, peel {garlic} and get everything ready to go into the blender together.
+    text: Rinse {peppers:name}, peel {garlic:name}, chop {chilli:name} and {parsley:name}, then measure out {cashews}, {olive-oil}, {honey}, {soy-sauce} and {thyme}.
     substeps:
       - Drain and rinse the jar of {peppers:name}.
       - Peel {garlic:name}.
@@ -92,7 +92,7 @@ steps:
     title: Blend into a dip
     component: dip
     kind: cook
-    text: Put everything into a blender or food processor together and blend until it has the consistency of a dip.
+    text: Put the prepared ingredients (red peppers, garlic, cashews, olive oil, honey, soy sauce, parsley, chilli and thyme) into a blender or food processor and blend until it has the consistency of a dip.
     cue: A thick, smooth-ish dip with no large pieces of pepper or nut left.
     active_min: 4
     tools:

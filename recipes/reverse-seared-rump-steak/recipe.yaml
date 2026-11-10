@@ -139,7 +139,7 @@ steps:
       - low-oven
 
   - id: sear
-    title: Sear hard on all sides
+    title: Sear hard on every side
     component: sear
     kind: cook
     text: Oil the pan, pat the steak dry again and sear each face for 45 to 60 seconds, then the edges. Total time in the pan stays under 3 minutes.
@@ -180,7 +180,7 @@ notes:
   - "Doneness: pull from the oven roughly 6 °C below the target. The low oven adds 1 to 2 °C of carryover and the sear adds another 3 to 4 °C. Rare: pull at 45 °C, final 50 to 52 °C. Medium rare: pull at 49 °C, final 54 to 56 °C. Medium: pull at 53 °C, final 58 to 60 °C. Medium well: pull at 58 °C, final 63 to 65 °C."
   - "Rump is lean and has more connective tissue than ribeye or sirloin. Past about 60 °C it tightens noticeably, so medium rare to medium is where it stays tender."
   - "Thickness: reverse searing earns its keep from about 3 cm upwards. At 2.5 cm it still works and gives a more evenly pink interior than pan-only cooking, but the margin for error narrows. Below 2 cm, skip the oven and sear straight from the fridge, since the steak will overshoot before the crust forms."
-  - "Oil: use refined oil, not cold-pressed. Refined avocado oil smokes at about 270 °C. Groundnut, rapeseed, sunflower and light olive oil all sit around 230 to 240 °C. Use enough to wet the pan and no more; a pool of oil insulates the steak and lowers the surface temperature. Butter alone fails at searing heat, but butter added for the last 30 seconds, with the pan pulled back from full heat, works."
+  - "Oil: use refined oil, not cold-pressed. Refined avocado oil smokes at about 270 °C. Groundnut, rapeseed, sunflower and light olive oil sit around 230 to 240 °C. Use enough to wet the pan and no more; a pool of oil insulates the steak and lowers the surface temperature. Butter alone fails at searing heat, but butter added for the last 30 seconds, with the pan pulled back from full heat, works."
   - "Make ahead: the dry brine and the oven phase can both be done in advance. Cook to the pull temperature, cool, and refrigerate for up to 2 days. Bring back to about 40 °C in a 90 °C fan oven before searing."
   - "Storage: cooked and sliced, 3 days in the fridge. Reheat gently or eat cold, as reheating a seared steak hard takes it past medium."
   - "Smoke: the pan will smoke at searing temperature, so open a window and run the extractor before you start."

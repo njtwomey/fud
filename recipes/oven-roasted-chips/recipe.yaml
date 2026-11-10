@@ -104,7 +104,7 @@ steps:
     kind: prep
     text: Lay the chips out, drizzle {oil} over them and season with {salt}, {pepper} and {rosemary} if using.
     substeps:
-      - Make sure all of the chips are uniformly coated with oil on all sides. A basting brush helps.
+      - Make sure the chips are uniformly coated with oil on every side. A basting brush helps.
       - You can leave them plain.
     active_min: 4
     tools:
@@ -117,8 +117,8 @@ steps:
     title: Roast the chips
     component: chips
     kind: cook
-    text: Roast for about 30 minutes, turning a few times so they colour all round.
-    cue: Golden all over and crisp at the edges.
+    text: Roast for about 30 minutes, turning a few times so they colour right round.
+    cue: Golden on every side and crisp at the edges.
     temperature:
       celsius: 200
       mode: fan

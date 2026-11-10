@@ -83,11 +83,11 @@ components:
       - id: oregano
         ingredient: oregano
         optional: true
-        note: or other herbs
+        note: or other herbs (basil, thyme)
       - id: basil
         ingredient: basil
         optional: true
-        note: or other herbs
+        note: or other herbs (oregano, parsley)
 
   - id: layers
     title: Layers and topping
@@ -158,7 +158,7 @@ steps:
     title: Simmer the red sauce
     component: red-sauce
     kind: cook
-    text: Heat the oven, add the stock cube, tomatoes, purée and herbs, simmer, then stir the meat back in.
+    text: Heat the oven, add the stock cube, tomatoes, purée, oregano and basil, simmer, then stir the meat back in.
     substeps:
       - Heat the oven to 200 °C fan.
       - Add {stock-cube}, {tomatoes}, {puree} and whichever of {oregano} and {basil} you are using.

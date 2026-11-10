@@ -170,7 +170,7 @@ steps:
     title: Add the purée and herbs
     component: sauce
     kind: cook
-    text: Stir in the tomato purée for a minute, then the dried herbs, and pour in the warm water.
+    text: Stir in the tomato purée for a minute, then {oregano} and {mixed-herbs}, and pour in the warm water.
     substeps:
       - Add {puree} and stir for 1 minute.
       - Add {oregano} and {mixed-herbs} and stir them through.

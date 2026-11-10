@@ -61,7 +61,7 @@ components:
     ingredients:
       - id: fruit
         ingredient: raspberries
-        note: assorted berries and other fruit
+        note: raspberries, or other berries (strawberries, blueberries)
       - id: chocolate-top
         ingredient: chocolate
         note: scrapings, to decorate
@@ -189,7 +189,7 @@ steps:
     title: Fill and finish
     component: finish
     kind: serve
-    text: Spoon a heaped tablespoon or more of the cream into the cavity of each pavlova, add berries and finish with chocolate scrapings and icing sugar.
+    text: Spoon a heaped tablespoon or more of the cream into the cavity of each pavlova, add {fruit}, then finish with {chocolate-top} and {icing-sugar}.
     substeps:
       - Put a heaped tablespoon of the cream mixture, or more, into the cavity of each pavlova.
       - Add {fruit} on top.
@@ -201,7 +201,7 @@ steps:
 
 notes:
   - "The recipe uses egg whites, so it pairs well with a recipe that uses the yolks, such as the shepherd's pie."
-  - "Fruit: raspberries and such."
+  - "Fruit: raspberries, or other berries such as strawberries and blueberries."
   - "Make ahead: the meringues can be baked and cooled ahead. Fill them only when serving."
 
 open_questions:

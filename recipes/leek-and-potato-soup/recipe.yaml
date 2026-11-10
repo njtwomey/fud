@@ -139,7 +139,7 @@ steps:
     text: Simmer for 30 minutes, stirring occasionally, until it thickens and the vegetables are very soft.
     substeps:
       - I like a thick soup. If you do not, add more liquid to thin it.
-    cue: The soup has thickened and all the vegetables are soft.
+    cue: The soup has thickened and the leeks, onion and potatoes are soft.
     heat: low
     active_min: 5
     passive_min: 25

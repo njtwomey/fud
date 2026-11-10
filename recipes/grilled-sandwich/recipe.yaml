@@ -70,10 +70,10 @@ steps:
     title: Butter and fill the baguette
     component: sandwich
     kind: prep
-    text: Cut {baguette} lengthwise, butter both sides with {butter}, add a layer of the diced vegetables and put {cheese} on top.
+    text: Cut {baguette} lengthwise, butter both sides with {butter}, add a layer of the diced pepper and onion and put {cheese} on top.
     substeps:
       - Cut the baguette lengthwise (horizontally) and butter both sides.
-      - Put a layer of the diced vegetables onto the buttered surfaces, then the cheese on top.
+      - Put a layer of the diced pepper and onion onto the buttered surfaces, then the cheese on top.
       - "Not for Jen: I like to add {pepper} and {hot-sauce} on mine."
     active_min: 4
     tools:
