@@ -1,0 +1,435 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "slug": {
+      "type": "string",
+      "maxLength": 80,
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "description": "Must equal the folder name."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": "string"
+    },
+    "version": {
+      "default": 1,
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
+    },
+    "status": {
+      "default": "draft",
+      "description": "Status id from `statuses` in recipe-options.yaml.",
+      "type": "string",
+      "maxLength": 80,
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "maxLength": 80,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "description": "Source kind id from `source_kinds` in recipe-options.yaml."
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "servings": {
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 9007199254740991,
+      "description": "Base portions the quantities are written for."
+    },
+    "tags": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 80,
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      }
+    },
+    "images": {
+      "default": [],
+      "description": "First image is the hero.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "minLength": 1,
+            "description": "File name inside the recipe's images/ folder."
+          },
+          "alt": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Alt text describing what the photo shows."
+          },
+          "caption": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "file",
+          "alt"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "components": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 80,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "description": "'For the sauce', 'To finish'."
+          },
+          "ingredients": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "maxLength": 80,
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                  "description": "Unique within the recipe. Steps refer to it as {id} in text or in `uses`."
+                },
+                "ingredient": {
+                  "type": "string",
+                  "maxLength": 80,
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                  "description": "Taxonomy ingredient id."
+                },
+                "quantity": {
+                  "description": "Omit for 'to taste' or 'to coat'.",
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "unit": {
+                      "type": "string",
+                      "enum": [
+                        "g",
+                        "kg",
+                        "ml",
+                        "l",
+                        "each",
+                        "tsp",
+                        "tbsp"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "unit"
+                  ],
+                  "additionalProperties": false
+                },
+                "note": {
+                  "description": "Short qualifier such as 'to coat' or 'large'. Never how it is prepared.",
+                  "type": "string"
+                },
+                "optional": {
+                  "default": false,
+                  "type": "boolean"
+                },
+                "swaps": {
+                  "default": [],
+                  "description": "Recipe-specific swaps, shown before the global ones.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ingredient": {
+                        "type": "string",
+                        "maxLength": 80,
+                        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+                      },
+                      "ratio": {
+                        "default": 1,
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                      },
+                      "quality": {
+                        "default": "fine",
+                        "description": "Quality id from `qualities` in swaps.yaml.",
+                        "type": "string",
+                        "maxLength": 80,
+                        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+                      },
+                      "note": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "ingredient"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "ingredient"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "id",
+          "title"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "steps": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 80,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Short imperative headline, 2 to 5 words: 'Roast the vegetables'."
+          },
+          "component": {
+            "type": "string",
+            "maxLength": 80,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "prep",
+              "cook",
+              "wait",
+              "serve"
+            ]
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "description": "What to do, in a sentence or two. {line-id} inserts the scaled quantity and name; {line-id:name} inserts just the name. Always use tokens for ingredients so swaps flow through."
+          },
+          "substeps": {
+            "default": [],
+            "description": "The detailed actions within this stage, in order.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "cue": {
+            "description": "Sensory doneness cue to pair with any timing.",
+            "type": "string"
+          },
+          "active_min": {
+            "default": 0,
+            "description": "Minutes of hands-on attention.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "passive_min": {
+            "default": 0,
+            "description": "Minutes that pass without attention.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "heat": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium-low",
+              "medium",
+              "medium-high",
+              "high"
+            ]
+          },
+          "temperature": {
+            "type": "object",
+            "properties": {
+              "celsius": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "maximum": 300
+              },
+              "mode": {
+                "default": "fan",
+                "type": "string",
+                "enum": [
+                  "fan",
+                  "conventional",
+                  "grill"
+                ]
+              }
+            },
+            "required": [
+              "celsius"
+            ],
+            "additionalProperties": false
+          },
+          "tools": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "tool": {
+                  "type": "string",
+                  "maxLength": 80,
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+                },
+                "alternatives": {
+                  "default": [],
+                  "description": "Other tools that also work for this step.",
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "maxLength": 80,
+                    "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+                  }
+                },
+                "note": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "tool"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "uses": {
+            "default": [],
+            "description": "Ingredient line ids used, beyond {tokens} in text.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 80,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+            }
+          },
+          "after": {
+            "description": "Step ids that must finish first. Omitted: follows the previous step in its component (or starts at 0 if first). Empty list: starts at 0 regardless.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 80,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+            }
+          },
+          "make_ahead": {
+            "default": false,
+            "description": "Can be done earlier, e.g. the day before.",
+            "type": "boolean"
+          },
+          "photos": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "file": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "File name inside the recipe's images/ folder."
+                },
+                "alt": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Alt text describing what the photo shows."
+                },
+                "caption": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "file",
+                "alt"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "component",
+          "kind",
+          "text"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "notes": {
+      "default": [],
+      "description": "Make-ahead, storage, optional suggestions.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "open_questions": {
+      "default": [],
+      "description": "Variables not yet tested.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "slug",
+    "title",
+    "date",
+    "servings",
+    "components",
+    "steps"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,216 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: chicken-teriyaki-rice-and-peas
+title: Chicken Teriyaki with Rice and Peas
+summary: Chicken breast strips browned then glazed in a quick ginger, soy, sesame and brown sugar teriyaki sauce, over rice with peas.
+version: 1
+date: 2026-11-10
+status: draft
+servings: 2
+tags:
+  - dinner
+  - japanese
+  - rice-dish
+  - quick
+  - weeknight
+
+images:
+  - file: hero.webp
+    alt: A black bowl of white rice with peas and glossy teriyaki chicken, sprinkled with sesame seeds and spring onion, with a fork.
+
+components:
+  - id: rice
+    title: Rice and peas
+    ingredients:
+      - id: rice
+        ingredient: long-grain-rice
+        quantity:
+          amount: 130
+          unit: g
+        note: white
+      - id: water
+        ingredient: water
+        quantity:
+          amount: 225
+          unit: ml
+        note: cold
+      - id: peas
+        ingredient: peas
+        quantity:
+          amount: 160
+          unit: g
+        note: blanched
+
+  - id: chicken
+    title: Chicken
+    ingredients:
+      - id: oil
+        ingredient: vegetable-oil
+        note: a drizzle
+      - id: chicken
+        ingredient: chicken-breast
+        quantity:
+          amount: 250
+          unit: g
+        note: strips
+      - id: salt
+        ingredient: salt
+        note: a pinch
+
+  - id: sauce
+    title: Teriyaki sauce
+    ingredients:
+      - id: ginger
+        ingredient: ginger
+        quantity:
+          amount: 15
+          unit: g
+      - id: rice-vinegar
+        ingredient: rice-vinegar
+        quantity:
+          amount: 15
+          unit: ml
+      - id: chilli-flakes
+        ingredient: chilli-flakes
+        quantity:
+          amount: 0.5
+          unit: tsp
+        optional: true
+      - id: sesame-oil
+        ingredient: sesame-oil
+        quantity:
+          amount: 10
+          unit: ml
+      - id: soy-sauce
+        ingredient: soy-sauce
+        quantity:
+          amount: 30
+          unit: ml
+      - id: brown-sugar
+        ingredient: brown-sugar
+        quantity:
+          amount: 25
+          unit: g
+        note: about 2 tbsp
+
+  - id: finish
+    title: To finish
+    ingredients:
+      - id: sesame-seeds
+        ingredient: sesame-seeds
+        quantity:
+          amount: 5
+          unit: g
+        note: toasted
+      - id: spring-onion
+        ingredient: spring-onion
+        note: to garnish
+
+steps:
+  - id: cook-rice
+    title: Cook the rice
+    component: rice
+    kind: cook
+    text: Cook {rice} in {water}, covered, and set it aside with the lid on.
+    substeps:
+      - Take the chicken out of the fridge, open the packet and let it air.
+      - Put the rice and the water in a pot, bring to the boil over a high heat, then reduce to low and cover.
+      - Cook for 12 to 15 minutes.
+      - Remove from the heat and set aside with the lid on.
+    cue: The water has been absorbed and the rice is tender.
+    heat: low
+    active_min: 3
+    passive_min: 14
+    tools:
+      - tool: saucepan
+        note: With a lid.
+    after: []
+
+  - id: cook-chicken
+    title: Brown the chicken
+    component: chicken
+    kind: cook
+    text: Cook the chicken strips in a very hot pan until browned and cooked through.
+    substeps:
+      - Heat a large, wide-based pan (preferably non-stick) with {oil} over a high heat.
+      - Add {chicken} with {salt}.
+      - Cook for 6 to 7 minutes on each side.
+    cue: Browned on both sides and white through the middle, with no pink meat.
+    heat: high
+    active_min: 4
+    passive_min: 9
+    tools:
+      - tool: frying-pan
+      - tool: tongs
+    after: []
+
+  - id: make-sauce
+    title: Mix the teriyaki sauce
+    component: sauce
+    kind: prep
+    text: While the chicken cooks, mix the sauce ingredients in a bowl.
+    substeps:
+      - Peel {ginger} with a teaspoon and finely chop or grate it.
+      - Combine the ginger, {rice-vinegar}, {chilli-flakes}, {sesame-oil}, {soy-sauce} and {brown-sugar} in a bowl.
+      - Mix well.
+    cue: The sugar has dissolved and the sauce looks even.
+    active_min: 5
+    tools:
+      - tool: mixing-bowl
+    after: []
+
+  - id: warm-peas
+    title: Warm the peas
+    component: rice
+    kind: cook
+    text: Once the rice is cooked, put the peas on top of it in the same pot and leave covered.
+    substeps:
+      - Add {peas} to the rice pot, on top of the rice.
+      - Cover with the lid and leave for 3 minutes.
+    cue: The peas are hot through.
+    active_min: 1
+    passive_min: 3
+    tools:
+      - tool: saucepan
+    after:
+      - cook-rice
+
+  - id: glaze-chicken
+    title: Glaze the chicken
+    component: chicken
+    kind: cook
+    text: Pour the teriyaki sauce over the chicken and cook until it turns sticky.
+    substeps:
+      - Add the teriyaki sauce to the pan and stir well.
+      - Cook for 2 to 3 minutes.
+      - Trim and finely chop {spring-onion}.
+    cue: The sauce thickens to a sticky glaze coating the chicken.
+    heat: high
+    active_min: 4
+    tools:
+      - tool: frying-pan
+      - tool: wooden-spoon
+    after:
+      - cook-chicken
+      - make-sauce
+
+  - id: serve
+    title: Serve
+    component: finish
+    kind: serve
+    text: Take the chicken off the heat, stir in the sesame seeds and serve it over the rice and peas.
+    substeps:
+      - Stir {sesame-seeds} into the chicken.
+      - Serve over the rice and peas.
+      - Garnish with the chopped spring onions.
+    active_min: 2
+    after:
+      - glaze-chicken
+      - warm-peas
+
+notes:
+  - "The chilli flakes in the sauce are optional."
+
+open_questions:
+  - The number of spring onions is not given; to garnish is assumed.
+  - Brown sugar is 2 tbsp for 2 servings (3 and 4 tbsp for larger batches); 25 g is used for 2 tbsp.
+  - Rice water is 225 ml for 2, 300 ml for 3 and 450 ml for 4 servings.

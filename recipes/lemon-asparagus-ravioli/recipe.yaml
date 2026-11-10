@@ -1,0 +1,215 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: lemon-asparagus-ravioli
+title: Creamy Lemon and Asparagus Ravioli
+summary: Spinach and ricotta ravioli tossed in a quick creamy lemon, garlic and asparagus sauce, served with rocket and basil.
+version: 1
+date: 2026-11-10
+status: draft
+servings: 2
+tags:
+  - dinner
+  - pasta
+  - italian
+  - vegetarian
+  - quick
+  - weeknight
+
+images:
+  - file: hero.webp
+    alt: A pink plate of ravioli in a creamy sauce with asparagus, next to a heap of rocket and a lemon wedge.
+
+components:
+  - id: sauce
+    title: Creamy lemon sauce
+    ingredients:
+      - id: asparagus
+        ingredient: asparagus
+        quantity:
+          amount: 120
+          unit: g
+        note: spears
+      - id: oil
+        ingredient: olive-oil
+        note: a drizzle for the pan, and to finish
+      - id: salt
+        ingredient: salt
+      - id: pepper
+        ingredient: black-pepper
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 2
+          unit: each
+      - id: lemon
+        ingredient: lemon
+        quantity:
+          amount: 1
+          unit: each
+      - id: stock
+        ingredient: vegetable-stock-powder
+        quantity:
+          amount: 5.5
+          unit: g
+        note: stock mix
+      - id: creme-fraiche
+        ingredient: creme-fraiche
+        quantity:
+          amount: 80
+          unit: g
+      - id: cheese
+        ingredient: parmesan
+        quantity:
+          amount: 30
+          unit: g
+        note: grated Italian hard cheese, half in the sauce and half to serve
+
+  - id: ravioli
+    title: Ravioli
+    ingredients:
+      - id: ravioli
+        ingredient: spinach-and-ricotta-ravioli
+        quantity:
+          amount: 250
+          unit: g
+
+  - id: serve
+    title: To serve
+    ingredients:
+      - id: rocket
+        ingredient: rocket
+        quantity:
+          amount: 20
+          unit: g
+      - id: basil
+        ingredient: basil
+        quantity:
+          amount: 5
+          unit: g
+
+steps:
+  - id: prep
+    title: Prepare the vegetables
+    component: sauce
+    kind: prep
+    text: Boil the kettle, trim and chop the asparagus, slice the garlic and peel two strips of lemon zest.
+    substeps:
+      - Boil a kettle.
+      - Trim the woody ends off {asparagus} and chop it into thirds.
+      - Peel and slice {garlic}.
+      - Peel two thin strips of zest from {lemon}, avoiding the white pith.
+    cue: The asparagus is in short lengths with no woody ends and the zest has no pith.
+    active_min: 7
+    tools:
+      - tool: kettle
+      - tool: knife
+      - tool: chopping-board
+      - tool: peeler
+    after: []
+
+  - id: cook-asparagus
+    title: Cook the asparagus
+    component: sauce
+    kind: cook
+    text: Heat a drizzle of oil in a large non-stick pan over a medium-high heat and cook the asparagus with a pinch of salt.
+    substeps:
+      - Heat {oil} in a large non-stick pan over a medium-high heat.
+      - Add the asparagus with a pinch of {salt}.
+      - Cook for 2 to 3 minutes.
+    cue: The asparagus is bright green and slightly softened.
+    heat: medium-high
+    active_min: 3
+    tools:
+      - tool: frying-pan
+    after:
+      - prep
+
+  - id: cook-ravioli
+    title: Cook the ravioli
+    component: ravioli
+    kind: cook
+    text: While the asparagus cooks, boil the ravioli in a pot of boiling water until al dente, keeping a cup of the pasta water.
+    substeps:
+      - Cook {ravioli} in boiling water over a high heat for 3 to 4 minutes.
+      - Keep a cup of the starchy pasta water, then drain.
+    cue: The ravioli float and the pasta is tender with a little bite.
+    heat: high
+    active_min: 1
+    passive_min: 4
+    tools:
+      - tool: large-pot
+      - tool: colander
+    after:
+      - prep
+
+  - id: flavour-sauce
+    title: Add the garlic, zest and lemon
+    component: sauce
+    kind: cook
+    text: Cook the garlic and lemon zest with the asparagus for another minute or two, then stir in half the lemon juice and the stock mix.
+    substeps:
+      - Add the garlic and zest to the asparagus.
+      - Cook for 1 to 2 minutes.
+      - Stir in the juice of half the lemon and {stock}.
+    cue: The kitchen smells of garlic and lemon and the garlic has not browned.
+    active_min: 3
+    tools:
+      - tool: frying-pan
+    after:
+      - cook-asparagus
+
+  - id: finish-sauce
+    title: Add the cream
+    component: sauce
+    kind: cook
+    text: Reduce the heat, stir in the crème fraîche, half the cheese and a splash of pasta water and season. Avoid overheating so it does not curdle.
+    substeps:
+      - Reduce the heat to medium-low.
+      - Add {creme-fraiche}, half of {cheese} and a splash of pasta water.
+      - Stir well and season with {salt} and {pepper}.
+      - Simmer for 1 minute.
+    cue: The sauce is smooth and just warmed through, not boiling.
+    heat: medium-low
+    active_min: 3
+    tools:
+      - tool: frying-pan
+      - tool: wooden-spoon
+    after:
+      - flavour-sauce
+      - cook-ravioli
+
+  - id: toss
+    title: Toss the ravioli in the sauce
+    component: ravioli
+    kind: cook
+    text: Take the pan off the heat and gently toss in the drained ravioli.
+    substeps:
+      - Remove the pan from the heat.
+      - Add the drained ravioli and toss gently to coat in the sauce.
+    cue: The ravioli are evenly coated and none have split.
+    active_min: 2
+    tools:
+      - tool: silicone-spatula
+    after:
+      - finish-sauce
+
+  - id: serve
+    title: Serve with rocket
+    component: serve
+    kind: serve
+    text: Serve with a side of rocket and a lemon wedge, and top with the remaining cheese, torn basil, a drizzle of oil and plenty of black pepper.
+    substeps:
+      - Cut a wedge of lemon for each plate.
+      - Serve the ravioli with {rocket}.
+      - Top with the remaining cheese, torn {basil}, a drizzle of {oil} and a generous grind of {pepper}.
+    active_min: 3
+    tools:
+      - tool: knife
+    after:
+      - toss
+
+notes:
+  - "Jen's appraisal: might be nice with chicken, or with more or different pastas."
+  - "Total time about 20 minutes."
+
+open_questions:
+  - The lemon is used three ways (zest, half the juice, wedges to serve). Is a whole lemon enough for 2 people?

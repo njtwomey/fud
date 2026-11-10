@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: tayto-sandwich
+title: Tayto Sandwich
+summary: A pack of cheese and onion Tayto crisps poured onto a slice of bread and closed with another.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 1
+tags:
+  - sandwich
+  - snack
+  - irish
+  - no-cook
+  - vegetarian
+  - quick
+
+images:
+  - file: hero.jpg
+    alt: A woman holding a crisp sandwich and a glass of red wine, with a plate of crisps on her lap.
+
+components:
+  - id: sandwich
+    title: Sandwich
+    ingredients:
+      - id: crisps
+        ingredient: cheese-and-onion-crisps
+        quantity:
+          amount: 1
+          unit: each
+        note: 1 pack of Taytos; it is essential to use Taytos
+      - id: bread
+        ingredient: bread
+        quantity:
+          amount: 2
+          unit: each
+      - id: butter
+        ingredient: butter
+        optional: true
+        note: not for Jen
+
+steps:
+  - id: build-sandwich
+    title: Build the sandwich
+    component: sandwich
+    kind: prep
+    text: Lay two slices of {bread:name} on a flat surface and pour {crisps} onto one, then put the other slice over it.
+    substeps:
+      - "Not for Jen: I like my bread to be buttered with {butter}."
+    active_min: 2
+    after: []
+
+  - id: eat
+    title: Eat
+    component: sandwich
+    kind: serve
+    text: Eat. A plate may be needed to catch falling crisps.
+    active_min: 5
+    after:
+      - build-sandwich
+
+notes:
+  - "It is essential to use Taytos to make a Tayto sandwich."
+  - "Can be enjoyed with a red wine or Tanora."
+
+open_questions:
+  - "The size of the Tayto pack is not given; about 25 g is assumed."

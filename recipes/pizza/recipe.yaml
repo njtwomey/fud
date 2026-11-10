@@ -1,0 +1,226 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: pizza
+title: Pizza
+summary: A speedy one-hour pizza dough, enough for about 8 pizzas, rolled thin, topped with passata and baked in the hottest oven you have.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 8
+tags:
+  - dinner
+  - italian
+  - pizza
+  - bread
+  - weekend
+
+images:
+  - file: hero.jpg
+    alt: A round margherita-style pizza with tomato sauce and melted mozzarella on a pizza stone.
+
+components:
+  - id: dough
+    title: Dough
+    ingredients:
+      - id: flour
+        ingredient: bread-flour
+        quantity:
+          amount: 1000
+          unit: g
+        note: white bread flour or 00, or mix with 20% semolina flour
+      - id: salt
+        ingredient: salt
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: sugar
+        ingredient: sugar
+        quantity:
+          amount: 4
+          unit: g
+        note: about 1 tsp
+      - id: yeast
+        ingredient: dried-yeast
+        quantity:
+          amount: 14
+          unit: g
+        note: 2 sachets of 7 g
+      - id: oil
+        ingredient: olive-oil
+        quantity:
+          amount: 60
+          unit: ml
+        note: extra virgin, 4 tbsp
+      - id: water
+        ingredient: water
+        quantity:
+          amount: 600
+          unit: ml
+        note: lukewarm
+
+  - id: toppings
+    title: Toppings
+    ingredients:
+      - id: passata
+        ingredient: passata
+        note: shop-bought, plain or flavoured with garlic, basil and onion; a few tablespoons per pizza
+      - id: mozzarella
+        ingredient: mozzarella
+        optional: true
+      - id: red-onion
+        ingredient: red-onion
+        optional: true
+      - id: pepper
+        ingredient: red-pepper
+        optional: true
+      - id: sweetcorn
+        ingredient: tinned-sweetcorn
+        optional: true
+      - id: pepperoni
+        ingredient: pepperoni
+        optional: true
+      - id: mushrooms
+        ingredient: mushroom
+        optional: true
+      - id: anchovies
+        ingredient: anchovy
+        optional: true
+
+steps:
+  - id: activate-yeast
+    title: Mix the yeast liquid
+    component: dough
+    kind: prep
+    text: Mix the yeast, sugar, oil and water in a jug and leave for a few minutes.
+    substeps:
+      - Put {yeast}, {sugar}, {oil} and {water} in a jug and stir.
+      - Leave for a few minutes.
+    cue: The mixture turns slightly frothy on top.
+    active_min: 2
+    passive_min: 5
+    tools:
+      - tool: measuring-jug
+    after: []
+
+  - id: mix-dough
+    title: Mix and knead the dough
+    component: dough
+    kind: cook
+    text: Make a well in the flour and salt, pour in the yeast mixture, then stir from the well outwards and finish by hand.
+    substeps:
+      - Put {flour} and {salt} in a large bowl and make a well in the middle.
+      - Pour all of the yeast mixture into the well.
+      - Using a large fork or spoon, slowly stir the contents together, working from the well to the edge of the bowl.
+      - When it starts to come together, switch to your hands and mix and knead.
+    cue: A soft, cohesive dough with no dry flour left in the bowl.
+    active_min: 10
+    tools:
+      - tool: mixing-bowl
+      - tool: wooden-spoon
+    after:
+      - activate-yeast
+
+  - id: prove
+    title: Prove the dough
+    component: dough
+    kind: wait
+    text: Leave the dough in a floured bowl under a damp cloth for about an hour.
+    substeps:
+      - Put the dough in a floured bowl and cover with a damp cloth.
+      - Leave for about an hour.
+    cue: The dough has roughly doubled in size.
+    passive_min: 60
+    make_ahead: true
+    tools:
+      - tool: mixing-bowl
+    after:
+      - mix-dough
+
+  - id: heat-oven
+    title: Heat the oven
+    component: dough
+    kind: prep
+    text: About 15 minutes before you want to cook, preheat the oven to its hottest, with the pizza stone inside if you have one.
+    substeps:
+      - Turn the oven to its highest setting.
+      - Put the pizza stone in to heat, if using.
+    cue: The oven has been at full temperature for at least 15 minutes.
+    temperature:
+      celsius: 250
+      mode: fan
+    active_min: 1
+    passive_min: 15
+    tools:
+      - tool: oven
+      - tool: pizza-stone
+        alternatives:
+          - baking-tray
+    after:
+      - mix-dough
+
+  - id: shape-balls
+    title: Knock back and divide
+    component: dough
+    kind: prep
+    text: Knock the dough back, knead it a little more and halve it three times to make 8 small balls.
+    substeps:
+      - Knock the dough back and knead it a little more.
+      - Halve the dough 3 times to make 8 small balls.
+      - Arrange the balls in a grid on a floured surface, with space between them so they do not prove and stick together.
+      - Dust with flour and cover with a towel so the dough does not dry out.
+      - If you want to roll all the pizzas out ahead to save time, stack them on floured and oiled sheets of baking paper or tin foil.
+    cue: Eight smooth, evenly sized balls that are not touching.
+    active_min: 10
+    tools:
+      - tool: baking-paper
+    after:
+      - prove
+
+  - id: roll-and-top
+    title: Roll out and top
+    component: toppings
+    kind: cook
+    text: Roll a ball out on a floured surface, cover most of it with passata and add your toppings.
+    substeps:
+      - Take one ball and roll it out on a floured surface to the shape and size you like.
+      - Spread a few tablespoons of {passata} over it until it is mostly covered.
+      - Sprinkle with whichever of {mozzarella}, {red-onion}, {pepper}, {sweetcorn}, {pepperoni}, {mushrooms} and {anchovies} you want.
+    cue: The base is thin and the sauce covers most of the dough, without sticking to the table.
+    active_min: 8
+    tools:
+      - tool: rolling-pin
+    after:
+      - shape-balls
+      - heat-oven
+
+  - id: bake
+    title: Bake the pizza
+    component: toppings
+    kind: cook
+    text: Bake in the very hot oven for 5 to 10 minutes.
+    substeps:
+      - Slide the pizza onto the hot stone or tray.
+      - Bake for 5 to 10 minutes.
+    cue: The crust is puffed and golden and the cheese is bubbling.
+    temperature:
+      celsius: 250
+      mode: fan
+    active_min: 2
+    passive_min: 7
+    tools:
+      - tool: oven
+      - tool: pizza-stone
+        alternatives:
+          - baking-tray
+    after:
+      - roll-and-top
+
+notes:
+  - "Sieving the flour: some recipes suggest it, but it does not matter."
+  - "This is a speedy dough. Some pizza dough recipes call for a 24-hour process, which gives a better result, but this is definitely tasty."
+  - "Makes about 8 pizzas depending on size and thickness. Roll and bake them one at a time."
+  - "Passata: shop-bought passata, optionally flavoured with garlic, basil and onions, is the usual sauce."
+
+open_questions:
+  - The oven temperature is only given as the hottest it will go. 250 C fan is assumed.
+  - Kneading time is not given.
+  - Topping quantities are not given.

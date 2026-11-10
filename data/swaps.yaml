@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../schemas/swaps.schema.json
+# General substitutions. A recipe line can add its own `swaps`, which are shown first.
+
+qualities:
+  - id: close
+    label: Close match
+    description: Near-identical result.
+
+  - id: fine
+    label: Works well
+    description: A little different but a good result.
+
+  - id: compromise
+    label: A compromise
+    description: Noticeably different; fine in a pinch.
+swaps:
+  - ingredient: honey
+    alternatives:
+      - ingredient: maple-syrup
+        ratio: 1
+        quality: close
+
+  - ingredient: lime-juice
+    alternatives:
+      - ingredient: lemon-juice
+        ratio: 1
+        quality: fine
+        note: Slightly less sharp and more floral.
+
+  - ingredient: soy-sauce
+    alternatives:
+      - ingredient: tamari
+        ratio: 1
+        quality: close
+        note: Wheat free.
+
+  - ingredient: crunchy-peanut-butter
+    alternatives:
+      - ingredient: almond-butter
+        ratio: 1
+        quality: fine
+        note: Milder, so you may want a pinch more salt.
+
+  - ingredient: basmati-rice
+    alternatives:
+      - ingredient: jasmine-rice
+        ratio: 1
+        quality: fine
+        note: Stickier and softer.
+
+  - ingredient: unsalted-peanuts
+    alternatives:
+      - ingredient: cashews
+        ratio: 1
+        quality: fine
+
+  - ingredient: ground-allspice
+    alternatives:
+      - ingredient: mixed-spice
+        ratio: 1
+        quality: close
+        note: "The closest single swap: it carries the clove and nutmeg notes."
+      - ingredient: ground-nutmeg
+        ratio: 0.5
+        quality: compromise
+        note: Add a small pinch of ground cloves too. Do not use extra cinnamon.
+
+  - ingredient: greek-yoghurt-fat-free
+    alternatives:
+      - ingredient: greek-yoghurt
+        ratio: 1
+        quality: fine
+        note: Richer, and slightly softer meat.

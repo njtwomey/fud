@@ -1,0 +1,283 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: bang-bang-chicken
+title: Bang Bang Chicken
+summary: Marinated chicken breast, coated in cornflour and cooked until golden, sliced and dressed with a creamy sweet chilli and sriracha sauce, with rice and a sesame slaw.
+version: 1
+date: 2026-11-10
+status: draft
+servings: 4
+tags:
+  - dinner
+  - asian-inspired
+  - rice-dish
+  - high-protein
+  - weeknight
+
+components:
+  - id: chicken
+    title: Marinated chicken
+    ingredients:
+      - id: chicken
+        ingredient: chicken-breast
+        quantity:
+          amount: 4
+          unit: each
+        note: about 600 to 700 g in total
+      - id: soy-sauce
+        ingredient: soy-sauce
+        quantity:
+          amount: 30
+          unit: ml
+        note: about 2 tbsp
+      - id: sesame-oil-marinade
+        ingredient: sesame-oil
+        quantity:
+          amount: 15
+          unit: ml
+        note: about 1 tbsp
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 1
+          unit: each
+        note: or 1 tsp garlic paste
+      - id: ginger
+        ingredient: ginger
+        quantity:
+          amount: 5
+          unit: g
+        note: or 1 tsp ginger paste
+      - id: salt-marinade
+        ingredient: salt
+        quantity:
+          amount: 0.5
+          unit: tsp
+      - id: pepper
+        ingredient: black-pepper
+        quantity:
+          amount: 0.5
+          unit: tsp
+      - id: egg
+        ingredient: egg
+        quantity:
+          amount: 1
+          unit: each
+        note: the white only
+      - id: cornflour
+        ingredient: cornflour
+        note: to coat
+      - id: oil
+        ingredient: vegetable-oil
+        note: a thin layer for shallow frying, or a light spray for the air fryer
+
+  - id: sauce
+    title: Bang bang sauce
+    ingredients:
+      - id: mayonnaise
+        ingredient: mayonnaise
+        quantity:
+          amount: 100
+          unit: g
+      - id: sweet-chilli
+        ingredient: sweet-chilli-sauce
+        quantity:
+          amount: 30
+          unit: ml
+        note: about 2 tbsp
+      - id: sriracha
+        ingredient: sriracha
+        quantity:
+          amount: 15
+          unit: ml
+        note: about 1 tbsp
+
+  - id: slaw
+    title: Sesame slaw
+    ingredients:
+      - id: cabbage
+        ingredient: white-cabbage
+        quantity:
+          amount: 200
+          unit: g
+      - id: carrot
+        ingredient: carrot
+        quantity:
+          amount: 80
+          unit: g
+        note: about 1 medium
+      - id: red-onion
+        ingredient: red-onion
+        quantity:
+          amount: 50
+          unit: g
+        note: about half a small one
+      - id: spring-onion
+        ingredient: spring-onion
+        quantity:
+          amount: 30
+          unit: g
+        note: 2 spring onions
+      - id: sesame-oil-slaw
+        ingredient: sesame-oil
+        quantity:
+          amount: 15
+          unit: ml
+        note: about 1 tbsp
+      - id: rice-vinegar
+        ingredient: rice-vinegar
+        quantity:
+          amount: 15
+          unit: ml
+        note: about 1 tbsp
+      - id: salt-slaw
+        ingredient: salt
+        note: a pinch
+
+  - id: rice
+    title: Rice
+    ingredients:
+      - id: rice
+        ingredient: basmati-rice
+        quantity:
+          amount: 300
+          unit: g
+      - id: water
+        ingredient: water
+        quantity:
+          amount: 500
+          unit: ml
+      - id: salt-rice
+        ingredient: salt
+        quantity:
+          amount: 0.5
+          unit: tsp
+
+  - id: serving
+    title: To serve
+    ingredients:
+      - id: sesame-seeds
+        ingredient: sesame-seeds
+        optional: true
+        note: to garnish, or use spring onions
+
+steps:
+  - id: marinate
+    title: Marinate the chicken
+    component: chicken
+    kind: prep
+    text: Mix the marinade, coat the chicken breasts in it and chill them for a few hours so the flavours develop.
+    substeps:
+      - In a bowl, combine {soy-sauce}, {sesame-oil-marinade}, {garlic}, {ginger}, {salt-marinade}, {pepper} and {egg}.
+      - Add {chicken} and mix well to coat evenly.
+      - Cover and refrigerate for 2 to 4 hours.
+    cue: Every breast is evenly coated in marinade.
+    active_min: 5
+    passive_min: 120
+    make_ahead: true
+    tools:
+      - tool: mixing-bowl
+      - tool: fridge
+    after: []
+
+  - id: cook-rice
+    title: Cook the rice
+    component: rice
+    kind: cook
+    text: Rinse {rice} until the water runs clear, then simmer it in {water} with {salt-rice} and rest it covered.
+    substeps:
+      - Rinse the rice under cold water until the water runs clear.
+      - Put it in a saucepan with the water and salt, and bring to the boil.
+      - Reduce the heat to low, cover and simmer for 15 minutes.
+      - Remove from the heat and rest, covered, for 5 minutes before fluffing with a fork.
+      - Keep warm until serving.
+    cue: All the water has gone and the grains are tender and separate after fluffing.
+    heat: low
+    active_min: 4
+    passive_min: 20
+    tools:
+      - tool: saucepan
+        alternatives:
+          - rice-cooker
+      - tool: sieve
+    after: []
+
+  - id: make-slaw
+    title: Make the slaw
+    component: slaw
+    kind: prep
+    text: Combine the slaw vegetables, dress them with sesame oil and rice vinegar, and keep them cold until serving.
+    substeps:
+      - Finely shred {cabbage}, julienne {carrot}, finely slice {red-onion} and {spring-onion}.
+      - Combine them in a large bowl.
+      - Drizzle with {sesame-oil-slaw} and {rice-vinegar}, sprinkle with {salt-slaw} and toss well.
+      - Set aside or refrigerate until ready to serve.
+    active_min: 12
+    make_ahead: true
+    tools:
+      - tool: knife
+      - tool: chopping-board
+      - tool: mixing-bowl
+    after: []
+
+  - id: make-sauce
+    title: Make the bang bang sauce
+    component: sauce
+    kind: prep
+    text: Mix the mayonnaise, sweet chilli sauce and sriracha until smooth, and adjust the spice or sweetness to taste.
+    substeps:
+      - Stir {mayonnaise}, {sweet-chilli} and {sriracha} together in a small bowl until smooth.
+      - Adjust the spice or sweetness to taste.
+    active_min: 2
+    make_ahead: true
+    tools:
+      - tool: mixing-bowl
+    after: []
+
+  - id: cook-chicken
+    title: Coat and cook the chicken
+    component: chicken
+    kind: cook
+    text: Lift the chicken out of the marinade, coat lightly in cornflour and cook until golden and 75 °C in the thickest part.
+    substeps:
+      - Remove the chicken from the marinade and lightly coat each piece in {cornflour}.
+      - "To shallow fry: heat a thin layer of {oil} in a large pan over a medium-high heat and cook for 4 to 5 minutes per side. Do not overpack the pan."
+      - "To grill: preheat the grill to medium-high and cook for about 6 minutes per side."
+      - "To air fry: spray lightly with oil and cook at 190 °C for 14 to 16 minutes, turning halfway."
+      - Check the internal temperature at the thickest part.
+    cue: Golden outside, and the thickest part reads 75 °C.
+    heat: medium-high
+    active_min: 10
+    passive_min: 5
+    tools:
+      - tool: frying-pan
+        alternatives:
+          - grill
+          - air-fryer
+      - tool: probe-thermometer
+    after:
+      - marinate
+
+  - id: serve
+    title: Slice and serve
+    component: serving
+    kind: serve
+    text: Slice the chicken, drizzle or toss it with the sauce, and serve with the rice and slaw.
+    substeps:
+      - Slice the cooked chicken.
+      - Drizzle or toss with the bang bang sauce.
+      - Serve alongside the steamed rice and sesame slaw.
+      - Garnish with spring onions or {sesame-seeds} if you like.
+    active_min: 4
+    after:
+      - cook-chicken
+      - cook-rice
+      - make-slaw
+      - make-sauce
+
+notes:
+  - "Cooking methods: shallow fry, grill or air fry; all aim for 75 °C at the thickest part."
+  - "Rice: 300 g, rinsed, then simmered in 500 ml water for 15 minutes."
+
+open_questions:
+  - Servings are given as 4. The rice is assumed to be basmati.
+  - Garlic and ginger paste (1 tsp each) is replaced by fresh garlic (1 clove) and ginger (5 g).

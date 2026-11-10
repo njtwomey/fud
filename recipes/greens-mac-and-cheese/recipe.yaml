@@ -1,0 +1,244 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: greens-mac-and-cheese
+title: Greens Mac and Cheese
+summary: Macaroni in a blended leek, broccoli and spinach cheese sauce, topped with cheddar and flaked almonds and baked until golden.
+version: 1
+date: 2026-11-10
+status: draft
+source:
+  kind: web
+  title: Jamie Oliver's Greens Mac'n'Cheese with Leek, Broccoli, Spinach and Toasted Almond Topping
+  url: https://thehappyfoodie.co.uk/recipes/jamie-olivers-greens-macncheese-with-leek-broccoli-spinach-and-toasted-almond-topping/
+servings: 6
+tags:
+  - dinner
+  - pasta
+  - weekend
+
+images:
+  - file: hero.webp
+    alt: A white scalloped plate of green pasta being eaten with a fork and spoon.
+
+components:
+  - id: veg-base
+    title: Vegetable base
+    ingredients:
+      - id: leek
+        ingredient: leek
+        quantity:
+          amount: 1
+          unit: each
+        note: large
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 3
+          unit: each
+      - id: broccoli
+        ingredient: tenderstem-broccoli
+        quantity:
+          amount: 400
+          unit: g
+        note: purple sprouting or tenderstem, stalks in the sauce and florets kept for later
+      - id: butter
+        ingredient: butter
+        quantity:
+          amount: 40
+          unit: g
+        note: unsalted
+      - id: thyme
+        ingredient: thyme
+        quantity:
+          amount: 15
+          unit: g
+        note: half a bunch, fresh
+
+  - id: sauce
+    title: Cheese sauce
+    ingredients:
+      - id: flour
+        ingredient: plain-flour
+        quantity:
+          amount: 20
+          unit: g
+        note: 2 tbsp
+      - id: milk
+        ingredient: semi-skimmed-milk
+        quantity:
+          amount: 1
+          unit: l
+        note: plus a splash to loosen
+      - id: parmesan
+        ingredient: parmesan
+        quantity:
+          amount: 30
+          unit: g
+      - id: cheddar
+        ingredient: cheddar-cheese
+        quantity:
+          amount: 150
+          unit: g
+        note: mature, most in the sauce and the rest on top
+      - id: spinach
+        ingredient: baby-spinach
+        quantity:
+          amount: 100
+          unit: g
+      - id: salt
+        ingredient: salt
+      - id: pepper
+        ingredient: black-pepper
+
+  - id: pasta
+    title: Pasta and topping
+    ingredients:
+      - id: pasta
+        ingredient: pasta
+        quantity:
+          amount: 450
+          unit: g
+        note: dried macaroni
+      - id: almonds
+        ingredient: flaked-almonds
+        quantity:
+          amount: 50
+          unit: g
+
+steps:
+  - id: prep-veg
+    title: Prepare the vegetables
+    component: veg-base
+    kind: prep
+    text: Heat the oven, trim and wash the leek, peel the garlic and finely slice both with the broccoli stalks, keeping the florets.
+    substeps:
+      - Heat the oven to 160 °C fan (180 °C conventional, gas 4).
+      - Trim, halve and wash {leek}, and peel {garlic}.
+      - Finely slice the leek, garlic and the stalks of {broccoli}.
+      - Keep the broccoli florets aside for later.
+    cue: The leek is washed free of grit and the slices are fine and even.
+    temperature:
+      celsius: 160
+      mode: fan
+    active_min: 10
+    tools:
+      - tool: oven
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: soften-veg
+    title: Soften the vegetables
+    component: veg-base
+    kind: cook
+    text: Cook the sliced vegetables in the butter with the thyme leaves for about 15 minutes, until soft.
+    substeps:
+      - Put the sliced vegetables in a large casserole pan over a medium heat with {butter}.
+      - Strip in the leaves from {thyme}.
+      - Cook for 15 minutes, stirring regularly.
+    cue: The vegetables are completely softened and the leek is translucent.
+    heat: medium
+    active_min: 15
+    tools:
+      - tool: casserole-dish
+      - tool: wooden-spoon
+    after:
+      - prep-veg
+
+  - id: make-sauce
+    title: Make the white sauce
+    component: sauce
+    kind: cook
+    text: Stir in the flour, then slowly add the milk and simmer for 10 minutes until thickened.
+    substeps:
+      - Stir {flour} into the vegetables.
+      - Slowly pour in {milk}, stirring as you go.
+      - Simmer for 10 minutes, stirring regularly.
+    cue: The sauce coats the back of a spoon.
+    active_min: 10
+    tools:
+      - tool: casserole-dish
+      - tool: whisk
+    after:
+      - soften-veg
+
+  - id: cook-pasta
+    title: Cook the pasta
+    component: pasta
+    kind: cook
+    text: While the sauce simmers, cook the macaroni in a large pan of boiling salted water for 5 minutes, then drain.
+    substeps:
+      - Boil {pasta} in a large pan of salted water for 5 minutes.
+      - Drain.
+    cue: The pasta is only just tender, still firm in the middle.
+    active_min: 2
+    passive_min: 5
+    tools:
+      - tool: large-pot
+      - tool: colander
+    after:
+      - soften-veg
+
+  - id: blend-sauce
+    title: Add the cheese and blend
+    component: sauce
+    kind: cook
+    text: Grate the parmesan and most of the cheddar into the sauce, then blend with the spinach until smooth, in batches if needed.
+    substeps:
+      - Grate {parmesan} and most of the {cheddar} into the sauce and mix well.
+      - Tip into a blender, add {spinach} and blitz until smooth, in batches if needed.
+      - Season to taste with {salt} and {pepper}.
+    cue: A smooth, bright green sauce with no pieces of leek or spinach.
+    active_min: 8
+    tools:
+      - tool: blender
+        alternatives:
+          - stick-blender
+          - food-processor
+      - tool: box-grater
+    after:
+      - make-sauce
+
+  - id: assemble
+    title: Combine and assemble
+    component: pasta
+    kind: cook
+    text: Stir the sauce through the pasta and broccoli florets, loosening with milk if needed, then tip into a baking dish and top with the remaining cheddar and almonds.
+    substeps:
+      - Stir the sauce through the pasta and broccoli florets.
+      - Loosen with a splash of milk if needed.
+      - Transfer to a 25 x 35 cm baking dish.
+      - Grate over the remaining cheddar and scatter over {almonds}.
+    cue: The pasta and florets are evenly coated, with the sauce just loose enough to spoon.
+    active_min: 8
+    tools:
+      - tool: ovenproof-dish
+      - tool: box-grater
+    after:
+      - blend-sauce
+      - cook-pasta
+
+  - id: bake
+    title: Bake until golden
+    component: pasta
+    kind: wait
+    text: Bake for 30 minutes, until golden and bubbling.
+    substeps:
+      - Bake at 160 °C fan (180 °C conventional, gas 4) for 30 minutes.
+    cue: The top is golden and the edges are bubbling.
+    temperature:
+      celsius: 160
+      mode: fan
+    passive_min: 30
+    tools:
+      - tool: oven
+    after:
+      - assemble
+
+notes:
+  - "Greens: swap the spinach for any fresh or frozen greens, discarding any tough stalks."
+  - "Crunch: Jamie also sometimes adds breadcrumbs to the top for extra crunch."
+  - "Vegetarian: swap the parmesan for a vegetarian hard cheese."
+
+open_questions:
+  - The oven is given as 180 C / gas 4, which is conventional, so 160 C fan is used.
+  - The 2 tbsp of plain flour is converted to about 20 g.

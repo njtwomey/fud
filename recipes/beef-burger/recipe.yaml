@@ -1,0 +1,202 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: beef-burger
+title: Beef Burger
+summary: Panko and egg bound beef patties fried in a pan, topped with cheddar melted under a bowl and built in brioche buns with red onion and spinach.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - dinner
+  - burger
+  - frying
+  - weeknight
+
+images:
+  - file: hero.jpg
+    alt: A tall burger in a sesame bun with a beef patty, cheese, red onion and spinach on an orange plate.
+
+components:
+  - id: patties
+    title: Patties
+    ingredients:
+      - id: mince
+        ingredient: beef-mince
+        quantity:
+          amount: 500
+          unit: g
+      - id: lentils
+        ingredient: tinned-lentils
+        optional: true
+        note: cooked, optional; see notes for the ratio
+      - id: panko
+        ingredient: panko-breadcrumbs
+        quantity:
+          amount: 50
+          unit: g
+        note: or cream crackers battered into crumbs
+      - id: paprika
+        ingredient: paprika
+        quantity:
+          amount: 0.5
+          unit: tsp
+      - id: salt
+        ingredient: salt
+      - id: pepper
+        ingredient: black-pepper
+      - id: egg
+        ingredient: egg
+        quantity:
+          amount: 1
+          unit: each
+        note: medium
+      - id: oil
+        ingredient: olive-oil
+        quantity:
+          amount: 5
+          unit: ml
+        note: about 1 tsp
+
+  - id: building
+    title: To build
+    ingredients:
+      - id: cheese
+        ingredient: cheddar-cheese
+        quantity:
+          amount: 160
+          unit: g
+        note: 2 slices per burger
+      - id: onion
+        ingredient: red-onion
+        quantity:
+          amount: 1
+          unit: each
+        note: large
+      - id: spinach
+        ingredient: baby-spinach
+        note: a few leaves per burger
+        swaps:
+          - ingredient: lettuce
+            ratio: 1
+            quality: close
+            note: Lettuce works as an alternative.
+      - id: ketchup
+        ingredient: tomato-ketchup
+        note: tomato and/or mayonnaise
+      - id: mayo
+        ingredient: mayonnaise
+        optional: true
+        note: tomato and/or mayonnaise
+      - id: buns
+        ingredient: burger-bun
+        quantity:
+          amount: 4
+          unit: each
+        note: brioche-based
+
+steps:
+  - id: mix
+    title: Mix the patty mixture
+    component: patties
+    kind: prep
+    text: Mix the mince, breadcrumbs, paprika, egg, salt and pepper in a large bowl until everything is combined.
+    substeps:
+      - Put {mince}, {lentils} if using, {panko}, {paprika}, {egg}, {salt} and {pepper} in a large bowl.
+      - Mix until everything is combined.
+    cue: One even mixture with no streaks of egg or dry crumbs.
+    active_min: 5
+    tools:
+      - tool: mixing-bowl
+    after: []
+
+  - id: shape
+    title: Shape four patties
+    component: patties
+    kind: prep
+    text: Split the mixture into four and shape it. Make the burgers slightly wider than the buns, since they shrink in the heat.
+    substeps:
+      - Divide the mixture into four equal portions.
+      - Shape each into a patty slightly wider than the bun.
+    cue: Four even patties, each a little wider than a bun.
+    active_min: 5
+    after:
+      - mix
+
+  - id: prep-toppings
+    title: Slice the toppings
+    component: building
+    kind: prep
+    text: Slice the red onion in large circles and have the cheese, spinach and sauces ready.
+    substeps:
+      - Slice {onion} in large circles.
+      - Set out {cheese}, {spinach}, {ketchup} and {mayo}.
+    active_min: 4
+    make_ahead: true
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: fry
+    title: Fry and melt the cheese
+    component: patties
+    kind: cook
+    text: Fry the patties in an oiled pan, about 5 minutes a side, putting the cheese on after the flip and covering with a bowl to melt it.
+    substeps:
+      - Heat a pan with {oil} to a medium high heat.
+      - Add the patties, working in batches if needed. Cook for about 5 minutes before flipping, then 5 minutes more.
+      - After the first flip, put the cheese on top and cover with a bowl. The pan's heat stays under the bowl and melts the cheese.
+      - Keep an eye on them. Cooking time varies with thickness, and patties made with lentils cook quickly.
+    heat: medium-high
+    cue: The patties are browned on both sides and cooked through, and the cheese has melted over the top.
+    active_min: 4
+    passive_min: 10
+    tools:
+      - tool: frying-pan
+      - tool: mixing-bowl
+        note: to cover the pan and melt the cheese
+    after:
+      - shape
+      - prep-toppings
+
+  - id: rest-toast
+    title: Rest and toast the buns
+    component: building
+    kind: cook
+    text: Put the burgers aside for a few minutes to rest while you toast the buns.
+    substeps:
+      - Set the burgers aside to rest for a few minutes.
+      - Toast {buns}.
+    cue: The cut faces of the buns are lightly golden.
+    active_min: 2
+    passive_min: 3
+    tools:
+      - tool: toaster
+        alternatives:
+          - grill
+    after:
+      - fry
+
+  - id: serve
+    title: Build the burgers
+    component: building
+    kind: serve
+    text: Build to taste, with the leaves on the bottom so that excess burger juices do not soak into the bun.
+    substeps:
+      - Put {spinach} on the bottom bun.
+      - Add the burger, with the sliced {onion} and the sauces.
+      - Top with the other half of the bun.
+    active_min: 3
+    after:
+      - rest-toast
+
+notes:
+  - "Lentils: you can mix the mince with cooked lentils, at a ratio of approximately ⅓ to ⅔ beef mince to lentils. It makes the burger a bit healthier, gives a nice flavour and seems to cook faster too."
+  - "Onion: if you have spare diced white onion, fry it off until soft and add it to the mixture for a bit more texture."
+  - "Toasting: Jen prefers the buns untoasted."
+
+open_questions:
+  - The lentil ratio is ⅓ to ⅔ but not which way round, and there is no weight, so the lentils line has no quantity.
+  - Cheddar is given as 2 slices per burger and entered as 160 g, assuming a slice weighs about 20 g.
+  - The sauces and spinach have no quantities.
+  - The rest and toast times are assumed.

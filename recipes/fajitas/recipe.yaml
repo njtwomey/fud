@@ -1,0 +1,193 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+
+slug: fajitas
+title: Mexican Fajitas
+summary: Shredded chicken tossed with crunchy peppers and onions in a smoky garlic and lime spice mix, served in tortillas with cheese and sauces.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - dinner
+  - mexican
+  - wrap-flatbread
+  - weeknight
+images:
+  - file: hero.jpg
+    alt: A stainless steel mixing bowl full of shredded chicken with strips of red pepper and onion in orange spice.
+
+  - file: wrap.jpg
+    alt: A hand holding a flour tortilla filled with fajita mix, topped with grated cheese and a white sauce.
+    caption: Filled tortilla with cheese and garlic mayo.
+components:
+  - id: filling
+    title: Chicken and vegetables
+    ingredients:
+      - id: chicken
+        ingredient: cooked-chicken
+        quantity:
+          amount: 100
+          unit: g
+        note: 1 handful
+      - id: onion
+        ingredient: red-onion
+        quantity:
+          amount: 2
+          unit: each
+        note: medium
+      - id: pepper
+        ingredient: red-pepper
+        quantity:
+          amount: 2
+          unit: each
+        note: medium
+      - id: oil
+        ingredient: vegetable-oil
+        quantity:
+          amount: 15
+          unit: ml
+        note: 1 tbsp
+
+  - id: spice-mix
+    title: Fajita spice mix
+    ingredients:
+      - id: paprika
+        ingredient: smoked-paprika
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: coriander
+        ingredient: ground-coriander
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: cumin
+        ingredient: ground-cumin
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 3
+          unit: each
+        note: pureed
+      - id: lime-juice
+        ingredient: lime-juice
+        quantity:
+          amount: 30
+          unit: ml
+        note: 1 medium lime
+      - id: tabasco
+        ingredient: hot-sauce
+        quantity:
+          amount: 5
+          unit: ml
+        note: Tabasco (1 tsp); leave out if Jen is eating
+
+  - id: serving
+    title: To serve
+    ingredients:
+      - id: tortillas
+        ingredient: tortilla
+        quantity:
+          amount: 8
+          unit: each
+        note: approximately
+      - id: cheese
+        ingredient: cheddar-cheese
+        quantity:
+          amount: 100
+          unit: g
+        note: grated
+      - id: guacamole
+        ingredient: guacamole
+        optional: true
+        note: any combination of the sauces
+      - id: garlic-mayo
+        ingredient: garlic-mayonnaise
+        optional: true
+      - id: salsa
+        ingredient: salsa
+        optional: true
+        note: any salsa
+steps:
+  - id: shred-chicken
+    title: Shred the chicken
+    component: filling
+    kind: prep
+    text: Put the chicken in a bowl and tear it apart using one fork in each hand.
+    substeps:
+      - Put {chicken} in a bowl.
+      - Tear it apart using one fork in each hand.
+    active_min: 5
+    tools:
+      - tool: mixing-bowl
+    after: []
+
+  - id: mix-spices
+    title: Mix the spices
+    component: spice-mix
+    kind: prep
+    text: Combine the fajita spice mix ingredients in a small bowl or cup, ready to add to the pan.
+    substeps:
+      - Slice the onions and peppers into strips.
+      - Mix {paprika}, {coriander}, {cumin}, {garlic}, {lime-juice} and {tabasco}.
+    active_min: 8
+    tools:
+      - tool: knife
+      - tool: chopping-board
+      - tool: mixing-bowl
+    after: []
+
+  - id: fry-vegetables
+    title: Fry the onions and peppers
+    component: filling
+    kind: cook
+    text: Heat the oil in a frying pan to high and toss the onions and peppers around for a few minutes, keeping some crunch.
+    substeps:
+      - Heat {oil} in a frying pan over a high heat.
+      - Add {onion} and {pepper} and toss them around the pan.
+      - Cook for a few minutes.
+    cue: The vegetables are hot and starting to colour but still have a bit of crunch.
+    heat: high
+    active_min: 5
+    tools:
+      - tool: frying-pan
+      - tool: wooden-spoon
+    after:
+      - mix-spices
+
+  - id: add-spices-chicken
+    title: Add the spice mix and chicken
+    component: filling
+    kind: cook
+    text: Add the spice mix and the chicken and mix until everything is evenly coated and hot. If the chicken came from the fridge, this heats it.
+    cue: Everything is evenly coated in the spice mix and piping hot.
+    heat: high
+    active_min: 4
+    tools:
+      - tool: frying-pan
+      - tool: wooden-spoon
+    after:
+      - fry-vegetables
+      - shred-chicken
+
+  - id: serve
+    title: Serve at the table
+    component: serving
+    kind: serve
+    text: Put the filling in a large bowl in the middle of the table, with the tortillas, cheese and sauces.
+    substeps:
+      - Tip the filling into a large bowl.
+      - Serve with {tortillas}, {cheese}, {guacamole}, {garlic-mayo} and {salsa}.
+    active_min: 3
+    after:
+      - add-spices-chicken
+notes:
+  - "No cooked chicken to hand? Cook a whole chicken ahead in a slow cooker: sit it on three small balls of foil so it stays out of the juices, season with salt, and cook on low for about 5 hours, until the meat falls off the bone and the juices run clear. Shred a large handful for this recipe. Any other way of cooking the chicken is fine too."
+  - You could marinate the chicken in half of the fajita spice mix.
+  - "Sauces: any combination of guacamole, garlic mayo and salsa."
+open_questions:
+  - Servings are assumed (4, with about 8 tortillas).
+  - A handful of cooked chicken is entered as 100 g; check it against what you actually use.

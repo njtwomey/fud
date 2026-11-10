@@ -1,0 +1,203 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: carbonara
+title: Carbonara
+summary: Bacon and garlic cooked in butter, tossed off the heat with pasta and a goo of eggs, pecorino and parmesan, loosened with starchy pasta water.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - dinner
+  - italian
+  - pasta
+  - quick
+  - weeknight
+
+images:
+  - file: hero.jpg
+    alt: A person holding a bowl of pasta in a creamy sauce, with a fork resting in the bowl.
+
+components:
+  - id: egg-cheese
+    title: Egg and cheese sauce
+    ingredients:
+      - id: pecorino
+        ingredient: pecorino
+        quantity:
+          amount: 50
+          unit: g
+      - id: parmesan
+        ingredient: parmesan
+        quantity:
+          amount: 90
+          unit: g
+      - id: egg
+        ingredient: egg
+        quantity:
+          amount: 1
+          unit: each
+        note: medium, whole
+      - id: yolks
+        ingredient: egg-yolk
+        quantity:
+          amount: 2
+          unit: each
+        note: from 2 medium eggs
+
+  - id: bacon
+    title: Bacon
+    ingredients:
+      - id: bacon
+        ingredient: bacon
+        quantity:
+          amount: 150
+          unit: g
+        note: guanciale, pancetta or lardons also work
+      - id: butter
+        ingredient: butter
+        quantity:
+          amount: 50
+          unit: g
+        note: unsalted
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 4
+          unit: each
+
+  - id: pasta
+    title: Pasta
+    ingredients:
+      - id: pasta
+        ingredient: pasta
+        quantity:
+          amount: 500
+          unit: g
+        note: not spaghetti
+      - id: salt
+        ingredient: salt
+      - id: oil
+        ingredient: olive-oil
+        note: a little, for the water
+
+  - id: serve
+    title: To serve
+    ingredients:
+      - id: pepper
+        ingredient: black-pepper
+        note: freshly ground
+      - id: cheese-serve
+        ingredient: parmesan
+        note: freshly grated
+
+steps:
+  - id: mix-cheese
+    title: Mix the cheese and eggs
+    component: egg-cheese
+    kind: prep
+    text: Grate both cheeses into one bowl, beat in the eggs and mix to a cheesy, eggy goo.
+    substeps:
+      - Finely grate {pecorino} and {parmesan} into the same bowl.
+      - Beat {egg} and {yolks} and pour them into the cheese.
+      - Mix until it forms a thick, cheesy goo.
+    cue: A thick, smooth paste with no dry cheese left.
+    active_min: 8
+    tools:
+      - tool: box-grater
+      - tool: mixing-bowl
+      - tool: whisk
+    after: []
+
+  - id: start-bacon
+    title: Render the bacon
+    component: bacon
+    kind: cook
+    text: Remove any rind, dice the bacon very small and put it in a large sauté pan, one big enough to hold the pasta too.
+    substeps:
+      - Cut the rind off {bacon} and finely chop it into very small cubes.
+      - Put it in a large sauté pan over a medium heat.
+      - When it is starting to brown, blot the excess fat off with kitchen paper.
+    cue: The bacon cubes are starting to brown at the edges.
+    heat: medium
+    active_min: 10
+    tools:
+      - tool: saute-pan
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: boil-pasta
+    title: Boil the pasta
+    component: pasta
+    kind: cook
+    text: Cook the pasta in boiling salted water with a little oil, using just enough water to cover so it ends up starchy.
+    substeps:
+      - Put boiling water in a large pan with {pasta}, {salt} and {oil}.
+      - Use enough water to cover the pasta, but not much more, so the water is starchy afterwards.
+      - Cook until just done and do not overcook.
+    cue: The pasta is tender with a little bite when you taste a piece.
+    active_min: 3
+    passive_min: 10
+    tools:
+      - tool: large-pot
+      - tool: colander
+    after:
+      - start-bacon
+
+  - id: butter-garlic
+    title: Add the butter and garlic
+    component: bacon
+    kind: cook
+    text: Add the butter and garlic to the bacon and keep it on the lowest heat while the pasta finishes.
+    substeps:
+      - Add {butter} and {garlic} to the pan of bacon.
+      - Turn the heat down to its lowest setting and keep the mixture warm.
+    cue: The butter has melted and the garlic is fragrant but not browning.
+    heat: low
+    active_min: 2
+    tools:
+      - tool: saute-pan
+    after:
+      - start-bacon
+
+  - id: combine
+    title: Toss with the sauce
+    component: pasta
+    kind: cook
+    text: Take the pan off the heat, stir in the cheese mixture, then add the drained pasta and toss until everything is coated.
+    substeps:
+      - Take the sauté pan off the heat and add the cheese and egg mixture.
+      - Drain the pasta, keeping some of the cooking water.
+      - Add the pasta to the sauté pan and stir until everything is coated.
+      - If the sauce looks dry, add a few teaspoons of the pasta water.
+    cue: The pasta is glossily coated in a creamy sauce, with no scrambled egg.
+    active_min: 4
+    tools:
+      - tool: colander
+      - tool: wooden-spoon
+    after:
+      - boil-pasta
+      - butter-garlic
+      - mix-cheese
+
+  - id: serve
+    title: Serve
+    component: serve
+    kind: serve
+    text: Serve in bowls with freshly grated cheese and black pepper on top.
+    substeps:
+      - Spoon into bowls.
+      - Top with {cheese-serve} and {pepper}.
+    active_min: 2
+    tools:
+      - tool: box-grater
+    after:
+      - combine
+
+notes:
+  - "Take the pan off the heat before adding the egg mixture so the eggs make a sauce rather than scrambling."
+  - "Start boiling the pasta water while the bacon browns; the pasta should be done at about the time the butter and garlic go in."
+
+open_questions:
+  - Servings are assumed (4), for 500 g of pasta.
+  - The pasta cooking time is not given, so it is left to the packet instructions.

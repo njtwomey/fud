@@ -1,0 +1,252 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: beef-stir-fry
+title: Beef Stir Fry
+summary: Marinated rump steak browned and set aside, then vegetable spears and udon noodles stir fried in curry, garlic and ginger seasoning with the beef folded back in.
+version: 1
+date: 2026-11-10
+status: draft
+servings: 6
+tags:
+  - dinner
+  - asian-inspired
+  - stir-fry
+  - noodles
+  - weeknight
+
+images:
+  - file: hero.webp
+    alt: A white bowl of egg noodles with chunks of beef, carrot, courgette and other green vegetables, with a spoon resting in it.
+
+components:
+  - id: beef
+    title: Marinated beef
+    ingredients:
+      - id: steak
+        ingredient: rump-steak
+        quantity:
+          amount: 2
+          unit: each
+        note: fillets
+      - id: olive-oil
+        ingredient: olive-oil
+        quantity:
+          amount: 5
+          unit: ml
+        note: about 1 tsp
+      - id: ginger
+        ingredient: ginger
+        quantity:
+          amount: 30
+          unit: g
+        note: thumb-sized piece
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 4
+          unit: each
+        note: pureed
+      - id: salt
+        ingredient: salt
+      - id: soy-marinade
+        ingredient: soy-sauce
+        quantity:
+          amount: 15
+          unit: ml
+        note: about 1 tbsp
+
+  - id: stir-fry
+    title: Vegetables and noodles
+    ingredients:
+      - id: oil-pan
+        ingredient: vegetable-oil
+        note: for the pan
+      - id: pak-choi
+        ingredient: pak-choi
+        quantity:
+          amount: 1
+          unit: each
+      - id: red-onion
+        ingredient: red-onion
+        quantity:
+          amount: 1
+          unit: each
+      - id: carrot
+        ingredient: carrot
+        quantity:
+          amount: 1
+          unit: each
+        note: medium
+      - id: courgette
+        ingredient: courgette
+        quantity:
+          amount: 1
+          unit: each
+      - id: baby-corn
+        ingredient: baby-corn
+        quantity:
+          amount: 100
+          unit: g
+      - id: sugar-snap
+        ingredient: mangetout
+        quantity:
+          amount: 100
+          unit: g
+        note: sugar snap peas
+      - id: garlic-powder
+        ingredient: garlic-powder
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: ginger-powder
+        ingredient: ground-ginger
+        quantity:
+          amount: 0.5
+          unit: tsp
+      - id: curry-powder
+        ingredient: medium-curry-powder
+        quantity:
+          amount: 2
+          unit: tsp
+      - id: stock-cube
+        ingredient: vegetable-stock-cube
+        note: vegetable stock
+      - id: soy-stir
+        ingredient: soy-sauce
+        quantity:
+          amount: 15
+          unit: ml
+        note: about 1 tbsp
+      - id: udon
+        ingredient: udon-noodles
+        quantity:
+          amount: 400
+          unit: g
+        note: soft egg noodles also work
+
+steps:
+  - id: marinate-beef
+    title: Slice and marinate the beef
+    component: beef
+    kind: prep
+    text: Cut the ginger into spears, slice the steak thinly and leave it marinating for at least half an hour.
+    substeps:
+      - Slice {ginger} into small spears.
+      - Thinly slice {steak}.
+      - Put the beef in a bowl with {olive-oil}, {garlic}, the ginger, {salt} and {soy-marinade}.
+      - Leave to marinate for about 30 minutes, or more if possible.
+    cue: Every slice of beef is lightly glossy with the marinade.
+    active_min: 8
+    passive_min: 30
+    tools:
+      - tool: knife
+      - tool: chopping-board
+      - tool: mixing-bowl
+    after: []
+
+  - id: prep-veg
+    title: Wash and cut the vegetables
+    component: stir-fry
+    kind: prep
+    text: Wash all the vegetables and slice them into spears.
+    substeps:
+      - Wash all the vegetables.
+      - Slice {red-onion}, {carrot}, {courgette}, {baby-corn} and {sugar-snap} into spears.
+      - Cut the thick stem out of {pak-choi} and square up the rest into your desired size.
+    active_min: 12
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: brown-beef
+    title: Brown the beef
+    component: beef
+    kind: cook
+    text: Brown the beef in a quite hot pan to your desired doneness and set it aside.
+    substeps:
+      - Heat a large pan or pot quite hot and add some {oil-pan}.
+      - Brown the beef for a few minutes until it gets a nice colour on the outside, cooking to your desired temperature.
+      - Remove the beef to a bowl.
+    cue: The outside of the beef has a good brown colour.
+    heat: high
+    active_min: 5
+    tools:
+      - tool: wok
+        alternatives:
+          - large-pot
+          - frying-pan
+      - tool: wooden-spoon
+    after:
+      - marinate-beef
+      - prep-veg
+
+  - id: stir-fry-veg
+    title: Stir fry the vegetables
+    component: stir-fry
+    kind: cook
+    text: Add the vegetables to the hot pan with the spices, stock and soy sauce and stir until steaming and warm.
+    substeps:
+      - Add all the chopped vegetables and the pak choi to the hot pan.
+      - Add {garlic-powder}, {ginger-powder}, {curry-powder}, {stock-cube} and {soy-stir}.
+      - Stir for about 5 minutes, adjusting the time for how crunchy you want it.
+    cue: Everything is steaming and hot, with the vegetables as soft or crunchy as you like.
+    heat: high
+    active_min: 7
+    tools:
+      - tool: wok
+        alternatives:
+          - large-pot
+          - frying-pan
+      - tool: wooden-spoon
+    after:
+      - brown-beef
+
+  - id: add-noodles
+    title: Add the noodles
+    component: stir-fry
+    kind: cook
+    text: Add the noodles to the pot and stir for 2 to 3 minutes until cooked.
+    substeps:
+      - Add {udon} to the pot.
+      - Stir for 2 to 3 minutes.
+    cue: The noodles are soft and hot all the way through.
+    active_min: 3
+    tools:
+      - tool: wok
+        alternatives:
+          - large-pot
+          - frying-pan
+      - tool: wooden-spoon
+    after:
+      - stir-fry-veg
+
+  - id: combine
+    title: Fold the beef back in
+    component: stir-fry
+    kind: cook
+    text: Return the beef to the pot and stir for a few minutes to spread the flavour around.
+    substeps:
+      - Add the beef back to the pot.
+      - Stir for a few minutes. Everything is already cooked, so this is about spreading the flavour.
+    cue: The beef is hot again and the noodles and vegetables are evenly seasoned.
+    active_min: 3
+    tools:
+      - tool: wooden-spoon
+    after:
+      - add-noodles
+
+  - id: serve
+    title: Serve
+    component: stir-fry
+    kind: serve
+    text: Serve and eat.
+    active_min: 1
+    after:
+      - combine
+
+notes:
+  - "How crunchy the vegetables are is down to how long they stir fry."
+
+open_questions:
+  - The yield is 6, which seems a lot for two steaks and 400 g of noodles.
+  - The vegetable stock has no amount given; a stock cube is assumed.

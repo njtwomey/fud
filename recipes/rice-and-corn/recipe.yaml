@@ -1,0 +1,100 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: rice-and-corn
+title: Chinese Rice and Corn
+summary: Plain basmati rice with tinned sweetcorn boiled dry in the rice pot, a favourite of Jen's.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 1
+tags:
+  - side
+  - rice-dish
+  - chinese
+  - quick
+
+images:
+  - file: hero.jpg
+    alt: A yellow bowl of white rice topped with sweetcorn, with a fork resting in it.
+
+components:
+  - id: rice
+    title: Rice
+    ingredients:
+      - id: rice
+        ingredient: basmati-rice
+        quantity:
+          amount: 75
+          unit: g
+      - id: water
+        ingredient: water
+        quantity:
+          amount: 70
+          unit: g
+        note: boiling
+
+  - id: corn
+    title: Sweetcorn
+    ingredients:
+      - id: corn
+        ingredient: tinned-sweetcorn
+        quantity:
+          amount: 200
+          unit: g
+        note: one tin
+
+steps:
+  - id: cook-rice
+    title: Cook the rice
+    component: rice
+    kind: cook
+    text: Cook {rice} with {water} in a covered pot, then leave it to steam.
+    substeps:
+      - Boil a kettle of water.
+      - Wash {rice:name} in a sieve until the water runs clear.
+      - Put the rice and {water} into the pot and cover with the lid.
+      - Bring to the boil, and once it bubbles turn the heat to the lowest setting.
+      - Leave for 8 to 9 minutes.
+      - Take off the hob, fluff lightly with a fork, replace the lid and leave for about 10 minutes.
+    cue: All the water has gone and the grains are tender and separate.
+    heat: low
+    active_min: 6
+    passive_min: 19
+    tools:
+      - tool: saucepan
+      - tool: sieve
+      - tool: kettle
+    after: []
+
+  - id: cook-corn
+    title: Boil the corn dry
+    component: corn
+    kind: cook
+    text: Move the rice to a bowl, then tip the tin of {corn} with its liquid into the rice pot over a high heat and stir until the liquid has evaporated.
+    substeps:
+      - Put the cooked rice into a bowl.
+      - Drain the tin straight into the pot that cooked the rice.
+      - Stir constantly on a high heat.
+    cue: No liquid is left in the pot and the corn is hot and slightly sticky.
+    heat: high
+    active_min: 4
+    tools:
+      - tool: saucepan
+    after:
+      - cook-rice
+
+  - id: serve
+    title: Serve
+    component: corn
+    kind: serve
+    text: Put the corn on or beside the rice and eat.
+    active_min: 1
+    after:
+      - cook-corn
+
+notes:
+  - "Jen's verdict: there is literally nothing better than this."
+  - "The rice is written for one portion (75 g rice, 70 g boiling water). Scale it for more."
+
+open_questions:
+  - Servings assumed as 1, going by the rice quantity. The tin of corn (about 200 g) is a lot for one person; is it shared?
+  - The heat time for the corn is not given; cook until the liquid has gone.

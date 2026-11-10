@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=../schemas/kitchen.schema.json
+# What is actually in the kitchen. Recipes flag missing equipment and suggest alternatives from this.
+
+oven: fan
+tools:
+  - air-fryer
+  - baking-paper
+  - baking-tray
+  - bench-scraper
+  - blender
+  - blowtorch
+  - box-grater
+  - bread-knife
+  - casserole-dish
+  - chopping-board
+  - colander
+  - digital-scales
+  - fish-slice
+  - food-processor
+  - freezer
+  - fridge
+  - frying-pan
+  - grill
+  - hob
+  - kettle
+  - knife
+  - ladle
+  - large-pot
+  - loaf-tin
+  - measuring-jug
+  - microplane
+  - mixing-bowl
+  - muffin-tin
+  - oven
+  - oven-thermometer
+  - ovenproof-dish
+  - paring-knife
+  - pastry-brush
+  - pastry-cutter
+  - peeler
+  - pie-dish
+  - pizza-stone
+  - potato-masher
+  - probe-thermometer
+  - roasting-tin
+  - rolling-pin
+  - saucepan
+  - saute-pan
+  - sieve
+  - silicone-spatula
+  - slotted-spoon
+  - slow-cooker
+  - stick-blender
+  - tinfoil
+  - toaster
+  - tongs
+  - whisk
+  - wire-rack
+  - wok
+  - wooden-spoon
+notes:
+  - Has every piece of equipment the recipes in this library call for, so no recipe should show missing equipment.
+  - Comfortable with 1 tsp cayenne across a whole dish.
+  - Stainless steel frying pan and a shallow baking tray; no wire rack. Instant-read thermometer, in Celsius.
+  - Usual cooking oil is refined avocado oil.

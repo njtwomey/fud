@@ -1,0 +1,86 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: rainbow-coleslaw
+title: Rainbow Coleslaw
+summary: Finely grated raw vegetables in as many colours as you can find, tossed with mayonnaise, olive oil and salt.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - salad
+  - side
+  - no-cook
+  - vegetarian
+  - quick
+
+images:
+  - file: hero.jpg
+    alt: A bowl of grated red cabbage and carrot topped with chopped herbs and flakes of sea salt.
+
+components:
+  - id: vegetables
+    title: Vegetables
+    ingredients:
+      - id: red-cabbage
+        ingredient: red-cabbage
+        note: a variety of raw vegetables of different colours
+      - id: white-cabbage
+        ingredient: white-cabbage
+      - id: carrot
+        ingredient: carrot
+      - id: radish
+        ingredient: radish
+      - id: mint
+        ingredient: mint
+        optional: true
+        note: optional herbs
+      - id: nuts-seeds
+        ingredient: mixed-nuts-and-seeds
+        optional: true
+        note: optional
+
+  - id: dressing
+    title: Dressing
+    ingredients:
+      - id: mayonnaise
+        ingredient: mayonnaise
+        quantity:
+          amount: 45
+          unit: ml
+        note: a few tablespoons
+      - id: olive-oil
+        ingredient: olive-oil
+      - id: salt
+        ingredient: salt
+
+steps:
+  - id: shred-veg
+    title: Shred the vegetables
+    component: vegetables
+    kind: prep
+    text: Shred {red-cabbage}, {white-cabbage}, {carrot} and {radish} finely into a large bowl using a box grater.
+    substeps:
+      - Chop any {mint:name} and add it, along with {nuts-seeds:name}, if using.
+    active_min: 12
+    tools:
+      - tool: box-grater
+      - tool: mixing-bowl
+    after: []
+
+  - id: dress-coleslaw
+    title: Dress and mix
+    component: dressing
+    kind: cook
+    text: Add {salt}, {olive-oil} and {mayonnaise} and mix until everything is coated. It is done.
+    cue: Every shred of vegetable is lightly coated.
+    active_min: 3
+    tools:
+      - tool: mixing-bowl
+    after:
+      - shred-veg
+
+notes:
+  - "Use whatever raw vegetables you have, as long as there is a variety of colours."
+
+open_questions:
+  - "No quantities are given for the vegetables, oil or salt. Servings are assumed to be 4, and a few tablespoons of mayonnaise is taken as 45 ml."

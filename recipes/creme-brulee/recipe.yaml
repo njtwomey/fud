@@ -1,0 +1,178 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: creme-brulee
+title: Crème Brûlée
+summary: A vanilla cream and egg yolk custard cooked on the hob, set cold in a chilled dish and finished with a torched demerara sugar crust.
+version: 1
+date: 2026-11-10
+status: draft
+servings: 6
+tags:
+  - dessert
+  - french
+  - make-ahead
+
+components:
+  - id: custard
+    title: Custard
+    ingredients:
+      - id: cream
+        ingredient: double-cream
+        quantity:
+          amount: 600
+          unit: ml
+      - id: vanilla
+        ingredient: vanilla-pod
+        quantity:
+          amount: 1
+          unit: each
+      - id: yolks
+        ingredient: egg-yolk
+        quantity:
+          amount: 8
+          unit: each
+        note: large
+      - id: sugar
+        ingredient: caster-sugar
+        quantity:
+          amount: 37
+          unit: g
+        note: about 3 tbsp
+
+  - id: topping
+    title: Topping
+    ingredients:
+      - id: demerara
+        ingredient: demerara-sugar
+        quantity:
+          amount: 75
+          unit: g
+        note: about 6 tbsp, for the topping
+
+steps:
+  - id: chill-dish
+    title: Chill the dish
+    component: custard
+    kind: prep
+    text: Put a 20 cm pie dish in the freezer for at least 20 minutes, and half-fill the sink with cold water in case the custard needs rapid cooling.
+    substeps:
+      - Place a 20 cm pie dish in the freezer for at least 20 minutes to chill thoroughly.
+      - Half-fill a sink with cold water as a precaution, in case the custard overheats and needs rapid cooling.
+    cue: The dish is frosty cold to the touch.
+    active_min: 2
+    passive_min: 20
+    tools:
+      - tool: pie-dish
+      - tool: freezer
+    after: []
+
+  - id: infuse-cream
+    title: Infuse the cream
+    component: custard
+    kind: cook
+    text: Heat the cream with the split vanilla pod until it reaches boiling point, but do not let it boil.
+    substeps:
+      - Pour {cream} into a saucepan.
+      - Split {vanilla} lengthways and add it to the pan.
+      - Heat gently until the cream reaches boiling point, but do not allow it to boil.
+    heat: low
+    cue: The cream is steaming with small bubbles at the edge, just short of a boil.
+    active_min: 5
+    tools:
+      - tool: saucepan
+      - tool: knife
+    after: []
+
+  - id: beat-yolks
+    title: Beat the yolks and sugar
+    component: custard
+    kind: prep
+    text: In a bowl, beat the egg yolks with the caster sugar until combined.
+    substeps:
+      - Put {yolks} and {sugar} in a bowl.
+      - Beat until combined.
+    cue: The mixture is smooth and slightly paler.
+    active_min: 3
+    tools:
+      - tool: mixing-bowl
+      - tool: whisk
+    after: []
+
+  - id: combine
+    title: Whisk in the hot cream
+    component: custard
+    kind: cook
+    text: Slowly pour the hot cream over the yolks, vanilla pod included, whisking continuously.
+    substeps:
+      - While whisking continuously, slowly pour the hot vanilla-infused cream over the egg mixture, pod included.
+    cue: A smooth, evenly mixed custard with no scrambled flecks of egg.
+    active_min: 3
+    tools:
+      - tool: whisk
+    after:
+      - infuse-cream
+      - beat-yolks
+
+  - id: cook-custard
+    title: Cook the custard
+    component: custard
+    kind: cook
+    text: Rinse and dry the pan, return the custard to it and cook over a medium to low heat, stirring constantly, until it thickens.
+    substeps:
+      - Rinse and dry the saucepan, then return the custard mixture to it.
+      - Cook over medium to low heat, stirring constantly, for about 10 minutes.
+      - If it shows signs of splitting, immediately plunge the pan into the cold water and whisk to stabilise.
+    heat: medium-low
+    cue: The custard is rich and velvety and coats the back of a spoon.
+    active_min: 10
+    tools:
+      - tool: saucepan
+      - tool: wooden-spoon
+
+  - id: set
+    title: Pour and set
+    component: custard
+    kind: wait
+    text: Remove the vanilla pod and pour the custard into the chilled dish. Cool at room temperature, then refrigerate until completely cold and set, at least 2 hours.
+    substeps:
+      - Remove the vanilla pod.
+      - Take the chilled dish from the freezer and pour in the custard.
+      - Leave to cool at room temperature.
+      - Refrigerate until completely cold and set, for at least 2 hours.
+    cue: The custard is completely cold and set, with a firm wobble.
+    active_min: 3
+    passive_min: 150
+    make_ahead: true
+    tools:
+      - tool: pie-dish
+      - tool: fridge
+    after:
+      - cook-custard
+      - chill-dish
+
+  - id: torch
+    title: Torch the top and serve
+    component: topping
+    kind: serve
+    text: Sprinkle the demerara evenly over the surface and caramelise it with a blowtorch until it forms a blistered, golden-brown crust. Serve with the topping cracked with a spoon.
+    substeps:
+      - Sprinkle {demerara} evenly over the surface.
+      - Caramelise with a blowtorch until it forms a blistered, golden-brown crust.
+      - Return to the fridge if needed, but take it out 20 minutes before serving so the custard softens slightly.
+      - Crack the caramelised topping with a spoon and serve.
+    cue: A blistered, golden-brown crust that cracks when tapped with a spoon.
+    active_min: 5
+    passive_min: 20
+    tools:
+      - tool: blowtorch
+        alternatives:
+          - grill
+    after:
+      - set
+
+notes:
+  - "The blowtorch crust should be done close to serving. If you return the dish to the fridge, take it out 20 minutes before serving."
+
+open_questions:
+  - Servings are assumed (6) from the 20 cm pie dish.
+  - The caster sugar is given as 3 tablespoons (approx. 37 g) and the demerara as 6 tablespoons (approx. 75 g). The gram figures are used.
+  - The cooling time at room temperature before the fridge is not given. The setting time of 150 minutes is assumed (about 30 minutes plus the stated 2 hours).

@@ -1,0 +1,299 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: nutty-stir-fry
+title: Nutty Stir Fry
+summary: Oven-charred broccoli and peppers, a peanut butter and lime sauce on carrots, rice, and toasted peanuts on top.
+version: 1
+date: 2026-11-09
+status: draft
+source:
+  kind: original
+servings: 4
+tags:
+  - dinner
+  - vegetarian
+  - roasting
+  - weeknight
+  - asian-inspired
+
+images:
+  - file: hero.jpg
+    alt: A white bowl of rice mixed with carrot, broccoli and pepper, with a fork resting in it.
+    caption: The rice looks only lightly coated here; loosening the peanut butter sauce with a splash of the rice cooking water would spread it further.
+
+components:
+  - id: roasted-veg
+    title: Roasted vegetables
+    ingredients:
+      - id: broccoli
+        ingredient: broccoli
+        quantity:
+          amount: 2
+          unit: each
+      - id: red-pepper
+        ingredient: red-pepper
+        quantity:
+          amount: 2
+          unit: each
+      - id: oil-tray
+        ingredient: vegetable-oil
+        note: to coat
+      - id: salt
+        ingredient: salt
+      - id: pepper
+        ingredient: black-pepper
+      - id: cayenne
+        ingredient: cayenne-pepper
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: honey
+        ingredient: honey
+        optional: true
+        note: makes it sweeter and helps caramelisation
+
+  - id: pot
+    title: Peanut sauce
+    ingredients:
+      - id: oil-pot
+        ingredient: vegetable-oil
+        note: to coat the base of the pot
+      - id: carrot
+        ingredient: carrot
+        quantity:
+          amount: 2
+          unit: each
+        note: large
+      - id: ginger
+        ingredient: ginger
+        quantity:
+          amount: 30
+          unit: g
+        note: thumb-sized piece
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 3
+          unit: each
+      - id: peanut-butter
+        ingredient: crunchy-peanut-butter
+        quantity:
+          amount: 32
+          unit: g
+        note: about 2 tbsp
+        swaps:
+          - ingredient: almond-butter
+            ratio: 1
+            quality: fine
+            note: "Milder; add a pinch more salt."
+      - id: lime-juice
+        ingredient: lime-juice
+        quantity:
+          amount: 30
+          unit: ml
+        note: juice of 1 medium lime
+      - id: soy-sauce
+        ingredient: soy-sauce
+        quantity:
+          amount: 30
+          unit: ml
+        note: about 2 tbsp
+
+  - id: rice
+    title: Rice
+    ingredients:
+      - id: rice
+        ingredient: basmati-rice
+        quantity:
+          amount: 300
+          unit: g
+
+  - id: peanuts
+    title: Toasted peanuts
+    ingredients:
+      - id: peanuts
+        ingredient: unsalted-peanuts
+        quantity:
+          amount: 250
+          unit: g
+        note: toasting and blitzing is optional
+
+  - id: finish
+    title: To finish
+    ingredients:
+      - id: five-spice
+        ingredient: chinese-five-spice
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: spring-onion
+        ingredient: spring-onion
+        quantity:
+          amount: 1
+          unit: each
+
+steps:
+  - id: prepare-veg
+    title: Heat the oven and chop the vegetables
+    component: roasted-veg
+    kind: prep
+    text: Get the oven heating while you cut the vegetables, so both are ready together.
+    substeps:
+      - Heat the oven to 200 °C fan (220 °C conventional).
+      - Cut {broccoli} into small florets.
+      - Dice {red-pepper}.
+    temperature:
+      celsius: 200
+      mode: fan
+    active_min: 9
+    passive_min: 3
+    tools:
+      - tool: oven
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: roast-veg
+    title: Roast the vegetables
+    component: roasted-veg
+    kind: cook
+    text: Spread {broccoli:name} and {red-pepper:name} over the baking tray, drizzle with {oil-tray}, season with {salt}, {pepper} and {cayenne}, and toss until evenly coated. Then roast.
+    substeps:
+      - If using {honey}, drizzle it over before roasting.
+      - Roast for 15 to 20 minutes, stirring halfway at about 8 to 10 minutes, when the edges first begin to colour.
+    cue: The broccoli tips and pepper edges have charred.
+    temperature:
+      celsius: 200
+      mode: fan
+    active_min: 5
+    passive_min: 16
+    tools:
+      - tool: oven
+      - tool: baking-tray
+        alternatives:
+          - roasting-tin
+    after:
+      - prepare-veg
+
+  - id: prepare-sauce-veg
+    title: Prepare the carrots, ginger and garlic
+    component: pot
+    kind: prep
+    text: Cut everything before the pot goes on, so the sauce can be made without stopping.
+    substeps:
+      - Julienne {carrot}.
+      - Finely dice {ginger}.
+      - Puree {garlic}.
+    active_min: 10
+    make_ahead: true
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: make-sauce
+    title: Soften the vegetables and make the sauce
+    component: pot
+    kind: cook
+    text: Cook the carrots, ginger and garlic gently while the vegetables roast, then stir in the peanut butter, lime juice and soy sauce.
+    substeps:
+      - Pour {oil-pot} into the large pot over a low heat and add the carrots, ginger and garlic.
+      - Cook gently for 5 to 10 minutes.
+      - Stir in {peanut-butter} until it coats the carrots.
+      - Squeeze in {lime-juice}, then pour in {soy-sauce} and stir through.
+    cue: The carrots are soft with a little bite left, the garlic smells fragrant but has not browned, and no streaks of peanut butter remain.
+    heat: low
+    active_min: 6
+    passive_min: 6
+    tools:
+      - tool: large-pot
+        alternatives:
+          - wok
+      - tool: wooden-spoon
+    after:
+      - prepare-sauce-veg
+      - prepare-veg
+
+  - id: cook-rice
+    title: Cook the rice
+    component: rice
+    kind: cook
+    text: Cook {rice} according to the packet instructions, timed to finish when the roasted vegetables come out.
+    cue: The grains are tender and separate.
+    active_min: 3
+    passive_min: 12
+    tools:
+      - tool: saucepan
+        alternatives:
+          - rice-cooker
+    after:
+      - prepare-veg
+
+  - id: toast-peanuts
+    title: Toast and crush the peanuts
+    component: peanuts
+    kind: cook
+    text: Toast {peanuts} in a dry frying pan until fragrant, then crush them coarsely.
+    substeps:
+      - Toast over a medium heat for 3 to 5 minutes, shaking often.
+      - Let them cool briefly.
+      - Pulse in a food processor into coarse crumbs.
+    cue: Lightly golden and nutty-smelling, then broken into coarse crumbs.
+    heat: medium
+    active_min: 8
+    passive_min: 3
+    make_ahead: true
+    tools:
+      - tool: frying-pan
+      - tool: food-processor
+        alternatives:
+          - pestle-and-mortar
+          - rolling-pin
+        note: Crush in a bag with a rolling pin if you have no processor.
+    after: []
+
+  - id: combine
+    title: Combine and season
+    component: finish
+    kind: cook
+    text: Tip the roasted vegetables and the cooked rice into the pot of sauce and stir until the rice is coated, then season.
+    substeps:
+      - Stir in {five-spice}.
+      - Taste and adjust the salt.
+    cue: The rice is evenly coated and coloured by the sauce, and tastes seasoned all the way through.
+    active_min: 4
+    tools:
+      - tool: large-pot
+      - tool: wooden-spoon
+    after:
+      - roast-veg
+      - make-sauce
+      - cook-rice
+
+  - id: serve
+    title: Slice the spring onions and serve
+    component: finish
+    kind: serve
+    text: Spoon a portion into a bowl and finish with the peanuts and spring onions.
+    substeps:
+      - Finely slice {spring-onion}.
+      - Sprinkle the peanuts and spring onions over each bowl.
+    active_min: 3
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after:
+      - combine
+      - toast-peanuts
+
+notes:
+  - "Rush version (not yet confirmed): put the broccoli, peppers, carrots, ginger and garlic into one pan together, cook until the broccoli has colour and the carrots are tender, then add the peanut butter, lime and soy. This loses the oven char."
+  - "Storage: cool leftover rice quickly, refrigerate within 1 hour and eat within 1 day. Reheat until steaming hot throughout. Keep the peanuts and spring onions separate until serving so they stay crisp."
+  - "Make-ahead: the peanuts can be toasted and blitzed earlier in the day and kept in a sealed container."
+  - "Optional, untested: loosen the peanut butter mixture with a splash of the rice cooking water; roast the carrots on the tray; add the white parts of the spring onions with the garlic; stir half the peanuts through the rice; add lime zest with the juice."
+
+open_questions:
+  - How many portions does this make? (4 is assumed.)
+  - How much oil goes on the tray and in the pot, and how much honey when used?
+  - Is 200 °C a fan setting or conventional? (Fan assumed.)
+  - "How is the rice cooked: rinsed or not, water volume, lid on or off?"
+  - Do all 250 g of peanuts go on top, or are some stirred in?

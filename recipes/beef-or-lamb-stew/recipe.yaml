@@ -1,0 +1,190 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: beef-or-lamb-stew
+title: Beef or Lamb Stew
+summary: Diced beef or lamb seared and slow-cooked for six hours with potatoes, carrots, red wine and stock, then thickened with cornflour.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - dinner
+  - stew
+  - slow-cooker
+  - british
+images:
+  - file: hero.jpg
+    alt: A slow cooker full of beef stew with chunks of carrot, potato and meat under a glass lid.
+
+  - file: eating.jpg
+    alt: A woman screwing up her face as she eats a spoonful of stew from a green bowl.
+    caption: A very enthusiastic review.
+components:
+  - id: base
+    title: Vegetables and liquid
+    ingredients:
+      - id: onion
+        ingredient: onion
+        quantity:
+          amount: 1
+          unit: each
+        note: large
+      - id: potato
+        ingredient: potato
+        quantity:
+          amount: 500
+          unit: g
+        note: cubed into bite-sized pieces
+      - id: carrot
+        ingredient: carrot
+        quantity:
+          amount: 4
+          unit: each
+        note: medium
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 4
+          unit: each
+      - id: stock
+        ingredient: beef-stock
+        quantity:
+          amount: 300
+          unit: ml
+      - id: tomato-puree
+        ingredient: tomato-puree
+        quantity:
+          amount: 32
+          unit: g
+        note: 2 tbsp
+      - id: red-wine
+        ingredient: red-wine
+        quantity:
+          amount: 200
+          unit: ml
+      - id: worcestershire
+        ingredient: worcestershire-sauce
+        quantity:
+          amount: 30
+          unit: ml
+        note: about 2 tbsp
+      - id: thyme
+        ingredient: dried-thyme
+        quantity:
+          amount: 1
+          unit: tbsp
+
+  - id: meat
+    title: Meat
+    ingredients:
+      - id: beef
+        ingredient: diced-beef
+        quantity:
+          amount: 800
+          unit: g
+        swaps:
+          - ingredient: diced-lamb
+            ratio: 1
+            quality: close
+            note: The recipe title offers beef or lamb.
+      - id: salt
+        ingredient: salt
+      - id: pepper
+        ingredient: black-pepper
+
+  - id: thickener
+    title: Thickener
+    ingredients:
+      - id: cornflour
+        ingredient: cornflour
+        quantity:
+          amount: 30
+          unit: g
+steps:
+  - id: prepare
+    title: Prepare the vegetables
+    component: base
+    kind: prep
+    text: Chop the vegetables before loading the slow cooker.
+    substeps:
+      - Cut {onion} and {potato} into bite-sized pieces.
+      - Quarter {carrot} lengthwise and slice.
+      - Peel {garlic}.
+    active_min: 20
+    make_ahead: true
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: fill-cooker
+    title: Fill the slow cooker
+    component: base
+    kind: prep
+    text: Put everything except the beef and cornflour into the slow cooker.
+    substeps:
+      - Add the vegetables, {stock}, {tomato-puree}, {red-wine}, {worcestershire} and {thyme} to the slow cooker.
+    active_min: 3
+    tools:
+      - tool: slow-cooker
+    after:
+      - prepare
+
+  - id: sear-beef
+    title: Sear the meat
+    component: meat
+    kind: cook
+    text: Season the beef and sear it in a hot pan until it has a good colour, then add it to the slow cooker.
+    substeps:
+      - Season {beef} with {salt} and {pepper}.
+      - Sear it in a hot pan until it gets a good colour.
+      - If anything sticks, deglaze the pan with a little of the stock or wine.
+      - Add the beef (and the pan juices) to the slow cooker.
+    cue: The meat is well browned on all sides and the pan has a fond that lifts with a splash of liquid.
+    heat: high
+    active_min: 10
+    tools:
+      - tool: frying-pan
+      - tool: tongs
+    after:
+      - prepare
+
+  - id: slow-cook
+    title: Cook on low
+    component: base
+    kind: cook
+    text: Cook on low for about 6 hours.
+    cue: The meat is tender enough to break apart with a spoon and the carrots and potatoes are soft.
+    heat: low
+    active_min: 2
+    passive_min: 360
+    tools:
+      - tool: slow-cooker
+    after:
+      - fill-cooker
+      - sear-beef
+
+  - id: thicken
+    title: Thicken the stew
+    component: thickener
+    kind: cook
+    text: Mix the cornflour with about a cup of the juices until smooth, stir it back in and cook for a final 15 minutes or so.
+    substeps:
+      - Ladle about a cup (240 ml) of the juices out of the slow cooker.
+      - Mix {cornflour} into it until there are no lumps.
+      - Add it back to the slow cooker and mix the contents thoroughly.
+      - Cook for a final 15 minutes or so.
+    cue: The juices have thickened to a gravy that coats the back of a spoon.
+    heat: low
+    active_min: 3
+    passive_min: 15
+    tools:
+      - tool: slow-cooker
+      - tool: ladle
+    after:
+      - slow-cook
+notes:
+  - "Lamb: the title is beef or lamb; use diced lamb for the same weight."
+open_questions:
+  - Servings are assumed (4).
+  - The cornflour step is assumed to be on low.
+  - A "cup" of juices is taken as about 240 ml.

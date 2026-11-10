@@ -1,0 +1,95 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: popcorn
+title: Popcorn
+summary: Kernels popped in hot olive oil in a lidded pot, then stirred with butter and salt.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 2
+tags:
+  - snack
+  - quick
+  - vegetarian
+
+images:
+  - file: hero.jpg
+    alt: A large brown mixing bowl heaped with popcorn.
+
+components:
+  - id: popcorn
+    title: Popcorn
+    ingredients:
+      - id: kernels
+        ingredient: popcorn-kernels
+        quantity:
+          amount: 60
+          unit: g
+        note: unpopped, 30 g per person
+      - id: olive-oil
+        ingredient: olive-oil
+        quantity:
+          amount: 10
+          unit: ml
+        note: 1 tsp per person
+      - id: butter
+        ingredient: butter
+        quantity:
+          amount: 30
+          unit: g
+        note: 1 tbsp per person
+      - id: salt
+        ingredient: salt
+        note: table salt
+
+steps:
+  - id: heat-oil
+    title: Heat the oil
+    component: popcorn
+    kind: cook
+    text: Heat {olive-oil} in a large pot on a high heat until it has reached temperature.
+    cue: The oil shimmers and is very hot.
+    heat: high
+    active_min: 2
+    tools:
+      - tool: large-pot
+      - tool: hob
+    after: []
+
+  - id: pop-kernels
+    title: Pop the kernels
+    component: popcorn
+    kind: cook
+    text: Pour in {kernels}, taking care to avoid splashback, put the lid on and shake the pot until the popping slows right down.
+    substeps:
+      - Pour the kernels in, being careful not to burn yourself with splashback.
+      - Put the lid on, and every 10 to 20 seconds move the pot in a circular pattern to move the kernels about.
+      - After a few minutes the kernels start to pop. Keep moving the pot in a circular pattern so the kernels and popcorn do not burn.
+      - Once most of the kernels have popped, turn off the hob and take the pot off the heat.
+    cue: The popping has slowed to a few seconds between pops, and there is no smell of burning.
+    heat: high
+    active_min: 4
+    passive_min: 1
+    tools:
+      - tool: large-pot
+      - tool: hob
+    after:
+      - heat-oil
+
+  - id: butter-and-serve
+    title: Add butter and salt and serve
+    component: popcorn
+    kind: serve
+    text: Stir {butter} and {salt} through the popcorn with a large wooden spoon until evenly mixed, then tip into a bowl.
+    cue: The butter has melted and every piece is evenly coated.
+    active_min: 2
+    tools:
+      - tool: wooden-spoon
+      - tool: mixing-bowl
+    after:
+      - pop-kernels
+
+notes:
+  - "Best accompanied by a good 80s film such as Blade Runner."
+
+open_questions:
+  - "Servings are assumed to be 2, at the amounts given per person."

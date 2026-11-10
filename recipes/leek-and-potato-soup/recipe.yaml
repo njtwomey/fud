@@ -1,0 +1,193 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: leek-and-potato-soup
+title: Leek and Potato Soup
+summary: A thick, plain leek and potato soup with milk and stock, blended smooth and topped with crispy chorizo if you like.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - soup
+  - dinner
+  - lunch
+  - simmering
+  - one-pot
+
+images:
+  - file: hero.jpg
+    alt: A yellow bowl of smooth pale green leek and potato soup with a drizzle of oil, with a plate of bread beside it.
+
+components:
+  - id: soup
+    title: Soup
+    ingredients:
+      - id: butter
+        ingredient: butter
+        quantity:
+          amount: 50
+          unit: g
+        note: honestly, the more you use the better
+      - id: leeks
+        ingredient: leek
+        quantity:
+          amount: 3
+          unit: each
+        note: medium
+      - id: onion
+        ingredient: onion
+        quantity:
+          amount: 1
+          unit: each
+        note: medium
+      - id: potatoes
+        ingredient: potato
+        quantity:
+          amount: 3
+          unit: each
+        note: medium
+      - id: salt
+        ingredient: salt
+        note: to season
+      - id: pepper
+        ingredient: black-pepper
+        note: to season
+      - id: herbs
+        ingredient: herbes-de-provence
+        quantity:
+          amount: 1
+          unit: tbsp
+        optional: true
+        note: optional; most of the time I leave them out
+      - id: stock
+        ingredient: vegetable-stock
+        quantity:
+          amount: 600
+          unit: ml
+      - id: milk
+        ingredient: whole-milk
+        quantity:
+          amount: 250
+          unit: ml
+
+  - id: crispy-chorizo
+    title: Crispy chorizo
+    ingredients:
+      - id: chorizo
+        ingredient: chorizo
+        quantity:
+          amount: 20
+          unit: g
+        optional: true
+
+steps:
+  - id: prepare-veg
+    title: Dice the vegetables
+    component: soup
+    kind: prep
+    text: Dice {leeks}, {onion} and {potatoes} into small pieces.
+    substeps:
+      - The size does not really matter, but smaller potatoes cook quickly if you are in a hurry.
+      - Leave the skins on the potatoes, but wash them well.
+    active_min: 12
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: sweat-veg
+    title: Sweat the leeks and onion
+    component: soup
+    kind: cook
+    text: Melt {butter} in a large pot, add the leeks and onion with {salt} and {pepper} and sweat for 5 to 10 minutes on a medium heat.
+    substeps:
+      - Add some {herbs} here if you would like.
+      - While the leeks sweat, soak the diced potatoes in cold water to remove some starch. This is a habit; it may not be strictly necessary.
+    cue: The leeks and onion are soft and glossy without browning.
+    heat: medium
+    active_min: 4
+    passive_min: 6
+    tools:
+      - tool: large-pot
+      - tool: wooden-spoon
+      - tool: hob
+    after:
+      - prepare-veg
+
+  - id: bring-to-simmer
+    title: Add the potatoes, stock and milk
+    component: soup
+    kind: cook
+    text: Add the drained potatoes, then the stock and the milk, and slowly bring up to a light simmer while stirring.
+    substeps:
+      - Drain the potatoes and add them to the pot.
+      - Prepare {stock} and add it, then add {milk}.
+      - Bring the temperature up slowly, stirring. This is the only important step. If you bring it to the boil too quickly you risk curdling the milk.
+    cue: Small bubbles just breaking at the edge of the pot, not a rolling boil.
+    heat: low
+    active_min: 8
+    tools:
+      - tool: large-pot
+      - tool: wooden-spoon
+      - tool: colander
+    after:
+      - sweat-veg
+
+  - id: simmer-soup
+    title: Simmer the soup
+    component: soup
+    kind: cook
+    text: Simmer for 30 minutes, stirring occasionally, until it thickens and the vegetables are very soft.
+    substeps:
+      - I like a thick soup. If you do not, add more liquid to thin it.
+    cue: The soup has thickened and all the vegetables are soft.
+    heat: low
+    active_min: 5
+    passive_min: 25
+    tools:
+      - tool: large-pot
+    after:
+      - bring-to-simmer
+
+  - id: crisp-chorizo
+    title: Crisp the chorizo
+    component: crispy-chorizo
+    kind: cook
+    text: Optionally, dice {chorizo} very small and fry it on a medium heat until it begins to crisp up.
+    cue: The pieces are crisp at the edges and the pan is full of red oil.
+    heat: medium
+    active_min: 6
+    tools:
+      - tool: frying-pan
+      - tool: knife
+    after:
+      - bring-to-simmer
+
+  - id: blend-soup
+    title: Blend until smooth
+    component: soup
+    kind: cook
+    text: Once cooked, use a hand blender to make the soup smooth.
+    cue: Completely smooth, with no lumps of potato or leek.
+    active_min: 3
+    tools:
+      - tool: stick-blender
+    after:
+      - simmer-soup
+
+  - id: serve-soup
+    title: Serve
+    component: soup
+    kind: serve
+    text: Serve with fresh bread, perhaps wholemeal, and maybe some cream or oil on top. Spoon the chorizo over and drizzle with the oil from the pan.
+    active_min: 2
+    after:
+      - blend-soup
+      - crisp-chorizo
+
+notes:
+  - "I like a basic leek and potato soup, so I usually add no extra herbs."
+  - "Serve with fresh wholemeal bread."
+
+open_questions:
+  - "Servings are assumed to be 4."
+  - "The stock is taken as ready-made 600 ml; it is not said whether it comes from a cube."

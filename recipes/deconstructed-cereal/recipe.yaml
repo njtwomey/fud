@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: deconstructed-cereal
+title: Deconstructed Cereal
+summary: Dry cereal in a bowl and a glass of milk on the side, served as is without additional fuss.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 1
+tags:
+  - breakfast
+  - no-cook
+  - quick
+  - vegetarian
+
+images:
+  - file: hero.jpg
+    alt: A green bowl of puffed rice cereal next to a glass of milk with a cat-paw pattern, on a wooden table.
+
+components:
+  - id: cereal
+    title: Cereal and milk
+    ingredients:
+      - id: cereal
+        ingredient: cereal
+        quantity:
+          amount: 40
+          unit: g
+        note: cereal of choice
+      - id: milk
+        ingredient: whole-milk
+        quantity:
+          amount: 200
+          unit: ml
+        note: 1 glass
+
+steps:
+  - id: pour
+    title: Pour the cereal and milk
+    component: cereal
+    kind: prep
+    text: Pour {cereal} into a bowl, and {milk} into a separate glass.
+    active_min: 1
+    after: []
+
+  - id: serve
+    title: Serve
+    component: cereal
+    kind: serve
+    text: Serve as it is, without additional garnish or fuss.
+    active_min: 1
+    after:
+      - pour
+
+notes:
+  - "A classic and an instant hit for Jen. Although it is mostly a morning meal, aspects of it are enjoyed throughout the day."
+
+open_questions:
+  - "A glass of milk is taken as about 200 ml."

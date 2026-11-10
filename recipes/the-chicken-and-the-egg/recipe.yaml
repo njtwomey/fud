@@ -1,0 +1,381 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: the-chicken-and-the-egg
+title: The Chicken and the Egg
+summary: Sesame chicken fried rice with a slow-cooked, shredded whole chicken, staggered stir-fried vegetables, egg curds and day-old basmati.
+version: 1
+date: 2026-08-17
+status: draft
+servings: 4
+tags:
+  - dinner
+  - chinese
+  - rice-dish
+  - slow-cooker
+  - make-ahead
+  - project
+
+images:
+  - file: hero.jpg
+    alt: A white bowl of fried rice with julienned vegetables, shredded chicken piled on top and sliced spring onion scattered over.
+
+components:
+  - id: rice
+    title: Rice
+    ingredients:
+      - id: rice
+        ingredient: basmati-rice
+        quantity:
+          amount: 300
+          unit: g
+        note: dry weight, cooked and chilled ahead
+
+  - id: chicken
+    title: Slow-cooked chicken
+    ingredients:
+      - id: chicken
+        ingredient: whole-chicken
+        quantity:
+          amount: 1
+          unit: each
+      - id: salt-chicken
+        ingredient: salt
+        note: to season the skin
+
+  - id: vegetables
+    title: Vegetables
+    ingredients:
+      - id: oil-veg
+        ingredient: vegetable-oil
+        quantity:
+          amount: 45
+          unit: ml
+        note: about 3 tbsp, assumed
+      - id: garlic-veg
+        ingredient: garlic
+        quantity:
+          amount: 3
+          unit: each
+        note: puree, half the garlic
+      - id: carrot
+        ingredient: carrot
+        quantity:
+          amount: 1
+          unit: each
+        note: large
+      - id: red-onion
+        ingredient: red-onion
+        quantity:
+          amount: 1
+          unit: each
+        note: medium
+      - id: baby-corn
+        ingredient: baby-corn
+        quantity:
+          amount: 100
+          unit: g
+      - id: courgette
+        ingredient: courgette
+        quantity:
+          amount: 1
+          unit: each
+        note: large
+      - id: mangetout
+        ingredient: mangetout
+        quantity:
+          amount: 100
+          unit: g
+        note: or sugar snap peas
+      - id: spring-onion-white
+        ingredient: spring-onion
+        quantity:
+          amount: 0.5
+          unit: each
+        note: the whites of 1 bunch
+      - id: soy-sauce
+        ingredient: soy-sauce
+        quantity:
+          amount: 30
+          unit: ml
+        note: about 2 tbsp
+      - id: sesame-oil-veg
+        ingredient: sesame-oil
+        quantity:
+          amount: 15
+          unit: ml
+        note: about 1 tbsp
+
+  - id: egg
+    title: Egg
+    ingredients:
+      - id: egg
+        ingredient: egg
+        quantity:
+          amount: 3
+          unit: each
+      - id: salt-egg
+        ingredient: salt
+        note: a pinch
+      - id: oil-egg
+        ingredient: vegetable-oil
+        note: a little, for the pan
+
+  - id: fried-rice
+    title: Fried rice
+    ingredients:
+      - id: oil-rice
+        ingredient: vegetable-oil
+        note: a little, for the pan
+      - id: garlic-rice
+        ingredient: garlic
+        quantity:
+          amount: 3
+          unit: each
+        note: puree, the other half
+      - id: sesame-oil-rice
+        ingredient: sesame-oil
+        quantity:
+          amount: 15
+          unit: ml
+        note: about 1 tbsp
+
+  - id: finish
+    title: To finish
+    ingredients:
+      - id: sesame-seeds
+        ingredient: sesame-seeds
+        quantity:
+          amount: 9
+          unit: g
+        note: about 1 tbsp
+      - id: five-spice
+        ingredient: chinese-five-spice
+        quantity:
+          amount: 0.25
+          unit: tsp
+      - id: salt-finish
+        ingredient: salt
+        note: a pinch
+      - id: sesame-oil-finish
+        ingredient: sesame-oil
+        note: a few drops
+      - id: spring-onion-green
+        ingredient: spring-onion
+        quantity:
+          amount: 0.5
+          unit: each
+        note: the greens of 1 bunch
+      - id: stock-cube
+        ingredient: vegetable-stock-cube
+        optional: true
+        note: not tested in this version, see notes
+
+steps:
+  - id: cook-rice
+    title: Cook the rice ahead
+    component: rice
+    kind: cook
+    text: Cook {rice} by your usual method the day before, spread it out to cool quickly and refrigerate it.
+    substeps:
+      - Cook the rice.
+      - Spread it out on a tray and leave until no steam rises and the surface feels dry to the touch.
+      - Refrigerate uncovered, overnight if you can, until the grains are cold and separate rather than tacky.
+    cue: No steam rises and the grains are dry to the touch, then cold and separate in the fridge rather than tacky.
+    active_min: 5
+    passive_min: 30
+    make_ahead: true
+    tools:
+      - tool: saucepan
+        alternatives:
+          - rice-cooker
+      - tool: baking-tray
+    after: []
+
+  - id: chill-rice
+    title: Chill the rice
+    component: rice
+    kind: wait
+    text: Leave the rice in the fridge until it is completely cold. Cold, dried-out rice fries; warm rice steams.
+    passive_min: 240
+    make_ahead: true
+    tools:
+      - tool: fridge
+    after:
+      - cook-rice
+
+  - id: slow-cook-chicken
+    title: Slow cook the chicken
+    component: chicken
+    kind: cook
+    text: Cook the whole chicken in the slow cooker, resting on foil so it sits clear of its own juices.
+    substeps:
+      - Pat {chicken} dry on all surfaces with kitchen paper.
+      - Roll three balls of tinfoil and set them in the base of the slow cooker.
+      - Rest the chicken on the tinfoil so that it sits clear of the liquid that will gather beneath.
+      - Season the skin with {salt-chicken}.
+      - Cook for 6 hours on low, or 4 hours on high.
+    cue: The leg joint moves freely and the meat pulls away from the bone without resistance.
+    active_min: 10
+    passive_min: 360
+    make_ahead: true
+    tools:
+      - tool: slow-cooker
+      - tool: tinfoil
+    after: []
+
+  - id: shred-chicken
+    title: Cool and shred the chicken
+    component: chicken
+    kind: prep
+    text: Let the chicken cool enough to handle, then shred the meat and set it aside, keeping a few spoonfuls of the cooking liquid.
+    substeps:
+      - Leave until cool enough to handle comfortably.
+      - Shred the meat and set it aside.
+      - Reserve a few spoonfuls of the liquid from the base of the cooker, to loosen the rice later if it runs dry.
+    cue: The meat comes off the bone in loose shreds with no need to cut it.
+    active_min: 15
+    passive_min: 30
+    make_ahead: true
+    tools:
+      - tool: chopping-board
+    after:
+      - slow-cook-chicken
+
+  - id: prep-veg
+    title: Cut the vegetables and beat the eggs
+    component: vegetables
+    kind: prep
+    text: Cut every vegetable before the pan goes on, keeping the white and green spring onion separate, and beat the eggs.
+    substeps:
+      - Julienne {carrot} and {courgette}.
+      - Dice {red-onion}.
+      - Halve {baby-corn} lengthways, then across.
+      - Slice {mangetout} on the diagonal.
+      - Slice the spring onions, keeping the whites and the greens separate and cutting the greens more finely than the whites.
+      - Beat {egg} with {salt-egg}.
+    active_min: 15
+    make_ahead: true
+    tools:
+      - tool: knife
+      - tool: chopping-board
+      - tool: mixing-bowl
+    after: []
+
+  - id: stir-fry-veg
+    title: Stir fry the vegetables
+    component: vegetables
+    kind: cook
+    text: Brown half the garlic briefly, then add the vegetables in order of cooking time, finishing with soy sauce and half the sesame oil.
+    substeps:
+      - Heat {oil-veg} in the large pan over a firm but not fierce heat, until a shred of carrot sizzles on contact.
+      - Add {garlic-veg} and cook until it takes light colour, a matter of seconds, as it burns readily.
+      - Add the {carrot:name} and {red-onion:name} at once and stir fry for 2 minutes, until the onion turns translucent at the edges.
+      - Add the {baby-corn:name} and {courgette:name} and stir fry for a further 5 to 8 minutes, stirring constantly, until the courgette is yielding but the carrot still offers resistance.
+      - Add the {mangetout:name} and the spring onion whites ({spring-onion-white}) and cook for 1 minute more.
+      - Add {soy-sauce} and {sesame-oil-veg} and turn everything through until evenly coated.
+      - "Optional, not tested in this version, if it tastes flat: crumble in {stock-cube}."
+      - Remove to a bowl and keep the pan hot.
+    cue: The mangetout turns a deeper green and stays audibly crisp, and everything is evenly coated in soy.
+    heat: medium-high
+    active_min: 14
+    tools:
+      - tool: wok
+        alternatives:
+          - frying-pan
+      - tool: wooden-spoon
+    after:
+      - prep-veg
+
+  - id: cook-egg
+    title: Scramble the egg
+    component: egg
+    kind: cook
+    text: Cook the beaten egg in the same hot pan as loose curds and tip it onto the vegetables.
+    substeps:
+      - Add {oil-egg} to the pan.
+      - Pour in the beaten egg and leave undisturbed for a few seconds, until the underside sets and lifts from the pan.
+      - Break it into loose curds with the edge of the spoon.
+      - Remove to the bowl with the vegetables while the curds are still glossy rather than dry.
+    cue: The underside has set and lifts from the pan, and the curds look glossy, not dry.
+    heat: medium-high
+    active_min: 3
+    tools:
+      - tool: wok
+        alternatives:
+          - frying-pan
+      - tool: wooden-spoon
+    after:
+      - stir-fry-veg
+
+  - id: fry-rice
+    title: Fry the rice
+    component: fried-rice
+    kind: cook
+    text: Brown the rest of the garlic, fry the cold rice until hot and loose, then fold the vegetables and egg back in off the heat.
+    substeps:
+      - Add {oil-rice} to the pan.
+      - Add {garlic-rice} and cook until lightly coloured, again a matter of seconds.
+      - Add the cold rice, breaking the clumps against the side of the pan.
+      - Stir constantly for 3 to 4 minutes.
+      - Add {sesame-oil-rice}.
+      - If the rice looks dry or catches, add a spoonful of the reserved chicken liquid.
+      - Return the vegetables and egg to the pan and fold through off the heat.
+    cue: The grains separate, move freely and are hot at the centre.
+    heat: medium-high
+    active_min: 7
+    tools:
+      - tool: wok
+        alternatives:
+          - frying-pan
+      - tool: wooden-spoon
+    after:
+      - cook-egg
+      - chill-rice
+
+  - id: toast-chicken
+    title: Toast the seeds and warm the chicken
+    component: finish
+    kind: cook
+    text: Toast the sesame seeds in a small dry pan, then toss the shredded chicken through them with the five spice, salt and sesame oil until hot, coloured and coated.
+    substeps:
+      - Toast {sesame-seeds} in the small dry pan over a moderate heat for 2 to 3 minutes, shaking often.
+      - Add the shredded chicken, {five-spice}, {salt-finish} and {sesame-oil-finish}.
+      - Toss for 2 to 3 minutes. The meat is already cooked, so this is for temperature, colour and coating only.
+    cue: The seeds smell nutty and the palest ones turn straw-coloured. The chicken is hot through, has taken some colour and is evenly coated in seeds.
+    heat: medium
+    active_min: 6
+    tools:
+      - tool: frying-pan
+      - tool: wooden-spoon
+    after:
+      - shred-chicken
+      - fry-rice
+
+  - id: serve
+    title: Plate and serve
+    component: finish
+    kind: serve
+    text: Plate the rice and vegetables, mound the chicken on top and scatter with the green spring onion.
+    substeps:
+      - Plate the rice and vegetables.
+      - Mound the chicken on top.
+      - Scatter with the spring onion greens ({spring-onion-green}).
+    active_min: 3
+    after:
+      - toast-chicken
+
+notes:
+  - "Make-ahead: the rice and the chicken are both done in advance, which is why the dish assembles quickly. The rice may be cooked on the morning, provided it has several hours in the fridge; the chilling is what matters, not the calendar day. The vegetables may be cut a few hours ahead and kept covered in the fridge."
+  - "Storage: best eaten on the day of assembly. Leftovers keep refrigerated in a sealed container for up to two days and reheat well in a hot pan with a little oil. Shredded chicken from the slow cooker keeps three days refrigerated, or freezes well, before the finishing stage."
+  - "Garlic: fresh garlic, finely chopped, may replace the puree, though it colours faster still and should be watched closely."
+  - "Optional, not tested in this version: a cube of vegetable stock, which can be added to the vegetables for extra flavour. It was left out in favour of the reserved chicken liquid, which does a similar job without a second source of salt beside the soy. Try it if the dish tastes flat."
+  - "Original cook's note: if you have the patience, cook each vegetable separately with fractions of the oil and soy. This version staggers them into one pan by cooking time instead."
+  - "About this version: the egg the dish is named for (and shown in the photo) is included, as 3 eggs; the red onion and mangetout go into the pan; vegetable oil is listed; Chinese five spice (a small amount) goes with the chicken; baby corn and mangetout are cut rather than diced; plating happens once, at the end."
+
+open_questions:
+  - Servings are assumed as 4.
+  - Oil for the vegetables (about 3 tbsp) is assumed.
+  - Does a quarter teaspoon of five spice register against the sesame, or does it need raising?
+  - Is the egg better folded through as curds or left as ribbons on top?
+  - Does the mangetout hold its texture at one minute, or want less?
+  - Does the rice need the reserved chicken liquid, or does it fry dry without catching?
+  - Do the vegetables taste flat without the stock cube?

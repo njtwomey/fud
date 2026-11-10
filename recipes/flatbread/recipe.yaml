@@ -1,0 +1,128 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: flatbread
+title: Flatbread
+summary: A lazy two-ingredient dough rolled thin and cooked in a very hot dry pan, good as a wrap for a simple sandwich.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 1
+tags:
+  - bread
+  - wrap-flatbread
+  - frying
+  - quick
+  - vegetarian
+
+images:
+  - file: hero.jpg
+    alt: A blistered, bubbly flatbread cooking in a black frying pan.
+
+components:
+  - id: dough
+    title: Dough
+    ingredients:
+      - id: flour
+        ingredient: self-raising-flour
+        quantity:
+          amount: 150
+          unit: g
+      - id: water
+        ingredient: water
+        quantity:
+          amount: 120
+          unit: ml
+      - id: salt
+        ingredient: salt
+        note: sea salt
+      - id: rosemary
+        ingredient: rosemary
+        optional: true
+        note: optional flavouring, depending on the filling
+
+  - id: garlic-butter
+    title: Garlic butter
+    ingredients:
+      - id: butter
+        ingredient: butter
+        quantity:
+          amount: 15
+          unit: g
+        optional: true
+        note: about 1 tbsp; not for Jen
+      - id: garlic
+        ingredient: garlic
+        optional: true
+        note: diced; not for Jen
+
+steps:
+  - id: make-dough
+    title: Mix and knead the dough
+    component: dough
+    kind: prep
+    text: Mix {flour}, {water} and {salt} in a bowl, and knead for a minute once it comes together.
+    active_min: 4
+    tools:
+      - tool: mixing-bowl
+    after: []
+
+  - id: roll-out
+    title: Roll out the dough
+    component: dough
+    kind: prep
+    text: Roll the dough out with a rolling pin to about the size of your frying pan, reasonably thin so it cooks very fast.
+    substeps:
+      - "Flavouring, if any, goes in at this stage and depends on what you are putting in the sandwich: {rosemary}, garlic or extra sea salt for texture."
+    active_min: 3
+    tools:
+      - tool: rolling-pin
+    after:
+      - make-dough
+
+  - id: cook-flatbread
+    title: Cook in a very hot pan
+    component: dough
+    kind: cook
+    text: Heat the frying pan on the highest heat, lay the dough in it once it is very hot, and cook a few minutes each side.
+    substeps:
+      - Turn a large ring onto its highest heat and let the frying pan heat up.
+      - Put the rolled dough in the pan. It should start to bubble in the middle after about a minute.
+      - Leave it as it is for a few minutes until the underside has a nice textured colour, then flip it and cook for another few minutes.
+    cue: Bubbles across the surface and a textured golden colour on the underside.
+    heat: high
+    active_min: 8
+    tools:
+      - tool: frying-pan
+      - tool: hob
+      - tool: fish-slice
+    after:
+      - roll-out
+
+  - id: make-garlic-butter
+    title: Make garlic butter (optional)
+    component: garlic-butter
+    kind: cook
+    text: "Not for Jen: if the filling goes well with garlic, use the residual heat of the pan to make a garlic butter by adding {butter} and {garlic} until lightly toasted, then put the flatbread in top-side down to soak it up."
+    cue: The garlic is lightly toasted and the butter has soaked into the flatbread.
+    active_min: 2
+    tools:
+      - tool: frying-pan
+    after:
+      - cook-flatbread
+
+  - id: cool-and-fill
+    title: Cool and build the sandwich
+    component: dough
+    kind: serve
+    text: Leave the flatbread to cool a little on a cooking tray, then build your sandwich up as you like.
+    active_min: 3
+    tools:
+      - tool: baking-tray
+    after:
+      - make-garlic-butter
+
+notes:
+  - "This is really an embarrassingly simple pizza dough, much lazier than the proper one. It works well as a wrap for a simple sandwich with coleslaw, left-over meat, cheese and so on."
+  - "Other flatbread recipes use yoghurt, the same weight as the flour, instead of water, and are cooked in much the same way."
+
+open_questions:
+  - "The garlic butter variation says 'a tablespoon of butter' and 'some diced garlic'; 15 g butter is used and the garlic is left unmeasured."

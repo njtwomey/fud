@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 80,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string"
+          },
+          "spoon_measures": {
+            "default": false,
+            "description": "Allow tsp and tbsp for ingredients in this category (herbs and spices).",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "label"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "ingredients": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 80,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "UK display name, singular or mass noun: 'garlic', 'basmati rice'."
+          },
+          "plural": {
+            "description": "Plural display name for counted items without each_label: 'red peppers'.",
+            "type": "string"
+          },
+          "category": {
+            "type": "string",
+            "maxLength": 80,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "description": "Category id from the `categories` list in ingredients.yaml."
+          },
+          "aliases": {
+            "default": [],
+            "description": "Other names, used by import and authoring lookups.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "each_label": {
+            "description": "Singular name of one item for 'each' quantities: 'clove', 'head'.",
+            "type": "string"
+          },
+          "each_g": {
+            "description": "Grams in one 'each'. Required to use unit 'each'.",
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "density_g_per_ml": {
+            "description": "Grams per ml. Needed to turn ml or l into grams.",
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "nutrition": {
+            "description": "Per 100 g.",
+            "type": "object",
+            "properties": {
+              "kcal": {
+                "type": "number",
+                "minimum": 0
+              },
+              "protein_g": {
+                "type": "number",
+                "minimum": 0
+              },
+              "fat_g": {
+                "type": "number",
+                "minimum": 0
+              },
+              "saturates_g": {
+                "type": "number",
+                "minimum": 0
+              },
+              "carbs_g": {
+                "type": "number",
+                "minimum": 0
+              },
+              "sugars_g": {
+                "type": "number",
+                "minimum": 0
+              },
+              "fibre_g": {
+                "type": "number",
+                "minimum": 0
+              },
+              "salt_g": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "additionalProperties": false
+          },
+          "nutrition_source": {
+            "description": "e.g. 'estimate' or a named database.",
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "category"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "categories",
+    "ingredients"
+  ],
+  "additionalProperties": false
+}

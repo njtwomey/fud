@@ -1,0 +1,177 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: potatoes
+title: Potatoes
+summary: One shared method for boiled and par-boiled potatoes, with the extra steps for mashed and roast.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - side
+  - basic
+  - vegetarian
+  - roasting
+
+images:
+  - file: hero.jpg
+    alt: Mashed potato with whole peas stirred through it on a plate.
+    caption: Mashed potato with peas mixed in (the peas are not for Jen).
+
+components:
+  - id: potatoes
+    title: Potatoes
+    ingredients:
+      - id: potato
+        ingredient: potato
+        note: desired amount; a variety sold as a good all-rounder covers all bases
+      - id: salt
+        ingredient: salt
+        note: to taste
+      - id: pepper
+        ingredient: black-pepper
+        note: to taste
+
+  - id: mash
+    title: Mashed potatoes
+    ingredients:
+      - id: butter
+        ingredient: butter
+        quantity:
+          amount: 30
+          unit: g
+        note: depends on the amount of potato; add more if making lots
+      - id: milk
+        ingredient: whole-milk
+        quantity:
+          amount: 50
+          unit: ml
+      - id: cheese
+        ingredient: cheddar-cheese
+        optional: true
+        note: optional, any amount
+      - id: peas
+        ingredient: peas
+        optional: true
+        note: not for Jen
+
+  - id: roast
+    title: Roast potatoes
+    ingredients:
+      - id: goose-fat
+        ingredient: goose-fat
+        optional: true
+        note: or another fat
+      - id: rosemary
+        ingredient: rosemary
+        optional: true
+        note: or other herbs
+
+steps:
+  - id: prepare-potatoes
+    title: Peel, cut and soak
+    component: potatoes
+    kind: prep
+    text: Peel {potato:name}, cut it into the size and shape you want, and leave it in cold water for a while.
+    substeps:
+      - Peel the potatoes.
+      - Cut them into the desired size and shape. Quarter them for roasting.
+      - Leave them to sit in cold water for a while.
+    active_min: 8
+    passive_min: 15
+    make_ahead: true
+    tools:
+      - tool: peeler
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: boil-potatoes
+    title: Boil or par-boil the potatoes
+    component: potatoes
+    kind: cook
+    text: Put the drained potatoes in a large pot, cover them with water and boil them with the lid on, until a sharp knife goes through easily. Par-boil for half the time if they are going to be roasted.
+    substeps:
+      - Drain the potatoes and put them into a large pot. The pot must not be over-full, so use a large one.
+      - Pour boiling water from the kettle over them so they are covered by a few centimetres. If you are patient, use cold water instead, which cooks them more evenly but takes at least double the time. Use boiling water for par-boiling.
+      - Turn the hob on high, cover the pot and reduce the heat if necessary.
+      - Medium uncut potatoes take about 20 minutes. Quartered ones take less, so check after 10 minutes. A large whole potato can take about half an hour.
+      - For roast potatoes, quarter them and cook for only about 5 to 10 minutes, depending on size.
+      - Take them out, drain them and leave them to steam dry.
+    cue: A sharp knife pierces the potato easily (for par-boiling, the outsides are just starting to soften).
+    heat: high
+    active_min: 5
+    passive_min: 20
+    tools:
+      - tool: large-pot
+      - tool: kettle
+      - tool: colander
+      - tool: hob
+    after:
+      - prepare-potatoes
+
+  - id: mash-potatoes
+    title: Mash the potatoes
+    component: mash
+    kind: cook
+    text: Tip the cooked potatoes into a large bowl, season with {salt} and {pepper}, add {butter} and mash, then loosen with {milk}.
+    substeps:
+      - Season with {salt} and {pepper}.
+      - Add {butter}, a few tablespoons if making lots.
+      - Mash with the potato masher.
+      - Once relatively smooth, stir in {milk} and, if you like, some {cheese}.
+      - "Not for Jen: quickly boil some {peas}, drain them and mix them into the mash."
+    cue: Relatively smooth and creamy, with the butter melted through.
+    active_min: 8
+    tools:
+      - tool: mixing-bowl
+      - tool: potato-masher
+    after:
+      - boil-potatoes
+
+  - id: preheat-oven
+    title: Heat the oven
+    component: roast
+    kind: prep
+    text: Heat the oven to 220 °C. A hot oven helps make great roast potatoes.
+    temperature:
+      celsius: 220
+      mode: fan
+    passive_min: 15
+    tools:
+      - tool: oven
+    after: []
+
+  - id: roast-potatoes
+    title: Fluff, coat and roast
+    component: roast
+    kind: cook
+    text: Shake the par-boiled potatoes in the colander to fluff their edges, coat them in {goose-fat}, {salt}, {pepper} and {rosemary}, and roast, turning once.
+    substeps:
+      - Drain the par-boiled potatoes in a colander and shake them around so the outsides fluff up and round off. Leave them to steam dry for a few minutes.
+      - Put them in a bowl with {goose-fat}, {salt}, {pepper} and {rosemary}, and shake until they are well coated.
+      - Spread them evenly over a roasting dish and roast for about 15 minutes.
+      - Turn the potatoes and roast for a further 15 minutes.
+    cue: Golden and crisp on the outside.
+    temperature:
+      celsius: 220
+      mode: fan
+    active_min: 8
+    passive_min: 30
+    tools:
+      - tool: roasting-tin
+      - tool: colander
+      - tool: mixing-bowl
+      - tool: oven
+    after:
+      - boil-potatoes
+      - preheat-oven
+
+notes:
+  - "Peas are not for Jen: boil them quickly, drain and mix into the mash."
+  - "Some people add a few tablespoons of flour before roasting; I tend not to."
+  - "Patient method: start boiled or mashed potatoes in cold water rather than boiling water. They cook more evenly, but it needs at least double the cooking time."
+
+open_questions:
+  - "How many potatoes? It says 'desired amount', so no quantity is given. Servings of 4 are assumed."
+  - "The oven is 220 °C; fan is assumed, so check against your oven."
+  - "How much fat and herb for roasting, and how much cheese for the mash, is not stated."

@@ -1,0 +1,196 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: croquetas-from-roast-chicken
+title: Croquetas from Roast Chicken
+summary: A thick chicken béchamel chilled firm, rolled into cylinders, coated in flour, egg and breadcrumbs and deep fried until crisp.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - snack
+  - spanish
+  - deep-frying
+  - make-ahead
+
+images:
+  - file: hero.jpg
+    alt: Three golden breadcrumbed croquetas on a green plate beside a beetroot and carrot salad.
+
+components:
+  - id: filling
+    title: Chicken béchamel
+    ingredients:
+      - id: milk
+        ingredient: semi-skimmed-milk
+        quantity:
+          amount: 250
+          unit: ml
+      - id: butter
+        ingredient: butter
+        quantity:
+          amount: 30
+          unit: g
+        note: about 2 tbsp
+      - id: chicken
+        ingredient: cooked-chicken
+        quantity:
+          amount: 100
+          unit: g
+        note: roast chicken
+      - id: flour
+        ingredient: plain-flour
+        quantity:
+          amount: 30
+          unit: g
+        note: about 2 tbsp
+
+  - id: coating
+    title: Coating and frying
+    ingredients:
+      - id: flour-coat
+        ingredient: plain-flour
+        note: for dusting
+      - id: eggs
+        ingredient: egg
+        quantity:
+          amount: 2
+          unit: each
+        note: medium
+      - id: crumbs
+        ingredient: breadcrumbs
+        note: to coat
+      - id: oil
+        ingredient: vegetable-oil
+        note: enough to deep fry
+
+steps:
+  - id: heat-milk
+    title: Heat the milk
+    component: filling
+    kind: cook
+    text: Warm the milk in a saucepan and, once it boils, turn it right down to keep it hot until the sauce needs it.
+    substeps:
+      - Start warming {milk} in a saucepan.
+      - When it starts to boil, reduce the heat to the minimum.
+    heat: low
+    cue: The milk is steaming hot but not boiling.
+    active_min: 2
+    passive_min: 5
+    tools:
+      - tool: saucepan
+    after: []
+
+  - id: cook-roux
+    title: Fry the chicken, add flour
+    component: filling
+    kind: cook
+    text: In another pan, melt the butter and stir the chicken in for a few minutes, then add the flour and stir until it takes on a little golden colour.
+    substeps:
+      - Heat {butter} in a second pan and add {chicken}. Stir for a few minutes.
+      - Add {flour} and stir well.
+    heat: medium
+    cue: The flour has turned a little golden and smells slightly toasty.
+    active_min: 5
+    tools:
+      - tool: frying-pan
+      - tool: wooden-spoon
+    after: []
+
+  - id: make-bechamel
+    title: Whisk in the milk
+    component: filling
+    kind: cook
+    text: Add the hot milk little by little, whisking well, until the mixture is thick but runny.
+    substeps:
+      - Add the hot milk little by little, stirring well with a whisk. It helps to take the pan off the heat while you mix.
+      - If the mixture is too thick, put the pan back on the heat, add a tiny bit of milk, move it away from the heat and mix again. Repeat until the mixture is consistent.
+    cue: Thick but runny and smooth. If it is too runny, the croquetas will be hard to roll.
+    active_min: 8
+    tools:
+      - tool: whisk
+    after:
+      - heat-milk
+      - cook-roux
+
+  - id: chill
+    title: Spread and chill
+    component: filling
+    kind: wait
+    text: Spread the mixture on a plate as flat as possible and leave it for 30 minutes, then cover with cling film and chill for at least 3 hours.
+    substeps:
+      - Place the mixture on a plate, as flat as possible.
+      - Leave it to rest for 30 minutes.
+      - Cover with cling film and refrigerate for at least 3 hours.
+    cue: The mixture is cold and set firm enough to hold a shape in your hand.
+    active_min: 3
+    passive_min: 210
+    make_ahead: true
+    tools:
+      - tool: fridge
+    after:
+      - make-bechamel
+
+  - id: set-up-coating
+    title: Set up the coating
+    component: coating
+    kind: prep
+    text: Put the flour, beaten eggs and breadcrumbs into three bowls.
+    substeps:
+      - Put {flour-coat} in one bowl.
+      - Beat {eggs} in a second.
+      - Put {crumbs} in a third.
+    active_min: 4
+    tools:
+      - tool: mixing-bowl
+    after:
+      - chill
+
+  - id: shape-coat
+    title: Shape and coat
+    component: coating
+    kind: cook
+    text: Roll spoonfuls of the cold mixture into cylinders, then roll each in flour, egg and breadcrumbs in turn.
+    substeps:
+      - Take a spoonful of mixture into your hand, close your hand and roll it into a cylinder.
+      - Put the base in the flour and roll it with a fork.
+      - Do the same in the egg, and finally in the breadcrumbs.
+      - Lay them on a plate ready to fry.
+    cue: Each croqueta is evenly coated, with no bare patches.
+    active_min: 20
+    after:
+      - set-up-coating
+
+  - id: fry
+    title: Deep fry
+    component: coating
+    kind: cook
+    text: Fry in very hot oil in a deep saucepan until golden in under a minute, so they do not soak up oil and stay crisp.
+    substeps:
+      - Preheat {oil} in a deep saucepan, enough to deep fry the croquetas.
+      - Fry in batches until golden.
+    heat: high
+    cue: Golden in less than a minute. If they take longer, the oil is not hot enough.
+    active_min: 8
+    tools:
+      - tool: large-pot
+        alternatives:
+          - deep-fat-fryer
+
+  - id: drain
+    title: Rest on kitchen paper
+    component: coating
+    kind: serve
+    text: Rest the croquetas on kitchen paper for 15 minutes before serving.
+    cue: The surface is dry and no longer greasy.
+    passive_min: 15
+
+notes:
+  - "Make ahead: the chilled mixture needs at least 3 hours in the fridge, so make it earlier in the day or the day before."
+  - "The oil must be really hot so the croquetas are golden in less than a minute and do not soak up oil."
+
+open_questions:
+  - The breadcrumbs, vegetable oil and dusting flour have no quantity.
+  - Servings are assumed (4), and the yield is not stated.
+  - "The mixture rests for 30 minutes, then chills for at least 3 hours: 210 minutes in total."
+  - The frying oil temperature is not given. Is about 180 °C right?
+  - The flour is given as 2 tbsp and entered as 30 g, and the butter as 2 tbsp and entered as 30 g.

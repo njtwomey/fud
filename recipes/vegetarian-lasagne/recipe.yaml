@@ -1,0 +1,251 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: vegetarian-lasagne
+title: Vegetarian Lasagne
+summary: Layers of simple tomato sauce and a ricotta, leek, spinach and roasted squash sauce between lasagne sheets, baked until the top is golden.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 6
+tags:
+  - dinner
+  - italian
+  - pasta
+  - vegetarian
+  - weekend
+
+images:
+  - file: hero.jpg
+    alt: A square baking dish of lasagne with a spinach and ricotta top, with slices of mozzarella arranged in triangles on it.
+    caption: The mozzarella is shaped into triforce triangles.
+
+components:
+  - id: squash
+    title: Roasted squash
+    ingredients:
+      - id: squash
+        ingredient: butternut-squash
+        quantity:
+          amount: 1
+          unit: each
+        note: medium
+      - id: oil-squash
+        ingredient: olive-oil
+        note: to coat
+      - id: salt-squash
+        ingredient: salt
+      - id: pepper-squash
+        ingredient: black-pepper
+
+  - id: red-sauce
+    title: Red sauce
+    ingredients:
+      - id: oil-red
+        ingredient: olive-oil
+        note: to coat the pot
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 2
+          unit: each
+      - id: basil
+        ingredient: basil
+        quantity:
+          amount: 20
+          unit: g
+        note: 1 small bunch
+      - id: tomatoes
+        ingredient: tinned-chopped-tomatoes
+        quantity:
+          amount: 800
+          unit: g
+        note: 2 tins of 400 g
+      - id: salt-red
+        ingredient: salt
+
+  - id: white-sauce
+    title: White sauce
+    ingredients:
+      - id: oil-white
+        ingredient: olive-oil
+        note: to coat the pan
+      - id: leeks
+        ingredient: leek
+        quantity:
+          amount: 3
+          unit: each
+        note: 3 to 4
+      - id: spinach
+        ingredient: baby-spinach
+        quantity:
+          amount: 200
+          unit: g
+      - id: ricotta
+        ingredient: ricotta
+        quantity:
+          amount: 500
+          unit: g
+      - id: salt-white
+        ingredient: salt
+      - id: pepper-white
+        ingredient: black-pepper
+
+  - id: assembly
+    title: Assembly
+    ingredients:
+      - id: sheets
+        ingredient: lasagne-sheets
+        quantity:
+          amount: 300
+          unit: g
+        note: ideally fresh, but dried is fine
+      - id: parmesan
+        ingredient: parmesan
+        quantity:
+          amount: 100
+          unit: g
+        note: a teaspoon grated on each layer, the rest on top
+      - id: mozzarella
+        ingredient: mozzarella
+        quantity:
+          amount: 100
+          unit: g
+      - id: parmesan-serve
+        ingredient: parmesan
+        note: fresh, to serve
+
+steps:
+  - id: roast-squash
+    title: Roast the squash
+    component: squash
+    kind: cook
+    text: Heat the oven, then roast the squash in small cubes until cooked through.
+    substeps:
+      - Heat the oven to 200 °C fan.
+      - Peel {squash} and dice it into small cubes of about 1 cm.
+      - Put it in a roasting dish, drizzle with {oil-squash} and season with {salt-squash} and {pepper-squash}, then toss until everything is coated.
+      - Roast for 20 to 30 minutes.
+    cue: The cubes are soft all the way through when pierced with a knife, with some colour at the edges.
+    temperature:
+      celsius: 200
+      mode: fan
+    active_min: 10
+    passive_min: 25
+    tools:
+      - tool: oven
+      - tool: roasting-tin
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: make-red-sauce
+    title: Cook the red sauce
+    component: red-sauce
+    kind: cook
+    text: Fry the basil and garlic until the garlic is golden, then add the tomatoes and reduce until thick.
+    substeps:
+      - Finely dice the {basil:name} leaves and mince {garlic}.
+      - Heat {oil-red} in a medium pot and fry the basil and garlic until the garlic turns golden.
+      - Add {tomatoes} and season with {salt-red}.
+      - Let it reduce for about 20 minutes.
+    cue: The sauce has thickened and leaves a trail when you draw a spoon through it.
+    active_min: 8
+    passive_min: 20
+    tools:
+      - tool: saucepan
+      - tool: wooden-spoon
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: prep-greens
+    title: Clean the leeks and spinach
+    component: white-sauce
+    kind: prep
+    text: Wash the leeks and spinach, then slice the leeks and roughly chop the spinach.
+    substeps:
+      - Clean {leeks} carefully, cut each one lengthwise and slice finely.
+      - Wash and roughly chop {spinach}.
+    active_min: 8
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: make-white-sauce
+    title: Make the white sauce
+    component: white-sauce
+    kind: cook
+    text: Sweat the leeks, wilt in the spinach, then take the pan off the heat and stir in the ricotta and the roasted squash.
+    substeps:
+      - Heat {oil-white} in a second saucepan and sweat the leeks for 10 to 15 minutes.
+      - Add the spinach and stir for a minute or two until it wilts.
+      - Take the pan off the heat.
+      - Add {ricotta} and the roasted {squash:name}, mix thoroughly and season with {salt-white} and {pepper-white}.
+    cue: The leeks are soft and translucent and the spinach has collapsed into the mixture.
+    active_min: 15
+    tools:
+      - tool: saucepan
+      - tool: wooden-spoon
+    after:
+      - prep-greens
+      - roast-squash
+
+  - id: layer
+    title: Layer the lasagne
+    component: assembly
+    kind: cook
+    text: Build the lasagne in a tray in layers of red sauce, white sauce, a little parmesan and pasta sheets, finishing with the remaining cheese.
+    substeps:
+      - In a lasagne tray, alternate red sauce, white sauce, a teaspoon of {parmesan} and a layer of {sheets}.
+      - Carry on until the sauces or the pasta are used up.
+      - Grate the remaining parmesan and the {mozzarella} over the top.
+    cue: Every layer is evenly covered and the sauces and sheets are used up.
+    active_min: 10
+    tools:
+      - tool: ovenproof-dish
+      - tool: box-grater
+    after:
+      - make-red-sauce
+      - make-white-sauce
+
+  - id: bake
+    title: Bake the lasagne
+    component: assembly
+    kind: wait
+    text: Bake in the still-warm oven. The sauces are already cooked, so this is for texture and flavour on top.
+    substeps:
+      - Put the dish in the oven at 200 °C fan for about 20 minutes.
+    cue: The top is golden and bubbling at the edges.
+    temperature:
+      celsius: 200
+      mode: fan
+    passive_min: 20
+    tools:
+      - tool: oven
+    after:
+      - layer
+
+  - id: grill-and-serve
+    title: Grill and serve
+    component: assembly
+    kind: serve
+    text: For extra colour, finish under a hot grill, then cut out a square and serve with fresh parmesan on top.
+    substeps:
+      - Grill on high for a few minutes if you want a darker top.
+      - Cut out a cube and serve with {parmesan-serve}.
+    cue: The cheese has browned in patches.
+    active_min: 5
+    tools:
+      - tool: grill
+    after:
+      - bake
+
+notes:
+  - "Tip: you can shape the mozzarella into triforce triangles on top if you are patient enough."
+  - "Fresh lasagne sheets cook quickly in the oven, which is why the bake is short. Dried sheets are fine."
+
+open_questions:
+  - It is never said where the roasted squash goes. It is assumed to be stirred into the white sauce; confirm.
+  - Servings are assumed (6).
+  - The oven is given as 200 C with no mode. It is treated as fan here; is that right?
+  - The leeks are given as 3 to 4; 3 is used.

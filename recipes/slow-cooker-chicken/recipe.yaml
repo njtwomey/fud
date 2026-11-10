@@ -1,0 +1,144 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: slow-cooker-chicken
+title: Slow Cooker Chicken
+summary: A whole chicken cooked on low for about five hours on foil balls in the slow cooker, with an optional stock from the carcass.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - dinner
+  - slow-cooker
+  - high-protein
+  - batch-cook
+  - basic
+images:
+  - file: hero.jpg
+    alt: A raw whole chicken sitting in a red slow cooker with the glass lid open.
+
+  - file: foil.jpg
+    alt: Three small balls of aluminium foil in the bottom of an empty slow cooker.
+    caption: The three foil balls the chicken sits on, to keep it out of the juices.
+components:
+  - id: chicken
+    title: Chicken
+    ingredients:
+      - id: chicken
+        ingredient: whole-chicken
+        quantity:
+          amount: 1
+          unit: each
+
+  - id: stock
+    title: Stock from the carcass
+    ingredients:
+      - id: water
+        ingredient: water
+        quantity:
+          amount: 2
+          unit: l
+        optional: true
+      - id: carrot
+        ingredient: carrot
+        optional: true
+      - id: onion
+        ingredient: onion
+        optional: true
+      - id: leek
+        ingredient: leek
+        optional: true
+      - id: celery
+        ingredient: celery
+        optional: true
+      - id: garlic
+        ingredient: garlic
+        optional: true
+      - id: salt
+        ingredient: salt
+        optional: true
+      - id: parsley
+        ingredient: parsley
+        optional: true
+      - id: thyme
+        ingredient: thyme
+        optional: true
+      - id: bay-leaf
+        ingredient: bay-leaf
+        optional: true
+steps:
+  - id: unpack
+    title: Unpack the chicken
+    component: chicken
+    kind: prep
+    text: Take the chicken out of its packaging. Do not wash it unless the packaging says to.
+    substeps:
+      - Remove {chicken} from the packaging.
+      - Do not wash it. Washing a chicken carcass spreads salmonella rather than removing it.
+    active_min: 2
+    after: []
+
+  - id: set-up-cooker
+    title: Put the chicken on foil balls
+    component: chicken
+    kind: prep
+    text: Ball up three pieces of tin foil, put them close together on the bottom of the pot and sit the chicken on them, out of the juices.
+    substeps:
+      - Ball up three small pieces of foil and put them close together on the bottom of the slow cooker.
+      - Place the chicken on top of the foil balls.
+    active_min: 3
+    tools:
+      - tool: slow-cooker
+      - tool: tinfoil
+    after:
+      - unpack
+
+  - id: cook
+    title: Cook on low
+    component: chicken
+    kind: cook
+    text: Cook on low for about 5 hours, longer for a bigger bird and less for a smaller one.
+    cue: The meat is falling off the bone and the juices run clear with no pink.
+    heat: low
+    active_min: 2
+    passive_min: 300
+    tools:
+      - tool: slow-cooker
+    after:
+      - set-up-cooker
+
+  - id: carve
+    title: Carve or shred
+    component: chicken
+    kind: serve
+    text: Take the chicken out and carve or shred it as you like.
+    active_min: 10
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after:
+      - cook
+
+  - id: make-stock
+    title: Simmer a stock from the carcass
+    component: stock
+    kind: cook
+    text: Once the meat is off the bone, simmer the carcass gently in 2 litres of broth for about 2 hours.
+    substeps:
+      - Put the carcass in a pot with {water}, and any of {carrot}, {onion}, {leek}, {celery}, {garlic}, {salt}, {parsley}, {thyme} and {bay-leaf}.
+      - Simmer gently for about 2 hours.
+      - Leave the pot to cool overnight. By morning the fat and juices have congealed into a jelly that is easy to dispose of.
+    cue: A gentle simmer with a rich, savoury smell; once cold the stock sets to a jelly.
+    heat: low
+    active_min: 10
+    passive_min: 120
+    make_ahead: true
+    tools:
+      - tool: large-pot
+    after:
+      - carve
+notes:
+  - "The broth can contain anything, for example carrots, onion, leek, celery, garlic clove, salt and some herbs (parsley, thyme, bay leaves)."
+  - "The cook usually slow-cooks a chicken for the Mexican Fajitas recipe, shredding a large handful of the meat."
+open_questions:
+  - Servings and the chicken's weight are assumed (4 servings, a 1.6 kg bird).
+  - The stock ingredients have no quantities.

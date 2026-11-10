@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: pureed-garlic
+title: Pureed Garlic
+summary: A whole bulb of garlic crushed under the flat of a knife, then massaged with salt into a paste.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 1
+tags:
+  - basic
+  - no-cook
+  - vegan
+
+images:
+  - file: hero.jpg
+    alt: A smear of pureed garlic paste on a wooden chopping board.
+
+  - file: crushing.jpg
+    alt: A knife blade pressing crushed garlic against a wooden chopping board, with a finger on the flat of the blade.
+    caption: Crushing the cloves with the flat of the knife.
+
+components:
+  - id: garlic-paste
+    title: Garlic paste
+    ingredients:
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 10
+          unit: each
+        note: 1 bulb
+      - id: salt
+        ingredient: salt
+        note: sea salt
+
+steps:
+  - id: peel-garlic
+    title: Separate and peel the cloves
+    component: garlic-paste
+    kind: prep
+    text: Break the bulb of {garlic:name} into its individual cloves and remove the skin.
+    active_min: 3
+    tools:
+      - tool: chopping-board
+    after: []
+
+  - id: crush-garlic
+    title: Crush the cloves
+    component: garlic-paste
+    kind: cook
+    text: Crush each clove of {garlic:name} one at a time under the flat of the knife.
+    substeps:
+      - Place the flat of the knife on top of a clove, with the sharp edge pointing away from your fingers.
+      - Push down hard with the heel of your hand.
+    cue: Each clove is flattened and split.
+    active_min: 3
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after:
+      - peel-garlic
+
+  - id: make-paste
+    title: Massage into a paste
+    component: garlic-paste
+    kind: cook
+    text: Collect the crushed {garlic:name} into one pile, sprinkle over {salt}, and use the knife to massage it into a paste.
+    substeps:
+      - The salt absorbs the garlic juice released.
+    cue: A smooth, wet paste with no lumps of garlic left.
+    active_min: 3
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after:
+      - crush-garlic
+
+open_questions:
+  - "It is not said when the salt goes in or how much; it is assumed to be sprinkled over the crushed garlic before the massaging, a pinch at a time."
+  - "A bulb is taken as about 10 cloves; servings are assumed to be 1, as no yield is given."

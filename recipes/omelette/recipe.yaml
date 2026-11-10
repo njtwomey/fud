@@ -1,0 +1,148 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: omelette
+title: Omelette
+summary: A thick four-egg omelette with soft red onion and pepper, cooked through under a plate and finished with grated cheese.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 2
+tags:
+  - breakfast
+  - lunch
+  - egg-dish
+  - frying
+  - quick
+
+images:
+  - file: hero.jpg
+    alt: An omelette cut into two semi-circles on a purple plate with a fork, showing flecks of pepper and chorizo.
+
+components:
+  - id: omelette
+    title: Omelette
+    ingredients:
+      - id: red-onion
+        ingredient: red-onion
+        quantity:
+          amount: 0.5
+          unit: each
+      - id: red-pepper
+        ingredient: red-pepper
+        quantity:
+          amount: 0.5
+          unit: each
+      - id: eggs
+        ingredient: egg
+        quantity:
+          amount: 4
+          unit: each
+      - id: butter
+        ingredient: butter
+        quantity:
+          amount: 20
+          unit: g
+      - id: chorizo
+        ingredient: chorizo
+        optional: true
+        note: finely diced, optional
+        swaps:
+          - ingredient: bacon
+            ratio: 1
+            quality: close
+            note: Smoked rashers, finely diced.
+      - id: salt
+        ingredient: salt
+        note: to taste
+      - id: pepper
+        ingredient: black-pepper
+        note: to taste
+
+  - id: serve
+    title: To serve
+    ingredients:
+      - id: cheese
+        ingredient: cheddar-cheese
+        note: grated, to taste
+
+steps:
+  - id: dice-veg
+    title: Dice the onion and pepper
+    component: omelette
+    kind: prep
+    text: Dice {red-onion} and {red-pepper} finely.
+    substeps:
+      - If using {chorizo}, dice it finely too.
+    active_min: 5
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: soften-veg
+    title: Soften the vegetables
+    component: omelette
+    kind: cook
+    text: Melt {butter} in a small pan, add the chopped vegetables and cook on a medium-to-high heat until soft.
+    substeps:
+      - If adding chorizo or rashers, add them while the vegetables are softening.
+    cue: The onion and pepper are soft, a few minutes in.
+    heat: high
+    active_min: 4
+    tools:
+      - tool: frying-pan
+      - tool: hob
+    after:
+      - dice-veg
+
+  - id: beat-eggs
+    title: Beat the eggs
+    component: omelette
+    kind: prep
+    text: While the vegetables soften, beat {eggs} with {salt} and {pepper} until uniform in colour and texture.
+    substeps:
+      - Some people add milk at this stage, but I do not see the point.
+    cue: The yolks and whites are fully mixed with no streaks.
+    active_min: 2
+    tools:
+      - tool: mixing-bowl
+      - tool: whisk
+    after:
+      - dice-veg
+
+  - id: cook-omelette
+    title: Cook the omelette
+    component: omelette
+    kind: cook
+    text: Pour the beaten eggs over the softened vegetables and cook on a medium heat for about 8 minutes, or until the eggs are done the way you like them.
+    substeps:
+      - Since the omelette is thick, cover the pan with a heavy plate to keep the heat in.
+      - Cut the omelette into two semi-circles with a spatula while it cooks, to expose the runnier mixture to the pan. The whole thing cooks faster without burning the base, and Jen does not eat runny eggs.
+      - For scrambled egg instead, keep stirring the mixture with a spatula as it cooks.
+    cue: The eggs are set all the way through with no runny egg left, and the base is golden rather than burnt.
+    heat: medium
+    active_min: 3
+    passive_min: 8
+    tools:
+      - tool: frying-pan
+      - tool: silicone-spatula
+    after:
+      - soften-veg
+      - beat-eggs
+
+  - id: serve-omelette
+    title: Add cheese and serve
+    component: serve
+    kind: serve
+    text: Once the food is cooked, grate {cheese} over the top to taste and serve.
+    active_min: 2
+    tools:
+      - tool: box-grater
+    after:
+      - cook-omelette
+
+notes:
+  - "For scrambled egg, follow the same method but stir the mixture with a spatula while it cooks."
+
+open_questions:
+  - "Servings are assumed to be 2 for a four-egg omelette."
+  - "The pan size and the amount of chorizo or bacon are not given."

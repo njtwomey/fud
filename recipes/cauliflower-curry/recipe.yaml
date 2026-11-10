@@ -1,0 +1,222 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: cauliflower-curry
+title: Cauliflower Curry
+summary: Potato, carrot, cauliflower and lentils simmered in a tomato and whole-spice sauce with an onion, garlic and ginger base.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - dinner
+  - curry
+  - indian
+  - vegetarian
+  - vegan
+images:
+  - file: hero.jpg
+    alt: A bowl of curry with chunks of cauliflower, potato and carrot in a yellow sauce with lentils.
+components:
+  - id: vegetables
+    title: Vegetables
+    ingredients:
+      - id: cauliflower
+        ingredient: cauliflower
+        quantity:
+          amount: 1
+          unit: each
+        note: large
+      - id: potato
+        ingredient: potato
+        quantity:
+          amount: 500
+          unit: g
+      - id: carrot
+        ingredient: carrot
+        quantity:
+          amount: 3
+          unit: each
+      - id: lentils
+        ingredient: lentils
+        quantity:
+          amount: 200
+          unit: g
+
+  - id: aromatics
+    title: Onion, garlic and ginger
+    ingredients:
+      - id: onion
+        ingredient: onion
+        quantity:
+          amount: 2
+          unit: each
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 4
+          unit: each
+      - id: ginger
+        ingredient: ginger
+        quantity:
+          amount: 25
+          unit: g
+        note: 5 cm piece
+      - id: oil-aromatics
+        ingredient: vegetable-oil
+        note: for cooking
+
+  - id: sauce
+    title: Tomato and spice sauce
+    ingredients:
+      - id: tomato
+        ingredient: tomato
+        quantity:
+          amount: 6
+          unit: each
+      - id: oil-tomato
+        ingredient: vegetable-oil
+        note: a small bit
+      - id: mustard-seeds
+        ingredient: mustard-seeds
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: cumin-seeds
+        ingredient: cumin-seeds
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: ground-cumin
+        ingredient: ground-cumin
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: coriander
+        ingredient: ground-coriander
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: turmeric
+        ingredient: ground-turmeric
+        quantity:
+          amount: 2
+          unit: tsp
+      - id: cayenne
+        ingredient: cayenne-pepper
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: curry-leaves
+        ingredient: curry-leaves
+        quantity:
+          amount: 5
+          unit: each
+        note: approximately
+      - id: stock
+        ingredient: vegetable-stock
+        quantity:
+          amount: 500
+          unit: ml
+steps:
+  - id: prepare
+    title: Prepare the ingredients
+    component: vegetables
+    kind: prep
+    text: Dice the vegetables, cut the cauliflower into florets and finely cut the garlic and ginger.
+    substeps:
+      - Dice {potato}, {carrot}, {onion} and {tomato}.
+      - Cut {cauliflower} into florets.
+      - Finely cut {garlic} and {ginger}.
+    active_min: 25
+    make_ahead: true
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: soften-aromatics
+    title: Soften the onion, garlic and ginger
+    component: aromatics
+    kind: cook
+    text: Fry the onion, garlic and ginger in oil on a medium heat, stirring constantly, then set them aside.
+    substeps:
+      - Heat {oil-aromatics} in a large saucepan.
+      - Fry the onion, garlic and ginger on a medium heat, stirring constantly, for about 10 minutes.
+      - Move the mixture to a bowl and set it aside.
+    cue: The onion is soft and translucent and the garlic and ginger smell fragrant without browning.
+    heat: medium
+    active_min: 10
+    tools:
+      - tool: large-pot
+        alternatives:
+          - saucepan
+      - tool: wooden-spoon
+      - tool: mixing-bowl
+    after:
+      - prepare
+
+  - id: cook-spiced-tomatoes
+    title: Cook the spiced tomatoes
+    component: sauce
+    kind: cook
+    text: Heat the tomatoes in a little oil, then stir in the mixed spices and curry leaves and cook on a medium heat for about 10 minutes.
+    substeps:
+      - Mix {mustard-seeds}, {cumin-seeds}, {ground-cumin}, {coriander}, {turmeric} and {cayenne} together. The whole seeds may need toasting or grinding first.
+      - Add {oil-tomato} to the same saucepan and heat the chopped tomatoes in it.
+      - Once the tomatoes are hot, add the spice mixture and {curry-leaves}.
+      - Cook on a medium heat for about 10 minutes.
+    cue: The tomatoes have broken down into a thick, fragrant paste and the spices smell toasted.
+    heat: medium
+    active_min: 10
+    tools:
+      - tool: large-pot
+        alternatives:
+          - saucepan
+      - tool: wooden-spoon
+    after:
+      - soften-aromatics
+
+  - id: simmer-potato-carrot
+    title: Simmer the potato and carrot
+    component: sauce
+    kind: cook
+    text: Stir the potato and carrot into the tomato mixture to coat, add the stock, bring to a simmer, cover and cook for 10 minutes.
+    substeps:
+      - Add the diced potato and carrot and stir to coat.
+      - Add {stock} and bring to a simmer.
+      - Cover and cook for 10 minutes.
+    cue: A steady simmer, with the potato just beginning to soften at the edges.
+    heat: medium
+    active_min: 3
+    passive_min: 10
+    tools:
+      - tool: large-pot
+        alternatives:
+          - saucepan
+    after:
+      - cook-spiced-tomatoes
+
+  - id: add-cauliflower-lentils
+    title: Add the cauliflower and lentils
+    component: sauce
+    kind: cook
+    text: Add the cauliflower florets and lentils, cover and cook for a final 10 minutes.
+    substeps:
+      - Stir in the cauliflower florets and {lentils}.
+      - Cover and cook for 10 minutes.
+    cue: The lentils are tender and the cauliflower and potato are soft when pierced with a knife.
+    heat: medium
+    active_min: 2
+    passive_min: 10
+    tools:
+      - tool: large-pot
+        alternatives:
+          - saucepan
+    after:
+      - simmer-potato-carrot
+notes:
+  - "Spices: the mustard and cumin seeds may need to be toasted or ground before they are mixed with the other spices."
+open_questions:
+  - Servings are assumed (4).
+  - The onion mixture is set aside early and it is not said when it goes back in. It is assumed to join the potatoes and carrots with the stock; check.
+  - Which lentils? It says just "lentils", with only 10 minutes of cooking, so red lentils (dried) are assumed.
+  - No serving suggestion is given; it can be eaten as a bowl of curry on its own.

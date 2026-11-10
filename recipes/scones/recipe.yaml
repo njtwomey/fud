@@ -1,0 +1,193 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: scones
+title: Scones
+summary: Four hand-shaped scones from a rubbed-in butter dough, glazed with milk and egg and baked in a very hot oven.
+version: 1
+date: 2026-11-10
+status: tested
+source:
+  kind: web
+  url: https://cookpad.com/uk/recipes/12237033-scones
+servings: 4
+tags:
+  - snack
+  - baking
+  - cake-biscuit
+  - british
+
+images:
+  - file: hero.jpg
+    alt: A scone split open and topped with cream and red jam.
+
+components:
+  - id: dry
+    title: Dry mix
+    ingredients:
+      - id: flour
+        ingredient: plain-flour
+        quantity:
+          amount: 220
+          unit: g
+      - id: butter
+        ingredient: butter
+        quantity:
+          amount: 40
+          unit: g
+      - id: sugar
+        ingredient: sugar
+        quantity:
+          amount: 8
+          unit: g
+        note: about 2 tsp
+      - id: salt
+        ingredient: salt
+        quantity:
+          amount: 1
+          unit: tsp
+        optional: true
+        note: only if the butter is not salted
+      - id: baking-powder
+        ingredient: baking-powder
+        quantity:
+          amount: 4
+          unit: g
+        optional: true
+        note: about 1 tsp, only if the flour is not self-raising
+      - id: fruit
+        ingredient: dried-fruit
+        optional: true
+
+  - id: wet
+    title: Egg and milk
+    ingredients:
+      - id: milk
+        ingredient: semi-skimmed-milk
+        quantity:
+          amount: 100
+          unit: ml
+      - id: egg
+        ingredient: egg
+        quantity:
+          amount: 1
+          unit: each
+        note: whole
+
+steps:
+  - id: heat-oven
+    title: Heat the oven
+    component: dry
+    kind: prep
+    text: Heat the oven to a very high temperature before you start.
+    substeps:
+      - Heat the oven to 230 °C fan (250 °C conventional, if your oven goes that high).
+    temperature:
+      celsius: 230
+      mode: fan
+    cue: The oven has reached 230 °C.
+    active_min: 1
+    passive_min: 15
+    tools:
+      - tool: oven
+    after: []
+
+  - id: rub-in
+    title: Rub in the butter
+    component: dry
+    kind: cook
+    text: Mix the dry ingredients, chop the butter into small cubes and rub it in with your fingers until it looks like breadcrumbs.
+    substeps:
+      - Put {flour}, {sugar}, {salt} and {baking-powder} in a bowl.
+      - Chop {butter} into small cubes and add it.
+      - Rub in with your fingers.
+    cue: The mixture looks like breadcrumbs, with no large lumps of butter.
+    active_min: 8
+    tools:
+      - tool: mixing-bowl
+    after: []
+
+  - id: whisk-wet
+    title: Whisk the milk and egg
+    component: wet
+    kind: cook
+    text: Pour the milk into a mixing jar, crack the egg in and whisk until smooth.
+    substeps:
+      - Pour {milk} into a mixing jar.
+      - Crack {egg} in.
+      - Whisk until smooth.
+    cue: A smooth, evenly yellow mixture with no streaks of white.
+    active_min: 2
+    tools:
+      - tool: measuring-jug
+      - tool: whisk
+    after: []
+
+  - id: mix-dough
+    title: Mix the dough
+    component: dry
+    kind: cook
+    text: Pour most of the wet mixture into the dry mixture, keeping some back for glazing, and mix with a fork or spoon until it comes together.
+    substeps:
+      - Pour most of the milk and egg into the dry mixture. Keep some back for glazing.
+      - Mix with a fork or spoon until it comes together. Most of the mixing can be done without your hands.
+    cue: The dough comes together into a single mass.
+    active_min: 3
+    tools:
+      - tool: wooden-spoon
+    after:
+      - rub-in
+      - whisk-wet
+
+  - id: shape
+    title: Shape and glaze
+    component: dry
+    kind: cook
+    text: Lightly knead the dough, add any dried fruit, and divide it into four. Roll each into a sphere, squash it down a little on baking paper and glaze the tops.
+    substeps:
+      - Flour a dry work surface lightly.
+      - Knead the dough lightly and briefly, just to bring it together. This is where you add {fruit}, if using.
+      - Divide the dough into four roughly equal quarters.
+      - Roll each in your hand into a small sphere, with no scone cutters needed.
+      - Place the spheres on baking paper on a tray and squash down a little with the palm of your hand.
+      - Glaze the tops with the leftover milk and egg mixture.
+    cue: Four even rounds, glossy on top from the glaze.
+    active_min: 8
+    tools:
+      - tool: baking-tray
+      - tool: baking-paper
+
+  - id: bake
+    title: Bake the scones
+    component: dry
+    kind: cook
+    text: Bake for about 12 to 13 minutes, until the colour of the scones looks right.
+    temperature:
+      celsius: 230
+      mode: fan
+    cue: The tops are a deep golden brown.
+    active_min: 1
+    passive_min: 12
+    tools:
+      - tool: oven
+      - tool: baking-tray
+    after:
+      - shape
+      - heat-oven
+
+  - id: cool-serve
+    title: Cool and serve
+    component: dry
+    kind: serve
+    text: Cool for 10 to 15 minutes, cut in half, add your favourite toppings and serve with a cup of tea.
+    cue: Cool enough to handle without burning your fingers.
+    active_min: 2
+    passive_min: 12
+
+notes:
+  - "The salt and the baking powder are both conditional: salt only if the butter is not salted, and baking powder only if the flour is not self-raising."
+  - "Most of the mixing can be done without your hands, so this is a relatively clean recipe."
+
+open_questions:
+  - The oven mode is not stated for 230 °C. Treated as fan (250 °C conventional). Is that right?
+  - The sugar is 2 tsp and the baking powder 1 tsp. They are converted to 8 g and 4 g.
+  - Servings are assumed (4), from the dough being divided into four scones.
+  - The oven preheat time is assumed.

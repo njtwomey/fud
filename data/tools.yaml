@@ -1,0 +1,506 @@
+# yaml-language-server: $schema=../schemas/tools.schema.json
+# Equipment vocabulary. `substitutes` are tools that can stand in when this one is missing.
+# Which of these you actually own is recorded in kitchen.yaml.
+
+categories:
+  - id: cutting
+    label: Knives and cutting
+
+  - id: prep
+    label: Prep and hand tools
+
+  - id: measuring
+    label: Measuring
+
+  - id: cookware
+    label: Pots and pans
+
+  - id: bakeware
+    label: Baking and roasting
+
+  - id: heat-source
+    label: Hob, oven and grill
+
+  - id: appliance
+    label: Small appliances
+
+  - id: storage
+    label: Fridge, freezer and storage
+tools:
+  - id: knife
+    name: chef's knife
+    category: cutting
+    substitutes: []
+
+  - id: paring-knife
+    name: paring knife
+    category: cutting
+    substitutes:
+      - knife
+
+  - id: bread-knife
+    name: bread knife
+    category: cutting
+    substitutes:
+      - knife
+
+  - id: kitchen-scissors
+    name: kitchen scissors
+    category: cutting
+    substitutes:
+      - knife
+
+  - id: chopping-board
+    name: chopping board
+    category: cutting
+    substitutes: []
+
+  - id: mandoline
+    name: mandoline
+    category: cutting
+    substitutes:
+      - knife
+
+  - id: peeler
+    name: vegetable peeler
+    category: cutting
+    substitutes:
+      - paring-knife
+
+  - id: box-grater
+    name: box grater
+    category: cutting
+    substitutes:
+      - microplane
+
+  - id: microplane
+    name: microplane zester
+    category: cutting
+    substitutes:
+      - box-grater
+
+  - id: garlic-press
+    name: garlic press
+    category: cutting
+    substitutes:
+      - microplane
+      - knife
+
+  - id: mixing-bowl
+    name: mixing bowl
+    category: prep
+    substitutes: []
+
+  - id: sieve
+    name: sieve
+    category: prep
+    substitutes:
+      - colander
+
+  - id: colander
+    name: colander
+    category: prep
+    substitutes:
+      - sieve
+
+  - id: whisk
+    name: balloon whisk
+    category: prep
+    substitutes:
+      - hand-mixer
+
+  - id: wooden-spoon
+    name: wooden spoon
+    category: prep
+    substitutes:
+      - silicone-spatula
+
+  - id: silicone-spatula
+    name: silicone spatula
+    category: prep
+    substitutes:
+      - wooden-spoon
+
+  - id: slotted-spoon
+    name: slotted spoon
+    category: prep
+    substitutes: []
+
+  - id: ladle
+    name: ladle
+    category: prep
+    substitutes: []
+
+  - id: tongs
+    name: tongs
+    category: prep
+    substitutes: []
+
+  - id: fish-slice
+    name: fish slice
+    category: prep
+    substitutes:
+      - silicone-spatula
+
+  - id: potato-masher
+    name: potato masher
+    category: prep
+    substitutes: []
+
+  - id: rolling-pin
+    name: rolling pin
+    category: prep
+    substitutes: []
+
+  - id: pastry-brush
+    name: pastry brush
+    category: prep
+    substitutes: []
+
+  - id: pastry-cutter
+    name: pastry cutter
+    category: prep
+    substitutes: []
+
+  - id: pestle-and-mortar
+    name: pestle and mortar
+    category: prep
+    substitutes:
+      - rolling-pin
+      - food-processor
+
+  - id: lemon-squeezer
+    name: citrus juicer
+    category: prep
+    substitutes: []
+
+  - id: can-opener
+    name: can opener
+    category: prep
+    substitutes: []
+
+  - id: salad-spinner
+    name: salad spinner
+    category: prep
+    substitutes:
+      - colander
+
+  - id: bench-scraper
+    name: bench scraper
+    category: prep
+    substitutes:
+      - knife
+
+  - id: meat-mallet
+    name: meat mallet
+    category: prep
+    substitutes:
+      - rolling-pin
+
+  - id: digital-scales
+    name: digital scales
+    category: measuring
+    substitutes:
+      - measuring-jug
+
+  - id: measuring-jug
+    name: measuring jug
+    category: measuring
+    substitutes:
+      - digital-scales
+
+  - id: measuring-spoons
+    name: measuring spoons
+    category: measuring
+    substitutes: []
+
+  - id: kitchen-timer
+    name: kitchen timer
+    category: measuring
+    substitutes: []
+
+  - id: probe-thermometer
+    name: instant-read thermometer
+    category: measuring
+    substitutes: []
+
+  - id: oven-thermometer
+    name: oven thermometer
+    category: measuring
+    substitutes: []
+
+  - id: frying-pan
+    name: frying pan
+    category: cookware
+    substitutes:
+      - wok
+      - saute-pan
+      - griddle-pan
+
+  - id: saute-pan
+    name: sauté pan
+    category: cookware
+    substitutes:
+      - frying-pan
+      - wok
+
+  - id: wok
+    name: wok
+    category: cookware
+    substitutes:
+      - frying-pan
+      - saute-pan
+
+  - id: griddle-pan
+    name: griddle pan
+    category: cookware
+    substitutes:
+      - frying-pan
+      - bbq
+
+  - id: saucepan
+    name: saucepan
+    category: cookware
+    substitutes:
+      - milk-pan
+      - large-pot
+      - rice-cooker
+
+  - id: milk-pan
+    name: small saucepan
+    category: cookware
+    substitutes:
+      - saucepan
+
+  - id: large-pot
+    name: large pot
+    category: cookware
+    substitutes:
+      - casserole-dish
+
+  - id: casserole-dish
+    name: casserole dish
+    category: cookware
+    substitutes:
+      - large-pot
+
+  - id: steamer
+    name: steamer basket
+    category: cookware
+    substitutes:
+      - colander
+
+  - id: baking-tray
+    name: baking tray
+    category: bakeware
+    substitutes:
+      - roasting-tin
+
+  - id: roasting-tin
+    name: roasting tin
+    category: bakeware
+    substitutes:
+      - baking-tray
+      - ovenproof-dish
+
+  - id: ovenproof-dish
+    name: ovenproof dish
+    category: bakeware
+    substitutes:
+      - roasting-tin
+      - casserole-dish
+
+  - id: loaf-tin
+    name: loaf tin
+    category: bakeware
+    substitutes: []
+
+  - id: cake-tin
+    name: cake tin
+    category: bakeware
+    substitutes: []
+
+  - id: muffin-tin
+    name: muffin tin
+    category: bakeware
+    substitutes: []
+
+  - id: pie-dish
+    name: pie dish
+    category: bakeware
+    substitutes:
+      - ovenproof-dish
+
+  - id: wire-rack
+    name: wire cooling rack
+    category: bakeware
+    substitutes: []
+
+  - id: hob
+    name: hob
+    category: heat-source
+    substitutes: []
+
+  - id: oven
+    name: oven
+    category: heat-source
+    substitutes:
+      - air-fryer
+
+  - id: grill
+    name: grill
+    category: heat-source
+    substitutes:
+      - oven
+
+  - id: bbq
+    name: barbecue
+    category: heat-source
+    substitutes:
+      - griddle-pan
+      - grill
+
+  - id: air-fryer
+    name: air fryer
+    category: appliance
+    substitutes:
+      - oven
+
+  - id: slow-cooker
+    name: slow cooker
+    category: appliance
+    substitutes:
+      - casserole-dish
+      - multi-cooker
+      - large-pot
+
+  - id: multi-cooker
+    name: multi-cooker or pressure cooker
+    category: appliance
+    substitutes:
+      - slow-cooker
+      - large-pot
+
+  - id: rice-cooker
+    name: rice cooker
+    category: appliance
+    substitutes:
+      - saucepan
+      - multi-cooker
+
+  - id: kettle
+    name: kettle
+    category: appliance
+    substitutes:
+      - saucepan
+      - microwave
+
+  - id: microwave
+    name: microwave
+    category: appliance
+    substitutes:
+      - saucepan
+
+  - id: toaster
+    name: toaster
+    category: appliance
+    substitutes:
+      - grill
+
+  - id: sandwich-press
+    name: sandwich press
+    category: appliance
+    substitutes:
+      - frying-pan
+      - grill
+
+  - id: stand-mixer
+    name: stand mixer
+    category: appliance
+    substitutes:
+      - hand-mixer
+      - whisk
+
+  - id: hand-mixer
+    name: electric hand mixer
+    category: appliance
+    substitutes:
+      - whisk
+      - stand-mixer
+
+  - id: stick-blender
+    name: stick blender
+    category: appliance
+    substitutes:
+      - blender
+      - food-processor
+
+  - id: blender
+    name: blender
+    category: appliance
+    substitutes:
+      - stick-blender
+      - food-processor
+
+  - id: food-processor
+    name: food processor
+    category: appliance
+    substitutes:
+      - blender
+      - pestle-and-mortar
+      - rolling-pin
+
+  - id: bread-maker
+    name: bread maker
+    category: appliance
+    substitutes:
+      - stand-mixer
+
+  - id: deep-fat-fryer
+    name: deep fat fryer
+    category: appliance
+    substitutes:
+      - air-fryer
+      - large-pot
+
+  - id: sous-vide
+    name: sous vide circulator
+    category: appliance
+    substitutes: []
+
+  - id: fridge
+    name: fridge
+    category: storage
+    substitutes: []
+
+  - id: freezer
+    name: freezer
+    category: storage
+    substitutes: []
+
+  - id: airtight-container
+    name: airtight container
+    category: storage
+    substitutes: []
+
+  - id: baking-paper
+    name: baking paper
+    category: bakeware
+    substitutes: []
+
+  - id: pizza-stone
+    name: pizza stone
+    category: bakeware
+    substitutes:
+      - baking-tray
+
+  - id: tinfoil
+    name: tinfoil
+    category: bakeware
+    substitutes: []
+
+  - id: blowtorch
+    name: blowtorch
+    category: heat-source
+    substitutes:
+      - grill

@@ -1,0 +1,167 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: chicken-alfredo
+title: Chicken Alfredo
+summary: Seared chicken breast sliced over fettuccine cooked straight in a garlicky stock and milk sauce, finished with parmesan and cream.
+version: 1
+date: 2026-11-10
+status: draft
+servings: 4
+tags:
+  - dinner
+  - pasta
+  - one-pot
+  - weeknight
+
+images:
+  - file: hero.webp
+    alt: A black pan of fettuccine in a creamy white sauce topped with sliced chicken breast and chopped parsley.
+
+components:
+  - id: chicken
+    title: Chicken
+    ingredients:
+      - id: oil
+        ingredient: olive-oil
+        quantity:
+          amount: 30
+          unit: ml
+        note: extra-virgin, 2 tbsp
+      - id: chicken
+        ingredient: chicken-breast
+        quantity:
+          amount: 2
+          unit: each
+        note: boneless, skinless
+      - id: salt
+        ingredient: salt
+        note: to season
+      - id: pepper
+        ingredient: black-pepper
+        note: freshly ground, to season
+
+  - id: pasta-sauce
+    title: Pasta and sauce
+    ingredients:
+      - id: stock
+        ingredient: chicken-stock
+        quantity:
+          amount: 480
+          unit: ml
+        note: low-sodium, 2 cups
+      - id: milk
+        ingredient: whole-milk
+        quantity:
+          amount: 480
+          unit: ml
+        note: 2 cups
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 2
+          unit: each
+      - id: pasta
+        ingredient: pasta
+        quantity:
+          amount: 225
+          unit: g
+        note: fettuccine, 8 oz
+      - id: parmesan
+        ingredient: parmesan
+        quantity:
+          amount: 55
+          unit: g
+        note: finely grated, freshly grated is best
+      - id: cream
+        ingredient: double-cream
+        quantity:
+          amount: 120
+          unit: ml
+        note: heavy cream, 1/2 cup
+
+  - id: serve
+    title: To serve
+    ingredients:
+      - id: parsley
+        ingredient: parsley
+        note: chopped, fresh
+
+steps:
+  - id: sear-chicken
+    title: Sear the chicken
+    component: chicken
+    kind: cook
+    text: Season the chicken and cook it in hot oil until golden brown and cooked through, then rest it and slice it into strips.
+    substeps:
+      - Heat {oil} in a large frying pan over a medium-high heat.
+      - Season {chicken} with {salt} and {pepper} and add to the pan.
+      - Cook for about 8 minutes per side.
+      - Move to a chopping board, rest for 10 minutes, then slice into strips.
+    cue: Golden brown outside, white all the way through and the juices run clear.
+    heat: medium-high
+    active_min: 8
+    passive_min: 18
+    tools:
+      - tool: saute-pan
+      - tool: chopping-board
+      - tool: knife
+    after: []
+
+  - id: simmer-pasta
+    title: Cook the pasta in the sauce
+    component: pasta-sauce
+    kind: cook
+    text: In the same pan, simmer the stock, milk and garlic, add the fettuccine and cook, stirring now and then, until it is barely al dente.
+    substeps:
+      - In the same pan over a medium heat, combine {stock}, {milk} and {garlic}.
+      - Season with {salt} and {pepper} and bring to a simmer.
+      - Add {pasta} and cook for about 10 minutes, stirring occasionally.
+    cue: The pasta is barely al dente and the liquid has reduced a lot.
+    heat: medium
+    active_min: 5
+    passive_min: 5
+    tools:
+      - tool: saute-pan
+      - tool: wooden-spoon
+    after:
+      - sear-chicken
+
+  - id: thicken
+    title: Add the parmesan and cream
+    component: pasta-sauce
+    kind: cook
+    text: Stir in the parmesan and cream, bring back to a simmer and cook for 2 to 3 minutes until the sauce thickens.
+    substeps:
+      - Stir in {parmesan} and {cream}.
+      - Bring to a simmer and cook for another 2 to 3 minutes, stirring often.
+    cue: The sauce thickens enough to coat the pasta and the pasta is al dente.
+    active_min: 3
+    tools:
+      - tool: saute-pan
+      - tool: wooden-spoon
+    after:
+      - simmer-pasta
+
+  - id: combine
+    title: Return the chicken and serve
+    component: serve
+    kind: serve
+    text: Take the pan off the heat, add the sliced chicken back, toss to coat and garnish with parsley.
+    substeps:
+      - Remove from the heat.
+      - Add the sliced chicken back to the pan and toss to coat.
+      - Garnish with {parsley} before serving.
+    active_min: 3
+    tools:
+      - tool: tongs
+    after:
+      - thicken
+
+notes:
+  - "Cheese: use freshly grated parmesan for a smooth, creamy sauce. Pre-shredded cheese can make it grainy."
+  - "Other pasta: fettuccine is traditional, but spaghetti or angel hair also work."
+  - "Veg: stir in spinach or halved grape tomatoes after cooking the pasta for colour and nutrition."
+  - "Crunch: toasted panko breadcrumbs fried in butter make a good topping."
+  - "Heat: sprinkle over red pepper flakes or Cajun seasoning for a kick."
+
+open_questions:
+  - Cup and ounce quantities are converted (2 cups = 480 ml, 8 oz = 225 g, 1 cup grated parmesan is about 2 oz = 55 g, 1/2 cup cream = 120 ml).

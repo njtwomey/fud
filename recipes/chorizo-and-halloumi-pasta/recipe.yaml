@@ -1,0 +1,221 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: chorizo-and-halloumi-pasta
+title: Chorizo and Halloumi Pasta
+summary: Penne in a smoky tomato sauce with fried chorizo and halloumi, finished with a little cream, parmesan and parsley.
+version: 1
+date: 2026-11-10
+status: draft
+source:
+  kind: web
+  title: Chorizo and Halloumi Pasta (Recipes Emily, Facebook)
+  url: https://www.facebook.com/groups/recipesemily/posts/616386131048818/
+servings: 4
+tags:
+  - dinner
+  - pasta
+  - weeknight
+  - spanish
+
+images:
+  - file: hero.webp
+    alt: Penne pasta in a red tomato sauce with browned halloumi cubes and chorizo slices, topped with parsley.
+
+components:
+  - id: pasta
+    title: Pasta
+    ingredients:
+      - id: pasta
+        ingredient: pasta
+        quantity:
+          amount: 250
+          unit: g
+        note: penne
+      - id: salt
+        ingredient: salt
+        note: for the water
+
+  - id: base
+    title: Base
+    ingredients:
+      - id: oil
+        ingredient: olive-oil
+        quantity:
+          amount: 5
+          unit: ml
+        note: 1 tsp
+      - id: onion
+        ingredient: red-onion
+        quantity:
+          amount: 1
+          unit: each
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 2
+          unit: each
+      - id: paprika
+        ingredient: smoked-paprika
+        quantity:
+          amount: 2
+          unit: tsp
+      - id: oregano
+        ingredient: oregano
+        quantity:
+          amount: 1
+          unit: tsp
+
+  - id: protein
+    title: Halloumi and chorizo
+    ingredients:
+      - id: halloumi
+        ingredient: halloumi
+        quantity:
+          amount: 225
+          unit: g
+      - id: chorizo
+        ingredient: chorizo
+        quantity:
+          amount: 200
+          unit: g
+
+  - id: sauce
+    title: Tomato sauce
+    ingredients:
+      - id: passata
+        ingredient: passata
+        quantity:
+          amount: 500
+          unit: ml
+      - id: sugar
+        ingredient: sugar
+        quantity:
+          amount: 8
+          unit: g
+        note: 2 tsp
+      - id: cream
+        ingredient: double-cream
+        quantity:
+          amount: 15
+          unit: ml
+        note: written as 3 tsp
+
+  - id: finish
+    title: To finish
+    ingredients:
+      - id: parmesan
+        ingredient: parmesan
+        quantity:
+          amount: 50
+          unit: g
+        note: or Grana Padano
+      - id: parsley
+        ingredient: parsley
+        quantity:
+          amount: 3
+          unit: g
+        note: about 2 tsp, chopped
+
+steps:
+  - id: cook-pasta
+    title: Cook the pasta
+    component: pasta
+    kind: cook
+    text: Cook the penne in a large pot of boiling salted water until al dente, keeping a cup of the water before draining.
+    substeps:
+      - Bring a large pot of water to the boil and salt it with {salt}.
+      - Cook {pasta} according to the packet instructions until al dente.
+      - Keep about a cup of the pasta water, then drain.
+    cue: The pasta is tender with a little bite.
+    active_min: 3
+    passive_min: 10
+    tools:
+      - tool: large-pot
+      - tool: colander
+    after: []
+
+  - id: soften-onion
+    title: Soften the onion and garlic
+    component: base
+    kind: cook
+    text: Heat the oil in a large pan on a medium heat and soften the onion and garlic, then stir in the spices for a minute.
+    substeps:
+      - Finely chop {onion} and mince {garlic}.
+      - Heat {oil} in a large frying pan on a medium heat.
+      - Add the onion and garlic and fry for 3 to 4 minutes.
+      - Stir in {paprika} and {oregano} and cook for another minute.
+    cue: The onion is soft and the spices smell fragrant.
+    heat: medium
+    active_min: 8
+    tools:
+      - tool: frying-pan
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: fry-protein
+    title: Fry the halloumi and chorizo
+    component: protein
+    kind: cook
+    text: Add the cubed halloumi and sliced chorizo and fry until golden.
+    substeps:
+      - Cube {halloumi} and slice {chorizo}.
+      - Add both to the pan and fry for 2 to 3 minutes per side.
+    cue: The halloumi is golden brown and the chorizo has released its red oil.
+    active_min: 8
+    tools:
+      - tool: frying-pan
+    after:
+      - soften-onion
+
+  - id: simmer-sauce
+    title: Simmer the tomato sauce
+    component: sauce
+    kind: cook
+    text: Stir in the passata, sugar and cream, bring to a simmer and cook for 10 minutes, stirring now and then.
+    substeps:
+      - Stir in {passata}, {sugar} and {cream}.
+      - Bring to a simmer and cook for 10 minutes, stirring occasionally.
+    cue: The sauce has thickened slightly and is a deep red.
+    active_min: 3
+    passive_min: 10
+    tools:
+      - tool: frying-pan
+    after:
+      - fry-protein
+
+  - id: combine
+    title: Toss with the pasta
+    component: sauce
+    kind: cook
+    text: Add the cooked pasta to the pan and toss, loosening with a little pasta water if the sauce is too thick.
+    substeps:
+      - Add the drained pasta to the pan and toss to combine.
+      - If the sauce is too thick, add a little of the reserved pasta water.
+    cue: Every piece of pasta is coated, and the sauce is loose rather than clinging in clumps.
+    active_min: 3
+    tools:
+      - tool: wooden-spoon
+    after:
+      - simmer-sauce
+      - cook-pasta
+
+  - id: finish
+    title: Finish and serve
+    component: finish
+    kind: serve
+    text: Sprinkle with the grated cheese and parsley and serve immediately.
+    substeps:
+      - Grate {parmesan} and chop {parsley}.
+      - Sprinkle both over the pasta.
+    active_min: 3
+    tools:
+      - tool: box-grater
+    after:
+      - combine
+
+notes:
+  - "Start the pasta first or at the same time as the onions, so it is ready when the sauce is."
+
+open_questions:
+  - The cream is written as 3 tsp, which looks like it should be 3 tbsp. 15 ml is used as written.
+  - Servings are assumed (4).

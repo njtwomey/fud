@@ -1,0 +1,104 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: tortillas
+title: Tortillas
+summary: Soft homemade flour tortillas from a simple oil and water dough, rolled thin and toasted in a dry frying pan.
+version: 1
+date: 2026-11-10
+status: draft
+source:
+  kind: web
+  url: https://www.bbcgoodfood.com/recipes/tortillas
+servings: 6
+tags:
+  - basic
+  - mexican
+  - wrap-flatbread
+  - vegan
+  - frying
+images:
+  - file: hero.webp
+    alt: Round, blistered flour tortillas on a floured surface, one cooking in a dark frying pan.
+components:
+  - id: dough
+    title: Dough
+    ingredients:
+      - id: flour
+        ingredient: plain-flour
+        quantity:
+          amount: 250
+          unit: g
+        note: plus a little more for dusting
+      - id: oil
+        ingredient: vegetable-oil
+        quantity:
+          amount: 30
+          unit: ml
+        note: 2 tbsp
+      - id: salt
+        ingredient: salt
+        quantity:
+          amount: 0.5
+          unit: tsp
+        note: fine
+      - id: water
+        ingredient: water
+        quantity:
+          amount: 150
+          unit: ml
+        note: warm
+steps:
+  - id: make-dough
+    title: Knead the dough
+    component: dough
+    kind: cook
+    text: Combine the flour, oil, salt and warm water, knead to a soft smooth ball, then cover and rest for at least 15 minutes.
+    substeps:
+      - Combine {flour}, {oil} and {salt} in a bowl.
+      - Pour over {water} and knead to bring the mixture together.
+      - Turn out onto a lightly floured work surface and knead for around 5 minutes.
+      - Cover with a clean tea towel and rest for at least 15 minutes before rolling.
+    cue: A soft, smooth ball of dough that springs back slightly when pressed.
+    active_min: 10
+    passive_min: 15
+    tools:
+      - tool: mixing-bowl
+    after: []
+
+  - id: roll-out
+    title: Divide and roll out
+    component: dough
+    kind: cook
+    text: Cut the dough into 6 equal pieces of about 75 g and roll each as thinly as you can.
+    substeps:
+      - Cut the dough into 6 equal pieces (about 75 g each) and shape into balls.
+      - Roll each ball out as thinly as possible on a floured surface, to rounds about 20 cm wide and 2 mm thick.
+    cue: Thin, even rounds you can almost see the surface through.
+    active_min: 10
+    tools:
+      - tool: rolling-pin
+      - tool: knife
+    after:
+      - make-dough
+
+  - id: toast
+    title: Toast the tortillas
+    component: dough
+    kind: cook
+    text: Toast each tortilla in a hot dry frying pan for 1 to 2 minutes on each side and keep them warm wrapped while you cook the rest.
+    substeps:
+      - Heat a large frying pan over a medium-high heat.
+      - Cook each tortilla for 1 to 2 minutes on each side.
+      - Wrap the cooked ones in foil and cover them with a tea towel to keep warm while you cook the rest.
+    cue: Golden brown, toasted and puffing in places.
+    heat: medium
+    active_min: 10
+    tools:
+      - tool: frying-pan
+      - tool: tinfoil
+    after:
+      - roll-out
+notes:
+  - "Storage: keeps for two days well wrapped, or cool, wrap and freeze for up to three months."
+  - "Good for wraps and fajitas."
+open_questions:
+  - It takes 25 minutes cooking and 30 minutes preparation in all; the active and resting times are split from the method.

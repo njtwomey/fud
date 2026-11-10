@@ -1,0 +1,259 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: saffron-fish-curry
+title: Saffron Fish Curry with Rainbow Tomatoes
+summary: Slowly caramelised shallots simmered with mixed tomatoes, coconut and saffron, served with pan-fried monkfish, buttery asparagus and rice.
+version: 1
+date: 2026-11-10
+status: draft
+servings: 6
+tags:
+  - dinner
+  - curry
+  - weekend
+  - simmering
+images:
+  - file: hero.webp
+    alt: A white bowl of rice with pieces of golden monkfish in curry sauce and two blanched asparagus spears on top.
+components:
+  - id: sauce
+    title: Saffron tomato sauce
+    ingredients:
+      - id: shallot
+        ingredient: shallot
+        quantity:
+          amount: 5
+          unit: each
+        note: 4 to 6
+      - id: oil
+        ingredient: vegetable-oil
+      - id: salt
+        ingredient: salt
+      - id: water-deglaze
+        ingredient: water
+        note: to deglaze the shallots
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 5
+          unit: each
+        note: 4 to 6
+      - id: ginger
+        ingredient: ginger
+        quantity:
+          amount: 15
+          unit: g
+        note: 3 cm piece
+      - id: chilli
+        ingredient: green-chilli
+        quantity:
+          amount: 1
+          unit: each
+        note: more or less depending on heat
+      - id: pepper
+        ingredient: black-pepper
+      - id: tomato
+        ingredient: tomato
+        quantity:
+          amount: 10
+          unit: each
+        note: a mixture of types and colours if possible
+      - id: stock-cubes
+        ingredient: vegetable-stock-cube
+        quantity:
+          amount: 2
+          unit: each
+      - id: coconut-cream
+        ingredient: coconut-cream
+        quantity:
+          amount: 250
+          unit: ml
+      - id: coconut-milk
+        ingredient: coconut-milk
+        quantity:
+          amount: 250
+          unit: ml
+      - id: saffron
+        ingredient: saffron
+        note: 1 pinch
+
+  - id: fish
+    title: Fish and asparagus
+    ingredients:
+      - id: monkfish
+        ingredient: monkfish
+        quantity:
+          amount: 6
+          unit: each
+        note: filleted portions
+      - id: salt-fish
+        ingredient: salt
+        note: to draw out moisture
+      - id: curry-powder
+        ingredient: medium-curry-powder
+        optional: true
+        note: sprinkled on the fish
+      - id: butter
+        ingredient: butter
+        note: for frying
+      - id: asparagus
+        ingredient: asparagus
+        quantity:
+          amount: 240
+          unit: g
+        note: about 12 spears
+      - id: water-blanch
+        ingredient: water
+        note: hot water to blanch the asparagus
+
+  - id: rice
+    title: Rice
+    ingredients:
+      - id: rice
+        ingredient: basmati-rice
+        quantity:
+          amount: 450
+          unit: g
+steps:
+  - id: prepare
+    title: Slice the shallots and aromatics
+    component: sauce
+    kind: prep
+    text: Slice the shallots first, and the garlic, ginger and chilli ready for later.
+    substeps:
+      - Finely slice {shallot}.
+      - Finely slice {garlic}, {ginger} and {chilli}.
+      - Dice {tomato}.
+    active_min: 20
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: caramelise-shallots
+    title: Caramelise the shallots
+    component: sauce
+    kind: cook
+    text: Cook the shallots slowly with salt, adding a splash of water now and then, until brown and gorgeous. This takes about an hour.
+    substeps:
+      - Heat {oil} in a sauté pan, ideally with a lid, and add {shallot:name} with {salt}.
+      - When they turn transparent, turn the heat down and let them caramelise.
+      - Keep watching, adding {water-deglaze} now and then to deglaze the pan so they do not burn.
+      - After about 45 minutes, add the garlic, ginger and chilli with extra {salt} and {pepper} if needed, and keep going.
+    cue: The shallots are deep brown and jammy, after about an hour.
+    heat: low
+    active_min: 20
+    passive_min: 40
+    tools:
+      - tool: saute-pan
+      - tool: wooden-spoon
+    after:
+      - prepare
+
+  - id: build-sauce
+    title: Add the tomatoes, coconut and saffron
+    component: sauce
+    kind: cook
+    text: Stir the tomatoes and stock into the shallots, bring to a simmer, then add the coconut and saffron and turn the heat down.
+    substeps:
+      - Add the diced tomatoes to the shallots and turn the heat up to bring it to a simmer.
+      - Add {stock-cubes}.
+      - Once it simmers, add {coconut-cream}, {coconut-milk} and {saffron} and mix until it is uniform.
+      - When it starts to simmer again, turn the heat down.
+    cue: A gentle simmer, with the sauce an even golden colour.
+    heat: low
+    active_min: 5
+    passive_min: 15
+    tools:
+      - tool: saute-pan
+      - tool: wooden-spoon
+    after:
+      - caramelise-shallots
+
+  - id: cook-rice
+    title: Cook the rice
+    component: rice
+    kind: cook
+    text: Start the rice at this stage; it takes about 10 minutes, so start earlier for other rices.
+    substeps:
+      - Cook {rice} according to the packet instructions.
+    cue: The grains are tender and separate.
+    active_min: 2
+    passive_min: 10
+    tools:
+      - tool: saucepan
+        alternatives:
+          - rice-cooker
+    after:
+      - build-sauce
+
+  - id: blanch-asparagus
+    title: Blanch the asparagus
+    component: fish
+    kind: cook
+    text: Trim the asparagus and leave it in hot water for about 5 minutes, so it keeps a little crunch.
+    substeps:
+      - Trim the bottoms of {asparagus}.
+      - Drop it into {water-blanch} in a heatproof bowl. The water does not need to be actively boiling, just hot.
+      - Leave for about 5 minutes.
+    cue: The asparagus is bright green and still has a bit of crunch.
+    active_min: 2
+    passive_min: 5
+    tools:
+      - tool: kettle
+      - tool: mixing-bowl
+    after:
+      - build-sauce
+
+  - id: fry-fish
+    title: Fry the monkfish
+    component: fish
+    kind: cook
+    text: Salt and dice the fish, then fry it in very hot butter, turning once, until lightly browned on both sides.
+    substeps:
+      - Salt {monkfish} with {salt-fish} to soak up excess moisture, then dice it into smallish cubes. Adjust the cooking time for larger chunks.
+      - Sprinkle with {curry-powder} if you like.
+      - Put a ring on high and drop in {butter}. Fry it quite aggressively until it is bubbling.
+      - Add the fish, spaced out so no piece is on top of another, and fry for about 2 minutes. Turn it over chunk by chunk and cook for about 2 minutes more.
+    cue: Both sides of the fish are lightly browned.
+    heat: high
+    active_min: 10
+    tools:
+      - tool: frying-pan
+      - tool: knife
+      - tool: chopping-board
+    after:
+      - build-sauce
+
+  - id: toss-asparagus
+    title: Rest the fish and toss the asparagus
+    component: fish
+    kind: cook
+    text: Rest the fish on kitchen paper, then toss the drained asparagus in the buttery pan.
+    substeps:
+      - Take the fish out of the pan and rest it for a few minutes on a sheet of kitchen paper.
+      - Drain the asparagus and add it to the pan with extra salt and pepper.
+      - Toss in the butter for a minute or two.
+    cue: The asparagus catches a little colour.
+    heat: medium
+    active_min: 4
+    tools:
+      - tool: frying-pan
+      - tool: tongs
+    after:
+      - fry-fish
+      - blanch-asparagus
+
+  - id: serve
+    title: Serve
+    component: fish
+    kind: serve
+    text: Serve however you like, with the fish and asparagus on the rice and the sauce around it.
+    active_min: 3
+    after:
+      - toss-asparagus
+      - cook-rice
+open_questions:
+  - Servings are 6, with 450 g of rice and 6 portions of monkfish.
+  - The shallots take 60 minutes in all; the split between active and waiting time is assumed.
+  - The sauce simmering time and the rice type are not given; 15 minutes and basmati are assumed.
+  - How large is a monkfish portion? Entered as 6 portions of about 150 g.

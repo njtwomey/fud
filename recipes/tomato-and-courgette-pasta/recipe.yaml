@@ -1,0 +1,211 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: tomato-and-courgette-pasta
+title: Tomato and Courgette Pasta
+summary: Tomatoes and courgette cooked down in a hot pan, then stirred through pasta with a blended paste of olives, sun-dried tomatoes, herbs and harissa.
+version: 1
+date: 2026-11-10
+status: draft
+source:
+  kind: web
+  title: Tomato and Courgette Pasta (Meera Sodha, the Guardian)
+  url: https://www.theguardian.com/food/article/2024/aug/24/vegan-recipe-courgette-tomato-pasta-meera-sodha?CMP=Share_iOSApp_Other
+servings: 4
+tags:
+  - dinner
+  - pasta
+  - vegan
+  - quick
+  - weeknight
+
+images:
+  - file: hero.webp
+    alt: A bowl of pasta with a chunky red tomato and courgette sauce and fresh herbs.
+
+components:
+  - id: veg
+    title: Tomatoes and courgette
+    ingredients:
+      - id: tomatoes
+        ingredient: tomato
+        quantity:
+          amount: 6
+          unit: each
+        note: mixed
+      - id: courgette
+        ingredient: courgette
+        quantity:
+          amount: 1
+          unit: each
+      - id: oil
+        ingredient: olive-oil
+        note: to oil the pan
+      - id: salt
+        ingredient: salt
+      - id: pepper
+        ingredient: black-pepper
+
+  - id: paste
+    title: Herb and olive paste
+    ingredients:
+      - id: sundried
+        ingredient: sun-dried-tomato
+        quantity:
+          amount: 4
+          unit: each
+        note: segments
+      - id: olives
+        ingredient: olive
+        quantity:
+          amount: 100
+          unit: g
+        note: pitted
+      - id: basil
+        ingredient: basil
+        quantity:
+          amount: 20
+          unit: g
+        note: leaves picked
+      - id: parsley
+        ingredient: parsley
+        quantity:
+          amount: 25
+          unit: g
+        note: flat-leaf, leaves picked
+      - id: harissa
+        ingredient: harissa-paste
+        quantity:
+          amount: 10
+          unit: ml
+        note: rose harissa, 2 tsp
+
+  - id: pasta
+    title: Pasta
+    ingredients:
+      - id: pasta
+        ingredient: pasta
+        quantity:
+          amount: 400
+          unit: g
+      - id: oil-pasta
+        ingredient: olive-oil
+        note: a splash for the water, and to dress if needed
+      - id: salt-pasta
+        ingredient: salt
+
+  - id: finish
+    title: To finish
+    ingredients:
+      - id: plum-tomato
+        ingredient: tomato
+        quantity:
+          amount: 1
+          unit: each
+        note: plum
+      - id: chilli
+        ingredient: red-chilli
+        quantity:
+          amount: 1
+          unit: each
+      - id: yoghurt
+        ingredient: natural-yoghurt
+        optional: true
+        note: or cheese, to serve
+
+steps:
+  - id: cook-veg
+    title: Cook the tomatoes and courgette
+    component: veg
+    kind: cook
+    text: Cook the diced tomatoes and courgette strips in a hot oiled pan until most of the juice has boiled away.
+    substeps:
+      - Finely dice {tomatoes} and peel and julienne {courgette}.
+      - Put them in a hot pan with {oil} and season with {salt} and {pepper}.
+      - Leave on a high heat until most of the tomato juice has boiled away, keeping an eye on it so it does not burn while you do the other steps.
+    cue: The juice has mostly gone and the vegetables are soft, with a thick jammy look.
+    heat: high
+    active_min: 8
+    passive_min: 12
+    tools:
+      - tool: frying-pan
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: cook-pasta
+    title: Cook the pasta
+    component: pasta
+    kind: cook
+    text: Boil the kettle, cook the pasta in salted water with a little oil, and drain it. If it is done before the sauce, dress it with oil to stop it sticking.
+    substeps:
+      - Boil the kettle and put the water in a pot with {salt-pasta} and a splash of {oil-pasta}.
+      - Cook {pasta} according to the packet instructions.
+      - Keep some of the cooking water for the sauce.
+      - If the pasta finishes before the sauce, drain it and dress it with a little oil, and leave it in its pot.
+    cue: The pasta is tender with a little bite.
+    active_min: 3
+    passive_min: 10
+    tools:
+      - tool: kettle
+      - tool: large-pot
+      - tool: colander
+    after: []
+
+  - id: blend-paste
+    title: Blend the paste
+    component: paste
+    kind: cook
+    text: While the pasta and vegetables cook, blend the sun-dried tomatoes, olives, herbs and harissa into a paste.
+    substeps:
+      - Roughly chop the herbs first if using a hand blender.
+      - Put {sundried}, {olives}, {basil}, {parsley} and {harissa} in a container and blend to a paste.
+      - Add a little water to help the blending if needed.
+    cue: A thick, fairly smooth green-red paste.
+    active_min: 5
+    tools:
+      - tool: stick-blender
+        alternatives:
+          - blender
+          - food-processor
+    after: []
+
+  - id: combine
+    title: Combine the sauce
+    component: finish
+    kind: cook
+    text: Once the tomato juice has boiled off, stir the paste, grated plum tomato and sliced chilli into the pan.
+    substeps:
+      - Slice {chilli}, deseeding it if needed, and grate {plum-tomato}.
+      - Add the paste, the grated tomato and the chilli to the tomato and courgette in the pan and stir thoroughly.
+      - If the pan is too dry, add a little water, taking some from the pasta pot if you like.
+      - Taste and season more if needed.
+    cue: A loose, glossy sauce coating the vegetables, with no dry patches.
+    active_min: 5
+    tools:
+      - tool: frying-pan
+      - tool: box-grater
+    after:
+      - cook-veg
+      - blend-paste
+
+  - id: serve
+    title: Toss and serve
+    component: finish
+    kind: serve
+    text: Transfer the sauce into the pasta, stir thoroughly and serve with cheese or natural yoghurt.
+    substeps:
+      - Tip all the sauce into the pasta pot and stir thoroughly.
+      - Serve with {yoghurt} or some cheese.
+    active_min: 3
+    tools:
+      - tool: wooden-spoon
+    after:
+      - combine
+      - cook-pasta
+
+notes:
+  - "Timing: the pasta, the tomato and courgette, and the paste are all made at the same time, so start them together."
+  - "Serve with cheese or natural yoghurt. The original is vegan, so use a plant-based yoghurt or leave it off."
+
+open_questions:
+  - The grated plum tomato is listed but never used in the method. It is assumed to go in with the paste and chilli.
+  - The tomato quantity (6 mixed tomatoes) is a count; the size is not given.

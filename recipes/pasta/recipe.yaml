@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: pasta
+title: Pasta
+summary: Dried pasta cooked in boiling water from the kettle, for one minute less than the packet says.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 2
+tags:
+  - side
+  - basic
+  - pasta
+  - quick
+
+images:
+  - file: hero.jpg
+    alt: A white plate of plain cooked penne with a fork resting on the rim.
+
+components:
+  - id: pasta
+    title: Pasta
+    ingredients:
+      - id: pasta
+        ingredient: pasta
+        quantity:
+          amount: 200
+          unit: g
+        note: 100 g per person
+      - id: water
+        ingredient: water
+        note: boiling, enough to cover the pasta
+
+steps:
+  - id: boil-kettle
+    title: Boil the kettle
+    component: pasta
+    kind: prep
+    text: Boil a kettle of {water:name} so it is ready to pour over the pasta.
+    active_min: 1
+    passive_min: 3
+    tools:
+      - tool: kettle
+    after: []
+
+  - id: cook-pasta
+    title: Cook the pasta
+    component: pasta
+    kind: cook
+    text: Put {pasta} into the pot, pour in enough boiling {water:name} to cover it and leave it to cook for 9 minutes.
+    substeps:
+      - Check the packet. Some pastas cook quicker and some slower, so follow the instructions.
+      - I usually cook for 1 minute less than the packet says.
+    cue: The pasta is tender with a slight bite in the middle.
+    active_min: 2
+    passive_min: 9
+    tools:
+      - tool: saucepan
+        alternatives:
+          - large-pot
+      - tool: hob
+    after:
+      - boil-kettle
+
+notes:
+  - "Cook time depends on the pasta: follow the packet, and take about 1 minute off."
+
+open_questions:
+  - "Servings are assumed to be 2 (100 g per person)."
+  - "It is not stated whether the pot stays on the heat while the pasta cooks, or when it is drained; the pot is assumed to stay on the hob, with the pasta drained as soon as it is cooked."

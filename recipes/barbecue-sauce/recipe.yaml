@@ -1,0 +1,149 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: barbecue-sauce
+title: Barbecue Sauce
+summary: A tomato, brown sugar, malt vinegar and Worcestershire sauce simmered with onion, garlic and chilli until thick, optionally blended smooth.
+version: 1
+date: 2026-11-10
+status: draft
+source:
+  kind: web
+  title: Barbecue sauce
+  url: https://www.bbcgoodfood.com/recipes/barbecue-sauce
+servings: 8
+tags:
+  - sauce
+  - bbq
+  - simmering
+
+images:
+  - file: hero.webp
+    alt: A glass bottle of deep red barbecue sauce beside a small white dish of the sauce and the bottle's lid.
+
+components:
+  - id: sauce
+    title: Sauce
+    ingredients:
+      - id: oil
+        ingredient: olive-oil
+        quantity:
+          amount: 15
+          unit: ml
+        note: about 1 tbsp
+      - id: onion
+        ingredient: onion
+        quantity:
+          amount: 1
+          unit: each
+      - id: tomatoes
+        ingredient: tinned-chopped-tomatoes
+        quantity:
+          amount: 400
+          unit: g
+        note: 1 can
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 3
+          unit: each
+      - id: sugar
+        ingredient: brown-sugar
+        quantity:
+          amount: 85
+          unit: g
+      - id: vinegar
+        ingredient: malt-vinegar
+        quantity:
+          amount: 45
+          unit: ml
+        note: about 3 tbsp
+      - id: worcestershire
+        ingredient: worcestershire-sauce
+        quantity:
+          amount: 30
+          unit: ml
+        note: about 2 tbsp
+      - id: tomato-puree
+        ingredient: tomato-puree
+        quantity:
+          amount: 15
+          unit: g
+        note: about 1 tbsp
+      - id: chilli
+        ingredient: red-chilli
+        quantity:
+          amount: 2
+          unit: each
+      - id: salt
+        ingredient: salt
+      - id: pepper
+        ingredient: black-pepper
+
+steps:
+  - id: prep
+    title: Chop the aromatics
+    component: sauce
+    kind: prep
+    text: Finely chop the onion and garlic, and deseed the chillies.
+    substeps:
+      - Finely chop {onion}.
+      - Finely chop {garlic}.
+      - Deseed {chilli}.
+    active_min: 8
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: soften-onion
+    title: Soften the onion
+    component: sauce
+    kind: cook
+    text: Heat the oil in a saucepan and cook the onion over a gentle heat for 4 to 5 minutes until softened.
+    substeps:
+      - Heat {oil} in a saucepan.
+      - Add the onion and cook over a gentle heat for 4 to 5 minutes.
+    heat: low
+    cue: The onion is soft and translucent, not browned.
+    active_min: 5
+    tools:
+      - tool: saucepan
+      - tool: wooden-spoon
+
+  - id: simmer
+    title: Add the rest and simmer
+    component: sauce
+    kind: cook
+    text: Add the remaining ingredients and season, then bring to the boil and simmer for 20 to 30 minutes until thickened.
+    substeps:
+      - Add {tomatoes}, the garlic, {sugar}, {vinegar}, {worcestershire}, {tomato-puree} and the chilli.
+      - Season with {salt} and {pepper} and mix.
+      - Bring to the boil, then reduce the heat and simmer for 20 to 30 minutes.
+    heat: low
+    cue: The sauce is thick enough that a spoon dragged across the bottom of the pan leaves a trail.
+    active_min: 5
+    passive_min: 20
+    tools:
+      - tool: saucepan
+
+  - id: blend
+    title: Blend if you want it smooth
+    component: sauce
+    kind: cook
+    text: For a smooth sauce, whizz the mixture in a food processor or with a hand blender for a few seconds.
+    substeps:
+      - Whizz in a food processor or with a hand blender for a few seconds.
+    cue: A smooth sauce with no visible pieces of onion or chilli.
+    active_min: 2
+    tools:
+      - tool: stick-blender
+        alternatives:
+          - food-processor
+          - blender
+
+notes:
+  - "Blending is optional. Leave it as it is for a chunkier sauce."
+
+open_questions:
+  - The yield is assumed (8 servings), about 450 ml of sauce.
+  - The tinned tomato, brown sugar, malt vinegar and Worcestershire sauce are as written. The tomato purée is given as 1 tbsp and entered as 15 g.
+  - The chillies' heat is not specified (2 chilli peppers, deseeded), so the red chilli type is assumed.

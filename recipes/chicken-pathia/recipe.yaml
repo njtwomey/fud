@@ -1,0 +1,261 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: chicken-pathia
+title: Chicken Thigh Pathia with Turmeric Rice and Naan
+summary: A sweet, tangy, mildly spicy chicken pathia with tamarind and tomato, served with cumin and turmeric rice and garlic and coriander naan.
+version: 1
+date: 2026-11-10
+status: draft
+servings: 2
+tags:
+  - dinner
+  - curry
+  - indian
+  - weeknight
+  - quick
+images:
+  - file: hero.webp
+    alt: A turquoise plate with red-brown chicken pathia, yellow turmeric rice and a naan scattered with parsley, on an orange background.
+components:
+  - id: pathia
+    title: Chicken pathia
+    ingredients:
+      - id: onion
+        ingredient: onion
+        quantity:
+          amount: 1
+          unit: each
+        note: brown
+      - id: oil-pan
+        ingredient: vegetable-oil
+        note: for the pan
+      - id: salt-onion
+        ingredient: salt
+        note: a pinch for the onion
+      - id: ginger
+        ingredient: ginger
+        quantity:
+          amount: 15
+          unit: g
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 3
+          unit: each
+      - id: ground-cumin
+        ingredient: ground-cumin
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: curry-powder
+        ingredient: medium-curry-powder
+        quantity:
+          amount: 0.5
+          unit: tbsp
+      - id: cayenne
+        ingredient: cayenne-pepper
+        quantity:
+          amount: 0.5
+          unit: tsp
+      - id: tomato-puree
+        ingredient: tomato-puree
+        quantity:
+          amount: 16
+          unit: g
+      - id: tamarind
+        ingredient: tamarind-paste
+        quantity:
+          amount: 15
+          unit: g
+      - id: sugar
+        ingredient: sugar
+        quantity:
+          amount: 8
+          unit: g
+        note: about 2 tsp
+      - id: water-sauce
+        ingredient: water
+        quantity:
+          amount: 150
+          unit: ml
+        note: boiled
+      - id: chicken
+        ingredient: chicken-thigh
+        quantity:
+          amount: 320
+          unit: g
+        note: British skinless
+
+  - id: rice
+    title: Turmeric rice
+    ingredients:
+      - id: oil-rice
+        ingredient: vegetable-oil
+        note: for the pot
+      - id: cumin-seeds
+        ingredient: cumin-seeds
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: rice
+        ingredient: basmati-rice
+        quantity:
+          amount: 100
+          unit: g
+        note: white
+      - id: turmeric
+        ingredient: ground-turmeric
+        quantity:
+          amount: 0.5
+          unit: tsp
+      - id: water-rice
+        ingredient: water
+        quantity:
+          amount: 250
+          unit: ml
+        note: cold
+      - id: salt-rice
+        ingredient: salt
+        note: a pinch for the rice
+
+  - id: serving
+    title: Naan and garnish
+    ingredients:
+      - id: naan
+        ingredient: garlic-and-coriander-naan
+        quantity:
+          amount: 2
+          unit: each
+        note: mini
+      - id: butter
+        ingredient: butter
+        optional: true
+        note: to butter the naan
+      - id: parsley
+        ingredient: parsley
+        quantity:
+          amount: 5
+          unit: g
+steps:
+  - id: prepare
+    title: Prepare the ingredients
+    component: pathia
+    kind: prep
+    text: Take the chicken out of the fridge to air, then chop the onion, garlic, ginger and chicken.
+    substeps:
+      - Remove {chicken:name} from the fridge to air while you prepare the rest.
+      - Peel and finely chop {onion}, {garlic} and {ginger}.
+      - Chop the chicken thighs into large, bite-sized pieces.
+    active_min: 10
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: soften-onion
+    title: Soften the onion
+    component: pathia
+    kind: cook
+    text: Cook the onion with a pinch of salt in oil over a medium heat until soft.
+    substeps:
+      - Heat {oil-pan} in a large pan over a medium heat.
+      - Add the onion with {salt-onion} and cook for 6 to 8 minutes.
+    cue: The onion is soft and translucent.
+    heat: medium
+    active_min: 8
+    tools:
+      - tool: saute-pan
+        alternatives:
+          - frying-pan
+      - tool: wooden-spoon
+    after:
+      - prepare
+
+  - id: cook-rice
+    title: Cook the turmeric rice
+    component: rice
+    kind: cook
+    text: Toast the cumin seeds in a separate pot, stir in the rice and turmeric, add cold water and cook covered on a very low heat.
+    substeps:
+      - Heat {oil-rice} in a separate pot over a medium heat, add {cumin-seeds} and cook for 1 to 2 minutes until sizzling.
+      - Stir in {rice}.
+      - Add {turmeric}, {water-rice} and {salt-rice} and bring to the boil.
+      - Reduce the heat to very low, cover and cook for 10 to 12 minutes until the water is absorbed.
+      - Remove from the heat and keep covered.
+    cue: The cumin seeds sizzle, and at the end the water is absorbed and the grains are tender and yellow.
+    heat: low
+    active_min: 4
+    passive_min: 12
+    tools:
+      - tool: saucepan
+      - tool: wooden-spoon
+    after:
+      - prepare
+
+  - id: build-sauce
+    title: Add the spices and tamarind
+    component: pathia
+    kind: cook
+    text: Cook the ginger and garlic, stir in the spices and tomato puree, then add the tamarind, water and sugar.
+    substeps:
+      - Once the onion has softened, add the ginger and garlic and cook for 1 to 2 minutes until fragrant.
+      - Stir in {ground-cumin}, {curry-powder}, {cayenne} and {tomato-puree}. Add a drizzle of oil if the pan looks dry.
+      - Add {tamarind}, {water-sauce} and {sugar} and mix well.
+    cue: The garlic is fragrant and the sauce is a thick, deep red.
+    heat: medium
+    active_min: 5
+    tools:
+      - tool: saute-pan
+        alternatives:
+          - frying-pan
+      - tool: wooden-spoon
+    after:
+      - soften-onion
+
+  - id: cook-chicken
+    title: Cook the chicken
+    component: pathia
+    kind: cook
+    text: Add the chicken to the sauce and cook it for 16 minutes until cooked through.
+    cue: The chicken is opaque with no pink inside, and the sauce coats it.
+    heat: medium
+    active_min: 4
+    passive_min: 12
+    tools:
+      - tool: saute-pan
+        alternatives:
+          - frying-pan
+    after:
+      - build-sauce
+
+  - id: prepare-naan
+    title: Warm the naan and chop the parsley
+    component: serving
+    kind: prep
+    text: Warm the naans and chop the parsley while the chicken finishes.
+    substeps:
+      - Warm {naan} in a toaster for 1 to 2 minutes, then butter with {butter} if you like.
+      - Roughly chop {parsley}, stalks included.
+    cue: The naan is warm and softly puffed.
+    active_min: 4
+    tools:
+      - tool: toaster
+      - tool: knife
+      - tool: chopping-board
+    after:
+      - build-sauce
+
+  - id: serve
+    title: Serve
+    component: serving
+    kind: serve
+    text: Serve the chicken pathia with the turmeric rice and naan on the side and garnish with parsley.
+    active_min: 2
+    after:
+      - cook-chicken
+      - cook-rice
+      - prepare-naan
+notes:
+  - "The cumin is in two places: whole seeds in the rice, ground cumin in the sauce."
+open_questions:
+  - Servings are assumed to be 2.
+  - Oil, salt and water are listed as "as needed", so the oil lines have no amount.

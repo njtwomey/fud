@@ -1,0 +1,55 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: melon
+title: Melon
+summary: A ripe melon cut into cubes and served as a starter.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - starter
+  - no-cook
+  - quick
+  - vegan
+
+images:
+  - file: hero.jpg
+    alt: A grey bowl of orange cantaloupe melon cut into pieces.
+
+components:
+  - id: melon
+    title: Melon
+    ingredients:
+      - id: melon
+        ingredient: melon
+        quantity:
+          amount: 1
+          unit: each
+        note: ripe, of any kind such as cantaloupe or honeydew
+
+steps:
+  - id: cut-melon
+    title: Cut the melon
+    component: melon
+    kind: prep
+    text: Cut {melon} into cubes.
+    active_min: 5
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: serve
+    title: Serve
+    component: melon
+    kind: serve
+    text: Serve the melon.
+    active_min: 1
+    after:
+      - cut-melon
+
+notes:
+  - "A classic yuletide starter, and there is nothing better if you can get one at the perfect ripeness."
+
+open_questions:
+  - "Servings are assumed to be 4 as a starter."

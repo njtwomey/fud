@@ -1,0 +1,281 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: chicken-katsu-curry
+title: Chicken Katsu Curry
+summary: Breadcrumbed chicken breasts baked flat and thin, with a chunky coconut curry sauce of carrots, onions, baby corn and mangetout, over rice.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - dinner
+  - japanese
+  - curry
+  - rice-dish
+  - weekend
+
+images:
+  - file: hero.jpg
+    alt: A white bowl of white rice with golden breaded chicken pieces and a chunky orange curry sauce, with a fork resting in it.
+
+components:
+  - id: chicken
+    title: Chicken
+    ingredients:
+      - id: chicken-breast
+        ingredient: chicken-breast
+        quantity:
+          amount: 3
+          unit: each
+        note: medium, one per person is the idea
+      - id: flour
+        ingredient: plain-flour
+        note: to coat
+        swaps:
+          - ingredient: cornflour
+            ratio: 1
+            quality: close
+            note: Either works.
+      - id: egg
+        ingredient: egg
+        quantity:
+          amount: 1
+          unit: each
+        note: medium
+      - id: milk
+        ingredient: whole-milk
+        optional: true
+        note: a drop, if the egg is dense
+      - id: breadcrumbs
+        ingredient: breadcrumbs
+        quantity:
+          amount: 100
+          unit: g
+
+  - id: sauce
+    title: Curry sauce
+    ingredients:
+      - id: oil
+        ingredient: vegetable-oil
+        quantity:
+          amount: 45
+          unit: ml
+        note: a few tablespoons
+      - id: onion
+        ingredient: onion
+        quantity:
+          amount: 2
+          unit: each
+        note: medium
+      - id: carrot
+        ingredient: carrot
+        quantity:
+          amount: 2
+          unit: each
+        note: medium
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 3
+          unit: each
+      - id: ginger
+        ingredient: ginger
+        quantity:
+          amount: 30
+          unit: g
+        note: thumb-sized piece
+      - id: curry-powder
+        ingredient: medium-curry-powder
+        quantity:
+          amount: 1
+          unit: tbsp
+        note: pick the heat to taste
+      - id: turmeric
+        ingredient: ground-turmeric
+        quantity:
+          amount: 2
+          unit: tsp
+      - id: cumin
+        ingredient: ground-cumin
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: coriander
+        ingredient: ground-coriander
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: garam-masala
+        ingredient: garam-masala
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: coconut-milk
+        ingredient: coconut-milk
+        quantity:
+          amount: 400
+          unit: ml
+      - id: baby-corn
+        ingredient: baby-corn
+        quantity:
+          amount: 100
+          unit: g
+      - id: mangetout
+        ingredient: mangetout
+        quantity:
+          amount: 100
+          unit: g
+        note: or sugar snap peas
+
+  - id: rice
+    title: Rice
+    ingredients:
+      - id: rice
+        ingredient: basmati-rice
+        quantity:
+          amount: 300
+          unit: g
+
+steps:
+  - id: crumb-chicken
+    title: Flatten and crumb the chicken
+    component: chicken
+    kind: prep
+    text: Butterfly and pound the chicken thin, then coat it in flour, egg and breadcrumbs.
+    substeps:
+      - Butterfly {chicken-breast}, wrap in greaseproof paper and pound with a rolling pin to tenderise and flatten.
+      - Pat the chicken dry with kitchen paper.
+      - Put {flour}, {egg} and {breadcrumbs} in three separate shallow plates.
+      - Beat the egg, adding a drop of {milk} if it looks dense.
+      - Drop each piece in the flour, then the egg, and finally cover with the breadcrumbs.
+    cue: Each piece has a complete, even coat of crumbs with no bare patches.
+    active_min: 15
+    tools:
+      - tool: knife
+      - tool: baking-paper
+        note: Greaseproof paper.
+      - tool: rolling-pin
+        alternatives:
+          - meat-mallet
+    after: []
+
+  - id: prep-veg
+    title: Heat the oven and cut the vegetables
+    component: sauce
+    kind: prep
+    text: Get the oven heating while you finely dice or julienne all of the vegetables.
+    substeps:
+      - Heat the oven to 220 °C fan (240 °C conventional).
+      - Finely dice or julienne {onion}, {carrot} and the garlic and ginger.
+      - Keep {mangetout} and {baby-corn} separate from the rest.
+    temperature:
+      celsius: 220
+      mode: fan
+    active_min: 15
+    tools:
+      - tool: oven
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: soften-veg
+    title: Soften the onions and carrots
+    component: sauce
+    kind: cook
+    text: Fry the onions and carrots in oil, then turn the heat down and cook slowly until soft before adding the garlic, ginger and spices.
+    substeps:
+      - Heat a pan over a medium-high heat and add {oil}.
+      - Fry {onion} and {carrot} and stir fry for a while.
+      - Turn the heat down and leave to cook slowly until softened.
+      - Add {garlic}, {ginger}, {curry-powder}, {turmeric}, {cumin}, {coriander} and {garam-masala}, and keep moving it around.
+    cue: The onions and carrots are soft and the spices smell toasted and fragrant, not burnt.
+    heat: medium
+    active_min: 12
+    tools:
+      - tool: large-pot
+        alternatives:
+          - frying-pan
+      - tool: wooden-spoon
+    after:
+      - prep-veg
+
+  - id: cook-rice
+    title: Cook the rice
+    component: rice
+    kind: cook
+    text: Cook {rice} by the usual basmati method, timed to finish with the chicken.
+    cue: The grains are tender and separate.
+    active_min: 3
+    passive_min: 20
+    tools:
+      - tool: saucepan
+        alternatives:
+          - rice-cooker
+    after:
+      - soften-veg
+
+  - id: bake-chicken
+    title: Bake the chicken
+    component: chicken
+    kind: cook
+    text: Bake the crumbed chicken for about 20 minutes, turning once, until golden and cooked through.
+    substeps:
+      - Put the chicken on a baking tray in the hot oven.
+      - Turn after 10 minutes and cook for another 10.
+    cue: The crumbs are golden and crisp and the chicken is white and cooked through with no pink at the centre.
+    temperature:
+      celsius: 220
+      mode: fan
+    active_min: 3
+    passive_min: 17
+    tools:
+      - tool: oven
+      - tool: baking-tray
+    after:
+      - crumb-chicken
+      - soften-veg
+
+  - id: simmer-sauce
+    title: Finish the sauce
+    component: sauce
+    kind: cook
+    text: Keep cooking the spiced vegetables for about 10 minutes, then add the coconut milk, mangetout and baby corn and simmer slowly until the rice and chicken are ready.
+    substeps:
+      - Continue to cook the spiced vegetables for about 10 minutes.
+      - Add {coconut-milk}, {mangetout} and {baby-corn}.
+      - Bring to a slow simmer and hold it there until the rice and chicken are cooked.
+    cue: A thick, glossy sauce with the mangetout and baby corn just tender and still bright.
+    heat: low
+    active_min: 5
+    passive_min: 15
+    tools:
+      - tool: large-pot
+        alternatives:
+          - frying-pan
+      - tool: wooden-spoon
+    after:
+      - soften-veg
+
+  - id: serve
+    title: Slice and serve
+    component: rice
+    kind: serve
+    text: Serve the rice and chicken with the sauce spooned alongside or over the top.
+    substeps:
+      - Slice the chicken if you like, or serve whole.
+      - Spoon rice into bowls and add the sauce and chicken.
+    active_min: 4
+    after:
+      - bake-chicken
+      - simmer-sauce
+      - cook-rice
+
+notes:
+  - "Lazy way: buy breaded chicken strips and skip the crumbing. You can also flavour the breadcrumbs if you fancy."
+  - "Texture: the sauce is usually left as it is for some bite. You can blitz it smooth if you prefer."
+  - "Alternative version, which fries the chicken instead of baking it: panko (150 g), chicken dipped in a batter of 2 eggs, flour, garlic powder, onion powder, salt and pepper, then fried at 170 °C for about 3 minutes a side and drained on a rack. Its sauce is onion, carrot, garlic and ginger softened for 10 minutes, curry powder and chilli powder, flour, soy sauce, rice vinegar, 500 ml chicken stock and honey, simmered, then blended. It serves the sauce over 200 g jasmine rice cooked in 310 ml water. Worth trying if you want a smoother, thicker sauce."
+
+open_questions:
+  - The oven temperature is given as 220 C with no mode. Fan is assumed.
+  - Oil is given as a few tablespoons. 45 ml (3 tbsp) is assumed.
+  - Rice water and timings are not given; the usual basmati method is assumed.
+  - Three breasts serve four if each is halved after butterflying, though the usual allowance is one per person. Is that enough?

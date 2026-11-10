@@ -1,0 +1,200 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: chicken-salad
+title: Chicken Salad
+summary: Seared and roasted chicken thighs sliced over a shredded lettuce, cucumber, avocado and cheese salad with Caesar dressing.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 2
+tags:
+  - salad
+  - dinner
+  - lunch
+  - high-protein
+
+images:
+  - file: hero.webp
+    alt: A white square bowl of chopped lettuce, cucumber and avocado with sliced chicken thigh on top.
+
+components:
+  - id: chicken
+    title: Chicken
+    ingredients:
+      - id: chicken
+        ingredient: chicken-thigh
+        quantity:
+          amount: 4
+          unit: each
+        note: 1 or 2 per person
+      - id: oil
+        ingredient: vegetable-oil
+        note: a little, for searing
+      - id: salt
+        ingredient: salt
+        note: to season
+      - id: pepper
+        ingredient: black-pepper
+        note: to season
+      - id: paprika
+        ingredient: paprika
+        quantity:
+          amount: 1
+          unit: tsp
+        optional: true
+      - id: oregano
+        ingredient: oregano
+        quantity:
+          amount: 1
+          unit: tsp
+        optional: true
+        swaps:
+          - ingredient: herbes-de-provence
+            ratio: 1
+            quality: close
+            note: Oregano or herbes de Provence both work.
+      - id: onion-powder
+        ingredient: onion-powder
+        quantity:
+          amount: 1
+          unit: tsp
+        optional: true
+      - id: garlic-powder
+        ingredient: garlic-powder
+        quantity:
+          amount: 1
+          unit: tsp
+        optional: true
+
+  - id: salad
+    title: Salad
+    ingredients:
+      - id: lettuce
+        ingredient: lettuce
+      - id: tomatoes
+        ingredient: cherry-tomatoes
+        optional: true
+        note: not for Jen
+      - id: cucumber
+        ingredient: cucumber
+      - id: avocado
+        ingredient: avocado
+        quantity:
+          amount: 1
+          unit: each
+        note: one for every two portions
+      - id: cheese
+        ingredient: cheddar-cheese
+        note: any type
+      - id: spring-onion
+        ingredient: spring-onion
+      - id: dressing
+        ingredient: caesar-dressing
+
+steps:
+  - id: heat-oven
+    title: Heat the oven
+    component: chicken
+    kind: prep
+    text: Heat the oven to 200 °C (fan assumed).
+    temperature:
+      celsius: 200
+      mode: fan
+    passive_min: 15
+    tools:
+      - tool: oven
+    after: []
+
+  - id: season-chicken
+    title: Season the chicken
+    component: chicken
+    kind: prep
+    text: Season {chicken} with {salt}, {pepper} and, if using, {paprika}, {oregano}, {onion-powder} and {garlic-powder}.
+    active_min: 4
+    after: []
+
+  - id: sear-chicken
+    title: Sear the chicken
+    component: chicken
+    kind: cook
+    text: Sear {chicken:name} in a hot pan with a little {oil:name} for 3 to 5 minutes, then turn it over and colour the other side.
+    cue: Both sides are golden brown.
+    heat: high
+    active_min: 8
+    tools:
+      - tool: frying-pan
+        alternatives:
+          - saute-pan
+      - tool: tongs
+    after:
+      - season-chicken
+
+  - id: roast-chicken
+    title: Roast the chicken
+    component: chicken
+    kind: cook
+    text: Put the chicken on a roasting dish and roast for 15 to 20 minutes, or until cooked.
+    substeps:
+      - It may cook more quickly if it is thinner.
+    cue: The juices run clear and there is no pink in the thickest part.
+    temperature:
+      celsius: 200
+      mode: fan
+    active_min: 2
+    passive_min: 18
+    tools:
+      - tool: roasting-tin
+        alternatives:
+          - ovenproof-dish
+      - tool: oven
+    after:
+      - sear-chicken
+      - heat-oven
+
+  - id: prepare-salad
+    title: Prepare the salad
+    component: salad
+    kind: prep
+    text: While the chicken roasts, prepare the other ingredients and mix them in a shallow bowl.
+    substeps:
+      - Shred {lettuce:name}.
+      - Halve {cucumber:name} lengthwise and slice into half moons.
+      - Cube {avocado} and {cheese}.
+      - Halve {tomatoes} if using.
+      - Finely slice {spring-onion}.
+    active_min: 12
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after:
+      - sear-chicken
+
+  - id: rest-and-slice
+    title: Rest and slice the chicken
+    component: chicken
+    kind: wait
+    text: When the chicken is cooked, let it rest for a few minutes and then slice it into strips.
+    active_min: 2
+    passive_min: 4
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after:
+      - roast-chicken
+
+  - id: dress-and-serve
+    title: Dress and serve
+    component: salad
+    kind: serve
+    text: Dress the salad with {dressing:name}, season if needed, and serve in a shallow bowl with the chicken on top.
+    active_min: 3
+    after:
+      - prepare-salad
+      - rest-and-slice
+
+notes:
+  - "Judge the amount of each salad ingredient as you go. The chicken is the only thing with a rough portion."
+
+open_questions:
+  - "Servings are assumed to be 2. Four thighs is taken from 1 or 2 per person."
+  - "No amounts are given for the salad ingredients or dressing; they are left unmeasured."
+  - "The oven is 200 °C; fan is assumed. The doneness cue for the chicken is assumed."

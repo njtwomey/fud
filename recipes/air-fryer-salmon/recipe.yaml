@@ -1,0 +1,110 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: air-fryer-salmon
+title: Air Fryer Salmon
+summary: Thick salmon fillets sprayed with oil, salted and sprinkled with thyme, air fried at 180 °C then 240 °C and rested briefly.
+version: 1
+date: 2026-11-10
+status: draft
+servings: 2
+tags:
+  - dinner
+  - air-fryer
+  - high-protein
+  - quick
+
+components:
+  - id: salmon
+    title: Salmon
+    ingredients:
+      - id: salmon
+        ingredient: salmon-fillet
+        quantity:
+          amount: 2
+          unit: each
+        note: large, thick-cut, skin-on assumed
+      - id: oil-spray
+        ingredient: cooking-oil-spray
+      - id: salt
+        ingredient: salt
+        note: cooking salt
+      - id: thyme
+        ingredient: dried-thyme
+        note: to sprinkle
+
+steps:
+  - id: take-out
+    title: Bring to room temperature
+    component: salmon
+    kind: wait
+    text: Take the fillets out of the fridge and leave them at room temperature for a short while.
+    substeps:
+      - Remove {salmon} from the fridge.
+      - Leave to sit at room temperature while you prepare the air fryer.
+    cue: The fillets have lost their fridge chill but are not warm.
+    passive_min: 15
+    after: []
+
+  - id: season
+    title: Dry, oil and season
+    component: salmon
+    kind: prep
+    text: Pat the fillets dry, spray with oil and season with salt and thyme.
+    substeps:
+      - Pat the fillets dry on all surfaces, because surface moisture prevents browning.
+      - Spray lightly with {oil-spray}, coating the flesh and the skin.
+      - Season with {salt}, then sprinkle evenly with {thyme}.
+    cue: The surface is dry to the touch before oiling, then lightly glossy.
+    active_min: 3
+    tools:
+      - tool: air-fryer
+    after:
+      - take-out
+
+  - id: cook-first
+    title: Air fry at 180 °C
+    component: salmon
+    kind: cook
+    text: Place the fillets skin side down in a single layer in the basket, without crowding, and cook at 180 °C for 8 minutes.
+    temperature:
+      celsius: 180
+      mode: fan
+    cue: The flesh is starting to turn opaque at the edges and the surface is lightly coloured.
+    active_min: 1
+    passive_min: 8
+    tools:
+      - tool: air-fryer
+    after:
+      - season
+
+  - id: cook-second
+    title: Raise to 240 °C and finish
+    component: salmon
+    kind: cook
+    text: Raise the air fryer to 240 °C and cook for a further 10 minutes.
+    temperature:
+      celsius: 240
+      mode: fan
+    cue: The exterior is browned and the skin looks crisp, with the thyme not scorched.
+    active_min: 1
+    passive_min: 10
+    tools:
+      - tool: air-fryer
+
+  - id: rest
+    title: Rest and serve
+    component: salmon
+    kind: serve
+    text: Remove the salmon and rest it for 2 to 3 minutes before serving.
+    cue: The fillets are no longer spitting.
+    passive_min: 3
+
+notes:
+  - "Total cooking time is 18 minutes across two stages."
+  - "Fillets in this version were large, thick, long cuts from the fishmonger. Thinner fillets will need a shorter high-heat stage."
+  - "To capture after this cook: whether the interior was dry or moist at the thickest point, whether the exterior browned or the thyme scorched in the 240 °C stage, and whether the skin crisped. The most likely change in the next version is the length of the high-heat stage."
+
+open_questions:
+  - The number of fillets and servings are assumed (2).
+  - Skin-on is assumed.
+  - The cooking time at 240 °C is long, so is 10 minutes too much, and did the thyme scorch?
+  - How long to leave the fillets at room temperature is not given (assumed 15 minutes).

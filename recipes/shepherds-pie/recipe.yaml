@@ -1,0 +1,261 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: shepherds-pie
+title: Shepherd's Pie
+summary: Grated lamb, onion and carrot in a red wine and Worcestershire sauce under a rich Parmesan mash, baked until golden.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 6
+tags:
+  - dinner
+  - british
+  - pie
+  - baking
+
+images:
+  - file: hero.jpg
+    alt: A white ceramic dish of shepherd's pie in the oven, the top browning under the glowing grill element.
+
+components:
+  - id: lamb
+    title: Lamb filling
+    ingredients:
+      - id: oil
+        ingredient: olive-oil
+        quantity:
+          amount: 30
+          unit: ml
+      - id: lamb
+        ingredient: lamb-mince
+        quantity:
+          amount: 900
+          unit: g
+      - id: onion
+        ingredient: onion
+        quantity:
+          amount: 1
+          unit: each
+        note: large
+      - id: carrot
+        ingredient: carrot
+        quantity:
+          amount: 1
+          unit: each
+        note: large
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 3
+          unit: each
+      - id: worcestershire
+        ingredient: worcestershire-sauce
+        quantity:
+          amount: 30
+          unit: ml
+      - id: tomato-puree
+        ingredient: tomato-puree
+        quantity:
+          amount: 25
+          unit: g
+        note: about 1½ tbsp
+      - id: thyme
+        ingredient: thyme
+        quantity:
+          amount: 2
+          unit: g
+        note: about 2 fresh sprigs
+      - id: rosemary
+        ingredient: rosemary
+        quantity:
+          amount: 2
+          unit: g
+        note: about 1 fresh sprig
+      - id: wine
+        ingredient: red-wine
+        quantity:
+          amount: 200
+          unit: ml
+      - id: stock
+        ingredient: chicken-stock
+        quantity:
+          amount: 200
+          unit: ml
+      - id: salt
+        ingredient: salt
+      - id: pepper
+        ingredient: black-pepper
+
+  - id: mash
+    title: Parmesan mash
+    ingredients:
+      - id: potato
+        ingredient: potato
+        quantity:
+          amount: 1
+          unit: kg
+      - id: yolk
+        ingredient: egg-yolk
+        quantity:
+          amount: 2
+          unit: each
+        note: medium
+      - id: cream
+        ingredient: double-cream
+        quantity:
+          amount: 50
+          unit: ml
+      - id: butter
+        ingredient: butter
+        quantity:
+          amount: 60
+          unit: g
+        note: about 4 tbsp
+      - id: parmesan-mash
+        ingredient: parmesan
+        quantity:
+          amount: 12
+          unit: g
+        note: about 2 tbsp, grated
+      - id: parmesan-top
+        ingredient: parmesan
+        quantity:
+          amount: 24
+          unit: g
+        note: about 4 tbsp, grated, for the top
+
+steps:
+  - id: prep-filling
+    title: Heat the oven and prep
+    component: lamb
+    kind: prep
+    text: Heat the oven first, then grate the vegetables and garlic and chop the herbs so the filling can go together without a pause.
+    substeps:
+      - Heat the oven to 180 °C fan (200 °C conventional).
+      - Peel and grate {onion} and {carrot}.
+      - Peel {garlic}, ready to grate straight into the pan.
+      - Strip the leaves from {thyme} and chop {rosemary}.
+    temperature:
+      celsius: 180
+      mode: fan
+    active_min: 10
+    tools:
+      - tool: oven
+      - tool: box-grater
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: brown-lamb
+    title: Brown the lamb
+    component: lamb
+    kind: cook
+    text: Fry the seasoned mince hard, stir in the grated vegetables and garlic, then cook the Worcestershire sauce, tomato purée and herbs into it.
+    substeps:
+      - Heat {oil} in a large pan until hot.
+      - Season {lamb} with {salt} and fry over a moderate to high heat for 2 to 3 minutes.
+      - Stir in the onion and carrot, then grate in the garlic.
+      - Add {worcestershire}, {tomato-puree}, the thyme and the rosemary and cook for 1 to 2 minutes, stirring constantly.
+    heat: medium-high
+    cue: The lamb has lost its raw pink and the vegetables are coated in a dark, glossy paste.
+    active_min: 8
+    tools:
+      - tool: frying-pan
+      - tool: wooden-spoon
+    after:
+      - prep-filling
+
+  - id: reduce-sauce
+    title: Reduce wine, simmer sauce
+    component: lamb
+    kind: cook
+    text: Boil the red wine down almost to nothing, add the stock and simmer until the sauce thickens. Season to taste.
+    substeps:
+      - Pour in {wine} and reduce until almost completely evaporated.
+      - Add {stock}, bring to the boil and simmer until the sauce has thickened.
+      - Add {salt} and {pepper} to taste.
+    heat: medium
+    cue: The sauce clings to the mince and a spoon dragged through leaves a trail that holds for a moment.
+    active_min: 5
+    passive_min: 10
+    tools:
+      - tool: frying-pan
+
+  - id: boil-potatoes
+    title: Boil the potatoes
+    component: mash
+    kind: cook
+    text: Cook the potato chunks in boiling salted water until tender, then dry them out briefly in the hot pan.
+    substeps:
+      - Peel {potato} and cut into chunks.
+      - Boil in salted water until tender.
+      - Drain and return to the hot pan over a low heat to dry out briefly.
+    heat: high
+    cue: A knife slides into a chunk with no resistance, and the drained potato looks floury and steams off.
+    active_min: 6
+    passive_min: 15
+    tools:
+      - tool: large-pot
+      - tool: knife
+      - tool: colander
+    after:
+      - prep-filling
+
+  - id: mash
+    title: Make the Parmesan mash
+    component: mash
+    kind: cook
+    text: Mash the potato thoroughly, then beat in the egg yolks, cream and butter, followed by some of the Parmesan. Taste and adjust the seasoning.
+    substeps:
+      - Mash the potatoes until smooth.
+      - Beat in {yolk}, {cream} and {butter}.
+      - Beat in {parmesan-mash}.
+      - Taste and adjust the seasoning.
+    cue: A smooth, glossy mash with no lumps.
+    active_min: 6
+    tools:
+      - tool: potato-masher
+      - tool: wooden-spoon
+
+  - id: assemble
+    title: Assemble the pie
+    component: mash
+    kind: cook
+    text: Spoon the lamb into an ovenproof dish and layer the mash on top, working from the outside in so the meat is covered evenly, then finish with Parmesan and rough peaks.
+    substeps:
+      - Spoon the lamb mixture into the bottom of an ovenproof dish.
+      - Layer the mash generously on top with a large spoon, starting from the outside and working into the middle. Heavy-handed layering can make wells that are mostly potato with very little meat.
+      - Top with {parmesan-top} and season.
+      - Fluff up the mash with a fork to make rough peaks.
+    cue: The mash covers the lamb completely, with rough peaks across the top.
+    active_min: 8
+    tools:
+      - tool: ovenproof-dish
+      - tool: wooden-spoon
+    after:
+      - reduce-sauce
+      - mash
+
+  - id: bake
+    title: Bake until golden
+    component: mash
+    kind: wait
+    text: Bake for about 20 minutes, until the pie is bubbling and the peaks are golden brown.
+    temperature:
+      celsius: 180
+      mode: fan
+    cue: Sauce bubbling up at the edges and the potato peaks golden brown.
+    passive_min: 20
+    tools:
+      - tool: oven
+      - tool: ovenproof-dish
+
+notes:
+  - "The two egg yolks leave two whites spare. They make a good pavlova."
+  - "Layering the mash from the outside in keeps the filling covered; a heavy hand makes wells that are mostly potato."
+
+open_questions:
+  - The oven mode is not stated for 180 °C. Treated as fan (200 °C conventional), since the kitchen oven is fan.
+  - Servings are assumed (6) from 900 g of mince and 1 kg of potato.
+  - The cream (50 ml) has no type given. Assumed double cream.
+  - Butter is given as 4 tbsp and converted to 60 g. The thyme is 2 sprigs and the rosemary 1 sprig, entered as about 2 g each. Parmesan is 6 tbsp in total, split about 2 tbsp into the mash and 4 tbsp on top (assumed 12 g and 24 g).
+  - The potato boil time is assumed (about 15 minutes), as are the sauce simmer time (about 10 minutes) and the preparation times.

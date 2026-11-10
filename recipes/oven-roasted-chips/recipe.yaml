@@ -1,0 +1,140 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: oven-roasted-chips
+title: Oven-roasted Chips
+summary: Chips soaked, par-boiled and roasted in a hot oven until golden, from regular or sweet potatoes.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 2
+tags:
+  - side
+  - roasting
+  - vegetarian
+
+images:
+  - file: hero.jpg
+    alt: Golden oven chips in a paper cone standing in a metal holder.
+
+components:
+  - id: chips
+    title: Chips
+    ingredients:
+      - id: potato
+        ingredient: potato
+        quantity:
+          amount: 3
+          unit: each
+        note: 1 to 2 medium potatoes per person
+        swaps:
+          - ingredient: sweet-potato
+            ratio: 1
+            quality: close
+            note: The method works for sweet potato chips too.
+      - id: salt-water
+        ingredient: salt
+        note: for the par-boiling water
+      - id: oil
+        ingredient: vegetable-oil
+        note: to coat
+      - id: salt
+        ingredient: salt
+        note: to taste
+      - id: pepper
+        ingredient: black-pepper
+        note: to taste
+      - id: rosemary
+        ingredient: rosemary
+        optional: true
+        note: I like to add some
+
+steps:
+  - id: cut-and-soak
+    title: Cut and soak the chips
+    component: chips
+    kind: prep
+    text: Peel {potato:name} if you like, chop into chips and soak them in cold water for about 10 minutes.
+    substeps:
+      - Peel the potatoes (optional, though Jen does not love potato skins) and chop into the size you want.
+      - Soak the uncooked chips in cold water for maybe 10 minutes. Chips release a lot more starch than boiled potatoes because there is more surface area, so you may need to change the water.
+    active_min: 8
+    passive_min: 10
+    tools:
+      - tool: peeler
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: heat-oven
+    title: Heat the oven and kettle
+    component: chips
+    kind: prep
+    text: While the chips soak, heat the oven to 200 °C and boil a kettle of water.
+    temperature:
+      celsius: 200
+      mode: fan
+    passive_min: 10
+    tools:
+      - tool: oven
+      - tool: kettle
+    after: []
+
+  - id: dry-and-parboil
+    title: Dry and par-boil the chips
+    component: chips
+    kind: cook
+    text: Dry the soaked chips thoroughly, then par-boil them in salted water for about 5 minutes.
+    substeps:
+      - Toss the chips around in a tea towel, or pat them dry with kitchen paper.
+      - Par-boil them in boiling water with {salt-water} for about 5 minutes. You can roast them directly instead, but it takes longer.
+      - Lift them out carefully, because boiling can make chips lose their shape and break. Drain.
+    cue: The outsides have just started to soften but the chips still hold their shape.
+    active_min: 6
+    passive_min: 5
+    tools:
+      - tool: large-pot
+      - tool: colander
+      - tool: kettle
+    after:
+      - cut-and-soak
+      - heat-oven
+
+  - id: oil-and-season
+    title: Oil and season the chips
+    component: chips
+    kind: prep
+    text: Lay the chips out, drizzle {oil} over them and season with {salt}, {pepper} and {rosemary} if using.
+    substeps:
+      - Make sure all of the chips are uniformly coated with oil on all sides. A basting brush helps.
+      - You can leave them plain.
+    active_min: 4
+    tools:
+      - tool: baking-tray
+      - tool: pastry-brush
+    after:
+      - dry-and-parboil
+
+  - id: roast-chips
+    title: Roast the chips
+    component: chips
+    kind: cook
+    text: Roast for about 30 minutes, turning a few times so they colour all round.
+    cue: Golden all over and crisp at the edges.
+    temperature:
+      celsius: 200
+      mode: fan
+    active_min: 5
+    passive_min: 30
+    tools:
+      - tool: oven
+      - tool: baking-tray
+    after:
+      - oil-and-season
+
+notes:
+  - "This is a very similar process to making roast potatoes."
+  - "The method works for both sweet and regular potatoes."
+
+open_questions:
+  - "Servings are assumed to be 2; 3 medium potatoes is taken from 1 to 2 per person."
+  - "The oven is 200 °C; fan is assumed."
+  - "Which oil is not stated; a neutral vegetable oil is assumed."

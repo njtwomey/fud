@@ -1,0 +1,196 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: reverse-seared-rump-steak
+title: Reverse-Seared Rump Steak
+summary: A dry-brined rump steak brought to temperature in a low oven, then seared hard in a stainless pan for a deep crust and an even pink centre.
+version: 2
+date: 2026-09-01
+status: draft
+servings: 1
+tags:
+  - dinner
+  - high-protein
+  - roasting
+  - frying
+
+components:
+  - id: steak
+    title: Steak
+    ingredients:
+      - id: steak
+        ingredient: rump-steak
+        quantity:
+          amount: 300
+          unit: g
+        note: 2.5 cm thick
+      - id: salt
+        ingredient: salt
+        quantity:
+          amount: 3
+          unit: g
+        note: fine sea salt, 1% of the meat's weight
+
+  - id: sear
+    title: Sear
+    ingredients:
+      - id: oil
+        ingredient: avocado-oil
+        quantity:
+          amount: 15
+          unit: ml
+        note: refined, about 1 tbsp
+        swaps:
+          - ingredient: vegetable-oil
+            ratio: 1
+            quality: close
+            note: Refined rapeseed or groundnut oil work equally well. Avoid extra virgin olive oil and cold-pressed oils, which scorch at searing heat.
+
+steps:
+  - id: salt-steak
+    title: Weigh, dry and salt
+    component: steak
+    kind: prep
+    text: Weigh the steak and work out 1% of its weight in fine salt, then dry the surface and salt every face.
+    substeps:
+      - Weigh the steak and calculate 1% of that weight in {salt}.
+      - Pat the surface dry with kitchen paper.
+      - Salt both flat faces and the edges evenly.
+    active_min: 5
+    tools:
+      - tool: digital-scales
+    after: []
+
+  - id: dry-brine
+    title: Dry brine in the fridge
+    component: steak
+    kind: wait
+    text: Leave the salted {steak} uncovered on the baking tray in the fridge for 4 to 24 hours, flipping it once halfway so the underside does not sit in drawn-out moisture.
+    substeps:
+      - Set the steak on a shallow baking tray, uncovered, and refrigerate for 4 to 24 hours.
+      - At roughly the halfway point turn the steak over once and blot the underside and the tray with kitchen paper. Without a rack, drawn-out moisture pools underneath, and this stops it.
+      - If you have less than 45 minutes, salt immediately before the oven instead. Salt applied in between draws moisture out without time to reabsorb it.
+    cue: Both faces look dry and slightly tacky, and darker than when they went in.
+    active_min: 2
+    passive_min: 240
+    make_ahead: true
+    tools:
+      - tool: baking-tray
+      - tool: fridge
+
+  - id: heat-oven
+    title: Heat the oven
+    component: steak
+    kind: prep
+    text: Heat the oven to a low temperature while the brine finishes.
+    substeps:
+      - Heat the oven to 110 °C fan (130 °C conventional). Fan is assumed.
+    temperature:
+      celsius: 110
+      mode: fan
+    cue: The oven has reached 110 °C and held it.
+    active_min: 1
+    passive_min: 10
+    tools:
+      - tool: oven
+      - tool: oven-thermometer
+    after:
+      - dry-brine
+
+  - id: low-oven
+    title: Cook in the low oven
+    component: steak
+    kind: cook
+    text: Put the cold tray straight from the fridge into the oven and cook the steak to 49 °C in the centre, flipping once at 35 °C. Go by the thermometer, not the clock.
+    substeps:
+      - Put the tray in cold, straight from the fridge, with the steak on it. Do not preheat the tray, and do not leave the steak on the counter to warm up.
+      - Insert the probe through the side, horizontally, so the tip sits in the geometric centre. Check by feel that the reading is at its lowest there.
+      - Start checking at 15 minutes. A 2.5 cm steak takes roughly 20 to 30 minutes; a 4 cm steak takes 40 to 55.
+      - When the centre reads about 35 °C, flip the steak once. Blot the face that was underneath, and blot the tray.
+      - Cook until the centre reaches 49 °C for medium rare.
+    temperature:
+      celsius: 110
+      mode: fan
+    cue: The probe reads 49 °C at the centre.
+    active_min: 5
+    passive_min: 20
+    tools:
+      - tool: oven
+      - tool: baking-tray
+      - tool: probe-thermometer
+    after:
+      - heat-oven
+
+  - id: rest-heat-pan
+    title: Rest and heat the pan
+    component: sear
+    kind: wait
+    text: Lift the steak onto a dry plate and rest it uncovered for 5 minutes while the stainless pan heats on your highest heat.
+    substeps:
+      - Remove the tray and lift the steak onto a dry plate or board. Leaving it on the tray keeps it sitting in whatever moisture came out.
+      - Set the dry stainless pan over your highest heat for 3 to 4 minutes.
+      - Flick in a few drops of water to test it.
+    heat: high
+    cue: The surface of the steak feels dry to the touch, and the water forms a single bead that skates across the pan instead of hissing away.
+    active_min: 1
+    passive_min: 5
+    tools:
+      - tool: frying-pan
+        note: heavy based stainless steel
+    after:
+      - low-oven
+
+  - id: sear
+    title: Sear hard on all sides
+    component: sear
+    kind: cook
+    text: Oil the pan, pat the steak dry again and sear each face for 45 to 60 seconds, then the edges. Total time in the pan stays under 3 minutes.
+    substeps:
+      - Add {oil} and swirl to a thin film. It is ready when it thins, shimmers and just begins to send up a wisp of smoke. Open a window and run the extractor first.
+      - Pat the steak dry once more with kitchen paper, both faces.
+      - If the steak has a fat cap, hold it fat-edge down with tongs for 60 to 90 seconds, until the fat has turned golden and stopped bubbling hard.
+      - Lay the steak flat away from you and press it down briefly for full contact. Sear for 45 to 60 seconds, lifting a corner to check rather than moving it repeatedly.
+      - Turn and sear the second face for 45 to 60 seconds to the same colour.
+      - Stand the steak up with tongs and sear the narrow edges for about 20 seconds each.
+      - Move the steak to a warm plate.
+    heat: high
+    cue: A deep brown crust across most of each face.
+    active_min: 4
+    tools:
+      - tool: frying-pan
+      - tool: tongs
+
+  - id: rest-slice
+    title: Rest and slice
+    component: sear
+    kind: serve
+    text: Rest the steak uncovered for 5 minutes, check the centre, then slice across the grain.
+    substeps:
+      - Rest uncovered for 5 minutes. Covering traps steam and softens the crust.
+      - Check the centre with the probe. It should read 54 to 56 °C.
+      - Find the grain, which runs clearly in one direction across a rump.
+      - Slice across it at about 1 cm, holding the knife at a slight angle.
+    cue: The probe reads 54 to 56 °C and the slices are evenly pink through the middle.
+    active_min: 3
+    passive_min: 5
+    tools:
+      - tool: probe-thermometer
+      - tool: knife
+      - tool: chopping-board
+
+notes:
+  - "Doneness: pull from the oven roughly 6 °C below the target. The low oven adds 1 to 2 °C of carryover and the sear adds another 3 to 4 °C. Rare: pull at 45 °C, final 50 to 52 °C. Medium rare: pull at 49 °C, final 54 to 56 °C. Medium: pull at 53 °C, final 58 to 60 °C. Medium well: pull at 58 °C, final 63 to 65 °C."
+  - "Rump is lean and has more connective tissue than ribeye or sirloin. Past about 60 °C it tightens noticeably, so medium rare to medium is where it stays tender."
+  - "Thickness: reverse searing earns its keep from about 3 cm upwards. At 2.5 cm it still works and gives a more evenly pink interior than pan-only cooking, but the margin for error narrows. Below 2 cm, skip the oven and sear straight from the fridge, since the steak will overshoot before the crust forms."
+  - "Oil: use refined oil, not cold-pressed. Refined avocado oil smokes at about 270 °C. Groundnut, rapeseed, sunflower and light olive oil all sit around 230 to 240 °C. Use enough to wet the pan and no more; a pool of oil insulates the steak and lowers the surface temperature. Butter alone fails at searing heat, but butter added for the last 30 seconds, with the pan pulled back from full heat, works."
+  - "Make ahead: the dry brine and the oven phase can both be done in advance. Cook to the pull temperature, cool, and refrigerate for up to 2 days. Bring back to about 40 °C in a 90 °C fan oven before searing."
+  - "Storage: cooked and sliced, 3 days in the fridge. Reheat gently or eat cold, as reheating a seared steak hard takes it past medium."
+  - "Smoke: the pan will smoke at searing temperature, so open a window and run the extractor before you start."
+  - "No-rack option, not part of the method: three or four ropes of scrunched kitchen foil laid across the tray as ridges hold the steak clear of the surface and make the two flips unnecessary. Try the flip version first."
+  - "Optional additions, not in the method: butter, garlic and thyme added to the pan for the last 30 seconds and spooned over the steak, or flaky salt on the sliced surface."
+
+open_questions:
+  - Actual thickness and weight of the steaks you buy, which sets the oven timing.
+  - Whether the oven holds 110 °C accurately at the low end of its range, and whether it is fan (assumed).
+  - Whether one flip in the oven is enough, or the tray-side face still lags.
+  - Whether 4 hours of dry brining differs noticeably from 24 in this cut.
+  - Whether the 5 minute rest before the sear is doing enough for the crust.
+  - Servings (1) and the doneness (medium rare, 55 °C) are assumed.

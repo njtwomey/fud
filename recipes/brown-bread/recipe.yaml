@@ -1,0 +1,181 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: brown-bread
+title: Jen's Ma's Brown Bread
+summary: A stiff wholemeal and bran soda bread batter mixed with buttermilk, baked in a loaf tin first hot, then a little cooler.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 10
+tags:
+  - bread
+  - baking
+  - irish
+  - make-ahead
+
+images:
+  - file: hero.jpg
+    alt: A loaf of brown bread on a wire rack, cut in half to show a pale, dense, even crumb with a floury crust.
+
+components:
+  - id: dry
+    title: Dry mix
+    ingredients:
+      - id: plain-flour
+        ingredient: plain-flour
+        quantity:
+          amount: 225
+          unit: g
+      - id: wholemeal-flour
+        ingredient: wholemeal-flour
+        quantity:
+          amount: 225
+          unit: g
+      - id: sugar
+        ingredient: sugar
+        quantity:
+          amount: 30
+          unit: g
+      - id: bran
+        ingredient: wheat-bran
+        quantity:
+          amount: 30
+          unit: g
+      - id: wheatgerm
+        ingredient: wheatgerm
+        quantity:
+          amount: 30
+          unit: g
+      - id: oatmeal
+        ingredient: oatmeal
+        quantity:
+          amount: 30
+          unit: g
+      - id: salt
+        ingredient: salt
+        quantity:
+          amount: 2
+          unit: tsp
+      - id: bicarb
+        ingredient: bicarbonate-of-soda
+        quantity:
+          amount: 10
+          unit: g
+        note: about 2 level tsp
+
+  - id: wet
+    title: Wet mix
+    ingredients:
+      - id: egg
+        ingredient: egg
+        quantity:
+          amount: 1
+          unit: each
+      - id: buttermilk
+        ingredient: buttermilk
+        quantity:
+          amount: 400
+          unit: ml
+
+steps:
+  - id: heat-and-mix-dry
+    title: Heat the oven, mix the dry
+    component: dry
+    kind: prep
+    text: Heat the oven first, then combine all of the dry ingredients in a large bowl.
+    substeps:
+      - Heat the oven to 200 °C fan (220 °C conventional).
+      - Put {plain-flour}, {wholemeal-flour}, {sugar}, {bran}, {wheatgerm}, {oatmeal}, {salt} and {bicarb} in a large bowl.
+      - Mix well.
+    temperature:
+      celsius: 200
+      mode: fan
+    active_min: 5
+    tools:
+      - tool: oven
+      - tool: mixing-bowl
+    after: []
+
+  - id: add-wet
+    title: Mix in the wet ingredients
+    component: wet
+    kind: cook
+    text: Add the egg and buttermilk to the dry mix and stir until everything is integrated into a relatively stiff batter.
+    substeps:
+      - Add {egg} and {buttermilk} to the dry ingredients.
+      - Mix until everything has come together.
+    cue: A relatively stiff mixture with no dry pockets of flour.
+    active_min: 4
+    tools:
+      - tool: mixing-bowl
+      - tool: wooden-spoon
+    after:
+      - heat-and-mix-dry
+
+  - id: fill-tin
+    title: Fill the tin
+    component: wet
+    kind: prep
+    text: Grease a loaf tin thoroughly and spoon the mixture in.
+    substeps:
+      - Grease a loaf tin thoroughly.
+      - Add the mixture to the tin.
+    active_min: 3
+    tools:
+      - tool: loaf-tin
+
+  - id: bake-hot
+    title: Bake hot for 30 minutes
+    component: wet
+    kind: cook
+    text: Once the oven is hot, put the tin in the middle for 30 minutes.
+    temperature:
+      celsius: 200
+      mode: fan
+    cue: The crust is set and starting to brown.
+    active_min: 1
+    passive_min: 30
+    tools:
+      - tool: oven
+      - tool: loaf-tin
+
+  - id: bake-lower
+    title: Bake cooler for 30 minutes
+    component: wet
+    kind: cook
+    text: Reduce the oven to 180 °C fan (200 °C conventional) and bake for another 30 minutes, then check by stabbing the loaf with a knife.
+    substeps:
+      - Reduce the oven to 180 °C fan (200 °C conventional).
+      - Bake for another 30 minutes.
+      - Stab the middle of the loaf with a knife to check it. Leave it in longer if needed.
+    temperature:
+      celsius: 180
+      mode: fan
+    cue: A sharp knife pushed into the centre comes out clean and dry.
+    active_min: 2
+    passive_min: 30
+    tools:
+      - tool: oven
+      - tool: knife
+
+  - id: cool
+    title: Cool on a wire rack
+    component: wet
+    kind: serve
+    text: Leave the loaf to cool on a wire rack.
+    cue: The loaf is cool to the touch.
+    passive_min: 45
+    tools:
+      - tool: wire-rack
+
+notes:
+  - "In Jen's oven this never cooks in 60 minutes (a bad oven, in the cook's words). It often needs another 30 minutes, covered with tin foil so the top does not burn."
+  - "Double the quantities for two loaves."
+  - "In gas marks: 215 °C (gas mark 6) for half an hour, then 205 °C (gas mark 5) for half an hour. Test with a sharp knife in the centre until it comes out clean and dry."
+
+open_questions:
+  - The oven mode is not stated, and the original uses gas marks, so 220 °C and 200 °C are treated as conventional (200 °C and 180 °C fan). Does that match your oven?
+  - The loaf can take longer in a weaker oven, so the overall bake time and the foil cover are worth confirming.
+  - Servings (10 slices) are assumed, since no yield is given.
+  - Bicarbonate of soda is given as 2 tsp and entered as 10 g. An older version uses three quarters of a pint of buttermilk (about 425 ml) against 400 ml here.
+  - Which fat or spray greases the tin is not stated.
+  - The cooling time is assumed.

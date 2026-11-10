@@ -1,0 +1,282 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: pretzels
+title: Pretzels
+summary: A soft white bread dough rolled into ropes, twisted, dipped briefly in boiling bicarbonate water and baked deep brown, with a salt and sesame topping or a sweet orange glaze.
+version: 1
+date: 2026-11-10
+status: draft
+source:
+  kind: web
+  title: Paul Hollywood's Pretzels
+  url: https://thegreatbritishbakeoff.co.uk/recipes/all/paul-hollywood-pretzels/
+servings: 6
+tags:
+  - baking
+  - bread
+  - snack
+  - weekend
+  - project
+
+images:
+  - file: hero.webp
+    alt: A tray of twisted pretzels on baking paper, some covered in sesame seeds and rock salt and some plain and glazed.
+
+components:
+  - id: dough
+    title: Dough
+    ingredients:
+      - id: flour
+        ingredient: bread-flour
+        quantity:
+          amount: 500
+          unit: g
+        note: strong white
+      - id: salt
+        ingredient: salt
+        quantity:
+          amount: 10
+          unit: g
+      - id: yeast
+        ingredient: dried-yeast
+        quantity:
+          amount: 7
+          unit: g
+        note: 1 sachet fast-action
+      - id: butter
+        ingredient: butter
+        quantity:
+          amount: 40
+          unit: g
+        note: unsalted, softened
+      - id: malt
+        ingredient: malt-extract
+        quantity:
+          amount: 15
+          unit: ml
+        note: 1 tbsp
+      - id: milk
+        ingredient: whole-milk
+        quantity:
+          amount: 280
+          unit: ml
+        note: at room temperature
+
+  - id: bath
+    title: Boiling bath
+    ingredients:
+      - id: water
+        ingredient: water
+        quantity:
+          amount: 7
+          unit: l
+      - id: bicarb
+        ingredient: bicarbonate-of-soda
+        quantity:
+          amount: 21
+          unit: g
+
+  - id: savoury
+    title: Salt and sesame topping
+    ingredients:
+      - id: rock-salt
+        ingredient: rock-salt
+        quantity:
+          amount: 20
+          unit: g
+      - id: sesame
+        ingredient: sesame-seeds
+        quantity:
+          amount: 50
+          unit: g
+
+  - id: sweet
+    title: Orange glaze
+    ingredients:
+      - id: orange
+        ingredient: orange
+        optional: true
+        note: zest in the sweet dough and for candied zest, juice for the syrup; amount not given
+      - id: poppy
+        ingredient: poppy-seeds
+        optional: true
+        note: for the sweet pretzels; amount not given
+      - id: sugar
+        ingredient: caster-sugar
+        quantity:
+          amount: 125
+          unit: g
+        note: for the orange syrup and candied zest
+
+steps:
+  - id: mix-dough
+    title: Mix the dough
+    component: dough
+    kind: prep
+    text: Mix the flour, salt, yeast and butter in a large bowl, dissolve the malt in the milk and work it in by hand to a stiff, non-sticky dough.
+    substeps:
+      - Put {flour}, {salt}, {yeast} and {butter} into a large mixing bowl.
+      - Stir {malt} into {milk} until dissolved.
+      - Gradually work the milk into the flour with your hand and keep mixing.
+    cue: A stiff dough that does not stick to the bowl or your hand.
+    active_min: 8
+    tools:
+      - tool: mixing-bowl
+    after: []
+
+  - id: knead
+    title: Knead the dough
+    component: dough
+    kind: cook
+    text: Knead for about 10 minutes, without extra flour, until smooth and glossy.
+    substeps:
+      - Turn the dough out onto a worktop. It should not need any extra flour.
+      - Knead for about 10 minutes.
+      - Put in an oiled bowl.
+    cue: The dough is smooth and glossy and springs back when pressed.
+    active_min: 10
+    tools:
+      - tool: mixing-bowl
+    after:
+      - mix-dough
+
+  - id: prove
+    title: Prove the dough
+    component: dough
+    kind: wait
+    text: Cover the bowl with cling film and leave to prove for about 45 minutes until doubled in size.
+    substeps:
+      - Cover the bowl with cling film.
+      - Leave to prove for about 45 minutes.
+    cue: The dough has doubled in size.
+    passive_min: 45
+    tools:
+      - tool: mixing-bowl
+    after:
+      - knead
+
+  - id: heat-oven-and-water
+    title: Heat the oven and the water
+    component: bath
+    kind: prep
+    text: Heat the oven and bring the 7 litres of water to the boil in a large pan, adding the bicarbonate of soda when it boils.
+    substeps:
+      - Heat the oven to 180 °C fan (200 °C conventional, gas 6).
+      - Bring {water} to the boil in a large pan.
+      - Add {bicarb} once boiling.
+    cue: The water is at a rolling boil.
+    temperature:
+      celsius: 180
+      mode: fan
+    active_min: 3
+    passive_min: 20
+    tools:
+      - tool: oven
+      - tool: large-pot
+    after:
+      - knead
+
+  - id: roll-ropes
+    title: Divide and roll the ropes
+    component: dough
+    kind: prep
+    text: Divide the dough into 12 equal pieces and roll each into a rope 40 to 50 cm long, tapered at the ends with a slight bulge in the middle.
+    substeps:
+      - Turn the dough out onto the worktop and divide it into 12 equal pieces.
+      - Roll one piece back and forth into a rope 40 to 50 cm long, tapering the ends and leaving a slight bulge in the centre.
+      - Apply pressure from the middle outwards as you roll, pushing out any air bubbles.
+      - If the rope springs back, leave it to relax for a few minutes, then carry on rolling to full length.
+      - Shape the other pieces the same way. For the sweet pretzels, divide and roll the {orange:name} dough (with {poppy}) in the same way.
+    cue: Even ropes of the full length that stay put when rolled.
+    active_min: 20
+    tools:
+      - tool: bench-scraper
+    after:
+      - prove
+
+  - id: shape
+    title: Twist the pretzels
+    component: dough
+    kind: prep
+    text: Lift the ends of each rope into a U, flip the centre to form a double twist and press the ends onto the opposite sides.
+    substeps:
+      - Hold each tapered end of a rope and lift to make a U shape.
+      - Without letting go, flip the centre of the U in one swift movement to form a double twist.
+      - Lay the twist back on the worktop and lightly press the ends onto the opposite sides, either side of the central bulge. A dab of water helps them stick.
+      - Flip the pretzel carefully onto a lined baking sheet, with the ends facing down.
+    cue: A classic pretzel shape with three evenly spaced sections.
+    active_min: 15
+    tools:
+      - tool: baking-tray
+      - tool: baking-paper
+    after:
+      - roll-ropes
+
+  - id: blanch
+    title: Dip in the boiling bath
+    component: savoury
+    kind: cook
+    text: Dip each pretzel in the boiling bicarbonate water for 5 seconds, then lift out with a slotted spoon onto a lined baking sheet, topping the plain ones while still wet.
+    substeps:
+      - Gently drop a pretzel into the boiling water and leave for 5 seconds.
+      - Lift it out carefully with a slotted spoon onto a lined baking sheet.
+      - Keep the differently flavoured pretzels separate.
+      - While the plain pretzels are still wet, sprinkle over {rock-salt} and {sesame}.
+    cue: The surface looks slightly puffed and wet-glossy.
+    heat: high
+    active_min: 10
+    tools:
+      - tool: slotted-spoon
+      - tool: baking-tray
+      - tool: baking-paper
+    after:
+      - shape
+      - heat-oven-and-water
+
+  - id: bake
+    title: Slash and bake
+    component: dough
+    kind: cook
+    text: Slash the thickest part of each pretzel with a small sharp knife and bake for 20 to 25 minutes until deep brown.
+    substeps:
+      - Make a deep slash in the thickest part, the central bulge, of each pretzel with a small sharp knife.
+      - Bake at 180 °C fan for 20 to 25 minutes.
+    cue: The pretzels are a deep brown all over.
+    temperature:
+      celsius: 180
+      mode: fan
+    active_min: 5
+    passive_min: 22
+    tools:
+      - tool: oven
+      - tool: paring-knife
+    after:
+      - blanch
+
+  - id: glaze
+    title: Cool and glaze
+    component: sweet
+    kind: serve
+    text: Move the pretzels to a wire rack straight away, brush the sweet ones with the orange syrup, scatter over candied zest and leave to cool.
+    substeps:
+      - Transfer the pretzels to a wire rack as soon as they come out.
+      - Quickly brush the sweet pretzels with the syrup glaze made from {sugar} and {orange}.
+      - Scatter over candied zest.
+      - Leave to cool.
+    cue: The sweet pretzels are shiny with syrup.
+    active_min: 5
+    passive_min: 20
+    tools:
+      - tool: wire-rack
+      - tool: pastry-brush
+    after:
+      - bake
+
+notes:
+  - "Makes 12 pretzels from this dough. The savoury ones get rock salt and sesame seeds; the sweet ones are made with orange zest and poppy seeds and glazed with orange syrup."
+  - "The dough should not need any extra flour on the worktop for kneading."
+
+open_questions:
+  - The ingredient list has no orange, poppy seed or syrup quantities, and no method for making the syrup or candied zest. The 125 g caster sugar is assumed to be for the syrup and zest.
+  - It is unclear how the sweet orange dough is made; the method divides the sweet dough after the plain dough, so a second batch or a split of this dough is assumed.
+  - Oven is given as 200 C / 180 C fan; 180 C fan is used.
+  - The bowl is oiled but no oil is listed.

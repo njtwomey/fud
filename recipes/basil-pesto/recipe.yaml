@@ -1,0 +1,108 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: basil-pesto
+title: Basil Pesto
+summary: Garlic, basil, pine nuts, olive oil and parmesan blended or pounded into a loose green sauce.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - sauce
+  - italian
+  - vegetarian
+  - no-cook
+  - quick
+
+images:
+  - file: hero.jpg
+    alt: Penne coated in green pesto in a lilac plastic lunch box, with a few garlic skins beside it.
+
+components:
+  - id: pesto
+    title: Pesto
+    ingredients:
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 2
+          unit: each
+        note: 1 to 2 cloves
+      - id: basil
+        ingredient: basil
+        quantity:
+          amount: 50
+          unit: g
+        note: 1 bunch
+      - id: spinach
+        ingredient: baby-spinach
+        optional: true
+        note: optional, added when I have some
+      - id: pine-nuts
+        ingredient: pine-nuts
+        quantity:
+          amount: 50
+          unit: g
+      - id: olive-oil
+        ingredient: olive-oil
+        quantity:
+          amount: 45
+          unit: ml
+        note: about 3 tbsp
+      - id: parmesan
+        ingredient: parmesan
+        quantity:
+          amount: 50
+          unit: g
+      - id: salt
+        ingredient: salt
+        note: sea salt, plus more to taste
+      - id: pepper
+        ingredient: black-pepper
+        optional: true
+        note: to taste
+
+steps:
+  - id: peel-garlic
+    title: Peel the garlic
+    component: pesto
+    kind: prep
+    text: Peel {garlic}.
+    active_min: 2
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: make-pesto
+    title: Blend or pound the pesto
+    component: pesto
+    kind: cook
+    text: Combine {garlic}, {basil}, {pine-nuts}, {olive-oil} and {parmesan} with {salt:name}, in a food processor or a mortar and pestle, until it has the consistency you like.
+    substeps:
+      - "Food processor: add {garlic:name}, {basil:name}, {spinach:name} if using, {pine-nuts:name}, {olive-oil:name}, {parmesan:name} and {salt:name} to the bowl and blend to the desired consistency."
+      - "Mortar and pestle: make sure it is clean. Pound the {garlic:name} with some {salt:name}, add the {basil:name} leaves and {pine-nuts:name} and bash into a paste, then add the {olive-oil:name} and {parmesan:name} and keep bashing until you have your preferred consistency."
+    cue: A thick green paste or loose sauce with no whole leaves left.
+    active_min: 8
+    tools:
+      - tool: food-processor
+        alternatives:
+          - pestle-and-mortar
+    after:
+      - peel-garlic
+
+  - id: season-pesto
+    title: Taste and season
+    component: pesto
+    kind: prep
+    text: Taste, and add a little more {salt:name} or {pepper:name} if it needs it.
+    active_min: 1
+    after:
+      - make-pesto
+
+notes:
+  - "The ratios are quite flexible. If there is spinach in the house it goes in too."
+  - "Shown in the photo stirred through penne."
+
+open_questions:
+  - "Servings are assumed to be 4."
+  - "Garlic is 1 to 2 cloves; 2 is used."

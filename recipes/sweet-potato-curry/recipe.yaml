@@ -1,0 +1,257 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: sweet-potato-curry
+title: Sweet Potato Curry
+summary: Roasted sweet potato, lentils and coconut milk in a peanut butter and spice base, finished with lime and soy and served on rice.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - dinner
+  - curry
+  - vegetarian
+  - weeknight
+images:
+  - file: hero.jpg
+    alt: A white bowl of rice with a spoonful of orange-brown lentil curry in the middle.
+components:
+  - id: roasted-sweet-potato
+    title: Roasted sweet potato
+    ingredients:
+      - id: sweet-potato
+        ingredient: sweet-potato
+        quantity:
+          amount: 2
+          unit: each
+        note: large
+      - id: oil-tray
+        ingredient: vegetable-oil
+        note: to coat
+      - id: salt
+        ingredient: salt
+      - id: pepper
+        ingredient: black-pepper
+      - id: cayenne
+        ingredient: cayenne-pepper
+        quantity:
+          amount: 1
+          unit: tsp
+
+  - id: curry-base
+    title: Curry base
+    ingredients:
+      - id: onion
+        ingredient: onion
+        quantity:
+          amount: 1
+          unit: each
+        note: large
+      - id: oil-pot
+        ingredient: vegetable-oil
+        note: a teaspoon or two
+      - id: paprika
+        ingredient: smoked-paprika
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: cumin
+        ingredient: ground-cumin
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: coriander
+        ingredient: ground-coriander
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 2
+          unit: each
+        note: about 2 tsp puréed
+      - id: ginger
+        ingredient: ginger
+        quantity:
+          amount: 10
+          unit: g
+        note: about 2 tsp
+      - id: peanut-butter
+        ingredient: crunchy-peanut-butter
+        quantity:
+          amount: 40
+          unit: g
+        note: about 2 to 3 tbsp
+      - id: puree
+        ingredient: tomato-and-chilli-puree
+        quantity:
+          amount: 10
+          unit: g
+        note: about 2 tsp
+
+  - id: curry
+    title: Curry
+    ingredients:
+      - id: coconut-milk
+        ingredient: coconut-milk
+        quantity:
+          amount: 400
+          unit: ml
+      - id: lentils
+        ingredient: tinned-lentils
+        quantity:
+          amount: 400
+          unit: g
+        note: green lentils; assumed tinned
+      - id: lime-juice
+        ingredient: lime-juice
+        quantity:
+          amount: 30
+          unit: ml
+        note: juice of 1 lime
+      - id: soy-sauce
+        ingredient: soy-sauce
+        quantity:
+          amount: 45
+          unit: ml
+        note: about 3 tbsp
+
+  - id: rice
+    title: Rice
+    ingredients:
+      - id: rice
+        ingredient: basmati-rice
+        quantity:
+          amount: 300
+          unit: g
+        note: 75 g per person
+
+  - id: serving
+    title: To serve
+    ingredients:
+      - id: yoghurt
+        ingredient: natural-yoghurt
+        optional: true
+      - id: fresh-coriander
+        ingredient: fresh-coriander
+        optional: true
+steps:
+  - id: roast-sweet-potato
+    title: Roast the sweet potato
+    component: roasted-sweet-potato
+    kind: cook
+    text: Cube the sweet potato, coat it in oil and seasoning and roast it until soft, turning once or twice.
+    substeps:
+      - Heat the oven to 200 °C fan (220 °C conventional).
+      - Peel and cut {sweet-potato} into small cubes and put them on a roasting dish.
+      - Sprinkle over {salt}, {pepper}, {cayenne} and {oil-tray} and mix around thoroughly.
+      - Roast for about 30 minutes, turning once or twice.
+    cue: The cubes are soft enough to mash with a fork and catching colour at the edges.
+    temperature:
+      celsius: 200
+      mode: fan
+    active_min: 10
+    passive_min: 30
+    tools:
+      - tool: oven
+      - tool: roasting-tin
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: cook-base
+    title: Cook the onion and spice base
+    component: curry-base
+    kind: cook
+    text: Cook the onion on a medium heat, add the spices after 5 minutes, then the aromatics and peanut butter, and work it all together.
+    substeps:
+      - Finely dice {onion}.
+      - Heat {oil-pot} in the large pot over a medium heat and cook the onion, stirring continuously.
+      - After 5 minutes add {paprika}, {cumin} and {coriander}.
+      - Turn the heat down slightly and add {garlic}, {ginger}, {peanut-butter} and {puree}.
+      - Work and stir for another 5 to 10 minutes.
+    cue: The onion is soft, the spices smell toasted and the peanut butter has melted into a thick paste.
+    heat: medium
+    active_min: 18
+    tools:
+      - tool: large-pot
+      - tool: wooden-spoon
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: cook-rice
+    title: Cook the rice
+    component: rice
+    kind: cook
+    text: Start the rice once the base is made, so it is ready when the curry has simmered.
+    substeps:
+      - Cook {rice} according to the packet instructions.
+    cue: The grains are tender and separate.
+    active_min: 2
+    passive_min: 12
+    tools:
+      - tool: saucepan
+        alternatives:
+          - rice-cooker
+    after:
+      - cook-base
+
+  - id: add-coconut-milk
+    title: Add the coconut milk
+    component: curry
+    kind: cook
+    text: Pour the coconut milk into the onion mixture and let it simmer while the sweet potato finishes roasting.
+    substeps:
+      - Pour {coconut-milk} into the pot.
+      - Let it simmer gently.
+    cue: A gentle simmer, with the sauce a uniform orange-brown.
+    heat: low
+    active_min: 2
+    passive_min: 8
+    tools:
+      - tool: large-pot
+    after:
+      - cook-base
+
+  - id: combine
+    title: Mash and combine
+    component: curry
+    kind: cook
+    text: Lightly mash the sweet potato to break it down, then stir it into the pot with the lentils, lime juice and soy sauce and simmer while the rice finishes.
+    substeps:
+      - Mash the roasted sweet potato lightly with a fork and move it into the pot.
+      - Add {lentils}, {lime-juice} and {soy-sauce}.
+      - Simmer while the rice is cooking.
+    cue: The sauce is thick, with the sweet potato broken down into it and the lentils heated through.
+    heat: low
+    active_min: 4
+    passive_min: 8
+    tools:
+      - tool: large-pot
+      - tool: wooden-spoon
+    after:
+      - add-coconut-milk
+      - roast-sweet-potato
+
+  - id: serve
+    title: Plate up and season
+    component: serving
+    kind: serve
+    text: Plate the rice and the curry, season to taste, and top with yoghurt and fresh coriander if you like.
+    substeps:
+      - Taste and adjust {salt} and {pepper}.
+      - Top with {yoghurt} and {fresh-coriander}.
+    active_min: 3
+    after:
+      - combine
+      - cook-rice
+notes:
+  - "Serving: the cook loves this with natural yoghurt and fresh coriander on top."
+  - "Spoon measures: the ginger, garlic and tomato and chilli purée are given in teaspoons. They are weighed here (ginger 10 g, purée 10 g) and counted in cloves (2 cloves of garlic is about 2 tsp)."
+open_questions:
+  - Servings are assumed (4).
+  - Rice quantity is assumed (75 g per person); it just says "rice to serve".
+  - Are the 400 g of green lentils tinned (assumed, since they are added at the end with only a short simmer) or dried?
+  - Is 200 °C fan or conventional? Fan assumed.
+  - How much peanut butter, between 2 and 3 tbsp? 40 g (about 2.5 tbsp) used.

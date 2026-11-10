@@ -1,0 +1,244 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+
+slug: lamb-flatbread
+title: Lamb Flatbread
+summary: A quick pan-cooked flatbread piled with lemon, honey and mint lamb, rainbow slaw and a zigzag of mayonnaise.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 2
+tags:
+  - dinner
+  - wrap-flatbread
+  - frying
+  - weeknight
+images:
+  - file: hero.jpg
+    alt: A round flatbread topped with rainbow slaw, chunks of browned lamb and a zigzag of white mayonnaise.
+components:
+  - id: flatbread
+    title: Flatbread
+    ingredients:
+      - id: flour
+        ingredient: self-raising-flour
+        quantity:
+          amount: 150
+          unit: g
+      - id: water
+        ingredient: water
+        quantity:
+          amount: 120
+          unit: ml
+      - id: salt
+        ingredient: salt
+        note: sea salt
+
+  - id: lamb
+    title: Lamb
+    ingredients:
+      - id: lamb
+        ingredient: lamb-steak
+        quantity:
+          amount: 1
+          unit: each
+        note: one steak per 2 people
+        swaps:
+          - ingredient: rump-steak
+            ratio: 1
+            quality: close
+            note: Rump steak works as an alternative.
+      - id: oil
+        ingredient: vegetable-oil
+        note: a bit, for the pan
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 2
+          unit: each
+      - id: cumin
+        ingredient: ground-cumin
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: mint
+        ingredient: mint
+        quantity:
+          amount: 30
+          unit: g
+        note: about 1 bunch
+      - id: herbs
+        ingredient: dried-oregano
+        quantity:
+          amount: 1.5
+          unit: tsp
+        note: 1 to 2 tsp; rosemary and oregano both work
+      - id: lemon
+        ingredient: lemon-juice
+        quantity:
+          amount: 25
+          unit: ml
+        note: juice of half a medium lemon
+      - id: honey
+        ingredient: honey
+        quantity:
+          amount: 7
+          unit: g
+        note: about 1 tsp
+
+  - id: slaw
+    title: Rainbow slaw
+    ingredients:
+      - id: red-cabbage
+        ingredient: red-cabbage
+        quantity:
+          amount: 60
+          unit: g
+      - id: white-cabbage
+        ingredient: white-cabbage
+        quantity:
+          amount: 60
+          unit: g
+      - id: carrot
+        ingredient: carrot
+        quantity:
+          amount: 80
+          unit: g
+      - id: radish
+        ingredient: radish
+        quantity:
+          amount: 40
+          unit: g
+      - id: slaw-mayo
+        ingredient: mayonnaise
+        quantity:
+          amount: 30
+          unit: ml
+        note: about 2 tbsp
+      - id: slaw-oil
+        ingredient: olive-oil
+        quantity:
+          amount: 15
+          unit: ml
+        note: about 1 tbsp
+      - id: slaw-salt
+        ingredient: salt
+
+  - id: serving
+    title: To serve
+    ingredients:
+      - id: mayo
+        ingredient: mayonnaise
+        note: for the zigzag
+steps:
+  - id: make-slaw
+    title: Make the rainbow slaw
+    component: slaw
+    kind: prep
+    text: Grate the raw vegetables into a bowl and dress them, so the slaw is ready to pile on.
+    substeps:
+      - Grate {red-cabbage}, {white-cabbage}, {carrot} and {radish} finely using a box grater.
+      - Add {slaw-salt}, {slaw-oil} and {slaw-mayo} and mix until everything is coated.
+    cue: Every shred of vegetable is lightly coated.
+    active_min: 10
+    make_ahead: true
+    tools:
+      - tool: box-grater
+      - tool: mixing-bowl
+    after: []
+
+  - id: make-dough
+    title: Mix, knead and roll the dough
+    component: flatbread
+    kind: prep
+    text: Bring the dough together in a bowl, knead it briefly and roll it thin, about the size of your frying pan, so it cooks very fast.
+    substeps:
+      - Mix {flour}, {water} and {salt} in a bowl.
+      - Once it comes together, knead for a minute.
+      - Roll out with a rolling pin until it is about the size of your frying pan and reasonably thin.
+    cue: A smooth dough, rolled to a thin round.
+    active_min: 6
+    tools:
+      - tool: mixing-bowl
+      - tool: rolling-pin
+    after: []
+
+  - id: prep-lamb
+    title: Cut the lamb, chop the aromatics
+    component: lamb
+    kind: prep
+    text: Chop the meat into bite-sized chunks and chop the garlic and mint finely.
+    substeps:
+      - Chop {lamb} into bite-sized chunks.
+      - Chop {garlic} finely.
+      - Chop {mint} finely.
+    active_min: 8
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: cook-lamb
+    title: Cook the lamb
+    component: lamb
+    kind: cook
+    text: Brown the meat in a medium pan, stir in the garlic, herbs and spices, then finish with lemon juice and honey until it is glossy.
+    substeps:
+      - Heat a pan to a medium heat with a bit of {oil}.
+      - Cook the meat for a few minutes, stirring continuously.
+      - Add {garlic}, {herbs}, {cumin} and {mint} and move around the pan until the meat is coated uniformly.
+      - Squeeze in {lemon}, then add {honey}.
+      - Toss for another minute.
+    heat: medium
+    cue: The meat is very shiny and coated in the glaze.
+    active_min: 7
+    tools:
+      - tool: frying-pan
+      - tool: wooden-spoon
+    after:
+      - prep-lamb
+
+  - id: cook-flatbread
+    title: Cook the flatbread
+    component: flatbread
+    kind: cook
+    text: Cook the dough in a very hot dry pan, about 3 minutes each side, flipping once it is textured on the underside.
+    substeps:
+      - Turn the hob to its highest heat and let a second frying pan heat up.
+      - Once very hot, put the rolled dough in the pan. It should start to bubble in the middle after a minute.
+      - Leave it for a few minutes until the underside gets a nice textured colour.
+      - Flip it and cook for another few minutes.
+      - Take it from the pan and put it on a wooden board.
+    heat: high
+    cue: The middle bubbles after about a minute, and the underside is spotted with a textured colour before you flip.
+    active_min: 8
+    tools:
+      - tool: frying-pan
+      - tool: fish-slice
+    after:
+      - make-dough
+
+  - id: assemble
+    title: Pile on and serve
+    component: serving
+    kind: serve
+    text: Pile the slaw on the flatbread, spoon over the lamb and dress with a zigzag of mayonnaise.
+    substeps:
+      - Pile the slaw on the flatbread.
+      - Spoon the lamb on top.
+      - Dress with a zigzag of {mayo}.
+      - Eat it rolled up, or chop it into cubes.
+    active_min: 3
+    after:
+      - make-slaw
+      - cook-lamb
+      - cook-flatbread
+notes:
+  - Thin dough cooks fast, so start the flatbread as the lamb finishes.
+  - "Rump steak works instead of lamb: one steak per two people."
+  - Any mix of finely grated raw vegetables in different colours works for the slaw.
+open_questions:
+  - Servings are assumed (2), at one steak per two people. The weight of the lamb steak (225 g) is assumed.
+  - The herbs are given as 1 to 2 tsp, e.g. rosemary and oregano. Entered as 1.5 tsp dried oregano.
+  - The honey (1 tsp, entered as 7 g) and lemon juice (half a medium lemon, entered as 25 ml) are converted.
+  - Timings are assumed.
+  - The slaw quantities are assumed (enough for two flatbreads). The mint (1 bunch, assumed 30 g) is added to the lamb with the garlic and herbs.

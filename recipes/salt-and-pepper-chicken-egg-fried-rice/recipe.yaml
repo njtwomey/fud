@@ -1,0 +1,264 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: salt-and-pepper-chicken-egg-fried-rice
+title: Salt and Pepper Chicken Thigh with Egg Fried Rice
+summary: Cornflour-coated chicken thigh fried crisp and tossed with spring onion, chilli, garlic and ginger, served on egg fried rice with peas.
+version: 1
+date: 2026-11-10
+status: draft
+servings: 2
+tags:
+  - dinner
+  - chinese
+  - rice-dish
+  - frying
+  - quick
+
+images:
+  - file: hero.webp
+    alt: A white plate patterned with black triangles holding egg fried rice with peas, topped with crisp chicken, spring onion batons and red chilli, with red chopsticks beside it.
+
+components:
+  - id: rice
+    title: Rice
+    ingredients:
+      - id: rice
+        ingredient: long-grain-rice
+        quantity:
+          amount: 130
+          unit: g
+        note: white
+      - id: water
+        ingredient: water
+        quantity:
+          amount: 225
+          unit: ml
+        note: cold
+
+  - id: chicken
+    title: Crispy chicken thigh
+    ingredients:
+      - id: cornflour
+        ingredient: cornflour
+        quantity:
+          amount: 32
+          unit: g
+        note: about 4 tbsp
+      - id: sugar
+        ingredient: sugar
+        quantity:
+          amount: 4
+          unit: g
+        note: about 1 tsp
+      - id: salt
+        ingredient: salt
+        note: a very generous pinch
+      - id: five-spice
+        ingredient: chinese-five-spice
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: pepper
+        ingredient: black-pepper
+        note: a generous grind
+      - id: chicken
+        ingredient: chicken-thigh
+        quantity:
+          amount: 250
+          unit: g
+        note: diced
+      - id: oil-chicken
+        ingredient: vegetable-oil
+        note: a generous drizzle
+
+  - id: aromatics
+    title: Salt and pepper aromatics
+    ingredients:
+      - id: spring-onion
+        ingredient: spring-onion
+        quantity:
+          amount: 45
+          unit: g
+        note: 3 spring onions
+      - id: ginger
+        ingredient: ginger
+        quantity:
+          amount: 15
+          unit: g
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 1
+          unit: each
+      - id: chilli
+        ingredient: red-chilli
+        quantity:
+          amount: 1
+          unit: each
+
+  - id: fried-rice
+    title: Egg fried rice
+    ingredients:
+      - id: oil-rice
+        ingredient: vegetable-oil
+        note: a drizzle
+      - id: peas
+        ingredient: peas
+        quantity:
+          amount: 160
+          unit: g
+        note: blanched
+      - id: sesame-oil
+        ingredient: sesame-oil
+        quantity:
+          amount: 10
+          unit: ml
+      - id: soy-sauce
+        ingredient: soy-sauce
+        quantity:
+          amount: 15
+          unit: ml
+      - id: egg
+        ingredient: egg
+        quantity:
+          amount: 1
+          unit: each
+
+steps:
+  - id: cook-rice
+    title: Cook and cool the rice
+    component: rice
+    kind: cook
+    text: Cook {rice} in {water} and spread it out on a plate to cool, so it is ready to fry.
+    substeps:
+      - Take the chicken out of the fridge, open the packet and let it air.
+      - Put the rice and the water in a pot and bring to the boil over a high heat.
+      - Reduce the heat to very low, cover and cook for 12 to 15 minutes.
+      - Transfer the rice to a plate and spread it out flat to cool down.
+    cue: The water has been absorbed and the rice is tender, then cool and dry on the plate.
+    heat: low
+    active_min: 4
+    passive_min: 14
+    tools:
+      - tool: saucepan
+        note: With a lid.
+    after: []
+
+  - id: coat-chicken
+    title: Coat the chicken
+    component: chicken
+    kind: prep
+    text: Mix the seasoned cornflour in a bowl and toss the chicken thigh through it.
+    substeps:
+      - Put {cornflour} in a bowl with {sugar}, {salt}, {five-spice} and {pepper}, and mix well.
+      - Add {chicken} and toss until the chicken is well coated.
+    cue: Every piece is coated with no loose cornflour at the bottom of the bowl.
+    active_min: 5
+    tools:
+      - tool: mixing-bowl
+    after: []
+
+  - id: fry-chicken
+    title: Fry the chicken
+    component: chicken
+    kind: cook
+    text: Fry the coated chicken in a very hot pan until golden and crisp on both sides.
+    substeps:
+      - Heat a large, wide-based pan (preferably non-stick) with {oil-chicken} over a high heat until very hot.
+      - Add the coated chicken pieces.
+      - Cook for 5 to 6 minutes on each side.
+    cue: Golden and crisp on the outside and cooked through with no pink meat.
+    heat: high
+    active_min: 4
+    passive_min: 8
+    tools:
+      - tool: frying-pan
+      - tool: tongs
+    after:
+      - coat-chicken
+
+  - id: prep-aromatics
+    title: Cut the aromatics
+    component: aromatics
+    kind: prep
+    text: While the chicken cooks, cut the spring onions, ginger, garlic and chilli.
+    substeps:
+      - Trim and roughly chop {spring-onion} into batons.
+      - Peel and finely chop or grate {ginger}.
+      - Peel and finely chop or grate {garlic}.
+      - Finely slice {chilli} into rounds.
+    active_min: 6
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: season-chicken
+    title: Add the salt and pepper aromatics
+    component: aromatics
+    kind: cook
+    text: Add the spring onions, chilli, garlic and ginger to the crispy chicken, cook briefly, then take everything out and keep the pan.
+    substeps:
+      - Add the spring onion batons, chilli rounds, chopped garlic and chopped ginger to the pan.
+      - Cook for 2 to 3 minutes.
+      - Transfer everything to a plate, saving the pan.
+    cue: Fragrant, with the garlic and ginger cooked through but not burnt.
+    heat: high
+    active_min: 3
+    tools:
+      - tool: frying-pan
+    after:
+      - fry-chicken
+      - prep-aromatics
+
+  - id: fry-rice
+    title: Fry the rice and peas
+    component: fried-rice
+    kind: cook
+    text: Return the pan to a medium-high heat and fry the cold rice with the peas, sesame oil and soy sauce until combined.
+    substeps:
+      - Heat {oil-rice} in the reserved pan over a medium-high heat.
+      - Add the cooled rice, {peas}, {sesame-oil} and {soy-sauce}.
+      - Cook for 2 to 3 minutes.
+    cue: Everything is combined and hot, and the rice is separate and coated in soy.
+    heat: medium-high
+    active_min: 4
+    tools:
+      - tool: frying-pan
+      - tool: wooden-spoon
+    after:
+      - season-chicken
+      - cook-rice
+
+  - id: add-egg
+    title: Scramble in the egg
+    component: fried-rice
+    kind: cook
+    text: Push the rice to one side, crack the egg into the other side and scramble it, then mix it through the rice.
+    substeps:
+      - Push the rice to one side of the pan and crack {egg} into the other side.
+      - Stir with a wooden spoon to break the yolk and cook for 1 to 2 minutes.
+      - Mix the scrambled egg into the rice.
+    cue: The egg looks like scrambled egg, just set, before being folded in.
+    heat: medium-high
+    active_min: 3
+    tools:
+      - tool: frying-pan
+      - tool: wooden-spoon
+    after:
+      - fry-rice
+
+  - id: serve
+    title: Serve
+    component: fried-rice
+    kind: serve
+    text: Serve the salt and pepper chicken over the egg fried rice.
+    active_min: 1
+    after:
+      - add-egg
+
+notes:
+  - "Crisp coating: the pan has to be very hot before the chicken goes in."
+
+open_questions:
+  - Rice water is for 2 servings (225 ml).
+  - "Pepper, salt, sugar, vegetable oil and water are listed as 'as needed'; the amounts above are from the method (1 tsp sugar) or left unmeasured."

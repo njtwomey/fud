@@ -1,0 +1,251 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: lamb-one-pot
+title: Lamb One Pot
+summary: A lamb mince and rice pilaf cooked in one pot with ras el hanout and turmeric, topped with steamed lentils and spinach and a minty yoghurt.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - dinner
+  - one-pot
+  - rice-dish
+  - middle-eastern
+images:
+  - file: hero.jpg
+    alt: A man sitting at a table with his hands together in front of a red pot of green lentil and rice pilaf.
+components:
+  - id: pilaf
+    title: Lamb pilaf
+    ingredients:
+      - id: lamb
+        ingredient: lamb-mince
+        quantity:
+          amount: 400
+          unit: g
+      - id: onion
+        ingredient: red-onion
+        quantity:
+          amount: 1
+          unit: each
+        note: medium
+      - id: ras-el-hanout
+        ingredient: ras-el-hanout
+        quantity:
+          amount: 1
+          unit: tbsp
+      - id: turmeric-pot
+        ingredient: ground-turmeric
+        quantity:
+          amount: 0.5
+          unit: tbsp
+        note: half of the 1 tbsp
+      - id: stock-cubes
+        ingredient: chicken-stock-cube
+        quantity:
+          amount: 2
+          unit: each
+        note: cubes or gels
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 2
+          unit: each
+      - id: rice
+        ingredient: basmati-rice
+        quantity:
+          amount: 300
+          unit: g
+      - id: mint-pot
+        ingredient: mint
+        quantity:
+          amount: 20
+          unit: g
+        note: about two thirds of the bunch
+      - id: water
+        ingredient: water
+        quantity:
+          amount: 1
+          unit: l
+        note: boiled; you need enough to cover to about 1 cm
+
+  - id: lentils
+    title: Lentils and spinach
+    ingredients:
+      - id: lentils
+        ingredient: tinned-lentils
+        quantity:
+          amount: 400
+          unit: g
+        note: 1 tin; green lentils
+      - id: spinach
+        ingredient: baby-spinach
+        quantity:
+          amount: 125
+          unit: g
+        note: approximately
+
+  - id: yoghurt
+    title: Minty yoghurt
+    ingredients:
+      - id: yoghurt
+        ingredient: natural-yoghurt
+        quantity:
+          amount: 450
+          unit: g
+        note: a large pot
+      - id: turmeric-yoghurt
+        ingredient: ground-turmeric
+        quantity:
+          amount: 0.5
+          unit: tbsp
+        note: the remaining half
+      - id: mint-yoghurt
+        ingredient: mint
+        quantity:
+          amount: 10
+          unit: g
+        note: the remaining third of the bunch
+
+  - id: finish
+    title: To finish
+    ingredients:
+      - id: lemon-juice
+        ingredient: lemon-juice
+        quantity:
+          amount: 30
+          unit: ml
+        note: juice of 1/2 to 1 lemon
+      - id: salt
+        ingredient: salt
+      - id: pepper
+        ingredient: black-pepper
+steps:
+  - id: prepare
+    title: Slice the onion and chop the mint
+    component: pilaf
+    kind: prep
+    text: Prepare the onion and the mint, and put the kettle on.
+    substeps:
+      - Slice {onion} finely.
+      - Chop the mint "to smithereens".
+      - Boil about 1 litre of {water:name}.
+    active_min: 8
+    tools:
+      - tool: knife
+      - tool: chopping-board
+      - tool: kettle
+    after: []
+
+  - id: brown-lamb
+    title: Brown the lamb
+    component: pilaf
+    kind: cook
+    text: Heat a large pan (it will eventually hold everything) and brown the mince without any oil, stirring continuously.
+    substeps:
+      - Heat the large pan until hot.
+      - Add {lamb} without oil and stir continuously as it cooks.
+      - When most of it is cooked, drain off any excess fat if there is a lot, then add {onion} and reduce the heat, still stirring.
+    cue: The lamb is browned and the onions have softened.
+    heat: high
+    active_min: 12
+    tools:
+      - tool: large-pot
+        alternatives:
+          - saute-pan
+      - tool: wooden-spoon
+    after:
+      - prepare
+
+  - id: add-rice
+    title: Add the spices and rice
+    component: pilaf
+    kind: cook
+    text: Stir in the spices, stock, garlic, rice and most of the mint. The rice goes into a dry pan, so stir continuously.
+    substeps:
+      - Add {ras-el-hanout}, {turmeric-pot}, {stock-cubes}, {garlic}, {rice} and {mint-pot}.
+      - Stir continuously until the spices and stock are coating everything.
+    cue: The spices and stock cubes coat the lamb and rice, with nothing sticking to the pan.
+    heat: medium
+    active_min: 3
+    tools:
+      - tool: large-pot
+      - tool: wooden-spoon
+    after:
+      - brown-lamb
+
+  - id: cook-pilaf
+    title: Add the water and cover
+    component: pilaf
+    kind: cook
+    text: Pour in the boiling water to a depth of about 1 cm, stir once to unstick the bottom, then cover on a low heat.
+    substeps:
+      - Pour in {water} until everything is covered to about 1 cm.
+      - Stir one last time, checking nothing is sticking to the bottom.
+      - Reduce the heat to low and cover with a lid.
+      - It is ready in about 10 minutes (longer for brown rice); the lentils go in 5 minutes before the end.
+    cue: The liquid is bubbling gently under the lid, and the rice has swelled.
+    heat: low
+    active_min: 2
+    passive_min: 5
+    tools:
+      - tool: large-pot
+    after:
+      - add-rice
+
+  - id: prepare-sides
+    title: Make the yoghurt and prepare the lentils
+    component: yoghurt
+    kind: prep
+    text: While the pilaf cooks, drain the lentils, chop the spinach and mix the minty yoghurt.
+    substeps:
+      - Drain {lentils}.
+      - Roughly chop {spinach}.
+      - Stir {turmeric-yoghurt} and {mint-yoghurt} into {yoghurt} until mixed thoroughly.
+    cue: The yoghurt is light yellow with flakes of green mint.
+    active_min: 5
+    tools:
+      - tool: knife
+      - tool: chopping-board
+      - tool: colander
+      - tool: mixing-bowl
+    after:
+      - add-rice
+
+  - id: steam-lentils
+    title: Steam the lentils and spinach on top
+    component: lentils
+    kind: cook
+    text: About 5 minutes before the rice is done, pour the lentils and spinach on top and replace the lid so they wilt and heat in the steam.
+    cue: The spinach has wilted and the lentils are hot.
+    heat: low
+    active_min: 1
+    passive_min: 5
+    tools:
+      - tool: large-pot
+    after:
+      - cook-pilaf
+      - prepare-sides
+
+  - id: serve
+    title: Mix and serve
+    component: finish
+    kind: serve
+    text: Mix everything together thoroughly, season, and serve in a bowl with a large dollop of the yoghurt on top.
+    substeps:
+      - Mix the lentils, spinach and rice through the pilaf.
+      - Taste and adjust with {lemon-juice}, {salt} and {pepper}.
+      - Serve in bowls with a large dollop of the yoghurt mixture on top.
+    active_min: 3
+    after:
+      - steam-lentils
+notes:
+  - "Ras el hanout: this spice mixture can be hard to find but is easy to make. Mix equal portions of cumin seeds and coriander seeds, half as much ground cinnamon, a third each of ground ginger, black peppercorns and ground turmeric, and a few cardamom pods, in a mortar and pestle. It is easier to make too much, and the rest keeps in a jar."
+  - "Alternative version: starts with 450 g of mince and 2 red onions, uses 300 ml of water (cooked 10 minutes, then rested off the heat for 10 minutes so the rice finishes in its own steam), and cooks half the onion with the spinach and lentils in a second pan with the garlic instead of steaming them on top. It also stirs the remaining mint and a squeeze of lemon through at the end."
+  - "Lentils: the cook typically uses Bijoux Verts lentils."
+open_questions:
+  - Servings are assumed (4).
+  - The lemon juice goes in at the end.
+  - Water is "boil about 1 litre" and use enough to cover to 1 cm; the alternative version uses only 300 ml. Check what you actually use.
+  - The mint is split 20 g and 10 g, assuming a 30 g bunch.
+  - Salt and pepper are added to taste.

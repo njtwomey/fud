@@ -1,0 +1,101 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: grilled-sandwich
+title: Grilled Sandwich
+summary: A buttered baguette topped with diced red pepper, red onion and cheddar, grilled until the cheese melts.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 1
+tags:
+  - sandwich
+  - lunch
+  - grilling
+  - vegetarian
+  - quick
+
+components:
+  - id: sandwich
+    title: Sandwich
+    ingredients:
+      - id: red-pepper
+        ingredient: red-pepper
+        quantity:
+          amount: 1
+          unit: each
+      - id: red-onion
+        ingredient: red-onion
+        quantity:
+          amount: 1
+          unit: each
+      - id: baguette
+        ingredient: baguette
+        quantity:
+          amount: 1
+          unit: each
+        note: 1 per person
+      - id: butter
+        ingredient: butter
+        note: to spread
+      - id: cheese
+        ingredient: cheddar-cheese
+        quantity:
+          amount: 50
+          unit: g
+        note: sliced or grated
+      - id: pepper
+        ingredient: black-pepper
+        optional: true
+        note: not for Jen
+      - id: hot-sauce
+        ingredient: hot-sauce
+        optional: true
+        note: Tabasco; not for Jen
+
+steps:
+  - id: dice-veg
+    title: Dice the vegetables
+    component: sandwich
+    kind: prep
+    text: Dice {red-pepper} and {red-onion} and mix them in a bowl.
+    substeps:
+      - These are just the ingredients I use most of the time. Adjust them to whatever is in the fridge.
+    active_min: 6
+    tools:
+      - tool: knife
+      - tool: chopping-board
+      - tool: mixing-bowl
+    after: []
+
+  - id: build-sandwich
+    title: Butter and fill the baguette
+    component: sandwich
+    kind: prep
+    text: Cut {baguette} lengthwise, butter both sides with {butter}, add a layer of the diced vegetables and put {cheese} on top.
+    substeps:
+      - Cut the baguette lengthwise (horizontally) and butter both sides.
+      - Put a layer of the diced vegetables onto the buttered surfaces, then the cheese on top.
+      - "Not for Jen: I like to add {pepper} and {hot-sauce} on mine."
+    active_min: 4
+    tools:
+      - tool: bread-knife
+      - tool: baking-tray
+    after:
+      - dice-veg
+
+  - id: grill-sandwich
+    title: Grill and serve
+    component: sandwich
+    kind: cook
+    text: Put the baguette halves on a baking tray under a hot grill for about 5 minutes, until the cheese has melted and taken on a little colour, then serve.
+    cue: The cheese is melted and bubbling with a little golden colour.
+    heat: high
+    active_min: 1
+    passive_min: 5
+    tools:
+      - tool: grill
+      - tool: baking-tray
+    after:
+      - build-sandwich
+
+open_questions:
+  - "Servings are assumed to be 1: one baguette per person, with one pepper and one onion."

@@ -1,0 +1,187 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: shortbread
+title: Niall's Ma's Shortbread
+summary: A buttery rolled shortbread dough cut into shapes, baked until pale and finished with an icing sugar glaze.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 20
+tags:
+  - dessert
+  - snack
+  - cake-biscuit
+  - baking
+  - irish
+
+images:
+  - file: hero.jpg
+    alt: A gingerbread-man shaped biscuit iced in yellow and black as a moustached detective, on a pale green plate.
+    caption: Cut into a Poirot shape, with the icing coloured yellow and black.
+
+components:
+  - id: dough
+    title: Dough
+    ingredients:
+      - id: butter
+        ingredient: butter
+        quantity:
+          amount: 225
+          unit: g
+        note: salted
+      - id: sugar
+        ingredient: caster-sugar
+        quantity:
+          amount: 110
+          unit: g
+      - id: egg
+        ingredient: egg
+        quantity:
+          amount: 1
+          unit: each
+        note: medium
+      - id: flour
+        ingredient: plain-flour
+        quantity:
+          amount: 450
+          unit: g
+      - id: flour-dust
+        ingredient: plain-flour
+        note: for the work surface
+
+  - id: icing
+    title: Icing
+    ingredients:
+      - id: icing-sugar
+        ingredient: icing-sugar
+        quantity:
+          amount: 50
+          unit: g
+      - id: water
+        ingredient: water
+        note: a little, as the icing sugar instructions say
+      - id: colouring
+        ingredient: food-colouring
+        optional: true
+
+steps:
+  - id: cream
+    title: Cream the butter and sugar
+    component: dough
+    kind: cook
+    text: Cream the butter and sugar together until light and fluffy, which gives a lighter, more airy biscuit.
+    substeps:
+      - Put {butter} and {sugar} in a bowl.
+      - Beat until light and fluffy.
+    cue: Pale, fluffy and visibly increased in volume.
+    active_min: 8
+    tools:
+      - tool: mixing-bowl
+      - tool: wooden-spoon
+    after: []
+
+  - id: make-dough
+    title: Add egg and flour
+    component: dough
+    kind: cook
+    text: Mix in the egg, then add the flour gradually until it forms a dough. It does not need much kneading and the consistency is relatively dry.
+    substeps:
+      - Mix in {egg}.
+      - Add {flour} gradually until it forms a dough.
+    cue: A relatively dry dough that holds together without much kneading.
+    active_min: 5
+    tools:
+      - tool: wooden-spoon
+
+  - id: chill
+    title: Chill the dough
+    component: dough
+    kind: wait
+    text: Optionally, roll the dough out loosely and refrigerate it for about 30 minutes.
+    cue: The dough feels firm and cool.
+    passive_min: 30
+    make_ahead: true
+    tools:
+      - tool: fridge
+
+  - id: roll-cut
+    title: Roll and cut
+    component: dough
+    kind: cook
+    text: Roll the dough to the thickness you want on a floured surface and cut it into shapes.
+    substeps:
+      - Dust the work surface with {flour-dust}.
+      - Roll out to the desired thickness with a rolling pin.
+      - Cut into the desired shapes.
+    cue: An even sheet of dough, cut cleanly into shapes without cracking.
+    active_min: 15
+    tools:
+      - tool: rolling-pin
+      - tool: pastry-cutter
+      - tool: baking-tray
+
+  - id: heat-oven
+    title: Heat the oven
+    component: dough
+    kind: prep
+    text: Heat the oven while you roll and cut.
+    substeps:
+      - Heat a fan oven to 180 °C (200 °C conventional).
+    temperature:
+      celsius: 180
+      mode: fan
+    cue: The oven has reached 180 °C.
+    active_min: 1
+    passive_min: 10
+    tools:
+      - tool: oven
+    after:
+      - make-dough
+
+  - id: bake
+    title: Bake until done
+    component: dough
+    kind: cook
+    text: Bake the shapes in the preheated oven for about 15 minutes.
+    substeps:
+      - Optionally brush with egg wash for a shine, if you are not going to dress them with anything such as royal icing later.
+      - Bake for about 15 minutes.
+    temperature:
+      celsius: 180
+      mode: fan
+    cue: The biscuits are firm and lightly golden at the edges.
+    active_min: 2
+    passive_min: 15
+    tools:
+      - tool: oven
+      - tool: baking-tray
+      - tool: pastry-brush
+    after:
+      - roll-cut
+      - heat-oven
+
+  - id: ice
+    title: Cool and ice
+    component: icing
+    kind: serve
+    text: Once the biscuits are cool, mix the water into the icing sugar, spoon it over the top and leave it to set in the fridge or on the counter.
+    substeps:
+      - Let the biscuits cool completely.
+      - Mix a little {water} into {icing-sugar} to make the icing.
+      - Add {colouring} if you want colour.
+      - Spoon the icing over the top and leave to set, in the fridge or on the counter.
+    cue: The icing has set firm and no longer smears when touched.
+    active_min: 10
+    passive_min: 30
+    after:
+      - bake
+
+notes:
+  - "The ratio of flour to butter to sugar is 4:2:1, which is the mnemonic for this recipe: 450 g, 225 g and 110 g."
+  - "The same dough is the base for the Apple Tart."
+  - "Egg wash gives a shine, but skip it if you are going to ice the biscuits or dress them later with royal icing."
+
+open_questions:
+  - The yield is not given, so servings (20 biscuits) are assumed. The bake time of 15 minutes depends on the thickness you roll to.
+  - The ingredient list ends with an unexplained line, "450 250 190". It looks like a working note for the flour, butter and sugar, which does not quite match the stated 450, 225 and 110 g (a ratio of 4:2:1). The stated quantities were used.
+  - The amount of water for the icing is "following icing sugar instructions", so no quantity is given.
+  - The cooling time is assumed.

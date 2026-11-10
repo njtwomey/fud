@@ -1,0 +1,292 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: mongolian-lamb-stir-fry
+title: Mongolian-style Lamb Stir Fry with Garlic Rice
+summary: Browned lamb mince with onion petals and carrot matchsticks in a thick hoisin and five-spice sauce, over buttery garlic rice.
+version: 1
+date: 2026-11-10
+status: draft
+source:
+  kind: web
+  title: Mongolian-Style Lamb Stir-Fry With Garlic Rice
+  url: https://www.gousto.co.uk/cookbook/recipes/mongolian-style-lamb-stir-fry-with-garlic-rice
+servings: 2
+tags:
+  - dinner
+  - asian-inspired
+  - stir-fry
+  - rice-dish
+  - weeknight
+
+images:
+  - file: hero.webp
+    alt: A speckled bowl of white rice topped with dark minced lamb, onion wedges, carrot matchsticks and sliced spring onion.
+
+components:
+  - id: rice
+    title: Garlic rice
+    ingredients:
+      - id: butter
+        ingredient: butter
+        note: a knob
+      - id: garlic-rice
+        ingredient: garlic
+        quantity:
+          amount: 1
+          unit: each
+        note: half of the garlic
+      - id: salt-rice
+        ingredient: salt
+        note: a pinch
+      - id: rice
+        ingredient: basmati-rice
+        quantity:
+          amount: 130
+          unit: g
+      - id: water-rice
+        ingredient: water
+        quantity:
+          amount: 300
+          unit: ml
+        note: cold
+
+  - id: lamb
+    title: Lamb stir fry
+    ingredients:
+      - id: oil
+        ingredient: vegetable-oil
+        note: a small drizzle
+      - id: lamb
+        ingredient: lamb-mince
+        quantity:
+          amount: 250
+          unit: g
+      - id: salt-lamb
+        ingredient: salt
+        note: a generous pinch
+      - id: onion
+        ingredient: onion
+        quantity:
+          amount: 1
+          unit: each
+      - id: carrot
+        ingredient: carrot
+        quantity:
+          amount: 1
+          unit: each
+      - id: spring-onion
+        ingredient: spring-onion
+        quantity:
+          amount: 1
+          unit: each
+        note: one bunch
+      - id: garlic-lamb
+        ingredient: garlic
+        quantity:
+          amount: 1
+          unit: each
+        note: the other half of the garlic
+      - id: flour
+        ingredient: plain-flour
+        quantity:
+          amount: 8
+          unit: g
+        note: about 1 tbsp
+
+  - id: stock
+    title: Hoisin stock
+    ingredients:
+      - id: hoisin
+        ingredient: hoisin-sauce
+        quantity:
+          amount: 40
+          unit: g
+      - id: tomato-puree
+        ingredient: tomato-puree
+        quantity:
+          amount: 16
+          unit: g
+      - id: water-stock
+        ingredient: water
+        quantity:
+          amount: 150
+          unit: ml
+        note: boiled
+      - id: soy-sauce
+        ingredient: soy-sauce
+        quantity:
+          amount: 15
+          unit: ml
+      - id: rice-wine
+        ingredient: chinese-rice-wine
+        quantity:
+          amount: 15
+          unit: ml
+      - id: five-spice
+        ingredient: chinese-five-spice
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: chilli-stock
+        ingredient: chilli-flakes
+        quantity:
+          amount: 0.25
+          unit: tsp
+        note: half of the chilli flakes
+      - id: salt-stock
+        ingredient: salt
+        note: a generous pinch
+      - id: sugar
+        ingredient: sugar
+        note: a pinch
+
+  - id: serving
+    title: To serve
+    ingredients:
+      - id: chilli-serve
+        ingredient: chilli-flakes
+        quantity:
+          amount: 0.25
+          unit: tsp
+        note: the other half; add less if you are not a fan of spice
+      - id: pepper
+        ingredient: black-pepper
+        note: plenty
+
+steps:
+  - id: cook-rice
+    title: Cook the garlic rice
+    component: rice
+    kind: cook
+    text: Cook half the garlic in butter, add the rice and water, and steam covered over a very low heat. Leave the lid on until serving.
+    substeps:
+      - Peel and finely chop or grate {garlic-rice}.
+      - Heat a pot with a matching lid over a low heat and add {butter}.
+      - Once melted, add the garlic with {salt-rice} and cook for 1 minute.
+      - Add {rice} and {water-rice}, mix and bring to the boil over a high heat.
+      - Reduce the heat to very low and cook covered for 10 to 12 minutes.
+      - Remove from the heat and keep covered until serving.
+    cue: The garlic smells fragrant, and after cooking all the water has been absorbed and the rice is tender.
+    heat: low
+    active_min: 5
+    passive_min: 12
+    tools:
+      - tool: saucepan
+        note: With a matching lid.
+    after: []
+
+  - id: prep-veg
+    title: Cut the vegetables
+    component: lamb
+    kind: prep
+    text: Cut the onion into petals, the carrot into matchsticks and the spring onions into rings, and slice the rest of the garlic.
+    substeps:
+      - Peel {onion} and cut into quarters, then separate the wedges into a pile of onion petals.
+      - Top, tail, peel and slice {carrot} into discs on the diagonal, then into matchsticks.
+      - Trim and finely slice {spring-onion}, keeping the whites and greens separate.
+      - Peel and finely slice {garlic-lamb}. Slice it, don't chop it.
+    active_min: 10
+    make_ahead: true
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: brown-lamb
+    title: Brown the lamb
+    component: lamb
+    kind: cook
+    text: Brown the lamb mince in a very hot pan, breaking it into large chunks.
+    substeps:
+      - Heat a large, wide-based pan (preferably non-stick) with {oil} over a high heat.
+      - Add {lamb} with {salt-lamb} and cook for 3 to 4 minutes, breaking it up into large chunks with a wooden spoon.
+      - Boil half a kettle of water for the stock.
+    cue: The mince is nicely browned all over, in large chunks.
+    heat: high
+    active_min: 5
+    tools:
+      - tool: frying-pan
+        alternatives:
+          - wok
+      - tool: wooden-spoon
+      - tool: kettle
+    after:
+      - prep-veg
+
+  - id: cook-veg
+    title: Cook the onion and carrot
+    component: lamb
+    kind: cook
+    text: Add the onion petals and carrot matchsticks to the browned lamb and cook until they soften and the lamb has no pink left.
+    substeps:
+      - Add the onion petals and carrot matchsticks to the pan.
+      - Cook for 4 to 5 minutes, stirring frequently.
+    cue: The onion petals are starting to soften and there is no pink meat left.
+    heat: high
+    active_min: 5
+    tools:
+      - tool: frying-pan
+        alternatives:
+          - wok
+      - tool: wooden-spoon
+    after:
+      - brown-lamb
+
+  - id: make-stock
+    title: Make the hoisin stock
+    component: stock
+    kind: prep
+    text: Dissolve the hoisin and tomato puree in boiled water, then add the seasonings.
+    substeps:
+      - Dissolve {hoisin} and {tomato-puree} in {water-stock}.
+      - Add {soy-sauce}, {rice-wine}, {five-spice} and {chilli-stock}. Go easy if you cannot handle the heat.
+      - Season with {salt-stock} and {sugar}.
+    cue: The hoisin and puree are fully dissolved, with no lumps.
+    active_min: 4
+    tools:
+      - tool: measuring-jug
+        alternatives:
+          - mixing-bowl
+    after:
+      - brown-lamb
+
+  - id: simmer-sauce
+    title: Thicken the sauce
+    component: lamb
+    kind: cook
+    text: Add the spring onion whites, garlic and flour to the pan, then pour in the hoisin stock and cook until the sauce is as thick as a bolognese.
+    substeps:
+      - Once the onion petals are starting to soften, add the spring onion whites (keep the greens for garnish), the sliced garlic and {flour}.
+      - Cook for 1 minute until fragrant.
+      - Add the hoisin stock and reduce the heat to medium.
+      - Cook for 2 to 3 minutes.
+    cue: The sauce has thickened to a bolognese-like consistency and coats the lamb.
+    heat: medium
+    active_min: 5
+    tools:
+      - tool: frying-pan
+        alternatives:
+          - wok
+      - tool: wooden-spoon
+    after:
+      - cook-veg
+      - make-stock
+
+  - id: serve
+    title: Serve over the rice
+    component: serving
+    kind: serve
+    text: Spoon the lamb stir fry over the garlic rice and garnish.
+    substeps:
+      - Serve the stir fry over the rice.
+      - Garnish with the reserved spring onion greens, {chilli-serve} and plenty of {pepper}.
+    active_min: 3
+    after:
+      - simmer-sauce
+      - cook-rice
+
+notes:
+  - "The original card also gives bigger batches: rice water 300 ml for 2, 390 ml for 3 and 600 ml for 4; stock water 150, 200 and 250 ml; flour 1, 1.5 and 2 tbsp."
+
+open_questions:
+  - The spring onion is given as 1 bunch; it may mean 2 spring onions.
+  - How thick should the sauce be? It is described as bolognese-like.

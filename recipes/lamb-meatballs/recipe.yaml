@@ -1,0 +1,260 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: lamb-meatballs
+title: Lamb Meatballs
+summary: Spiced lamb meatballs browned, then simmered in a cumin, coriander and turmeric tomato sauce and finished with pistachios, yoghurt and mint.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 8
+tags:
+  - dinner
+  - italian
+  - weekend
+  - batch-cook
+
+images:
+  - file: hero.jpg
+    alt: A green plate of penne topped with lamb meatballs in tomato sauce, finished with chopped pistachios and herbs.
+
+components:
+  - id: meatballs
+    title: Meatballs
+    ingredients:
+      - id: lamb
+        ingredient: lamb-mince
+        quantity:
+          amount: 1000
+          unit: g
+      - id: breadcrumbs
+        ingredient: breadcrumbs
+        quantity:
+          amount: 150
+          unit: g
+      - id: oregano
+        ingredient: oregano
+        quantity:
+          amount: 1
+          unit: tbsp
+      - id: paprika-meat
+        ingredient: paprika
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: salt-meat
+        ingredient: salt
+      - id: pepper-meat
+        ingredient: black-pepper
+      - id: oil
+        ingredient: olive-oil
+        note: a good glug for browning
+
+  - id: sauce
+    title: Sauce
+    ingredients:
+      - id: onion
+        ingredient: onion
+        quantity:
+          amount: 1
+          unit: each
+        note: large
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 3
+          unit: each
+      - id: chilli
+        ingredient: red-chilli
+        quantity:
+          amount: 1
+          unit: each
+        note: red or green
+      - id: paprika-sauce
+        ingredient: paprika
+        quantity:
+          amount: 2
+          unit: tsp
+      - id: cumin
+        ingredient: ground-cumin
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: coriander
+        ingredient: ground-coriander
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: turmeric
+        ingredient: ground-turmeric
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: tomatoes
+        ingredient: tinned-chopped-tomatoes
+        quantity:
+          amount: 800
+          unit: g
+        note: 2 tins
+        swaps:
+          - ingredient: tomato
+            ratio: 1.9
+            quality: fine
+            note: About 12 to 18 fresh tomatoes, chopped finely.
+      - id: stock
+        ingredient: chicken-stock
+        quantity:
+          amount: 200
+          unit: ml
+        note: chicken or lamb
+      - id: salt-sauce
+        ingredient: salt
+      - id: pepper-sauce
+        ingredient: black-pepper
+
+  - id: serving
+    title: To serve
+    ingredients:
+      - id: pistachios
+        ingredient: pistachios
+        quantity:
+          amount: 30
+          unit: g
+        optional: true
+        note: about 1 tsp per serving
+      - id: yoghurt
+        ingredient: natural-yoghurt
+        quantity:
+          amount: 120
+          unit: g
+        optional: true
+        note: about 1 tbsp per serving
+      - id: mint
+        ingredient: mint
+        optional: true
+
+steps:
+  - id: mix-meatballs
+    title: Mix the meatballs
+    component: meatballs
+    kind: prep
+    text: Mix all the meatball ingredients together in a large bowl and season.
+    substeps:
+      - Put {lamb}, {breadcrumbs}, {oregano} and {paprika-meat} in a large bowl and season with {salt-meat} and {pepper-meat}.
+      - Mix thoroughly with your hands.
+      - To check the seasoning, fry a small amount off and taste it.
+    cue: The mixture is evenly mixed and holds together when squeezed.
+    active_min: 10
+    tools:
+      - tool: mixing-bowl
+    after: []
+
+  - id: shape-meatballs
+    title: Shape the meatballs
+    component: meatballs
+    kind: prep
+    text: Shape about 32 meatballs, either by halving the mixture five times or by weighing each ball.
+    substeps:
+      - Halve the mixture five times to get 32 portions, or weigh the balls at roughly 30 to 40 g each, which gives very consistent sizes.
+      - Roll each portion into a ball.
+    cue: The meatballs are all about the same size.
+    active_min: 15
+    tools:
+      - tool: digital-scales
+    after:
+      - mix-meatballs
+
+  - id: brown-meatballs
+    title: Brown the meatballs
+    component: meatballs
+    kind: cook
+    text: Brown the meatballs in batches in a large sauté pan, taking care not to burn them. They do not need to be cooked through yet.
+    substeps:
+      - Heat {oil} in a large sauté pan on a medium heat.
+      - Brown the meatballs in batches.
+      - Put each finished batch to one side.
+    cue: The outsides are browned all over; the middles are still raw.
+    heat: medium
+    active_min: 15
+    tools:
+      - tool: saute-pan
+    after:
+      - shape-meatballs
+
+  - id: sweat-onions
+    title: Sweat the onion and spices
+    component: sauce
+    kind: cook
+    text: In the same pan, sweat the onion on a lower heat, then stir in the garlic, chilli and spices for a minute.
+    substeps:
+      - Finely slice {onion}, mince {garlic} and deseed and finely chop {chilli}.
+      - Reduce the heat and sweat the onion in the same pan for 10 to 15 minutes.
+      - Add the garlic, chilli, {paprika-sauce}, {cumin}, {coriander} and {turmeric}.
+      - Stir for a minute.
+    cue: The onion is soft and translucent and the spices smell toasted.
+    heat: medium-low
+    active_min: 18
+    tools:
+      - tool: saute-pan
+      - tool: knife
+      - tool: chopping-board
+    after:
+      - brown-meatballs
+
+  - id: simmer-sauce
+    title: Simmer the tomatoes
+    component: sauce
+    kind: cook
+    text: Add the tomatoes and simmer for about 10 minutes, then add the stock.
+    substeps:
+      - Add {tomatoes} and season with {salt-sauce} and {pepper-sauce}.
+      - Simmer for about 10 minutes.
+      - Add {stock}.
+    cue: The tomatoes have broken down and the sauce is thickening.
+    active_min: 3
+    passive_min: 10
+    tools:
+      - tool: saute-pan
+    after:
+      - sweat-onions
+
+  - id: cook-meatballs
+    title: Finish the meatballs in the sauce
+    component: sauce
+    kind: cook
+    text: Cover the pan and bring to the boil, then add the meatballs and simmer until they are cooked through.
+    substeps:
+      - Cover the sauté pan and bring to the boil.
+      - Add the browned meatballs.
+      - Simmer for about 10 minutes.
+      - If you are serving with pasta, start cooking it now.
+    cue: The meatballs are cooked through with no pink inside.
+    active_min: 2
+    passive_min: 10
+    tools:
+      - tool: saute-pan
+    after:
+      - simmer-sauce
+
+  - id: serve
+    title: Plate and serve
+    component: serving
+    kind: serve
+    text: Plate up as you like and drizzle the mint, nuts and yoghurt over the top.
+    substeps:
+      - Roughly chop {mint}.
+      - Scatter {pistachios} and the mint and add {yoghurt}.
+    active_min: 4
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after:
+      - cook-meatballs
+
+notes:
+  - "A homemade tomato sauce with more fresh vegetables, cooked for longer, can be used instead of the sauce here for more flavour."
+  - "Pasta: if serving with pasta, the final simmer is the time to put it on."
+  - "The serving garnishes are optional; the quantities are scaled from 1 tsp pistachios and 1 tbsp yoghurt per serving for 8."
+
+open_questions:
+  - Servings are taken as 8, for 32 meatballs.
+  - The yoghurt and pistachio amounts are worked out from the per-serving figures for 8 servings.
+  - The fresh tomato swap uses 1.9 times the weight; from a count of about 12 to 18 tomatoes.

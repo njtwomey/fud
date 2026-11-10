@@ -1,0 +1,246 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: sticky-sweet-chilli-pork
+title: Sticky Sweet Chilli Pork with Rice
+summary: Pork mince browned with green beans and red pepper, finished in a sticky sweet chilli, ginger and soy sauce and served on basmati rice with lime.
+version: 1
+date: 2026-11-10
+status: draft
+servings: 2
+tags:
+  - dinner
+  - asian-inspired
+  - stir-fry
+  - rice-dish
+  - quick
+
+images:
+  - file: hero.webp
+    alt: A blue plate of basmati rice beside sticky minced pork with diced red pepper, green beans and spring onion, with a lime wedge.
+
+components:
+  - id: rice
+    title: Rice
+    ingredients:
+      - id: rice
+        ingredient: basmati-rice
+        quantity:
+          amount: 130
+          unit: g
+      - id: water
+        ingredient: water
+        quantity:
+          amount: 300
+          unit: ml
+        note: cold
+
+  - id: pork
+    title: Pork and vegetables
+    ingredients:
+      - id: oil
+        ingredient: vegetable-oil
+        note: a drizzle, more if the pan looks dry
+      - id: pork
+        ingredient: pork-mince
+        quantity:
+          amount: 250
+          unit: g
+      - id: salt
+        ingredient: salt
+        note: to season
+      - id: pepper
+        ingredient: black-pepper
+        note: to season
+      - id: green-beans
+        ingredient: green-beans
+        quantity:
+          amount: 160
+          unit: g
+        note: fine
+      - id: red-pepper
+        ingredient: red-pepper
+        quantity:
+          amount: 1
+          unit: each
+
+  - id: sauce
+    title: Sweet chilli sauce
+    ingredients:
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 1
+          unit: each
+      - id: ginger
+        ingredient: ginger
+        quantity:
+          amount: 15
+          unit: g
+      - id: rice-wine
+        ingredient: chinese-rice-wine
+        quantity:
+          amount: 15
+          unit: ml
+      - id: soy-sauce
+        ingredient: soy-sauce
+        quantity:
+          amount: 30
+          unit: ml
+      - id: relish
+        ingredient: red-chilli-relish
+        quantity:
+          amount: 25
+          unit: g
+      - id: sugar
+        ingredient: sugar
+        note: a pinch
+      - id: water-sauce
+        ingredient: water
+        note: a splash
+
+  - id: finish
+    title: To finish
+    ingredients:
+      - id: spring-onion
+        ingredient: spring-onion
+        quantity:
+          amount: 1
+          unit: each
+        note: one spring onion, some saved for garnish
+      - id: lime
+        ingredient: lime
+        quantity:
+          amount: 1
+          unit: each
+        note: half for the juice, the rest as wedges
+      - id: coriander
+        ingredient: fresh-coriander
+        quantity:
+          amount: 5
+          unit: g
+
+steps:
+  - id: cook-rice
+    title: Cook the rice
+    component: rice
+    kind: cook
+    text: Cook {rice} in {water} with the lid on, then leave it covered.
+    substeps:
+      - Put the rice and the water in a pot and bring to the boil.
+      - Reduce the heat to low, cover and cook for 10 to 12 minutes.
+      - Remove from the heat and keep covered.
+    cue: The water has been absorbed and the rice is tender.
+    heat: low
+    active_min: 3
+    passive_min: 11
+    tools:
+      - tool: saucepan
+        note: With a lid.
+    after: []
+
+  - id: brown-pork
+    title: Brown the pork
+    component: pork
+    kind: cook
+    text: Brown the pork mince in a hot pan, breaking it up as it colours.
+    substeps:
+      - Heat a large pan with {oil} over a high heat.
+      - Add {pork}, season with {salt} and {pepper}, and cook for 3 to 4 minutes, breaking it up as it browns.
+      - If the pan looks dry, add more oil.
+    cue: The mince is broken into small pieces and browned, with no raw pink left on the outside.
+    heat: high
+    active_min: 5
+    tools:
+      - tool: frying-pan
+        alternatives:
+          - wok
+      - tool: wooden-spoon
+    after: []
+
+  - id: prep-veg
+    title: Chop the beans and pepper
+    component: pork
+    kind: prep
+    text: While the pork cooks, cut the green beans and red pepper.
+    substeps:
+      - Trim and chop {green-beans} into small pieces.
+      - Deseed and dice {red-pepper}.
+    active_min: 5
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: cook-veg
+    title: Cook the vegetables with the pork
+    component: pork
+    kind: cook
+    text: Add the green beans and red pepper to the pork and cook until they have started to soften.
+    substeps:
+      - Add the chopped green beans and red pepper to the pan with the pork.
+      - Cook for another 4 to 5 minutes.
+      - Meanwhile, slice {spring-onion}, saving some for garnish.
+    cue: The beans and pepper are bright and tender but still with some bite.
+    heat: high
+    active_min: 5
+    tools:
+      - tool: frying-pan
+        alternatives:
+          - wok
+      - tool: wooden-spoon
+    after:
+      - brown-pork
+      - prep-veg
+
+  - id: make-sauce
+    title: Mix the sauce
+    component: sauce
+    kind: prep
+    text: Mix the garlic, ginger, rice wine, soy sauce, chilli relish, a splash of water and a pinch of sugar in a bowl.
+    substeps:
+      - Peel and finely chop or grate {garlic} and {ginger}.
+      - In a bowl, mix them with {rice-wine}, {soy-sauce}, {relish}, {water-sauce} and {sugar}.
+    active_min: 5
+    tools:
+      - tool: mixing-bowl
+    after: []
+
+  - id: finish-pork
+    title: Finish the pork
+    component: pork
+    kind: cook
+    text: Pour the sauce into the pan with most of the spring onion and half the lime juice and cook until sticky.
+    substeps:
+      - Pour the sauce into the pan with most of the sliced spring onion, keeping some for garnish.
+      - Squeeze in the juice of half of {lime}.
+      - Stir well and cook for 1 to 2 minutes.
+    cue: The sauce is sticky and clinging to the pork, and the pork is fully cooked with no pink.
+    heat: high
+    active_min: 3
+    tools:
+      - tool: frying-pan
+        alternatives:
+          - wok
+      - tool: wooden-spoon
+    after:
+      - cook-veg
+      - make-sauce
+
+  - id: serve
+    title: Serve
+    component: finish
+    kind: serve
+    text: Chop the coriander, stalks and all, and serve the pork with the rice on the side, garnished with spring onion, coriander and a lime wedge.
+    substeps:
+      - Finely chop {coriander}, including the stalks.
+      - Serve the pork with the basmati rice on the side.
+      - Garnish with the remaining spring onion, the coriander and a lime wedge.
+    active_min: 3
+    after:
+      - finish-pork
+      - cook-rice
+
+notes:
+  - "Ready in about 20 minutes, with the rice and pork cooking side by side."
+
+open_questions:
+  - The red chilli relish is a branded jar sauce; sweet chilli sauce is the nearest substitute but has not been tested.

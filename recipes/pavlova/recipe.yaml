@@ -1,0 +1,212 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: pavlova
+title: Pavlova
+summary: Four stiff meringue nests baked low and slow, filled with whipped cream, hazelnuts and chocolate and topped with berries.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - dessert
+  - baking
+  - make-ahead
+
+images:
+  - file: hero.jpg
+    alt: A meringue topped with whipped cream and grated chocolate, beside a small pastry tart on a pale green plate.
+    caption: The pavlova is on the right. The tart on the left is the apple tart.
+
+  - file: meringue.jpg
+    alt: Stiff white meringue mounds with glossy peaks on a tray, before baking.
+
+components:
+  - id: meringue
+    title: Meringue
+    ingredients:
+      - id: whites
+        ingredient: egg-white
+        quantity:
+          amount: 2
+          unit: each
+        note: medium
+      - id: sugar
+        ingredient: caster-sugar
+        quantity:
+          amount: 125
+          unit: g
+      - id: vanilla
+        ingredient: vanilla-extract
+        note: 1 to 2 drops
+
+  - id: filling
+    title: Filling
+    ingredients:
+      - id: cream
+        ingredient: double-cream
+        quantity:
+          amount: 200
+          unit: ml
+      - id: hazelnuts
+        ingredient: roasted-hazelnuts
+        quantity:
+          amount: 50
+          unit: g
+        note: about 1 small bag
+      - id: chocolate
+        ingredient: chocolate
+        note: for scraping, some into the cream
+
+  - id: finish
+    title: To finish
+    ingredients:
+      - id: fruit
+        ingredient: raspberries
+        note: assorted berries and other fruit
+      - id: chocolate-top
+        ingredient: chocolate
+        note: scrapings, to decorate
+      - id: icing-sugar
+        ingredient: icing-sugar
+        note: to dust
+
+steps:
+  - id: heat-oven
+    title: Heat the oven
+    component: meringue
+    kind: prep
+    text: Heat the oven to 180 °C fan (200 °C conventional) before you start whisking.
+    temperature:
+      celsius: 180
+      mode: fan
+    cue: The oven has reached 180 °C.
+    active_min: 1
+    passive_min: 10
+    tools:
+      - tool: oven
+    after: []
+
+  - id: whisk-whites
+    title: Whisk the egg whites
+    component: meringue
+    kind: cook
+    text: Whisk the egg whites in a large bowl until stiff.
+    substeps:
+      - Put {whites} in a large, clean bowl.
+      - Whisk until stiff.
+    cue: Stiff enough to stand in peaks when the whisk is lifted.
+    active_min: 5
+    tools:
+      - tool: mixing-bowl
+      - tool: whisk
+    after: []
+
+  - id: add-sugar
+    title: Whisk in the sugar
+    component: meringue
+    kind: cook
+    text: Keep whisking and add the sugar a teaspoon at a time until it is fully absorbed, then whisk in the vanilla.
+    substeps:
+      - Continue whisking and add {sugar} a teaspoon at a time, waiting until each is fully absorbed.
+      - Add {vanilla} now and stop whisking once it is integrated.
+    cue: The egg whites are very stiff and glossy, with no grains of sugar left.
+    active_min: 12
+    tools:
+      - tool: whisk
+        note: your arm will be stiff from a hand whisk
+
+  - id: shape
+    title: Shape the nests
+    component: meringue
+    kind: cook
+    text: Draw circles on parchment paper and spoon four mounds of the mixture into them, with a dip in the middle of each.
+    substeps:
+      - Draw four circles on parchment paper on a tray.
+      - Spoon a mound of the mixture into each circle.
+      - Make a dip in the middle of each mound.
+    cue: Four tall mounds with a dip in the centre, holding their shape.
+    active_min: 6
+    tools:
+      - tool: baking-tray
+      - tool: baking-paper
+    after:
+      - add-sugar
+      - heat-oven
+
+  - id: bake
+    title: Bake at a lower temperature
+    component: meringue
+    kind: cook
+    text: Turn the oven down to 150 °C and bake the meringues for 30 minutes.
+    substeps:
+      - Turn the oven down to 150 °C fan (170 °C conventional).
+      - Put the tray in for 30 minutes.
+    temperature:
+      celsius: 150
+      mode: fan
+    cue: The outside is dry and crisp, and they lift cleanly from the paper.
+    active_min: 1
+    passive_min: 30
+    tools:
+      - tool: oven
+      - tool: baking-tray
+
+  - id: cool-in-oven
+    title: Cool in the oven
+    component: meringue
+    kind: wait
+    text: Turn the oven off and leave the pavlovas inside for another 30 minutes, then move them to a wire tray to cool.
+    substeps:
+      - Turn the oven off.
+      - Leave the pavlovas inside for another 30 minutes.
+      - Move them to a wire tray to cool.
+    cue: The meringues are completely cool and dry on the outside.
+    active_min: 1
+    passive_min: 30
+    make_ahead: true
+    tools:
+      - tool: oven
+      - tool: wire-rack
+
+  - id: make-filling
+    title: Whip the cream
+    component: filling
+    kind: cook
+    text: Whip the cream until it holds its structure, then mix in the hazelnuts and chocolate scrapings and chill.
+    substeps:
+      - Put {cream} in a large bowl.
+      - Whip until it holds its structure.
+      - Mix in {hazelnuts}, blitzed, and the {chocolate} scrapings.
+      - Put in the fridge.
+    cue: The cream holds soft peaks and the nuts are evenly spread through it.
+    active_min: 8
+    tools:
+      - tool: mixing-bowl
+      - tool: whisk
+      - tool: fridge
+    after: []
+
+  - id: assemble
+    title: Fill and finish
+    component: finish
+    kind: serve
+    text: Spoon a heaped tablespoon or more of the cream into the cavity of each pavlova, add berries and finish with chocolate scrapings and icing sugar.
+    substeps:
+      - Put a heaped tablespoon of the cream mixture, or more, into the cavity of each pavlova.
+      - Add {fruit} on top.
+      - Sprinkle with more {chocolate-top} and dust with {icing-sugar}.
+    active_min: 5
+    after:
+      - cool-in-oven
+      - make-filling
+
+notes:
+  - "The recipe uses egg whites, so it pairs well with a recipe that uses the yolks, such as the shepherd's pie."
+  - "Fruit: raspberries and such."
+  - "Make ahead: the meringues can be baked and cooled ahead. Fill them only when serving."
+
+open_questions:
+  - The oven mode is not stated for 180 °C and 150 °C. Treated as fan (200 °C and 170 °C conventional). Is that right?
+  - The weight of the roasted hazelnuts is given as "1 small bag", so 50 g is assumed. The amounts of chocolate, fruit and icing sugar are not given.
+  - The vanilla extract is 1 to 2 drops, so it has no quantity.
+  - The finish says "sugar scrapings", read as chocolate scrapings.
+  - Servings are 4, matching the four nests.

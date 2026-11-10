@@ -1,0 +1,91 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: basmati-rice
+title: Basmati Rice
+summary: Plain basmati rice cooked by absorption in a covered pot, with a short rest to improve the texture.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 2
+tags:
+  - side
+  - basic
+  - quick
+
+images:
+  - file: hero.jpg
+    alt: A bowl of fluffed white basmati rice with a fork resting in it.
+
+components:
+  - id: rice
+    title: Rice
+    ingredients:
+      - id: rice
+        ingredient: basmati-rice
+        quantity:
+          amount: 150
+          unit: g
+        note: 75 g per person
+      - id: water
+        ingredient: water
+        quantity:
+          amount: 140
+          unit: ml
+        note: boiling, from the kettle; 70 ml per person
+
+steps:
+  - id: wash-rice
+    title: Boil the kettle and wash the rice
+    component: rice
+    kind: prep
+    text: Boil the kettle, and in the meantime wash {rice} in a sieve until the water runs clear.
+    substeps:
+      - Boil a kettle of water for the {water:name}.
+      - Rinse {rice:name} under the tap in the sieve, stirring with your hand, until the water runs clear.
+    active_min: 4
+    tools:
+      - tool: kettle
+      - tool: sieve
+    after: []
+
+  - id: cook-rice
+    title: Cook the rice
+    component: rice
+    kind: cook
+    text: Put the washed {rice:name} and {water} in a pot with the lid on, bring to the boil, then turn right down until the water has gone.
+    substeps:
+      - Add the cleaned rice and the water to the pot and cover with the lid.
+      - Bring to the boil on the hob, and as soon as it begins to bubble reduce the heat to the lowest setting.
+      - Leave for about 8 to 9 minutes.
+    cue: All of the water has evaporated and the surface is dotted with small steam holes.
+    heat: low
+    active_min: 2
+    passive_min: 9
+    tools:
+      - tool: saucepan
+        alternatives:
+          - large-pot
+      - tool: hob
+    after:
+      - wash-rice
+
+  - id: rest-rice
+    title: Fluff and rest
+    component: rice
+    kind: wait
+    text: Take the pot off the hob, fluff the rice lightly with a fork, put the lid back on and leave it for about 10 minutes.
+    substeps:
+      - The rest tends to improve the consistency, but if you are impatient you can eat straight away.
+    cue: The grains are tender, separate and no longer wet.
+    passive_min: 10
+    tools:
+      - tool: saucepan
+    after:
+      - cook-rice
+
+notes:
+  - "The rest is optional: it tends to improve the rice, but you can eat it straight away."
+
+open_questions:
+  - "Servings are assumed to be 2, at 75 g rice and 70 g water per person."
+  - "The water is given by weight (70 g per person); 1 g of water is taken as 1 ml."
+  - "The cue for the cook step is assumed: wait until the water has evaporated."

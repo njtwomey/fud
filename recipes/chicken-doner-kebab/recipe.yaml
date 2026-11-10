@@ -1,0 +1,265 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: chicken-doner-kebab
+title: Chicken Doner Kebab
+summary: Spiced chicken mince rolled thin, baked flat and sliced into strips, served in warm pitta with salad and sauce.
+version: 1
+date: 2026-09-29
+status: draft
+source:
+  kind: web
+  title: Homemade Chicken Doner Kebab
+  url: https://www.latoyah.co.uk/2026/01/homemade-chicken-doner-kebab-recipe.html
+  note: The oven temperature, thickness and flat-sheet method are assumed.
+servings: 4
+tags:
+  - dinner
+  - weeknight
+  - middle-eastern
+
+components:
+  - id: onion-puree
+    title: Onion purée
+    ingredients:
+      - id: onion-puree
+        ingredient: red-onion
+        quantity:
+          amount: 1
+          unit: each
+        note: small
+
+  - id: chicken
+    title: Spiced chicken
+    ingredients:
+      - id: mince
+        ingredient: chicken-mince
+        quantity:
+          amount: 500
+          unit: g
+      - id: yoghurt
+        ingredient: greek-yoghurt-fat-free
+        quantity:
+          amount: 30
+          unit: ml
+        note: about 2 tbsp
+      - id: lemon
+        ingredient: lemon-juice
+        quantity:
+          amount: 25
+          unit: ml
+        note: juice of half a lemon
+      - id: oregano
+        ingredient: dried-oregano
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: paprika
+        ingredient: smoked-paprika
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: chilli
+        ingredient: chilli-powder
+        quantity:
+          amount: 0.5
+          unit: tsp
+        note: adjust to taste
+      - id: cinnamon
+        ingredient: ground-cinnamon
+        quantity:
+          amount: 0.5
+          unit: tsp
+      - id: allspice
+        ingredient: ground-allspice
+        quantity:
+          amount: 0.5
+          unit: tsp
+      - id: salt
+        ingredient: salt
+        quantity:
+          amount: 5
+          unit: g
+        note: about 1% of the meat's weight
+      - id: pepper
+        ingredient: black-pepper
+        quantity:
+          amount: 0.5
+          unit: tsp
+
+  - id: serving
+    title: To serve
+    ingredients:
+      - id: pitta
+        ingredient: pitta-bread
+        quantity:
+          amount: 4
+          unit: each
+        note: one per person
+      - id: lettuce
+        ingredient: lettuce
+        quantity:
+          amount: 0.5
+          unit: each
+      - id: tomato
+        ingredient: tomato
+        quantity:
+          amount: 2
+          unit: each
+      - id: onion-serve
+        ingredient: red-onion
+        quantity:
+          amount: 0.5
+          unit: each
+      - id: cucumber
+        ingredient: cucumber
+        quantity:
+          amount: 0.5
+          unit: each
+      - id: sauce
+        ingredient: tzatziki
+        quantity:
+          amount: 120
+          unit: g
+        note: or garlic yoghurt or chilli sauce
+
+steps:
+  - id: heat-oven-and-blend
+    title: Heat the oven and blend the onion
+    component: onion-puree
+    kind: prep
+    text: Switch the oven on first, then turn the onion into a smooth purée.
+    substeps:
+      - Heat the oven to 180 °C fan (200 °C conventional).
+      - Peel and quarter {onion-puree}.
+      - Blend until completely smooth.
+    cue: No visible pieces of onion are left.
+    temperature:
+      celsius: 180
+      mode: fan
+    active_min: 5
+    tools:
+      - tool: oven
+      - tool: knife
+      - tool: chopping-board
+      - tool: stick-blender
+        alternatives:
+          - blender
+          - food-processor
+    after: []
+
+  - id: mix-chicken
+    title: Mix and bind the chicken
+    component: chicken
+    kind: cook
+    text: Combine the mince with the onion purée, yoghurt, lemon juice and seasonings in a large bowl, then work it hard until it binds into one mass.
+    substeps:
+      - Put {mince} in the large bowl with the onion purée, {yoghurt}, {lemon}, {oregano}, {paprika}, {chilli}, {cinnamon}, {allspice}, {salt} and {pepper}.
+      - Stir hard for about 5 minutes, pressing the mince against the side of the bowl with the back of the spoon.
+    cue: The mixture turns paler, feels tacky and holds together as one mass instead of loose crumbs.
+    active_min: 8
+    tools:
+      - tool: mixing-bowl
+      - tool: wooden-spoon
+    after:
+      - heat-oven-and-blend
+
+  - id: roll-out
+    title: Roll the mixture thin
+    component: chicken
+    kind: cook
+    text: Roll the mixture out between two sheets of baking paper to about 5 mm, as even as you can, and slide it onto the baking tray.
+    substeps:
+      - Lay one sheet of baking paper on the work surface and turn the mixture out onto the centre.
+      - Cover with the second sheet.
+      - Roll from the centre outwards until it covers most of the sheet.
+      - Slide it onto the baking tray, still between both sheets.
+    cue: An even sheet about two £1 coins thick, with no thick lumps.
+    active_min: 8
+    tools:
+      - tool: baking-paper
+      - tool: rolling-pin
+      - tool: baking-tray
+    after:
+      - mix-chicken
+
+  - id: bake
+    title: Bake the chicken
+    component: chicken
+    kind: cook
+    text: Bake for about 15 minutes, until the chicken is cooked through.
+    cue: Opaque white throughout with no pink at the edges, the juices run clear, and the thickest part reads 75 °C.
+    temperature:
+      celsius: 180
+      mode: fan
+    active_min: 2
+    passive_min: 13
+    tools:
+      - tool: oven
+      - tool: baking-tray
+      - tool: probe-thermometer
+    after:
+      - roll-out
+
+  - id: rest-and-slice
+    title: Rest and slice
+    component: chicken
+    kind: cook
+    text: Rest the chicken briefly, then peel off the top sheet and slice it into thin strips.
+    substeps:
+      - Rest on the tray for 2 to 3 minutes.
+      - Peel off the top sheet of paper.
+      - Slice into thin strips.
+    cue: The paper can be handled without burning your fingers.
+    active_min: 3
+    passive_min: 3
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after:
+      - bake
+
+  - id: prepare-salad
+    title: Prepare the salad
+    component: serving
+    kind: prep
+    text: Cut the salad while the chicken bakes, so everything is ready to serve together.
+    substeps:
+      - Shred {lettuce}.
+      - Slice {tomato}.
+      - Slice {onion-serve}.
+      - Slice {cucumber}.
+    active_min: 8
+    make_ahead: true
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: serve
+    title: Warm the pitta and serve
+    component: serving
+    kind: serve
+    text: Warm the pitta, then fill it with the chicken, salad and sauce.
+    substeps:
+      - Warm {pitta} in a toaster or the oven for a minute.
+      - Fill with the chicken strips and the salad, and finish with {sauce}.
+    active_min: 4
+    after:
+      - rest-and-slice
+      - prepare-salad
+
+notes:
+  - "Binding: the hard stirring is what gives sliced doner texture instead of crumbled mince."
+  - "Thickness: 5 mm assumes a typical 40 × 30 cm tray, with about 600 g of mixture. A smaller tray gives a thicker sheet and a longer bake. Thicker than about 1 cm starts to cook like a flat meatloaf, with the edges drying before the centre reaches 75 °C."
+  - "Allspice: if you have none, use mixed spice in the same amount, or a quarter of a teaspoon of nutmeg with a small pinch of ground cloves. Do not add extra cinnamon. Leaving it out also works."
+  - "Make-ahead: the raw mixture can be made a few hours ahead and kept covered in the fridge. Cooked meat suits batch preparation."
+  - "Storage: keep cooked chicken in a sealed container in the fridge for up to 2 days (assumed). Reheat in a dry frying pan over a moderate heat until the edges crisp and it is hot through."
+  - "Full-fat Greek yoghurt instead of fat-free makes the meat richer and slightly softer."
+  - "Optional: squeeze the onion purée through a sieve or cloth before adding it, which gives a firmer mixture that rolls more cleanly. Worth trying only if the mixture is too wet to roll thin."
+
+open_questions:
+  - Servings and the salad and sauce quantities are assumed.
+  - Oven temperature is assumed (180 °C fan). Is 15 minutes right at the thickness you achieve?
+  - Does the blended onion make the mixture too wet to roll thin?
+  - Is 5 g of salt enough against the yoghurt and lemon?
+  - Does the bake give any colour, or do the strips need a short finish under the grill or in a hot pan?
+  - Flat sheet or the log method, where the meat is rolled up in its paper before baking, for a thicker slice?

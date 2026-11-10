@@ -1,0 +1,232 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: italian-ragu
+title: Italian Ragu
+summary: A slow, tomato-purée-based beef ragù with an optional finely diced soffritto, cooked very gently for 45 minutes to 2 hours.
+version: 1
+date: 2026-09-03
+status: draft
+servings: 4
+tags:
+  - dinner
+  - italian
+  - pasta
+  - simmering
+
+images:
+  - file: hero.jpg
+    alt: A handwritten recipe card titled Italian Ragu, Capella recipe, listing ingredients and a six-step method.
+    caption: The original handwritten card. It lists the meat but never says when to add it.
+
+components:
+  - id: soffritto
+    title: Soffritto (optional)
+    ingredients:
+      - id: carrot
+        ingredient: carrot
+        quantity:
+          amount: 1
+          unit: each
+        optional: true
+        note: medium
+      - id: onion
+        ingredient: onion
+        quantity:
+          amount: 0.5
+          unit: each
+        optional: true
+        note: white onion
+      - id: celery
+        ingredient: celery
+        quantity:
+          amount: 1
+          unit: each
+        optional: true
+        note: 1 stick
+      - id: water-soffritto
+        ingredient: water
+        quantity:
+          amount: 30
+          unit: ml
+        optional: true
+        note: 2 tbsp
+
+  - id: base
+    title: Base
+    ingredients:
+      - id: oil
+        ingredient: olive-oil
+        quantity:
+          amount: 30
+          unit: ml
+        note: extra virgin, 2 tbsp
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 4
+          unit: each
+
+  - id: meat
+    title: Meat
+    ingredients:
+      - id: mince
+        ingredient: beef-mince
+        quantity:
+          amount: 500
+          unit: g
+        note: not lean; or 250 g beef mince plus 250 g pork mince
+
+  - id: sauce
+    title: Sauce
+    ingredients:
+      - id: puree
+        ingredient: tomato-puree
+        quantity:
+          amount: 150
+          unit: g
+        note: 1 tin, double concentrate
+      - id: oregano
+        ingredient: oregano
+        quantity:
+          amount: 1
+          unit: tbsp
+      - id: mixed-herbs
+        ingredient: mixed-herbs
+        quantity:
+          amount: 1
+          unit: tbsp
+      - id: water
+        ingredient: water
+        quantity:
+          amount: 250
+          unit: ml
+        note: warm, about 1 large cup (assumed); or 125 ml water and 125 ml semi-skimmed milk
+      - id: water-topup
+        ingredient: water
+        note: warm, for topping up
+
+  - id: finish
+    title: To finish
+    ingredients:
+      - id: salt
+        ingredient: salt
+      - id: pepper
+        ingredient: black-pepper
+
+steps:
+  - id: dice-soffritto
+    title: Chop the garlic and soffritto
+    component: soffritto
+    kind: prep
+    text: Finely chop the garlic and, if using the soffritto, dice the carrot, onion and celery very finely.
+    substeps:
+      - Finely chop {garlic}.
+      - For the soffritto, very finely dice {carrot}, {onion} and {celery}.
+    cue: The vegetable pieces are tiny and even, so they will collapse into a paste.
+    active_min: 10
+    make_ahead: true
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: cook-base
+    title: Cook the base
+    component: base
+    kind: cook
+    text: Put the oil and garlic in the pot over a very low heat. If using the soffritto, add it now with its water and cook until it collapses to a paste; without it, fry the garlic alone for a minute.
+    substeps:
+      - Put {oil} and the garlic into a medium pot over a very low heat.
+      - If using the soffritto, add the carrot, onion, celery and {water-soffritto} at the same time and cook for 5 to 10 minutes, stirring often.
+      - If not using the soffritto, fry the garlic alone for 1 minute.
+      - Do not let anything brown.
+    cue: The vegetables have collapsed to a soft paste and the garlic is fragrant but still pale. Without the soffritto, the garlic is fragrant and just turning translucent.
+    heat: low
+    active_min: 8
+    tools:
+      - tool: large-pot
+      - tool: wooden-spoon
+    after:
+      - dice-soffritto
+
+  - id: brown-mince
+    title: Brown the mince
+    component: meat
+    kind: cook
+    text: Raise the heat to medium, add the mince and break it apart until it is no longer pink and its liquid has cooked off.
+    substeps:
+      - Raise the heat to medium and add {mince}.
+      - Break it apart with the spoon.
+      - Cook for 6 to 8 minutes.
+    cue: No pink remains and the liquid the meat released has cooked off, so it sizzles in fat rather than steaming.
+    heat: medium
+    active_min: 8
+    tools:
+      - tool: large-pot
+      - tool: wooden-spoon
+    after:
+      - cook-base
+
+  - id: add-puree
+    title: Add the purée and herbs
+    component: sauce
+    kind: cook
+    text: Stir in the tomato purée for a minute, then the dried herbs, and pour in the warm water.
+    substeps:
+      - Add {puree} and stir for 1 minute.
+      - Add {oregano} and {mixed-herbs} and stir them through.
+      - Pour in {water} and stir until nothing is stuck to the base.
+    cue: The purée darkens a shade and coats the meat.
+    active_min: 4
+    tools:
+      - tool: large-pot
+      - tool: wooden-spoon
+    after:
+      - brown-mince
+
+  - id: simmer
+    title: Cook very gently
+    component: sauce
+    kind: wait
+    text: Cover, reduce to the lowest heat and cook for 45 minutes to 2 hours, stirring every 10 to 15 minutes and topping up with warm water whenever it looks dry.
+    substeps:
+      - Cover the pot and reduce to the lowest heat.
+      - Stir every 10 to 15 minutes.
+      - Add a splash of {water-topup} whenever the surface looks dry or the base begins to catch.
+    cue: The fat has separated and pools on the surface, and a spoon drawn through the sauce leaves a channel that closes slowly.
+    heat: low
+    active_min: 10
+    passive_min: 80
+    tools:
+      - tool: large-pot
+      - tool: wooden-spoon
+    after:
+      - add-puree
+
+  - id: season-and-rest
+    title: Season and stand
+    component: finish
+    kind: serve
+    text: Season to taste, take off the heat and leave covered for 5 minutes before serving over pasta.
+    substeps:
+      - Season with {salt} and {pepper}.
+      - Take off the heat and leave to stand, covered, for 5 minutes.
+    active_min: 1
+    passive_min: 5
+    tools:
+      - tool: large-pot
+    after:
+      - simmer
+
+notes:
+  - "Make-ahead: the sauce improves after a night in the fridge. Reheat gently with a splash of water."
+  - "Storage: 3 days in the fridge, 3 months frozen."
+  - "Water or milk: the sheet's own alternative is half water, half semi-skimmed milk (125 ml of each here). Milk gives a softer, paler sauce."
+  - "Meat: 500 g beef mince (not lean), or 250 g beef mince plus 250 g pork mince."
+  - "The soffritto is optional. Both paths are written so either reads straight through."
+
+open_questions:
+  - The meat is listed but never used in the method. It is placed after the aromatics and before the purée (assumed).
+  - 1 large cup of water is assumed to be 250 ml.
+  - The simmer time is given as 45 minutes to 2 hours; 90 minutes is used for the timeline.
+  - Servings are assumed (4 portions, 500 g mince over pasta).
+  - Is the soffritto in or out for the version you intend to iterate?

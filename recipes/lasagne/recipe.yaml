@@ -1,0 +1,240 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: lasagne
+title: Lasagne
+summary: A quick meat lasagne with a mince, tomato and soffritto-style red sauce, shop-bought béchamel and fresh pasta sheets, grilled for a crisp top.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - dinner
+  - italian
+  - pasta
+  - weekend
+
+images:
+  - file: hero.jpg
+    alt: A white baking dish of baked lasagne with a browned, bubbling cheese top.
+
+components:
+  - id: red-sauce
+    title: Red sauce
+    ingredients:
+      - id: beef-mince
+        ingredient: beef-mince
+        quantity:
+          amount: 200
+          unit: g
+        optional: true
+        note: use any combination of the meats
+      - id: pork-mince
+        ingredient: pork-mince
+        quantity:
+          amount: 200
+          unit: g
+        optional: true
+        note: use any combination of the meats
+      - id: bacon
+        ingredient: bacon
+        quantity:
+          amount: 4
+          unit: each
+        optional: true
+        note: smoked rashers, use any combination of the meats
+      - id: salt
+        ingredient: salt
+      - id: pepper
+        ingredient: black-pepper
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 3
+          unit: each
+      - id: onion
+        ingredient: red-onion
+        quantity:
+          amount: 2
+          unit: each
+        note: medium
+      - id: carrot
+        ingredient: carrot
+        quantity:
+          amount: 1
+          unit: each
+        note: medium
+      - id: stock-cube
+        ingredient: vegetable-stock-cube
+        quantity:
+          amount: 1
+          unit: each
+        note: beef if available, vegetable is also fine
+      - id: tomatoes
+        ingredient: tinned-chopped-tomatoes
+        quantity:
+          amount: 400
+          unit: g
+        note: 1 tin
+      - id: puree
+        ingredient: tomato-puree
+        quantity:
+          amount: 25
+          unit: g
+        note: double concentrate, 1 to 2 tbsp
+      - id: oregano
+        ingredient: oregano
+        optional: true
+        note: or other herbs
+      - id: basil
+        ingredient: basil
+        optional: true
+        note: or other herbs
+
+  - id: layers
+    title: Layers and topping
+    ingredients:
+      - id: bechamel
+        ingredient: bechamel-sauce
+        quantity:
+          amount: 1
+          unit: each
+        note: 1 jar
+      - id: sheets
+        ingredient: lasagne-sheets
+        quantity:
+          amount: 300
+          unit: g
+        note: ideally fresh, not dried
+      - id: parmesan
+        ingredient: parmesan
+        quantity:
+          amount: 100
+          unit: g
+        note: grated onto each layer and to serve
+      - id: mozzarella
+        ingredient: mozzarella
+        quantity:
+          amount: 100
+          unit: g
+
+steps:
+  - id: brown-meat
+    title: Brown the meat
+    component: red-sauce
+    kind: cook
+    text: Fry the meat on a medium heat with salt and pepper until cooked, then set it aside in a bowl.
+    substeps:
+      - Dice {bacon} into small pieces, if using.
+      - Fry {beef-mince}, {pork-mince} and the bacon on a medium heat with {salt} and {pepper}.
+      - Break the meat into the smallest grains you can as it cooks.
+      - Tip into a bowl and leave to one side.
+    cue: No pink is left in the meat and any liquid has cooked off.
+    heat: medium
+    active_min: 10
+    tools:
+      - tool: saute-pan
+      - tool: wooden-spoon
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: soften-veg
+    title: Soften the vegetables
+    component: red-sauce
+    kind: cook
+    text: In the same pan, fry the onion, garlic and carrot on a medium heat until soft.
+    substeps:
+      - Dice {onion}, mince {garlic} and finely dice {carrot}.
+      - Fry them for 10 minutes.
+    cue: The onion is soft and translucent and the carrot has lost its rawness.
+    heat: medium
+    active_min: 12
+    tools:
+      - tool: saute-pan
+      - tool: wooden-spoon
+    after:
+      - brown-meat
+
+  - id: simmer-sauce
+    title: Simmer the red sauce
+    component: red-sauce
+    kind: cook
+    text: Heat the oven, add the stock cube, tomatoes, purée and herbs, simmer, then stir the meat back in.
+    substeps:
+      - Heat the oven to 200 °C fan.
+      - Add {stock-cube}, {tomatoes}, {puree} and whichever of {oregano} and {basil} you are using.
+      - Simmer for 10 minutes.
+      - Mix the meat back into the sauce and stir for a few minutes.
+    cue: The sauce is thick enough to hold a trail when a spoon is drawn through it, with the meat evenly distributed.
+    heat: medium-low
+    temperature:
+      celsius: 200
+      mode: fan
+    active_min: 5
+    passive_min: 10
+    tools:
+      - tool: oven
+      - tool: saute-pan
+      - tool: wooden-spoon
+    after:
+      - soften-veg
+
+  - id: layer
+    title: Layer the lasagne
+    component: layers
+    kind: cook
+    text: Build the lasagne in layers of red sauce, béchamel, parmesan and pasta sheets, and finish with mozzarella.
+    substeps:
+      - Start with a layer of red sauce in the dish.
+      - Splatter roughly a tablespoon of {bechamel} over it and grate some {parmesan} on top.
+      - Cover with a layer of {sheets}.
+      - Repeat until you run out of something.
+      - Finish the top layer with grated {mozzarella}.
+    cue: The top layer is fully covered with a sprinkling of mozzarella.
+    active_min: 15
+    tools:
+      - tool: ovenproof-dish
+      - tool: box-grater
+    after:
+      - simmer-sauce
+
+  - id: bake
+    title: Bake and grill
+    component: layers
+    kind: wait
+    text: Bake for 10 to 20 minutes, since fresh pasta cooks quickly, then grill on its highest setting for the last minute or two.
+    substeps:
+      - Bake at 200 °C fan for 10 to 20 minutes.
+      - For the final minute or two, switch the grill on at its maximum.
+    cue: The cheese is melted and bubbling, with browned patches on top.
+    temperature:
+      celsius: 200
+      mode: fan
+    active_min: 2
+    passive_min: 15
+    tools:
+      - tool: oven
+      - tool: grill
+    after:
+      - layer
+
+  - id: serve
+    title: Carve and serve
+    component: layers
+    kind: serve
+    text: Carve out a cube, sprinkle fresh parmesan on top and serve with a salad or garlic bread.
+    active_min: 3
+    tools:
+      - tool: knife
+    after:
+      - bake
+
+notes:
+  - "Substitute red sauce: a homemade tomato sauce, with many more fresh ingredients and a much longer cook, has far more flavour."
+  - "The meat can be any combination of beef mince, pork mince and diced smoked rashers."
+  - "Fresh lasagne sheets from the supermarket are best, but dried works."
+
+open_questions:
+  - Servings are assumed (4).
+  - The oven is given as 200 C with no mode. It is treated as fan here.
+  - No frying oil is listed. The rashers and mince release fat, but is oil used for the vegetables?
+  - The first step is incomplete ("make the meat grains as small,"); it is read as breaking the meat up small.

@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: sausage-sandwiches
+title: Sausage Sandwiches
+summary: Sausages cooked to the packet instructions and served inside slices of bread.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 2
+tags:
+  - sandwich
+  - lunch
+  - british
+  - quick
+
+images:
+  - file: hero.jpg
+    alt: Three grilled sausages lying on a slice of white bread on a green plate.
+
+components:
+  - id: sandwich
+    title: Sandwich
+    ingredients:
+      - id: sausages
+        ingredient: sausage
+        quantity:
+          amount: 6
+          unit: each
+        note: 3 per person
+      - id: bread
+        ingredient: bread
+        quantity:
+          amount: 4
+          unit: each
+        note: 2 slices per person
+
+steps:
+  - id: cook-sausages
+    title: Cook the sausages
+    component: sandwich
+    kind: cook
+    text: Cook {sausages} according to the cooking instructions on the packet.
+    cue: The sausages are browned all over and cooked through, with no pink in the middle.
+    active_min: 5
+    passive_min: 15
+    tools:
+      - tool: grill
+        alternatives:
+          - frying-pan
+          - griddle-pan
+    after: []
+
+  - id: serve
+    title: Fill the bread
+    component: sandwich
+    kind: serve
+    text: Serve the sausages inside {bread}.
+    active_min: 2
+    after:
+      - cook-sausages
+
+open_questions:
+  - "Servings are assumed to be 2 (3 sausages and 2 slices of bread per person)."
+  - "No method or time is given for the sausages beyond the packet; a grill and about 20 minutes are assumed."

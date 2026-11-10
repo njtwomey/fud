@@ -1,0 +1,300 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: gumbo
+title: Gumbo
+summary: Louisiana-style gumbo with chicken thighs and smoked sausage in a dark lard-and-flour roux, served over steamed rice with spring onions.
+version: 1
+date: 2026-11-10
+status: draft
+servings: 6
+tags:
+  - dinner
+  - cajun-creole
+  - stew
+  - american
+images:
+  - file: hero.webp
+    alt: A white bowl of brothy gumbo with a mound of white rice topped with sliced spring onion.
+components:
+  - id: roux
+    title: Roux
+    ingredients:
+      - id: lard
+        ingredient: lard
+        quantity:
+          amount: 100
+          unit: g
+      - id: flour
+        ingredient: plain-flour
+        quantity:
+          amount: 75
+          unit: g
+
+  - id: vegetables
+    title: Vegetables
+    ingredients:
+      - id: pepper
+        ingredient: yellow-pepper
+        quantity:
+          amount: 2
+          unit: each
+      - id: celery
+        ingredient: celery
+        quantity:
+          amount: 3
+          unit: each
+        note: sticks
+      - id: onion
+        ingredient: onion
+        quantity:
+          amount: 1
+          unit: each
+        note: white
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 6
+          unit: each
+      - id: salt
+        ingredient: salt
+        note: sea salt to taste
+      - id: black-pepper
+        ingredient: black-pepper
+
+  - id: gumbo
+    title: Gumbo
+    ingredients:
+      - id: chicken
+        ingredient: chicken-thigh
+        quantity:
+          amount: 6
+          unit: each
+        note: with the fat left on
+      - id: garlic-powder
+        ingredient: garlic-powder
+        quantity:
+          amount: 1
+          unit: tbsp
+      - id: paprika
+        ingredient: smoked-paprika
+        quantity:
+          amount: 1
+          unit: tbsp
+      - id: cayenne
+        ingredient: cayenne-pepper
+        quantity:
+          amount: 1.5
+          unit: tsp
+      - id: oregano
+        ingredient: dried-oregano
+        quantity:
+          amount: 1
+          unit: tbsp
+      - id: onion-powder
+        ingredient: onion-powder
+        quantity:
+          amount: 1
+          unit: tbsp
+      - id: bay-leaf
+        ingredient: bay-leaf
+        quantity:
+          amount: 3
+          unit: each
+        note: 2 to 3
+      - id: thyme
+        ingredient: thyme
+        quantity:
+          amount: 25
+          unit: g
+        note: 1 bunch, tied
+      - id: white-pepper
+        ingredient: white-pepper
+        quantity:
+          amount: 1.5
+          unit: tsp
+      - id: stock
+        ingredient: chicken-stock
+        quantity:
+          amount: 1.2
+          unit: l
+        note: for a thicker gumbo use 1 to 1.2 litres
+        swaps:
+          - ingredient: beef-stock
+            ratio: 1
+            quality: fine
+            note: Chicken or beef stock both work.
+      - id: sausage
+        ingredient: andouille-sausage
+        quantity:
+          amount: 300
+          unit: g
+        swaps:
+          - ingredient: chorizo
+            ratio: 1
+            quality: fine
+            note: Any smoked, spicy sausage works if you cannot find Andouille; kransky also works.
+      - id: hot-sauce
+        ingredient: hot-sauce
+        note: to taste
+
+  - id: serving
+    title: To serve
+    ingredients:
+      - id: rice
+        ingredient: basmati-rice
+        quantity:
+          amount: 450
+          unit: g
+        note: steamed
+      - id: spring-onion
+        ingredient: spring-onion
+        quantity:
+          amount: 30
+          unit: g
+        note: 2 spring onions (green and white parts)
+steps:
+  - id: prepare
+    title: Prepare the vegetables, chicken and sausage
+    component: vegetables
+    kind: prep
+    text: Chop everything before you start the roux, because the roux needs constant stirring.
+    substeps:
+      - Dice {pepper}, {celery} and {onion}.
+      - Mince {garlic}.
+      - Slice {chicken} and the sausage, leaving the fat on the chicken.
+      - Tie {thyme} into a bundle (a spare sprig of thyme works as string).
+    active_min: 25
+    make_ahead: true
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: make-roux
+    title: Cook the roux
+    component: roux
+    kind: cook
+    text: Melt the lard in a large heavy-based pot over a medium-high heat, whisk in the flour and cook, stirring constantly, to a deep mahogany colour.
+    substeps:
+      - Melt {lard} in the pot over a medium-high heat.
+      - Whisk in {flour} and cook for 15 to 20 minutes, stirring constantly. Be careful, as the mixture is extremely hot.
+    cue: The roux is a deep mahogany, much darker than a French-style roux, and smells nutty rather than burnt.
+    heat: high
+    active_min: 20
+    tools:
+      - tool: large-pot
+        alternatives:
+          - casserole-dish
+      - tool: whisk
+    after:
+      - prepare
+
+  - id: soften-vegetables
+    title: Soften the vegetables and garlic
+    component: vegetables
+    kind: cook
+    text: Add the peppers, celery and onion to the roux with a little seasoning, then the garlic.
+    substeps:
+      - Add the diced pepper, celery and onion and season lightly with {salt} and {black-pepper}.
+      - Sauté for 4 to 5 minutes until beginning to soften.
+      - Add the garlic and cook for a further 2 minutes, stirring frequently so it does not burn.
+    cue: The vegetables are starting to soften and the garlic smells fragrant without catching.
+    heat: medium
+    active_min: 7
+    tools:
+      - tool: large-pot
+      - tool: wooden-spoon
+    after:
+      - make-roux
+
+  - id: add-chicken-spices
+    title: Coat the chicken in the spices
+    component: gumbo
+    kind: cook
+    text: Stir in the chicken, the spices and herbs, mixing until the chicken is coated in the spices and roux.
+    substeps:
+      - Stir in the sliced chicken thighs.
+      - Add {garlic-powder}, {paprika}, {cayenne}, {oregano}, {onion-powder}, {bay-leaf}, {thyme} and {white-pepper}.
+      - Mix thoroughly.
+    cue: The chicken is evenly coated, with no dry patches of spice.
+    active_min: 3
+    tools:
+      - tool: large-pot
+      - tool: wooden-spoon
+    after:
+      - soften-vegetables
+
+  - id: add-stock
+    title: Pour in the stock
+    component: gumbo
+    kind: cook
+    text: Pour in the stock while stirring so it stays smooth, and bring the gumbo to a simmer.
+    substeps:
+      - Pour in {stock} gradually, stirring to avoid lumps.
+      - Bring to a simmer.
+    cue: A smooth, lump-free liquid at a gentle simmer.
+    active_min: 4
+    tools:
+      - tool: large-pot
+      - tool: wooden-spoon
+    after:
+      - add-chicken-spices
+
+  - id: simmer
+    title: Simmer with the sausage
+    component: gumbo
+    kind: cook
+    text: Add the sausage and simmer uncovered until the gumbo has reduced and thickened slightly.
+    substeps:
+      - Stir in {sausage}.
+      - Simmer uncovered for 35 to 40 minutes.
+    cue: The gumbo has reduced and thickened slightly, and the chicken is tender.
+    heat: low
+    active_min: 5
+    passive_min: 35
+    tools:
+      - tool: large-pot
+    after:
+      - add-stock
+
+  - id: cook-rice
+    title: Cook the rice
+    component: serving
+    kind: cook
+    text: Steam the rice while the gumbo simmers.
+    substeps:
+      - Cook {rice} according to the packet instructions.
+    cue: The grains are tender and separate.
+    active_min: 2
+    passive_min: 12
+    tools:
+      - tool: saucepan
+        alternatives:
+          - rice-cooker
+    after:
+      - add-stock
+
+  - id: serve
+    title: Season and serve
+    component: serving
+    kind: serve
+    text: Taste and adjust the seasoning, then serve in bowls over rice, piled high with spring onions.
+    substeps:
+      - Slice {spring-onion}, using both the green and the white parts.
+      - Taste and adjust with more {salt} and {hot-sauce}.
+      - Serve in bowls over the rice and top generously with the spring onions.
+    active_min: 5
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after:
+      - simmer
+      - cook-rice
+notes:
+  - "Roux: gumbo roux is cooked until very dark, almost mahogany. It is extremely hot and can burn skin, so keep whisking."
+  - "Thickening: the gumbo may not thicken as much as you expect, but it is still rich. For a thicker gumbo, use 1 to 1.2 litres of stock, a little more flour (90 to 100 g in all) and simmer uncovered. Optionally add okra, or a small cornflour slurry near the end."
+  - "Flavour: the natural sweetness of the onions and peppers balances the spices."
+  - "Time-saving idea: slice the chicken and sausage while the roux cooks. The roux needs constant stirring, so the prep is listed first here."
+open_questions:
+  - It serves 4 to 6; 6 is entered, which fits the 6 thighs and 1.2 litres of stock.
+  - The rice is not quantified; 450 g (75 g per person) is assumed.
+  - The pepper is entered as black pepper for the seasoning step, since it just says "salt and pepper".

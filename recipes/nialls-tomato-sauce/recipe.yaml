@@ -1,0 +1,222 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: nialls-tomato-sauce
+title: Niall's Tomato Sauce
+summary: Fresh tomatoes, red onions, a whole bulb of garlic and carrots slow-roasted for hours with bay and oregano, then blitzed smooth with a little pasta water.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - dinner
+  - italian
+  - sauce
+  - pasta
+  - roasting
+  - vegetarian
+  - make-ahead
+
+images:
+  - file: hero.jpg
+    alt: A large orange bowl of rigatoni coated in tomato sauce and topped with grated parmesan.
+
+components:
+  - id: veg
+    title: Vegetables
+    ingredients:
+      - id: onions
+        ingredient: red-onion
+        quantity:
+          amount: 3
+          unit: each
+      - id: tomatoes
+        ingredient: tomato
+        quantity:
+          amount: 15
+          unit: each
+        note: 12 to 18, of varied forms
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 10
+          unit: each
+        note: 1 full bulb
+      - id: carrots
+        ingredient: carrot
+        quantity:
+          amount: 1.5
+          unit: each
+        note: 1 to 2 medium; other vegetables such as courgette also work
+
+  - id: roasting
+    title: Roasting flavours
+    ingredients:
+      - id: bay
+        ingredient: bay-leaf
+        quantity:
+          amount: 3
+          unit: each
+        note: ideally fresh, not dried
+      - id: oregano
+        ingredient: oregano
+        quantity:
+          amount: 1
+          unit: tbsp
+      - id: oil
+        ingredient: olive-oil
+        quantity:
+          amount: 30
+          unit: ml
+        note: 2 tbsp
+      - id: salt
+        ingredient: salt
+      - id: pepper
+        ingredient: black-pepper
+      - id: paprika
+        ingredient: smoked-paprika
+        quantity:
+          amount: 1
+          unit: tsp
+        optional: true
+      - id: tapenade
+        ingredient: olive-tapenade
+        quantity:
+          amount: 15
+          unit: g
+        optional: true
+        note: 1 tbsp
+      - id: stock
+        ingredient: vegetable-stock-cube
+        quantity:
+          amount: 1
+          unit: each
+        optional: true
+        note: or a squeeze of stock gel
+
+  - id: serve
+    title: To serve
+    ingredients:
+      - id: pasta
+        ingredient: pasta
+        note: enough for the sauce
+      - id: parmesan
+        ingredient: parmesan
+        optional: true
+        note: grated
+      - id: basil
+        ingredient: basil
+        optional: true
+
+steps:
+  - id: chop-veg
+    title: Chop the vegetables
+    component: veg
+    kind: prep
+    text: Heat the oven, roughly chop all the vegetables and put them in a deep roasting dish with the oil, herbs and seasoning.
+    substeps:
+      - Heat the oven to 180 °C fan.
+      - Roughly chop {onions}, {tomatoes}, {garlic} and {carrots}.
+      - Put them in a deep roasting dish with {oil}, {oregano}, {bay}, {salt} and {pepper}.
+      - Add {paprika}, {tapenade} and {stock} now if using them.
+    cue: Everything is in one layer or a shallow heap, evenly coated in oil and herbs.
+    temperature:
+      celsius: 180
+      mode: fan
+    active_min: 15
+    photos:
+      - file: raw-veg.jpg
+        alt: Chopped tomatoes, red onions and carrots in a large stainless steel roasting dish, before roasting.
+    tools:
+      - tool: oven
+      - tool: roasting-tin
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: roast
+    title: Roast until reduced
+    component: roasting
+    kind: wait
+    text: Roast for 2 to 3 hours, stirring now and then, until the liquid has reduced a lot and everything is soft.
+    substeps:
+      - Roast at 180 °C fan for about 2 to 3 hours.
+      - Stir occasionally.
+    cue: The liquid has significantly reduced and the vegetables are very soft and collapsing.
+    temperature:
+      celsius: 180
+      mode: fan
+    active_min: 15
+    passive_min: 150
+    photos:
+      - file: roasted.jpg
+        alt: The same roasting dish after roasting, with the vegetables reduced to a thick, dark red mass.
+    tools:
+      - tool: oven
+      - tool: roasting-tin
+      - tool: wooden-spoon
+    after:
+      - chop-veg
+
+  - id: cook-pasta
+    title: Cook the pasta
+    component: serve
+    kind: cook
+    text: Put the pasta on towards the end of roasting, so it is nearly done when the sauce comes out of the oven.
+    substeps:
+      - Boil {pasta} in salted water following the packet instructions.
+      - Keep some of the cooking water for the sauce.
+    cue: The pasta is tender with a little bite.
+    active_min: 3
+    passive_min: 10
+    tools:
+      - tool: large-pot
+      - tool: colander
+    after:
+      - roast
+
+  - id: blitz
+    title: Blitz the sauce
+    component: roasting
+    kind: cook
+    text: Move the roasted sauce to a bowl, add a few tablespoons of pasta water and blitz until smooth.
+    substeps:
+      - Take out the roasting dish and remove the bay leaves.
+      - Transfer the sauce to another bowl and add a few tablespoons of the pasta water.
+      - Blitz until you get a smooth consistency.
+    cue: A completely smooth sauce with no visible pieces of skin or seeds.
+    photos:
+      - file: blended.jpg
+        alt: A steel pot of smooth orange-red tomato sauce with a ladle in it.
+    active_min: 5
+    tools:
+      - tool: stick-blender
+        alternatives:
+          - blender
+          - food-processor
+      - tool: mixing-bowl
+    after:
+      - cook-pasta
+
+  - id: serve
+    title: Serve with pasta
+    component: serve
+    kind: serve
+    text: Toss the sauce through the pasta and serve with grated cheese and basil.
+    substeps:
+      - Combine the drained pasta with the sauce.
+      - Serve with {parmesan} and {basil}.
+    active_min: 3
+    tools:
+      - tool: box-grater
+    after:
+      - blitz
+
+notes:
+  - "This works as the red sauce for a lasagne, and in place of the sauce in meatballs."
+  - "Optional extras are smoked paprika, olive tapenade and a vegetable stock cube or gel, any of which can go in before roasting."
+  - "Make-ahead: the blitzed sauce keeps well and freezes."
+
+open_questions:
+  - Servings and the quantity of pasta are assumed (4).
+  - The tomatoes (12 to 18) and carrots (1 to 2) are ranges; 15 and 1.5 are used.
+  - A full bulb of garlic is taken as about 10 cloves.
+  - Storage time and freezing are assumed, not stated.

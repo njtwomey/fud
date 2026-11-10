@@ -1,0 +1,281 @@
+# yaml-language-server: $schema=../schemas/tags.schema.json
+# Tags by domain. Add here before using one in a recipe.
+
+domains:
+  - id: course
+    label: Course
+
+  - id: dish
+    label: Dish
+
+  - id: cuisine
+    label: Cuisine
+
+  - id: diet
+    label: Diet
+
+  - id: technique
+    label: Technique
+
+  - id: effort
+    label: Effort
+tags:
+  - id: breakfast
+    label: Breakfast
+    domain: course
+
+  - id: lunch
+    label: Lunch
+    domain: course
+
+  - id: dinner
+    label: Dinner
+    domain: course
+
+  - id: starter
+    label: Starter
+    domain: course
+
+  - id: side
+    label: Side
+    domain: course
+
+  - id: snack
+    label: Snack
+    domain: course
+
+  - id: dessert
+    label: Dessert
+    domain: course
+
+  - id: soup
+    label: Soup
+    domain: dish
+
+  - id: curry
+    label: Curry
+    domain: dish
+
+  - id: pasta
+    label: Pasta
+    domain: dish
+
+  - id: salad
+    label: Salad
+    domain: dish
+
+  - id: sandwich
+    label: Sandwich
+    domain: dish
+
+  - id: sauce
+    label: Sauce
+    domain: dish
+
+  - id: dip
+    label: Dip
+    domain: dish
+
+  - id: bread
+    label: Bread
+    domain: dish
+
+  - id: pizza
+    label: Pizza
+    domain: dish
+
+  - id: burger
+    label: Burger
+    domain: dish
+
+  - id: stew
+    label: Stew
+    domain: dish
+
+  - id: pie
+    label: Pie
+    domain: dish
+
+  - id: rice-dish
+    label: Rice dish
+    domain: dish
+
+  - id: noodles
+    label: Noodles
+    domain: dish
+
+  - id: stir-fry
+    label: Stir fry
+    domain: dish
+
+  - id: roast
+    label: Roast
+    domain: dish
+
+  - id: egg-dish
+    label: Egg dish
+    domain: dish
+
+  - id: wrap-flatbread
+    label: Wrap or flatbread
+    domain: dish
+
+  - id: cake-biscuit
+    label: Cake or biscuit
+    domain: dish
+
+  - id: pastry
+    label: Pastry
+    domain: dish
+
+  - id: basic
+    label: Basic or staple
+    domain: dish
+
+  - id: british
+    label: British
+    domain: cuisine
+
+  - id: irish
+    label: Irish
+    domain: cuisine
+
+  - id: italian
+    label: Italian
+    domain: cuisine
+
+  - id: indian
+    label: Indian
+    domain: cuisine
+
+  - id: chinese
+    label: Chinese
+    domain: cuisine
+
+  - id: japanese
+    label: Japanese
+    domain: cuisine
+
+  - id: asian-inspired
+    label: Asian inspired
+    domain: cuisine
+
+  - id: mexican
+    label: Mexican
+    domain: cuisine
+
+  - id: middle-eastern
+    label: Middle Eastern
+    domain: cuisine
+
+  - id: french
+    label: French
+    domain: cuisine
+
+  - id: american
+    label: American
+    domain: cuisine
+
+  - id: cajun-creole
+    label: Cajun and Creole
+    domain: cuisine
+
+  - id: spanish
+    label: Spanish
+    domain: cuisine
+
+  - id: greek
+    label: Greek
+    domain: cuisine
+
+  - id: thai
+    label: Thai
+    domain: cuisine
+
+  - id: vegetarian
+    label: Vegetarian
+    domain: diet
+
+  - id: vegan
+    label: Vegan
+    domain: diet
+
+  - id: dairy-free
+    label: Dairy free
+    domain: diet
+
+  - id: gluten-free
+    label: Gluten free
+    domain: diet
+
+  - id: high-protein
+    label: High protein
+    domain: diet
+
+  - id: baking
+    label: Baking
+    domain: technique
+
+  - id: roasting
+    label: Roasting
+    domain: technique
+
+  - id: frying
+    label: Frying
+    domain: technique
+
+  - id: deep-frying
+    label: Deep frying
+    domain: technique
+
+  - id: grilling
+    label: Grilling
+    domain: technique
+
+  - id: bbq
+    label: Barbecue
+    domain: technique
+
+  - id: one-pot
+    label: One pot
+    domain: technique
+
+  - id: slow-cooker
+    label: Slow cooker
+    domain: technique
+
+  - id: air-fryer
+    label: Air fryer
+    domain: technique
+
+  - id: no-cook
+    label: No cook
+    domain: technique
+
+  - id: simmering
+    label: Simmering
+    domain: technique
+
+  - id: quick
+    label: Quick (about 30 min)
+    domain: effort
+
+  - id: weeknight
+    label: Weeknight
+    domain: effort
+
+  - id: weekend
+    label: Weekend
+    domain: effort
+
+  - id: project
+    label: Project
+    domain: effort
+
+  - id: make-ahead
+    label: Make ahead
+    domain: effort
+
+  - id: batch-cook
+    label: Batch cook
+    domain: effort

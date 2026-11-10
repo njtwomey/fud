@@ -1,0 +1,298 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: tiktok-chicken
+title: TikTok Chicken
+summary: Thinly sliced, bicarb-tenderised chicken seared with honey and sesame, on rice with a pile of quick oyster-sauce vegetables.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - dinner
+  - chinese
+  - stir-fry
+  - rice-dish
+  - weeknight
+
+images:
+  - file: hero.jpg
+    alt: A yellow plate of rice topped with browned chicken pieces and sliced spring onion, held up in a kitchen.
+
+components:
+  - id: chicken
+    title: Chicken
+    ingredients:
+      - id: chicken-breast
+        ingredient: chicken-breast
+        quantity:
+          amount: 2
+          unit: each
+        note: medium
+      - id: salt
+        ingredient: salt
+      - id: bicarb
+        ingredient: bicarbonate-of-soda
+        quantity:
+          amount: 5
+          unit: g
+        note: about 1 tsp
+      - id: cornflour
+        ingredient: cornflour
+        quantity:
+          amount: 8
+          unit: g
+        note: about 1 tbsp
+      - id: curry-powder
+        ingredient: medium-curry-powder
+        quantity:
+          amount: 1
+          unit: tsp
+        note: or any other spices you like
+      - id: soy-chicken
+        ingredient: soy-sauce
+        quantity:
+          amount: 15
+          unit: ml
+        note: about 1 tbsp
+      - id: oil-chicken
+        ingredient: vegetable-oil
+        quantity:
+          amount: 15
+          unit: ml
+        note: about 1 tbsp
+      - id: honey
+        ingredient: honey
+        quantity:
+          amount: 5
+          unit: ml
+        note: about 1 tsp, but who can measure honey
+      - id: sesame-oil
+        ingredient: sesame-oil
+        quantity:
+          amount: 5
+          unit: ml
+        note: about 1 tsp
+      - id: sesame-seeds
+        ingredient: sesame-seeds
+        quantity:
+          amount: 3
+          unit: g
+        note: about 1 tsp, some for the top
+
+  - id: vegetables
+    title: Vegetables
+    ingredients:
+      - id: oil-veg
+        ingredient: vegetable-oil
+        quantity:
+          amount: 15
+          unit: ml
+        note: about 1 tbsp
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 4
+          unit: each
+      - id: red-onion
+        ingredient: red-onion
+        quantity:
+          amount: 1
+          unit: each
+        note: medium
+      - id: carrot
+        ingredient: carrot
+        quantity:
+          amount: 1
+          unit: each
+        note: medium
+      - id: red-pepper
+        ingredient: red-pepper
+        quantity:
+          amount: 1
+          unit: each
+        note: medium
+      - id: yellow-pepper
+        ingredient: yellow-pepper
+        quantity:
+          amount: 1
+          unit: each
+        note: medium
+      - id: green-pepper
+        ingredient: green-pepper
+        quantity:
+          amount: 1
+          unit: each
+        note: medium
+      - id: broccoli
+        ingredient: tenderstem-broccoli
+        quantity:
+          amount: 4
+          unit: each
+        note: 3 to 4 medium stems
+      - id: courgette
+        ingredient: courgette
+        quantity:
+          amount: 1
+          unit: each
+        note: medium
+      - id: soy-veg
+        ingredient: soy-sauce
+        quantity:
+          amount: 45
+          unit: ml
+        note: about 3 tbsp
+      - id: oyster-sauce
+        ingredient: oyster-sauce
+        quantity:
+          amount: 45
+          unit: ml
+        note: about 3 tbsp
+        swaps:
+          - ingredient: hoisin-sauce
+            ratio: 1
+            quality: fine
+            note: Hoisin sauce in the same amount works, sweeter and less salty.
+      - id: stock-cube
+        ingredient: vegetable-stock-cube
+        optional: true
+        note: optional extra
+      - id: spring-onion
+        ingredient: spring-onion
+        quantity:
+          amount: 60
+          unit: g
+        note: 4 spring onions
+
+  - id: rice
+    title: Rice
+    ingredients:
+      - id: rice
+        ingredient: basmati-rice
+        quantity:
+          amount: 450
+          unit: g
+
+steps:
+  - id: marinate-chicken
+    title: Slice and coat the chicken
+    component: chicken
+    kind: prep
+    text: Slice the chicken into thin slivers, coat it in the bicarb mix and leave it to sit while you prepare everything else.
+    substeps:
+      - Slice {chicken-breast} finely into thin slivers and put it in a bowl.
+      - Season with {salt}, {bicarb}, {cornflour} and {curry-powder}, and mix until evenly coated.
+      - Add {soy-chicken} and mix again.
+      - Leave to sit for about 10 minutes.
+    cue: Every sliver is evenly coated, with no dry patches of cornflour left in the bowl.
+    active_min: 8
+    passive_min: 10
+    tools:
+      - tool: knife
+      - tool: chopping-board
+      - tool: mixing-bowl
+    after: []
+
+  - id: prep-veg
+    title: Slice the vegetables
+    component: vegetables
+    kind: prep
+    text: Cut everything before the pan goes on, because the vegetables go in one after another with little time between.
+    substeps:
+      - Thickly slice {garlic}.
+      - Slice {red-onion}.
+      - Julienne {carrot}.
+      - Slice {red-pepper}, {yellow-pepper} and {green-pepper}.
+      - Slice {broccoli}.
+      - Roughly julienne {courgette}.
+      - Finely slice {spring-onion}.
+    active_min: 15
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: cook-rice
+    title: Cook the rice
+    component: rice
+    kind: cook
+    text: Cook {rice} by the usual basmati method while the vegetables cook, and leave it covered until everything else is ready.
+    cue: The grains are tender and separate and all the water has gone.
+    active_min: 3
+    passive_min: 12
+    tools:
+      - tool: saucepan
+        alternatives:
+          - rice-cooker
+    after:
+      - prep-veg
+
+  - id: stir-fry-veg
+    title: Stir fry the vegetables
+    component: vegetables
+    kind: cook
+    text: Add the vegetables to a hot pan of oil in order of how long they take, stirring all the time, then coat them in soy and oyster sauce.
+    substeps:
+      - Heat {oil-veg} in a large pan or deep dish until hot.
+      - Add the {garlic:name} and {red-onion:name} and stir for 3 minutes.
+      - Add the {carrot:name} and stir for 2 minutes.
+      - Add the {red-pepper:name}, {yellow-pepper:name} and {green-pepper:name} and stir for 2 minutes.
+      - Add the {broccoli:name} and stir for 2 minutes.
+      - Add the {courgette:name} and stir for 2 minutes.
+      - Add {soy-veg} and {oyster-sauce} and stir until everything is coated. If using {stock-cube}, crumble it in just before the sauces.
+      - Add about three quarters of the {spring-onion:name} and mix until coated.
+      - Turn off the heat, cover the pan and set aside.
+    cue: The vegetables are shiny and coated in sauce, hot through but still with some crunch, and the garlic and onion have softened without browning.
+    heat: high
+    active_min: 13
+    tools:
+      - tool: wok
+        alternatives:
+          - frying-pan
+          - large-pot
+      - tool: wooden-spoon
+    after:
+      - prep-veg
+
+  - id: cook-chicken
+    title: Cook the chicken
+    component: chicken
+    kind: cook
+    text: Cook the coated chicken in a second hot pan, spread out so that every sliver browns, then toss it with honey, sesame oil and sesame seeds off the heat.
+    substeps:
+      - Heat {oil-chicken} in a second pan until hot.
+      - Add the chicken and cook for about 5 minutes. It tends to stick together, so spread it over the whole pan so that it cooks evenly.
+      - Take off the heat and add {honey}, {sesame-oil} and the {sesame-seeds}, keeping a few seeds back for the top.
+      - Toss in the residual heat until shiny and coated.
+    cue: The slivers are cooked through, golden and caramelised where the cornflour has browned, and glossy after the honey.
+    heat: high
+    active_min: 7
+    tools:
+      - tool: frying-pan
+      - tool: wooden-spoon
+    after:
+      - marinate-chicken
+      - stir-fry-veg
+
+  - id: serve
+    title: Assemble the bowls
+    component: rice
+    kind: serve
+    text: Build each bowl in layers, rice first, then vegetables, then chicken, finished with sesame seeds and spring onions.
+    substeps:
+      - Spoon a bed of rice into each bowl.
+      - Top with the vegetables, then the chicken.
+      - Finish with the reserved {sesame-seeds:name} and the remaining {spring-onion:name}.
+    active_min: 3
+    after:
+      - cook-chicken
+      - cook-rice
+
+notes:
+  - "Why bicarb: it apparently stops the muscle fibres tensing as the chicken cooks, which makes it very smooth."
+  - "Alternative version: garlic fried first until golden and the onion softened with a pinch of salt, all vegetables put in together over a high heat, a stock cube thrown in once the pan is steaming, hoisin sauce in place of oyster sauce, and the remaining tablespoon of soy tossed through the chicken with the honey and sesame oil. It used 3 chicken breasts, 2 tbsp cornflour, 3 tsp sesame seeds and 6 cloves of garlic."
+  - "The vegetables can be added one by one, as here, or all at once; it probably makes little difference."
+  - "Serve as your mood suggests, potentially with the spring onions."
+
+open_questions:
+  - Servings are not given. 4 is assumed from 450 g of rice and two chicken breasts.
+  - Rice water and timings are not given; the usual basmati method is assumed.
+  - All the remaining soy can go onto the vegetables, or one tablespoon can be kept for the chicken. Which is better?

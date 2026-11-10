@@ -1,0 +1,147 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: shakshuka
+title: Shakshuka
+summary: Eggs baked in a thick tomato, onion and chilli sauce in a frying pan, finished with coriander and served with crusty bread.
+version: 1
+date: 2026-11-10
+status: draft
+source:
+  kind: web
+  url: https://www.bbcgoodfood.com/recipes/shakshuka
+servings: 2
+tags:
+  - breakfast
+  - lunch
+  - middle-eastern
+  - egg-dish
+  - vegetarian
+  - quick
+images:
+  - file: hero.webp
+    alt: A steel pan of tomato sauce with four eggs baked in it, scattered with coriander leaves, beside crusty bread.
+components:
+  - id: sauce
+    title: Tomato sauce
+    ingredients:
+      - id: oil
+        ingredient: olive-oil
+        quantity:
+          amount: 15
+          unit: ml
+        note: 1 tbsp
+      - id: onion
+        ingredient: red-onion
+        quantity:
+          amount: 2
+          unit: each
+      - id: chilli
+        ingredient: red-chilli
+        quantity:
+          amount: 1
+          unit: each
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 1
+          unit: each
+      - id: coriander
+        ingredient: fresh-coriander
+        quantity:
+          amount: 1
+          unit: each
+        note: small bunch
+      - id: tomatoes
+        ingredient: tinned-cherry-tomatoes
+        quantity:
+          amount: 800
+          unit: g
+        note: 2 cans
+      - id: sugar
+        ingredient: sugar
+        quantity:
+          amount: 4
+          unit: g
+        note: caster sugar (about 1 tsp)
+
+  - id: eggs
+    title: Eggs and bread
+    ingredients:
+      - id: eggs
+        ingredient: egg
+        quantity:
+          amount: 4
+          unit: each
+      - id: bread
+        ingredient: crusty-bread
+steps:
+  - id: soften
+    title: Soften the onions and aromatics
+    component: sauce
+    kind: cook
+    text: Soften the onions, chilli, garlic and coriander stalks in the oil in a frying pan with a lid.
+    substeps:
+      - Chop {onion}, deseed and finely chop {chilli}, and slice {garlic}.
+      - Chop the stalks and the leaves of {coriander} separately.
+      - Heat {oil} in a frying pan that has a lid and cook the onions, chilli, garlic and coriander stalks for 5 minutes.
+    cue: The onions are soft and translucent.
+    heat: medium
+    active_min: 10
+    tools:
+      - tool: frying-pan
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: reduce-sauce
+    title: Bubble down the tomatoes
+    component: sauce
+    kind: cook
+    text: Stir in the tomatoes and sugar and bubble for 8 to 10 minutes until thick.
+    substeps:
+      - Stir in {tomatoes} and {sugar}.
+      - Bubble for 8 to 10 minutes.
+    cue: The sauce is thick enough that a spoon leaves a trail.
+    heat: medium
+    active_min: 3
+    passive_min: 8
+    make_ahead: true
+    tools:
+      - tool: frying-pan
+    after:
+      - soften
+
+  - id: poach-eggs
+    title: Cook the eggs in the sauce
+    component: eggs
+    kind: cook
+    text: Make four dips in the sauce, crack an egg into each, cover and cook over a low heat until the eggs are done how you like them.
+    substeps:
+      - Make 4 dips in the sauce with the back of a large spoon.
+      - Crack {eggs} into the dips, one in each.
+      - Put the lid on the pan and cook over a low heat for 6 to 8 minutes.
+    cue: The whites are set and the yolks are as runny or firm as you like.
+    heat: low
+    active_min: 2
+    passive_min: 7
+    tools:
+      - tool: frying-pan
+    after:
+      - reduce-sauce
+
+  - id: serve
+    title: Scatter with coriander and serve
+    component: eggs
+    kind: serve
+    text: Scatter the coriander leaves over the pan and serve with crusty bread.
+    substeps:
+      - Scatter over the coriander leaves.
+      - Serve with {bread}.
+    active_min: 2
+    after:
+      - poach-eggs
+notes:
+  - "Freezing: the tomato sauce (before the eggs) can be frozen for 1 month."
+  - "Variations: flavour the simple tomato sauce with whatever you have to hand, such as curry powder, pesto or fresh herbs."
+open_questions:
+  - 'Cherry tomatoes: "2 cans" are listed; each can is assumed to be 400 g.'
+  - Servings are 2, at 2 eggs each.

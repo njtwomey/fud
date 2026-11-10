@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../schemas/recipe-options.schema.json
+# Recipe statuses and the places recipes come from.
+
+statuses:
+  - id: draft
+    label: Draft
+    description: Written down but not yet settled.
+
+  - id: tested
+    label: Tested
+    description: Cooked at least once and adjusted.
+
+  - id: canonical
+    label: Canonical
+    description: Settled version. Leave unaltered; experiments branch from it.
+source_kinds:
+  - id: original
+    label: Original
+
+  - id: family
+    label: Family
+
+  - id: book
+    label: Book
+
+  - id: web
+    label: Website
+
+  - id: other
+    label: Other

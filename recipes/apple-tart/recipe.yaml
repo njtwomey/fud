@@ -1,0 +1,211 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: apple-tart
+title: Apple Tart
+summary: Little double-crust tarts of the shortbread pastry filled with apple softened with cinnamon and cloves, egg washed and baked until golden.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 6
+tags:
+  - dessert
+  - pie
+  - pastry
+  - baking
+
+images:
+  - file: hero.jpg
+    alt: A small round pastry tart with a crimped edge and a pastry face on top, beside a meringue topped with cream and grated chocolate.
+    caption: The tart is on the left. The meringue on the right is the pavlova.
+
+components:
+  - id: pastry
+    title: Pastry
+    ingredients:
+      - id: butter
+        ingredient: butter
+        quantity:
+          amount: 225
+          unit: g
+        note: salted
+      - id: sugar
+        ingredient: caster-sugar
+        quantity:
+          amount: 110
+          unit: g
+      - id: egg
+        ingredient: egg
+        quantity:
+          amount: 1
+          unit: each
+        note: medium
+      - id: flour
+        ingredient: plain-flour
+        quantity:
+          amount: 450
+          unit: g
+      - id: flour-dust
+        ingredient: plain-flour
+        note: for the work surface
+
+  - id: filling
+    title: Apple filling
+    ingredients:
+      - id: apples
+        ingredient: apple
+        quantity:
+          amount: 6
+          unit: each
+        note: Pink Lady, one per mini tart
+      - id: cinnamon
+        ingredient: ground-cinnamon
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: cloves
+        ingredient: cloves
+        quantity:
+          amount: 4
+          unit: each
+      - id: water
+        ingredient: water
+        optional: true
+        note: a little, only if the apples look dry
+      - id: extra-sugar
+        ingredient: caster-sugar
+        optional: true
+        note: extra, for a more syrupy filling
+
+  - id: finish
+    title: Egg wash
+    ingredients:
+      - id: egg-wash
+        ingredient: egg
+        quantity:
+          amount: 1
+          unit: each
+        note: medium
+
+steps:
+  - id: heat-oven
+    title: Heat the oven
+    component: pastry
+    kind: prep
+    text: Heat the oven so it is ready when the tarts are filled.
+    substeps:
+      - Heat the oven to 200 °C fan (220 °C conventional).
+    temperature:
+      celsius: 200
+      mode: fan
+    cue: The oven has reached 200 °C.
+    active_min: 1
+    passive_min: 10
+    tools:
+      - tool: oven
+    after:
+      - make-pastry
+
+  - id: make-pastry
+    title: Make the pastry
+    component: pastry
+    kind: cook
+    text: Make the shortbread dough by creaming the butter and sugar, mixing in the egg, then adding the flour gradually until it forms a dough.
+    substeps:
+      - Cream {butter} and {sugar} together until light and fluffy.
+      - Mix in {egg}.
+      - Add {flour} gradually until it forms a dough, which will be relatively dry.
+    cue: A relatively dry dough that holds together without much kneading.
+    active_min: 12
+    tools:
+      - tool: mixing-bowl
+      - tool: wooden-spoon
+    after: []
+
+  - id: prep-apples
+    title: Peel and chop the apples
+    component: filling
+    kind: prep
+    text: Peel the apples, chop them into wedges and quarter the wedges.
+    substeps:
+      - Peel {apples}.
+      - Chop into wedges, then quarter these.
+      - Chop {cloves} finely.
+    active_min: 10
+    tools:
+      - tool: knife
+      - tool: chopping-board
+      - tool: peeler
+    after: []
+
+  - id: cook-apples
+    title: Soften the apples
+    component: filling
+    kind: cook
+    text: Cook the apples with the cinnamon and cloves for 5 to 10 minutes until softened, adding a little water if the mixture looks dry. Set aside.
+    substeps:
+      - Heat a pot on a medium heat.
+      - Add the apples, {cinnamon} and {cloves}.
+      - Cook for 5 to 10 minutes, stirring occasionally. Add a little {water} if the mixture looks dry.
+      - Set aside. You can stir in {extra-sugar} to make it more syrupy.
+    heat: medium
+    cue: The apple pieces are soft and holding their shape, with no raw crunch.
+    active_min: 5
+    passive_min: 5
+    tools:
+      - tool: saucepan
+      - tool: wooden-spoon
+
+  - id: fill-tarts
+    title: Roll, fill and seal the tarts
+    component: pastry
+    kind: cook
+    text: Roll the pastry quite thin, line mini tins with it, fill with the apple and cover with a second layer, crimping the edges to seal.
+    substeps:
+      - Roll the pastry out quite thin, about half a centimetre, on a floured surface with {flour-dust}.
+      - Line the mini tins with it.
+      - Spoon the apple mixture in to fill each cavity.
+      - Put another layer of rolled pastry on top.
+      - Crimp the edge of each tart with a fork to bond the two layers, and trim the outside.
+    cue: Each tart is sealed and crimped all the way round, with the trimmed edge neat.
+    active_min: 25
+    tools:
+      - tool: rolling-pin
+      - tool: muffin-tin
+        note: mini tins
+      - tool: pastry-cutter
+    after:
+      - make-pastry
+      - cook-apples
+
+  - id: wash-bake
+    title: Egg wash and bake
+    component: finish
+    kind: cook
+    text: Beat the egg, brush it over the uncooked tarts and bake for 15 to 20 minutes until a nice colour forms.
+    substeps:
+      - Beat {egg-wash} in a bowl.
+      - Brush over the top of each uncooked tart.
+      - Bake for 15 to 20 minutes.
+    temperature:
+      celsius: 200
+      mode: fan
+    cue: The tarts are a nice golden colour on top.
+    active_min: 3
+    passive_min: 17
+    tools:
+      - tool: oven
+      - tool: pastry-brush
+      - tool: baking-tray
+    after:
+      - fill-tarts
+      - heat-oven
+
+notes:
+  - "Fun idea: cut a little Lego-head shaped piece of pastry and put it on top of each tart, as in the photo."
+  - "The pastry is the shortbread dough. The ratio of flour to butter to sugar is 4:2:1."
+
+open_questions:
+  - The oven mode is not stated for 200 °C. Treated as fan (220 °C conventional). Is that right?
+  - The yield is not given, so servings (6 mini tarts, and 6 apples) are assumed from the one apple per mini tart.
+  - The egg is listed as "2 medium, 1 for an egg wash", so one egg goes into the pastry and one into the wash.
+  - The pastry rolled "about half a centimetre" is the cook's own guess ("I dunno").
+  - The bake is 15 to 20 minutes by colour, so the rest of the timings are assumed.

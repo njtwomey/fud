@@ -1,0 +1,125 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: beetroot-salad
+title: Beetroot Salad
+summary: Raw beetroot and apple grated with pumpkin and sesame seeds and baby spinach, dressed with olive oil and balsamic.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 6
+tags:
+  - salad
+  - side
+  - no-cook
+  - vegan
+  - make-ahead
+
+images:
+  - file: hero.jpg
+    alt: A blue-rimmed bowl of grated magenta beetroot salad with spinach leaves and seeds.
+
+components:
+  - id: salad
+    title: Salad
+    ingredients:
+      - id: beetroot
+        ingredient: beetroot
+        quantity:
+          amount: 750
+          unit: g
+        note: raw
+      - id: apple
+        ingredient: apple
+        quantity:
+          amount: 1
+          unit: each
+        note: Pink Lady, large
+      - id: pumpkin-seeds
+        ingredient: pumpkin-seeds
+        quantity:
+          amount: 60
+          unit: g
+      - id: sesame-seeds
+        ingredient: sesame-seeds
+        quantity:
+          amount: 60
+          unit: g
+      - id: spinach
+        ingredient: baby-spinach
+        quantity:
+          amount: 50
+          unit: g
+      - id: salt
+        ingredient: salt
+        quantity:
+          amount: 1
+          unit: tsp
+
+  - id: dressing
+    title: Dressing
+    ingredients:
+      - id: olive-oil
+        ingredient: olive-oil
+        quantity:
+          amount: 60
+          unit: ml
+      - id: balsamic
+        ingredient: balsamic-vinegar
+        quantity:
+          amount: 20
+          unit: ml
+
+steps:
+  - id: clean-beetroot
+    title: Clean and trim the beetroot
+    component: salad
+    kind: prep
+    text: Clean {beetroot} with a rough brush and trim the head and tail.
+    active_min: 6
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: grate-and-combine
+    title: Grate and add the dry ingredients
+    component: salad
+    kind: prep
+    text: Grate the beetroot and {apple} into a large bowl, leaving the core of the apple behind, then add the {pumpkin-seeds}, {sesame-seeds}, {spinach} and {salt}.
+    substeps:
+      - Roughly chop {spinach:name} before adding it.
+    active_min: 12
+    tools:
+      - tool: box-grater
+      - tool: mixing-bowl
+    after:
+      - clean-beetroot
+
+  - id: make-dressing
+    title: Mix the dressing
+    component: dressing
+    kind: prep
+    text: Mix {olive-oil} and {balsamic} together in a separate bowl or jug.
+    active_min: 2
+    tools:
+      - tool: measuring-jug
+    after: []
+
+  - id: toss-salad
+    title: Dress and toss
+    component: dressing
+    kind: serve
+    text: Just before serving, pour the dressing into the bowl and toss.
+    cue: Everything is glossy and evenly coated, deep magenta throughout.
+    active_min: 3
+    tools:
+      - tool: mixing-bowl
+    after:
+      - grate-and-combine
+      - make-dressing
+
+notes:
+  - "Toss with the dressing only just before serving."
+
+open_questions:
+  - "Servings are assumed to be 6 for 750 g of beetroot."
+  - "The 'remaining dry ingredients' are read as the seeds, spinach and salt, with the dressing being just the olive oil and balsamic."

@@ -1,0 +1,262 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: my-chicken-curry
+title: My Chicken Curry
+summary: Chicken thighs browned with toasted whole spices, simmered in coconut milk and stock, and finished with garam masala and lime.
+version: 1
+date: 2026-11-10
+status: draft
+source:
+  kind: web
+  url: https://www.andy-cooks.com/blogs/recipes/my-chicken-curry
+servings: 4
+tags:
+  - dinner
+  - curry
+  - indian
+  - high-protein
+components:
+  - id: spices
+    title: Whole spices
+    ingredients:
+      - id: ghee
+        ingredient: ghee
+        quantity:
+          amount: 30
+          unit: ml
+        note: about 2 tbsp
+      - id: cinnamon
+        ingredient: cinnamon-stick
+        quantity:
+          amount: 1
+          unit: each
+      - id: clove
+        ingredient: cloves
+        quantity:
+          amount: 1
+          unit: each
+      - id: coriander-seeds
+        ingredient: coriander-seeds
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: cardamom
+        ingredient: cardamom-pods
+        quantity:
+          amount: 4
+          unit: each
+        note: green cardamom seeds
+      - id: mustard-seeds
+        ingredient: mustard-seeds
+        quantity:
+          amount: 1
+          unit: tsp
+
+  - id: curry
+    title: Chicken curry
+    ingredients:
+      - id: onion
+        ingredient: red-onion
+        quantity:
+          amount: 1
+          unit: each
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 3
+          unit: each
+      - id: ginger
+        ingredient: ginger
+        quantity:
+          amount: 30
+          unit: g
+        note: thumb-sized piece
+      - id: chicken
+        ingredient: chicken-thigh
+        quantity:
+          amount: 6
+          unit: each
+        note: fillets
+      - id: chilli
+        ingredient: chilli-powder
+        quantity:
+          amount: 1
+          unit: tsp
+        note: Kashmiri
+      - id: turmeric
+        ingredient: ground-turmeric
+        quantity:
+          amount: 0.5
+          unit: tsp
+      - id: coconut-milk
+        ingredient: coconut-milk
+        quantity:
+          amount: 400
+          unit: ml
+      - id: stock
+        ingredient: chicken-stock
+        quantity:
+          amount: 250
+          unit: ml
+        note: 1 cup
+      - id: garam-masala
+        ingredient: garam-masala
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: lime-juice
+        ingredient: lime-juice
+        quantity:
+          amount: 45
+          unit: ml
+        note: juice of 1 to 2 limes to taste
+      - id: salt
+        ingredient: salt
+
+  - id: rice
+    title: Rice
+    ingredients:
+      - id: rice
+        ingredient: basmati-rice
+        quantity:
+          amount: 300
+          unit: g
+        note: steamed; 75 g per person
+steps:
+  - id: prepare
+    title: Slice and grate
+    component: curry
+    kind: prep
+    text: Prepare everything before the pan goes on.
+    substeps:
+      - Finely slice {onion}.
+      - Finely grate {garlic} and {ginger}.
+      - Slice {chicken}.
+    active_min: 10
+    make_ahead: true
+    tools:
+      - tool: knife
+      - tool: chopping-board
+      - tool: microplane
+        alternatives:
+          - box-grater
+    after: []
+
+  - id: toast-spices
+    title: Toast the whole spices
+    component: spices
+    kind: cook
+    text: Melt the ghee in a deep frying pan on a medium heat and cook the whole spices in it.
+    substeps:
+      - Melt {ghee} in a deep frying pan on a medium heat.
+      - Add {cinnamon}, {clove}, {coriander-seeds}, {cardamom} and {mustard-seeds}.
+      - Cook for 3 to 4 minutes, stirring occasionally.
+    cue: The seeds sizzle and the pan smells strongly of spice.
+    heat: medium
+    active_min: 4
+    tools:
+      - tool: frying-pan
+        alternatives:
+          - saute-pan
+      - tool: wooden-spoon
+    after: []
+
+  - id: soften-onion
+    title: Brown the onion, add garlic and ginger
+    component: curry
+    kind: cook
+    text: Cook the onion until it starts to brown, then add the garlic and ginger for a minute.
+    substeps:
+      - Add the onion and cook for 4 minutes, stirring, until starting to brown.
+      - Add the garlic and ginger and cook for a further minute.
+    cue: The onion edges are starting to brown and the garlic smells fragrant.
+    heat: medium
+    active_min: 5
+    tools:
+      - tool: frying-pan
+    after:
+      - toast-spices
+      - prepare
+
+  - id: brown-chicken
+    title: Brown the chicken
+    component: curry
+    kind: cook
+    text: Add the chicken and cook it until it is browned all over.
+    substeps:
+      - Add the chicken to the pan.
+      - Cook for 8 to 10 minutes, until browned all over.
+    cue: The chicken is browned on every side.
+    heat: medium
+    active_min: 10
+    tools:
+      - tool: frying-pan
+    after:
+      - soften-onion
+
+  - id: add-liquid
+    title: Add the spices and coconut milk
+    component: curry
+    kind: cook
+    text: Stir in the chilli powder and turmeric for a minute, then pour in the coconut milk and stock and bring to a simmer.
+    substeps:
+      - Stir in {chilli} and {turmeric} and cook for 1 minute.
+      - Stir in {coconut-milk} and {stock}.
+      - Bring to a simmer.
+    cue: The spices smell aromatic, and the sauce comes to a gentle simmer.
+    heat: medium
+    active_min: 3
+    tools:
+      - tool: frying-pan
+    after:
+      - brown-chicken
+
+  - id: simmer
+    title: Simmer the curry
+    component: curry
+    kind: cook
+    text: Simmer the curry for 12 to 15 minutes.
+    cue: The sauce has thickened slightly and the chicken is cooked through with no pink inside.
+    heat: low
+    active_min: 3
+    passive_min: 12
+    tools:
+      - tool: frying-pan
+    after:
+      - add-liquid
+
+  - id: cook-rice
+    title: Steam the rice
+    component: rice
+    kind: cook
+    text: Cook the rice to finish with the curry.
+    substeps:
+      - Cook {rice} according to the packet instructions.
+    cue: The grains are tender and separate.
+    active_min: 2
+    passive_min: 12
+    tools:
+      - tool: saucepan
+        alternatives:
+          - rice-cooker
+    after:
+      - add-liquid
+
+  - id: finish
+    title: Season and serve
+    component: curry
+    kind: serve
+    text: Remove the cinnamon stick, season with salt, garam masala and lime juice, and serve over the rice.
+    substeps:
+      - Remove and discard the cinnamon stick.
+      - Season with {salt}, {garam-masala} and {lime-juice}.
+      - Serve over the steamed rice.
+    active_min: 3
+    after:
+      - simmer
+      - cook-rice
+notes:
+  - "The recipe's own description: warming and rich but not hot, with toasted whole spices, coconut milk and a zing of lime."
+open_questions:
+  - Rice quantity (300 g, 75 g per person) and how to cook it are assumed; it only says "steamed rice, to serve".
+  - Kashmiri chilli powder is entered as chilli powder.
+  - The heat for the simmer is assumed to be low.

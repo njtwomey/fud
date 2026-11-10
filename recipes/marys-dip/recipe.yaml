@@ -1,0 +1,108 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: marys-dip
+title: Mary's Dip
+summary: A roasted red pepper dip blended with cashews, garlic, honey, soy sauce, parsley, chilli and thyme.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - dip
+  - starter
+  - snack
+  - vegetarian
+  - no-cook
+  - quick
+
+components:
+  - id: dip
+    title: Dip
+    ingredients:
+      - id: peppers
+        ingredient: roasted-red-peppers
+        quantity:
+          amount: 1
+          unit: each
+        note: 1 jar, rinsed
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 4
+          unit: each
+        note: 3 to 4 cloves
+      - id: cashews
+        ingredient: cashews
+        quantity:
+          amount: 30
+          unit: g
+        note: a handful, unsalted
+      - id: olive-oil
+        ingredient: olive-oil
+        quantity:
+          amount: 30
+          unit: ml
+        note: about 2 tbsp
+      - id: honey
+        ingredient: honey
+        quantity:
+          amount: 21
+          unit: g
+        note: about 1 tbsp
+      - id: soy-sauce
+        ingredient: soy-sauce
+        quantity:
+          amount: 15
+          unit: ml
+        note: about 1 tbsp
+      - id: parsley
+        ingredient: parsley
+        quantity:
+          amount: 1
+          unit: each
+        note: a good bunch
+      - id: chilli
+        ingredient: red-chilli
+        quantity:
+          amount: 1
+          unit: each
+      - id: thyme
+        ingredient: dried-thyme
+        quantity:
+          amount: 1
+          unit: tsp
+
+steps:
+  - id: prepare-ingredients
+    title: Prepare the ingredients
+    component: dip
+    kind: prep
+    text: Rinse {peppers:name}, peel {garlic} and get everything ready to go into the blender together.
+    substeps:
+      - Drain and rinse the jar of {peppers:name}.
+      - Peel {garlic:name}.
+      - Roughly chop {chilli:name} and {parsley:name} so they blend easily.
+      - Measure out {cashews}, {olive-oil}, {honey}, {soy-sauce} and {thyme}.
+    active_min: 6
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: blend-dip
+    title: Blend into a dip
+    component: dip
+    kind: cook
+    text: Put everything into a blender or food processor together and blend until it has the consistency of a dip.
+    cue: A thick, smooth-ish dip with no large pieces of pepper or nut left.
+    active_min: 4
+    tools:
+      - tool: blender
+        alternatives:
+          - food-processor
+    after:
+      - prepare-ingredients
+
+open_questions:
+  - "Servings are assumed to be 4."
+  - "A handful of cashews is taken as 30 g, and a tablespoon of honey as about 21 g."
+  - "The thyme is 'a bit' in one version and 1 tsp in another; 1 tsp is used, and dried thyme is assumed because it is measured in teaspoons."

@@ -1,0 +1,217 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: beef-noodles
+title: Beef Noodles
+summary: Marinated rump steak browned in a hot pan, then a bowl of stir-fried vegetable spears and udon tossed through it with soy.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - dinner
+  - asian-inspired
+  - noodles
+  - stir-fry
+  - weeknight
+
+images:
+  - file: hero.jpg
+    alt: A white bowl of udon noodles with pieces of beef, carrot, courgette, green vegetables and red onion, with a fork resting in it.
+
+components:
+  - id: beef
+    title: Marinated beef
+    ingredients:
+      - id: steak
+        ingredient: rump-steak
+        quantity:
+          amount: 2
+          unit: each
+        note: fillets
+      - id: oil-marinade
+        ingredient: vegetable-oil
+        note: a bit, for the marinade
+      - id: ginger
+        ingredient: ginger
+        quantity:
+          amount: 30
+          unit: g
+        note: thumb-sized piece
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 4
+          unit: each
+      - id: salt
+        ingredient: salt
+      - id: soy-marinade
+        ingredient: soy-sauce
+        quantity:
+          amount: 15
+          unit: ml
+        note: about 1 tbsp
+
+  - id: stir-fry
+    title: Vegetables and noodles
+    ingredients:
+      - id: oil-pan
+        ingredient: vegetable-oil
+        note: for the pan
+      - id: pak-choi
+        ingredient: pak-choi
+        quantity:
+          amount: 1
+          unit: each
+      - id: red-onion
+        ingredient: red-onion
+        quantity:
+          amount: 1
+          unit: each
+      - id: carrot
+        ingredient: carrot
+        quantity:
+          amount: 1
+          unit: each
+        note: medium
+      - id: courgette
+        ingredient: courgette
+        quantity:
+          amount: 1
+          unit: each
+      - id: baby-corn
+        ingredient: baby-corn
+        quantity:
+          amount: 100
+          unit: g
+      - id: sugar-snap
+        ingredient: mangetout
+        quantity:
+          amount: 100
+          unit: g
+        note: sugar snap peas
+      - id: udon
+        ingredient: udon-noodles
+        quantity:
+          amount: 400
+          unit: g
+      - id: soy-stir
+        ingredient: soy-sauce
+        quantity:
+          amount: 15
+          unit: ml
+        note: about 1 tbsp
+
+steps:
+  - id: marinate-beef
+    title: Slice and marinate the beef
+    component: beef
+    kind: prep
+    text: Cut the ginger into small spears, slice the steak thinly and leave it in the marinade while you cut the vegetables.
+    substeps:
+      - Slice {ginger} into small spears.
+      - Thinly slice {steak}.
+      - Put the beef in a bowl with {oil-marinade}, the ginger, {garlic}, {salt} and {soy-marinade}.
+      - Leave to marinate for about 30 minutes.
+    cue: Every slice of beef is lightly glossy with the marinade.
+    active_min: 8
+    passive_min: 30
+    tools:
+      - tool: knife
+      - tool: chopping-board
+      - tool: mixing-bowl
+    after: []
+
+  - id: prep-veg
+    title: Wash and cut the vegetables
+    component: stir-fry
+    kind: prep
+    text: Wash everything, then cut all the vegetables into spears.
+    substeps:
+      - Wash all of the vegetables.
+      - Slice {red-onion}, {carrot}, {courgette}, {baby-corn} and {sugar-snap} into spears.
+      - Cut the thick stem out of {pak-choi} and square up the rest into your desired size.
+    active_min: 12
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: brown-beef
+    title: Brown the beef
+    component: beef
+    kind: cook
+    text: Brown the marinated beef in a medium-hot pan, then set it aside in a bowl.
+    substeps:
+      - Heat a large pan or pot to a medium-hot temperature and add some of {oil-pan}.
+      - Add the beef and brown for 5 minutes.
+      - Remove the beef to a bowl.
+    cue: The outside of the beef has a good brown colour.
+    heat: medium-high
+    active_min: 6
+    tools:
+      - tool: wok
+        alternatives:
+          - large-pot
+          - frying-pan
+      - tool: wooden-spoon
+    after:
+      - marinate-beef
+      - prep-veg
+
+  - id: stir-fry-veg
+    title: Stir fry the vegetables
+    component: stir-fry
+    kind: cook
+    text: Stir the chopped vegetables in the same pan until they are steaming and warm.
+    substeps:
+      - Add all of the chopped vegetables and {pak-choi:name} to the pan.
+      - Stir for 5 to 10 minutes.
+    cue: Everything is steaming and hot, with the vegetables still holding some bite.
+    heat: medium
+    active_min: 8
+    tools:
+      - tool: wok
+        alternatives:
+          - large-pot
+          - frying-pan
+      - tool: wooden-spoon
+    after:
+      - brown-beef
+
+  - id: add-noodles
+    title: Add the beef and noodles
+    component: stir-fry
+    kind: cook
+    text: Put the beef back in with the rest of the soy sauce and the noodles and stir until the noodles are cooked.
+    substeps:
+      - Return the beef to the pan.
+      - Add {soy-stir} and {udon}.
+      - Stir and cook for a further 5 minutes.
+    cue: The udon is soft and hot all the way through and everything is coated in soy.
+    heat: medium
+    active_min: 6
+    tools:
+      - tool: wok
+        alternatives:
+          - large-pot
+          - frying-pan
+      - tool: wooden-spoon
+    after:
+      - stir-fry-veg
+
+  - id: serve
+    title: Serve
+    component: stir-fry
+    kind: serve
+    text: Plate up by dumping it into a bowl.
+    active_min: 1
+    after:
+      - add-noodles
+
+notes:
+  - "The vegetables are mix and match to your preference."
+  - "A spiced version adds garlic powder, ginger powder, curry powder and stock."
+
+open_questions:
+  - Servings are not given. 4 is assumed from two steaks and 400 g of udon.
+  - Garlic is listed (4 cloves, pureed) but the method never uses it; it is put in the marinade here. Is that where it belongs?
+  - Oil amounts are not given.

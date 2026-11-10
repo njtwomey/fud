@@ -1,0 +1,276 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: loyal-lentil-chilli
+title: Loyal Lentil Chilli
+summary: A vegetarian chilli of roasted butternut squash, lentils and coconut milk in a spiced tomato and shallot base, served on rice.
+version: 1
+date: 2026-11-10
+status: tested
+servings: 4
+tags:
+  - dinner
+  - vegetarian
+  - asian-inspired
+  - roasting
+  - one-pot
+
+images:
+  - file: hero.jpg
+    alt: A white bowl with white rice on one side and a thick red-brown stew of peppers and lentils on the other.
+
+components:
+  - id: squash
+    title: Roasted squash
+    ingredients:
+      - id: squash
+        ingredient: butternut-squash
+        quantity:
+          amount: 1
+          unit: each
+        note: medium
+      - id: oil-tray
+        ingredient: vegetable-oil
+        quantity:
+          amount: 15
+          unit: ml
+        note: about 1 tbsp
+      - id: salt
+        ingredient: salt
+      - id: paprika
+        ingredient: paprika
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: cayenne
+        ingredient: cayenne-pepper
+
+  - id: base
+    title: Chilli base
+    ingredients:
+      - id: shallot
+        ingredient: shallot
+        quantity:
+          amount: 8
+          unit: each
+        note: approximately
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 4
+          unit: each
+        note: pureed
+      - id: cumin
+        ingredient: ground-cumin
+        quantity:
+          amount: 1.5
+          unit: tsp
+      - id: turmeric
+        ingredient: ground-turmeric
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: cinnamon
+        ingredient: ground-cinnamon
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: coriander
+        ingredient: ground-coriander
+        quantity:
+          amount: 1
+          unit: tsp
+      - id: chilli
+        ingredient: red-chilli
+        quantity:
+          amount: 1
+          unit: each
+        optional: true
+        note: 1 or 2, deseeded
+      - id: tomato
+        ingredient: tomato
+        quantity:
+          amount: 4
+          unit: each
+      - id: red-pepper
+        ingredient: red-pepper
+        quantity:
+          amount: 1
+          unit: each
+        note: medium
+
+  - id: finish
+    title: To finish
+    ingredients:
+      - id: lentils
+        ingredient: tinned-lentils
+        quantity:
+          amount: 250
+          unit: g
+      - id: soy-sauce
+        ingredient: soy-sauce
+        quantity:
+          amount: 45
+          unit: ml
+        note: about 3 tbsp
+      - id: coconut-milk
+        ingredient: coconut-milk
+        quantity:
+          amount: 400
+          unit: ml
+      - id: lime-juice
+        ingredient: lime-juice
+        quantity:
+          amount: 30
+          unit: ml
+        note: juice of 1 lime
+      - id: water
+        ingredient: water
+        optional: true
+        note: a few tablespoons, only if it looks dry
+
+  - id: serving
+    title: To serve
+    ingredients:
+      - id: rice
+        ingredient: basmati-rice
+      - id: yoghurt
+        ingredient: natural-yoghurt
+        optional: true
+        note: about a tablespoon per bowl
+      - id: coriander-leaf
+        ingredient: fresh-coriander
+        optional: true
+
+steps:
+  - id: prep-squash
+    title: Heat the oven and dice the squash
+    component: squash
+    kind: prep
+    text: Heat the oven first, then peel the squash and cut it into small dice.
+    substeps:
+      - Heat the oven to 200 °C fan (220 °C conventional).
+      - Peel {squash} with a potato peeler and dice into cubes about the size of a dice. Splitting it in two, the bulb with the seeds and the solid cylinder, helps.
+    temperature:
+      celsius: 200
+      mode: fan
+    active_min: 12
+    tools:
+      - tool: oven
+      - tool: peeler
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: roast-squash
+    title: Roast the squash
+    component: squash
+    kind: cook
+    text: Coat the squash in oil, season with salt, paprika and cayenne, and roast, stirring now and then.
+    substeps:
+      - Spread the squash on a roasting tray and coat in {oil-tray}.
+      - Season with {salt}, {paprika} and {cayenne}.
+      - Roast for 20 minutes, stirring occasionally.
+    cue: The squash is tender when pierced and browning at the edges. Smaller pieces cook faster.
+    temperature:
+      celsius: 200
+      mode: fan
+    active_min: 3
+    passive_min: 20
+    tools:
+      - tool: oven
+      - tool: roasting-tin
+        alternatives:
+          - baking-tray
+    after:
+      - prep-squash
+
+  - id: prep-base
+    title: Slice the shallots and tomatoes
+    component: base
+    kind: prep
+    text: While the squash roasts, slice the shallots finely and chop the tomatoes and pepper.
+    substeps:
+      - Peel and finely slice {shallot}.
+      - Finely chop {tomato}.
+      - Dice {red-pepper}, and deseed {chilli}.
+    active_min: 10
+    tools:
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: cook-base
+    title: Cook the chilli base
+    component: base
+    kind: cook
+    text: Fry the shallots until transparent, add the garlic, spices, chilli, tomatoes and pepper, then turn the heat down and simmer until the squash is done.
+    substeps:
+      - Fry the shallots in a large pot over a medium heat until transparent.
+      - Add {garlic}, {cumin}, {turmeric}, {cinnamon}, {coriander}, the chilli, tomatoes and red pepper.
+      - Reduce the heat and simmer until the squash is done.
+    cue: The shallots are translucent, the spices smell warm rather than burnt, and the tomatoes have broken down into a thick sauce.
+    heat: medium
+    active_min: 8
+    passive_min: 12
+    tools:
+      - tool: large-pot
+      - tool: wooden-spoon
+    after:
+      - prep-base
+
+  - id: cook-rice
+    title: Cook the rice
+    component: serving
+    kind: cook
+    text: Start the {rice} once the base is simmering, using the usual basmati method.
+    cue: The grains are tender and separate.
+    active_min: 3
+    passive_min: 15
+    tools:
+      - tool: saucepan
+        alternatives:
+          - rice-cooker
+    after:
+      - cook-base
+
+  - id: finish-chilli
+    title: Add the lentils and coconut
+    component: finish
+    kind: cook
+    text: Stir the lentils, soy sauce, roasted squash, coconut milk and lime juice into the base and simmer for about 10 minutes.
+    substeps:
+      - Stir in {lentils}, {soy-sauce}, the roasted squash, {coconut-milk} and {lime-juice}.
+      - Simmer for about 10 minutes, stirring occasionally.
+      - If the mixture looks dry, add a few tablespoons of {water}.
+    cue: Thick but still loose, with the squash tender and the coconut milk blended in so there are no white streaks.
+    heat: low
+    active_min: 4
+    passive_min: 8
+    tools:
+      - tool: large-pot
+      - tool: wooden-spoon
+    after:
+      - cook-base
+      - roast-squash
+
+  - id: serve
+    title: Serve
+    component: serving
+    kind: serve
+    text: Serve the chilli over the rice, with a spoonful of yoghurt and some fresh coriander on top if you like.
+    substeps:
+      - Spoon rice into bowls and add the chilli.
+      - Top with {yoghurt} and {coriander-leaf}.
+    active_min: 3
+    after:
+      - finish-chilli
+      - cook-rice
+
+notes:
+  - "Dicing the squash takes a bit of care and attention. The smaller the pieces, the faster they roast."
+
+open_questions:
+  - Servings are not given. 4 is assumed.
+  - The red pepper is listed but the method never uses it. It is added with the tomatoes here; is that right?
+  - Paprika appears in the spice list but is used in the roasting step (with cayenne, which has no amount); the amounts for the roast seasoning are assumed.
+  - The method says "shallots, fry in a large pot" with no oil amount.
+  - Rice quantity is not given.
