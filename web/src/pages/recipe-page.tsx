@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useParams } from 'react-router'
 import { imageUrl, useCatalog } from '@/lib/catalog'
 import { CollapsibleSection } from '@/lib/components/collapsible-section'
+import { CookingModeToggle } from '@/lib/components/cooking-mode-toggle'
 import { IngredientPanel } from '@/lib/components/ingredient-panel'
 import { NutritionTable } from '@/lib/components/nutrition-table'
 import { ScrollPanel } from '@/lib/components/scroll-panel'
@@ -118,17 +119,19 @@ function RecipeView({ recipe }: { recipe: Recipe }) {
             {tags.get(t)?.label ?? t}
           </Badge>
         ))}
-        <Button
-          size="sm"
-          className="ml-auto"
-          variant={planned ? 'secondary' : 'default'}
-          onClick={() =>
-            planned ? plan.remove(recipe.slug) : plan.add({ slug: recipe.slug, servings, swaps: chosen })
-          }
-        >
-          {planned ? <Check /> : <ShoppingBasket />}
-          {planned ? 'On shopping list' : 'Add to shopping list'}
-        </Button>
+        <div className="ml-auto flex items-center gap-2">
+          <CookingModeToggle />
+          <Button
+            size="sm"
+            variant={planned ? 'secondary' : 'default'}
+            onClick={() =>
+              planned ? plan.remove(recipe.slug) : plan.add({ slug: recipe.slug, servings, swaps: chosen })
+            }
+          >
+            {planned ? <Check /> : <ShoppingBasket />}
+            {planned ? 'On shopping list' : 'Add to shopping list'}
+          </Button>
+        </div>
       </header>
 
       <div className="grid min-h-0 flex-1 gap-4 lg:grid-cols-[21rem_minmax(0,1fr)] xl:grid-cols-[21rem_minmax(0,1fr)_22rem]">

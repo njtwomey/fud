@@ -19,6 +19,7 @@ Primitives from shadcn live in `web/src/lib/ui/` and are not listed.
 | `ShoppingList`       | Items grouped by data-defined category, pluralised, spoon fractions                                                                                                    | `groups`, `ingredients`                                                                    |
 | `ZoomableImage`      | Photo thumbnail that opens full size in a modal with its caption (shadcn Dialog)                                                                                       | `src`, `alt`, `caption`, `className`                                                       |
 | `CollapsibleSection` | Titled block that folds away; open state remembered in the browser (shadcn Collapsible)                                                                                | `id`, `title`, `defaultOpen`                                                               |
+| `CookingModeToggle`  | Keeps the screen awake while cooking (Screen Wake Lock API); hidden where unsupported; off by default                                                                  | none                                                                                       |
 
 Non-visual `lib` modules: `theme` (provider, `useTheme`), `catalog` (loader, provider, `useCatalog`, URL helpers),
 `plan` (shopping plan and chosen swaps in localStorage), `hooks/use-local-storage`, and `recipe/*` (units, schedule, nutrition,

@@ -1,7 +1,7 @@
-import { render, screen, within } from '@testing-library/react'
+import { act, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router'
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { estimateNutrition } from '../recipe/nutrition'
 import { computeSchedule } from '../recipe/schedule'
 import { buildShoppingList, groupByCategory } from '../recipe/shopping'
@@ -9,6 +9,7 @@ import type { ChosenSwaps } from '../recipe/swaps'
 import type { Catalog, SwapOption } from '../schema'
 import { makeCatalog, makeRecipe } from '../testing/fixtures'
 import { CollapsibleSection } from './collapsible-section'
+import { CookingModeToggle } from './cooking-mode-toggle'
 import { IngredientPanel } from './ingredient-panel'
 import { KindBadge, KindLabel } from './kind-badge'
 import { NutritionTable } from './nutrition-table'
@@ -410,5 +411,93 @@ describe('CollapsibleSection', () => {
     )
     expect(screen.getByRole('region', { name: 'Extra' })).toBeInTheDocument()
     expect(screen.queryByText('Hidden')).not.toBeInTheDocument()
+  })
+})
+
+describe('CookingModeToggle', () => {
+  function fakeWakeLock() {
+    const listeners: (() => void)[] = []
+    const sentinel = {
+      release: vi.fn(async () => {
+        for (const l of listeners) l()
+      }),
+      addEventListener: (_: string, l: () => void) => listeners.push(l),
+    }
+    const request = vi.fn(async () => sentinel)
+    Object.defineProperty(navigator, 'wakeLock', { value: { request }, configurable: true })
+    return {
+      request,
+      sentinel,
+      dropLock: () => {
+        for (const l of listeners) l()
+      },
+    }
+  }
+  const setVisibility = (state: 'visible' | 'hidden') => {
+    Object.defineProperty(document, 'visibilityState', { value: state, configurable: true })
+    document.dispatchEvent(new Event('visibilitychange'))
+  }
+
+  afterEach(() => {
+    Reflect.deleteProperty(navigator, 'wakeLock')
+    setVisibility('visible')
+  })
+
+  it('renders nothing where the browser has no wake lock', () => {
+    Reflect.deleteProperty(navigator, 'wakeLock')
+    const { container } = render(<CookingModeToggle />)
+    expect(container).toBeEmptyDOMElement()
+  })
+
+  it('asks the browser to keep the screen on when switched on, and lets go when switched off', async () => {
+    const { request, sentinel } = fakeWakeLock()
+    render(<CookingModeToggle />)
+    const button = screen.getByRole('button', { name: 'Cooking mode' })
+    expect(button).toHaveAttribute('aria-pressed', 'false')
+    expect(request).not.toHaveBeenCalled()
+    await userEvent.click(button)
+    expect(request).toHaveBeenCalledWith('screen')
+    expect(await screen.findByRole('button', { name: 'Screen staying on' })).toHaveAttribute('aria-pressed', 'true')
+    await userEvent.click(screen.getByRole('button', { name: 'Screen staying on' }))
+    expect(sentinel.release).toHaveBeenCalled()
+    expect(screen.getByRole('button', { name: 'Cooking mode' })).toHaveAttribute('aria-pressed', 'false')
+  })
+
+  it('asks again when the page comes back to the front after the browser dropped the lock', async () => {
+    const { request, dropLock } = fakeWakeLock()
+    render(<CookingModeToggle />)
+    await userEvent.click(screen.getByRole('button', { name: 'Cooking mode' }))
+    expect(request).toHaveBeenCalledTimes(1)
+    await act(async () => {
+      setVisibility('hidden')
+      dropLock()
+    })
+    await act(async () => setVisibility('visible'))
+    expect(request).toHaveBeenCalledTimes(2)
+  })
+
+  it('stays switched on but quietly inactive when the browser refuses', async () => {
+    Object.defineProperty(navigator, 'wakeLock', {
+      value: {
+        request: vi.fn(async () => {
+          throw new Error('denied')
+        }),
+      },
+      configurable: true,
+    })
+    render(<CookingModeToggle />)
+    await userEvent.click(screen.getByRole('button', { name: 'Cooking mode' }))
+    expect(await screen.findByRole('button', { name: 'Screen staying on' })).toHaveAttribute(
+      'title',
+      'Waiting for the browser to allow it',
+    )
+  })
+
+  it('releases the lock when the page is left', async () => {
+    const { sentinel } = fakeWakeLock()
+    const { unmount } = render(<CookingModeToggle />)
+    await userEvent.click(screen.getByRole('button', { name: 'Cooking mode' }))
+    unmount()
+    expect(sentinel.release).toHaveBeenCalled()
   })
 })
