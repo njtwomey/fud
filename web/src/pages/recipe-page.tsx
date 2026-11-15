@@ -8,6 +8,7 @@ import { IngredientPanel } from '@/lib/components/ingredient-panel'
 import { NutritionTable } from '@/lib/components/nutrition-table'
 import { ScrollPanel } from '@/lib/components/scroll-panel'
 import { ServingsStepper } from '@/lib/components/servings-stepper'
+import { SourceCredit } from '@/lib/components/source-credit'
 import { StepCard } from '@/lib/components/step-card'
 import { Timeline } from '@/lib/components/timeline'
 import { ToolList } from '@/lib/components/tool-list'
@@ -54,7 +55,7 @@ export function RecipePage() {
 }
 
 function RecipeView({ recipe }: { recipe: Recipe }) {
-  const { catalog, ingredients, tools, tags } = useCatalog()
+  const { catalog, ingredients, tools, tags, techniques } = useCatalog()
   const plan = usePlan()
   const planItem = plan.get(recipe.slug)
   const planned = planItem !== undefined
@@ -201,6 +202,7 @@ function RecipeView({ recipe }: { recipe: Recipe }) {
                           factor={factor}
                           slug={recipe.slug}
                           imageSrc={imageUrl}
+                          techniques={techniques}
                           done={done.has(s.id)}
                           active={activeStep === s.id}
                           onToggleDone={toggleDone}
@@ -219,7 +221,7 @@ function RecipeView({ recipe }: { recipe: Recipe }) {
         </Tabs>
 
         <ScrollPanel title="Details" className="max-lg:order-3 lg:col-span-2 xl:col-span-1">
-          {hero || recipe.summary ? (
+          {hero || recipe.summary || recipe.source ? (
             <CollapsibleSection id="details-about" title="About">
               <div className="space-y-3">
                 {hero ? (
@@ -231,6 +233,12 @@ function RecipeView({ recipe }: { recipe: Recipe }) {
                   />
                 ) : null}
                 {recipe.summary ? <p className="text-sm leading-6 text-muted-foreground">{recipe.summary}</p> : null}
+                {recipe.source ? (
+                  <SourceCredit
+                    source={recipe.source}
+                    kindLabel={catalog.source_kinds.find((k) => k.id === recipe.source?.kind)?.label}
+                  />
+                ) : null}
               </div>
             </CollapsibleSection>
           ) : null}

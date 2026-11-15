@@ -41,6 +41,13 @@ Read `docs/schema.md` first if you have not this session. The Zod schemas in `we
      tokens are not rendered. Reword spatial uses ("browned evenly on every side", "right through"). `make doctor`
      rejects _all_, _everything_, _seasoning(s)_, _etc._, _and so on_ and _the remaining ingredients_ unless a
      parenthesis after them names what they cover.
+   - **Explain techniques in place.** Where a step names a method a cook might not know or might have forgotten
+     (creaming, stiff peaks, folding, piping a rosette), mark the words as `[[technique-id|words]]`, for example
+     "[[creaming|Cream]] the {butter:name} and {sugar:name}". The explanation lives once in `data/techniques.yaml`
+     (`id`, `name`, a two or three sentence `description`, optional `tips`; add the entry first if it is missing, and
+     keep it general) and is shown folded away, expanding in place on demand. Mark once per line, only where it
+     helps. Anything particular to this recipe stays in the step's own text and `cue`. Works in `text` and
+     `substeps`, not in titles or cues. Do not do this for every verb: only genuine techniques.
    - Name component titles as plain nouns ("Peanut sauce", "Rice"), not "For the pot".
    - Timings: `active_min` (attention) and `passive_min` (hands-off). Pair every timing with a `cue` (what to see,
      smell or hear). If the source gives none, write a reasonable one and note it in `open_questions`.
@@ -56,7 +63,7 @@ Read `docs/schema.md` first if you have not this session. The Zod schemas in `we
    ("Rump steak works instead"), not "the other version says". `make doctor` rejects both.
 8. **Metadata.** `servings` (the number the quantities are written for; if unknown, assume and add to
    `open_questions`), `tags` (ids from `data/tags.yaml`; add genuinely useful ones, not SEO junk), `source`
-   (kind from `data/recipe-options.yaml`, plus url/title), `version: 1`, today's `date`, `status: draft`.
+   (kind from `data/recipe-options.yaml`, plus `title`, `author`, `url` and `note` as the page gives them; for a web recipe capture all of these), `version: 1`, today's `date`, `status: draft`.
 9. **Swaps.** Put recipe-specific substitutions on the ingredient line. General ones belong in `data/swaps.yaml`.
 10. **Notes and open questions.** Make-ahead, storage and optional ideas go in `notes`. Anything you assumed or
     the source left out goes in `open_questions`. Never invent detail silently.
@@ -74,5 +81,5 @@ Read `docs/schema.md` first if you have not this session. The Zod schemas in `we
 - Do not introduce ingredients or techniques the user did not mention; put suggestions under `notes`, flagged optional.
 - Ask the user once, as a consolidated list, only for things that are impossible to assume.
 
-Everything in a vocabulary (categories, tag domains, tool categories, swap qualities, statuses, source kinds) lives
+Everything in a vocabulary (categories, tag domains, tool categories, swap qualities, statuses, source kinds, techniques) lives
 in `data/`. Add to those files rather than touching code.

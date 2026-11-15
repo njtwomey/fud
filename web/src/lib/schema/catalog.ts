@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { Recipe } from './recipe'
-import { Ingredient, IngredientCategory, Kitchen, SwapRule, Tag, Tool, Vocab } from './taxonomy'
+import { Ingredient, IngredientCategory, Kitchen, SwapRule, Tag, Technique, Tool, Vocab } from './taxonomy'
 
 /** The built catalog: one JSON document the static site loads (`web/public/data/catalog.json`). */
 export const Catalog = z
@@ -15,6 +15,7 @@ export const Catalog = z
     tools: z.array(Tool),
     tags: z.array(Tag),
     swaps: z.array(SwapRule),
+    techniques: z.array(Technique),
     kitchen: Kitchen,
     recipes: z.array(Recipe),
   })

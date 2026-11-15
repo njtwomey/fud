@@ -70,6 +70,22 @@ export type Tag = z.infer<typeof Tag>
 
 export const TagsFile = z.object({ domains: z.array(Vocab), tags: z.array(Tag) }).strict()
 
+/**
+ * A named cooking method a beginner might not know or might have forgotten ('creaming', 'stiff peaks'). Steps mark the
+ * word with `[[id|words]]`; the site shows it as a quiet expander that opens `description` and `tips` in place.
+ */
+export const Technique = z
+  .object({
+    id: Slug,
+    name: z.string().min(1).describe("Title of the explanation, e.g. 'Creaming'."),
+    description: z.string().min(1).describe('What the method is and how it is done, in two or three sentences.'),
+    tips: z.array(z.string()).default([]).describe('Short pointers: what it should look like, common slips.'),
+  })
+  .strict()
+export type Technique = z.infer<typeof Technique>
+
+export const TechniquesFile = z.object({ techniques: z.array(Technique) }).strict()
+
 /** Use `ingredient` instead. `ratio` multiplies the original amount. */
 export const SwapOption = z
   .object({

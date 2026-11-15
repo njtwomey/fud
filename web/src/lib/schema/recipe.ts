@@ -61,7 +61,8 @@ export const Step = z
       .min(1)
       .describe(
         'What to do, in a sentence or two. {line-id} inserts the scaled quantity and name; {line-id:name} inserts ' +
-          'just the name. Always use tokens for ingredients so swaps flow through.',
+          'just the name. Always use tokens for ingredients so swaps flow through. [[technique-id|words]] shows the ' +
+          "words as an expander that explains the technique from techniques.yaml, e.g. '[[creaming|Cream]] the {butter}'.",
       ),
     substeps: z.array(z.string()).default([]).describe('The detailed actions within this stage, in order.'),
     cue: z.string().optional().describe('Sensory doneness cue to pair with any timing.'),
@@ -88,7 +89,8 @@ export const Source = z
   .object({
     kind: Slug.describe('Source kind id from `source_kinds` in recipe-options.yaml.'),
     title: z.string().optional(),
-    url: z.string().optional(),
+    author: z.string().optional().describe('Who wrote or created it.'),
+    url: z.string().optional().describe('A real web address; the only way a recipe may say where it came from.'),
     note: z.string().optional(),
   })
   .strict()

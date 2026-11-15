@@ -17,6 +17,7 @@ import { RecipeCard } from './recipe-card'
 import { ScrollPanel } from './scroll-panel'
 import { ServingsStepper } from './servings-stepper'
 import { ShoppingList } from './shopping-list'
+import { SourceCredit } from './source-credit'
 import { StepCard } from './step-card'
 import { StepText } from './step-text'
 import { TagFilter } from './tag-filter'
@@ -169,6 +170,125 @@ describe('IngredientPanel', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Swaps for jasmine rice' }))
     await userEvent.click(screen.getByRole('button', { name: /As written/ }))
     expect(onSwap).toHaveBeenCalledWith('rice', null)
+  })
+})
+
+describe('StepCard techniques', () => {
+  const marked = {
+    ...recipe.steps.find((s) => s.id === 'boil')!,
+    text: '[[creaming|Cream]] {rice} well.',
+    substeps: ['[[creaming|Beat]] again.'],
+  }
+  const techniques = new Map(catalog.techniques.map((t) => [t.id, t]))
+  const renderCard = (withTechniques = true) =>
+    render(
+      <ol>
+        <StepCard
+          step={marked}
+          number={1}
+          lines={lines}
+          ingredients={ingredients}
+          factor={1}
+          slug="garlic-rice"
+          imageSrc={() => ''}
+          techniques={withTechniques ? techniques : undefined}
+          done={false}
+          active={false}
+          onToggleDone={vi.fn()}
+          onSelect={vi.fn()}
+        />
+      </ol>,
+    )
+
+  it('shows a marked word as a collapsed expander with the explanation hidden', () => {
+    renderCard()
+    const term = screen.getByRole('button', { name: 'Cream' })
+    expect(term).toHaveAttribute('aria-expanded', 'false')
+    expect(screen.queryByText(/Beat soft butter with sugar/)).not.toBeInTheDocument()
+  })
+
+  it('opens the explanation in place under the line, and closes it again', async () => {
+    renderCard()
+    const term = screen.getByRole('button', { name: 'Cream' })
+    await userEvent.click(term)
+    expect(term).toHaveAttribute('aria-expanded', 'true')
+    const note = screen.getByRole('complementary', { name: /Creaming/ })
+    expect(within(note).getByText('Beat soft butter with sugar until pale.')).toBeInTheDocument()
+    expect(within(note).getByText('Start with butter at room temperature.')).toBeInTheDocument()
+    expect(term).toHaveAttribute('aria-controls', note.id)
+    await userEvent.click(term)
+    expect(screen.queryByRole('complementary')).not.toBeInTheDocument()
+  })
+
+  it('keeps each line independent, so opening one does not open the same technique elsewhere', async () => {
+    renderCard()
+    await userEvent.click(screen.getByRole('button', { name: 'Cream' }))
+    expect(screen.getByRole('button', { name: 'Beat' })).toHaveAttribute('aria-expanded', 'false')
+    expect(screen.getAllByRole('complementary')).toHaveLength(1)
+  })
+
+  it('does not select the step when the expander is used', async () => {
+    const onSelect = vi.fn()
+    render(
+      <ol>
+        <StepCard
+          step={marked}
+          number={1}
+          lines={lines}
+          ingredients={ingredients}
+          factor={1}
+          slug="garlic-rice"
+          imageSrc={() => ''}
+          techniques={techniques}
+          done={false}
+          active={false}
+          onToggleDone={vi.fn()}
+          onSelect={onSelect}
+        />
+      </ol>,
+    )
+    await userEvent.click(screen.getByRole('button', { name: 'Cream' }))
+    expect(onSelect).not.toHaveBeenCalled()
+  })
+
+  it('shows the words as plain text when the technique is unknown or no techniques are given', () => {
+    renderCard(false)
+    expect(screen.queryByRole('button', { name: 'Cream' })).not.toBeInTheDocument()
+    expect(screen.getByText(/Cream/)).toBeInTheDocument()
+  })
+})
+
+describe('SourceCredit', () => {
+  it('links a web source with its title and author', () => {
+    render(
+      <SourceCredit
+        source={{
+          kind: 'web',
+          title: 'Iced Gems',
+          author: 'Paul Hollywood',
+          url: 'https://example.com/gems',
+          note: 'Series 17.',
+        }}
+      />,
+    )
+    const link = screen.getByRole('link', { name: 'Iced Gems' })
+    expect(link).toHaveAttribute('href', 'https://example.com/gems')
+    expect(link).toHaveAttribute('rel', expect.stringContaining('noreferrer'))
+    expect(screen.getByText(/by Paul Hollywood/)).toBeInTheDocument()
+    expect(screen.getByText('Series 17.')).toBeInTheDocument()
+  })
+
+  it('falls back to the address host, then the kind label, and only links real web addresses', () => {
+    const { rerender } = render(<SourceCredit source={{ kind: 'web', url: 'https://www.bbcgoodfood.com/recipes/x' }} />)
+    expect(screen.getByRole('link', { name: 'bbcgoodfood.com' })).toBeInTheDocument()
+    rerender(<SourceCredit source={{ kind: 'family' }} kindLabel="Family" />)
+    expect(screen.queryByRole('link')).not.toBeInTheDocument()
+    expect(screen.getByText('Family')).toBeInTheDocument()
+  })
+
+  it('does not repeat the author when the title already names them', () => {
+    render(<SourceCredit source={{ kind: 'web', title: "Paul Hollywood's Iced Gems", author: 'Paul Hollywood' }} />)
+    expect(screen.queryByText(/by Paul Hollywood/)).not.toBeInTheDocument()
   })
 })
 

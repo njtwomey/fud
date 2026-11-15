@@ -1,11 +1,12 @@
 import { createContext, type ReactNode, useContext, useEffect, useMemo, useState } from 'react'
-import { Catalog, type Ingredient, type Recipe, type Tag, type Tool } from './schema'
+import { Catalog, type Ingredient, type Recipe, type Tag, type Technique, type Tool } from './schema'
 
 export interface CatalogIndex {
   catalog: Catalog
   ingredients: Map<string, Ingredient>
   tools: Map<string, Tool>
   tags: Map<string, Tag>
+  techniques: Map<string, Technique>
   recipes: Map<string, Recipe>
 }
 
@@ -20,6 +21,7 @@ export function indexCatalog(catalog: Catalog): CatalogIndex {
     ingredients: new Map(catalog.ingredients.map((i) => [i.id, i])),
     tools: new Map(catalog.tools.map((t) => [t.id, t])),
     tags: new Map(catalog.tags.map((t) => [t.id, t])),
+    techniques: new Map(catalog.techniques.map((t) => [t.id, t])),
     recipes: new Map(catalog.recipes.map((r) => [r.slug, r])),
   }
 }

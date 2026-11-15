@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "techniques": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 80,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Title of the explanation, e.g. 'Creaming'."
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "description": "What the method is and how it is done, in two or three sentences."
+          },
+          "tips": {
+            "default": [],
+            "description": "Short pointers: what it should look like, common slips.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "description"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "techniques"
+  ],
+  "additionalProperties": false
+}

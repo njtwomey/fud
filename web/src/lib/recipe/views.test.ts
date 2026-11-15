@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { makeRecipe } from '../testing/fixtures'
-import { plainText, splitTokens, stepLineIds, textTokens } from './text'
+import { plainText, splitTokens, stepLineIds, techniqueTokens, textTokens } from './text'
 import { groupSteps } from './views'
 
 describe('groupSteps', () => {
@@ -36,6 +36,20 @@ describe('text tokens', () => {
       { type: 'text', value: 'the ' },
       { type: 'ref', id: 'garlic', form: 'name' },
     ])
+  })
+  it('finds and splits technique markers alongside ingredient references', () => {
+    const text = '[[creaming|Cream]] the {butter:name} and [[stiff-peaks]].'
+    expect(techniqueTokens(text)).toEqual(['creaming', 'stiff-peaks'])
+    expect(textTokens(text)).toEqual(['butter'])
+    expect(splitTokens(text)).toEqual([
+      { type: 'technique', id: 'creaming', label: 'Cream' },
+      { type: 'text', value: ' the ' },
+      { type: 'ref', id: 'butter', form: 'name' },
+      { type: 'text', value: ' and ' },
+      { type: 'technique', id: 'stiff-peaks' },
+      { type: 'text', value: '.' },
+    ])
+    expect(plainText(text, () => 'butter')).toBe('Cream the butter and stiff-peaks.')
   })
   it('collects ids from text, substeps and uses', () => {
     expect(stepLineIds({ text: 'a {x}', substeps: ['b {y}'], uses: ['z'] })).toEqual(new Set(['x', 'y', 'z']))

@@ -1,0 +1,298 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: iced-gems
+title: Iced Gems
+summary: Buttery orange shortbread rounds topped with a rosette of rainbow-striped royal icing, a playful take on the nostalgic iced gem biscuit. Bright citrus flavour and pastel colours suit parties and afternoon tea.
+version: 1
+date: 2026-11-15
+status: draft
+source:
+  kind: web
+  title: Paul Hollywood's Iced Gems
+  author: Paul Hollywood
+  url: https://thegreatbritishbakeoff.co.uk/recipes/all/paul-hollywood-iced-gems/
+  note: The Great British Bake Off, series 17.
+servings: 36
+tags:
+  - dessert
+  - snack
+  - cake-biscuit
+  - baking
+  - vegetarian
+  - project
+
+components:
+  - id: shortbread
+    title: For the orange shortbread
+    ingredients:
+      - id: butter
+        ingredient: butter
+        quantity:
+          amount: 100
+          unit: g
+        note: unsalted, at room temperature
+      - id: sugar
+        ingredient: caster-sugar
+        quantity:
+          amount: 50
+          unit: g
+      - id: flour
+        ingredient: plain-flour
+        quantity:
+          amount: 150
+          unit: g
+      - id: zest
+        ingredient: orange-zest
+        quantity:
+          amount: 6
+          unit: g
+        note: finely grated, from 1 orange
+      - id: salt
+        ingredient: salt
+        quantity:
+          amount: 0.25
+          unit: tsp
+        note: fine
+
+  - id: icing
+    title: For the royal icing
+    ingredients:
+      - id: egg-whites
+        ingredient: egg-white
+        quantity:
+          amount: 2
+          unit: each
+        note: from medium eggs
+      - id: icing-sugar
+        ingredient: icing-sugar
+        quantity:
+          amount: 400
+          unit: g
+      - id: colour-purple
+        ingredient: food-colouring
+        note: pastel purple
+      - id: colour-pink
+        ingredient: food-colouring
+        note: pastel pink
+      - id: colour-yellow
+        ingredient: food-colouring
+        note: pastel yellow
+      - id: colour-peach
+        ingredient: food-colouring
+        note: pastel peach
+      - id: colour-blue
+        ingredient: food-colouring
+        note: pastel blue
+
+steps:
+  - id: heat-oven
+    title: Heat the oven and line a tray
+    component: shortbread
+    kind: prep
+    text: Heat the oven to 160 °C fan (180 °C conventional) and line a baking tray with baking paper.
+    temperature:
+      celsius: 160
+      mode: fan
+    cue: The oven has reached 160 °C and the paper lies flat on the tray.
+    active_min: 2
+    passive_min: 15
+    tools:
+      - tool: oven
+      - tool: baking-tray
+      - tool: baking-paper
+    after: []
+
+  - id: cream
+    title: Cream the butter, sugar and zest
+    component: shortbread
+    kind: cook
+    text: "[[creaming|Cream]] the {butter:name}, {sugar:name} and {zest:name} together until soft and creamy, but not aerated."
+    substeps:
+      - Put {butter}, {sugar} and {zest} in the bowl of a stand mixer.
+      - Beat until soft and creamy, scraping down the sides of the bowl from time to time.
+    cue: Soft, creamy and smooth. It should not be pale and fluffy like a sponge mixture.
+    active_min: 5
+    tools:
+      - tool: stand-mixer
+        alternatives:
+          - hand-mixer
+          - wooden-spoon
+    after: []
+
+  - id: make-dough
+    title: Mix in the flour and salt
+    component: shortbread
+    kind: cook
+    text: Add the {flour:name} and {salt:name} and mix on low speed until the dough comes together.
+    substeps:
+      - Add {flour} and {salt}.
+      - Mix on low speed for 1 minute.
+    cue: A dough that holds together in one piece.
+    active_min: 2
+    tools:
+      - tool: stand-mixer
+        alternatives:
+          - hand-mixer
+          - wooden-spoon
+
+  - id: roll
+    title: Roll out the dough
+    component: shortbread
+    kind: cook
+    text: Roll the dough out between 2 sheets of baking paper to a thickness of ¾ cm.
+    substeps:
+      - Place the dough between 2 sheets of baking paper.
+      - Roll to ¾ cm thick.
+      - Slide the paper and dough onto a baking tray.
+    cue: An even sheet of dough, ¾ cm thick.
+    active_min: 5
+    tools:
+      - tool: rolling-pin
+      - tool: baking-paper
+      - tool: baking-tray
+
+  - id: chill
+    title: Chill the dough
+    component: shortbread
+    kind: wait
+    text: Chill the rolled-out dough in the fridge for 30 minutes.
+    cue: The dough feels firm and cool.
+    passive_min: 30
+    make_ahead: true
+    tools:
+      - tool: fridge
+
+  - id: whisk-icing
+    title: Whisk the royal icing
+    component: icing
+    kind: cook
+    text: Whisk the {egg-whites:name} until frothy, then add the {icing-sugar:name} a large spoonful at a time, mixing well between each addition, until the icing is very stiff and stands up in [[stiff-peaks|peaks]].
+    substeps:
+      - Whisk {egg-whites} in the bowl of a stand mixer until frothy.
+      - Add {icing-sugar} a large spoonful at a time, mixing well between each addition.
+      - Keep whisking until the icing is very stiff and stands up in peaks.
+    cue: Very stiff, glossy icing that holds a peak when you lift the whisk.
+    active_min: 10
+    tools:
+      - tool: stand-mixer
+        alternatives:
+          - hand-mixer
+          - whisk
+      - tool: mixing-bowl
+    after: []
+
+  - id: colour-icing
+    title: Colour the icing and fill the bags
+    component: icing
+    kind: cook
+    text: Divide the icing between 5 small bowls (about 85 g in each), colour each bowl a different pastel shade, then scrape each into its own small piping bag and tie the top so the icing stays airtight.
+    substeps:
+      - Divide the icing between 5 small bowls, about 85 g in each.
+      - Tint one bowl pastel purple with {colour-purple:name}, one pastel pink with {colour-pink:name}, one pastel yellow with {colour-yellow:name}, one peach with {colour-peach:name} and one pastel blue with {colour-blue:name}, adding the colouring sparingly.
+      - Scrape each coloured icing into its own small piping bag, giving 5 bags of different colours.
+      - Tie the top of each bag to keep it airtight.
+    cue: Five bowls of pastel icing, one each of purple, pink, yellow, peach and blue.
+    active_min: 10
+    tools:
+      - tool: mixing-bowl
+      - tool: piping-bag
+    after:
+      - whisk-icing
+
+  - id: cut-bake
+    title: Cut out and bake the rounds
+    component: shortbread
+    kind: cook
+    text: Cut 36 rounds from the chilled dough, put them on the lined baking tray and bake until golden brown.
+    substeps:
+      - Cut out 36 rounds with a 2.5 cm round cutter and place them on the lined baking tray.
+      - Bake for 12 to 15 minutes.
+    temperature:
+      celsius: 160
+      mode: fan
+    cue: The biscuits are golden brown.
+    active_min: 10
+    passive_min: 15
+    tools:
+      - tool: pastry-cutter
+      - tool: baking-tray
+      - tool: oven
+    after:
+      - chill
+      - heat-oven
+
+  - id: cool
+    title: Firm up and cool
+    component: shortbread
+    kind: wait
+    text: Leave the biscuits on the tray for 5 minutes to firm up, then move them to a cooling rack and leave until completely cool.
+    cue: The biscuits are firm and cool to the touch.
+    passive_min: 30
+    tools:
+      - tool: wire-rack
+    after:
+      - cut-bake
+
+  - id: stripe-log
+    title: Pipe the striped log
+    component: icing
+    kind: cook
+    text: Lay out a 15 cm wide piece of cling film and pipe five lines of coloured icing side by side along its length, then roll it up into a striped log.
+    substeps:
+      - Lay a 15 cm wide piece of cling film on the work surface.
+      - Snip each piping bag to make a 1 cm opening.
+      - Pipe a long line of one colour lengthways down the centre of the cling film.
+      - Pipe a second colour next to it, then a third, and carry on until there are 5 lines of icing butting up to each other.
+      - Pick up the cling film lengthways and fold and roll it over the icing lines to make a coloured striped log.
+      - To save on piping bags, spoon the icing in long lines onto the cling film instead.
+    cue: A neat log with five stripes of colour running along it.
+    active_min: 10
+    tools:
+      - tool: piping-bag
+      - tool: cling-film
+    after:
+      - colour-icing
+
+  - id: pipe
+    title: Pipe a rosette on each biscuit
+    component: icing
+    kind: serve
+    text: Snip one end off the striped log, put it in a large piping bag fitted with an open star nozzle, and [[piping-rosette|pipe a rosette]] on top of each biscuit.
+    substeps:
+      - Snip off one end of the cling film log and put the log in a large piping bag fitted with an open star nozzle.
+      - Pipe a rosette on top of each shortbread round and place the biscuits back on the lined baking tray.
+      - Repeat making and piping striped logs until every one of the 36 biscuits has a rosette.
+    cue: Each biscuit has a ruffled, rainbow-striped swirl on top.
+    active_min: 25
+    tools:
+      - tool: piping-bag
+      - tool: star-piping-nozzle
+      - tool: baking-tray
+    after:
+      - cool
+      - stripe-log
+
+  - id: set
+    title: Leave the icing to set
+    component: icing
+    kind: wait
+    text: Leave the biscuits to dry at room temperature, or put the tray in the oven to harden the icing in the leftover heat.
+    substeps:
+      - Leave the biscuits at room temperature, or put the tray in the oven to harden the icing in the leftover heat.
+      - If the oven has cooled down, heat it to 50 °C (120 °F) and leave the biscuits in for 30 minutes.
+    temperature:
+      celsius: 50
+      mode: fan
+    cue: The icing has set hard and no longer smears when touched.
+    passive_min: 30
+    tools:
+      - tool: oven
+    after:
+      - pipe
+
+notes:
+  - Needs some skill, mostly in the icing and the piping.
+  - The shortbread is creamed only until soft and creamy, not whipped until pale and fluffy.
+
+open_questions:
+  - The oven preheat time, the cooling time after baking and the time for the icing to set at room temperature are assumed.
+  - The 6 g of orange zest for the zest of 1 orange is an estimate, used for the nutrition figures.

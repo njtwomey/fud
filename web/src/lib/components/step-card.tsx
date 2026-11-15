@@ -1,9 +1,12 @@
 import { cn } from 'cn'
 import { Check, Flame, Thermometer } from 'lucide-react'
+import { useCallback, useState } from 'react'
+import { techniqueTokens } from '../recipe/text'
 import { formatDuration } from '../recipe/units'
-import type { Ingredient, IngredientLine, Step } from '../schema'
+import type { Ingredient, IngredientLine, Step, Technique } from '../schema'
 import { KIND_META, KindLabel } from './kind-badge'
-import { StepText } from './step-text'
+import { StepText, techniqueNoteId } from './step-text'
+import { TechniqueNote } from './technique-note'
 import { ZoomableImage } from './zoomable-image'
 
 interface StepCardProps {
@@ -14,6 +17,8 @@ interface StepCardProps {
   factor: number
   slug: string
   imageSrc: (slug: string, file: string) => string
+  /** Techniques the step text may explain in place. Optional: without them marked words are plain text. */
+  techniques?: ReadonlyMap<string, Technique>
   done: boolean
   active: boolean
   onToggleDone: (id: string) => void
@@ -28,13 +33,73 @@ function timing(step: Step): string | null {
   return step.passive_min > 0 ? `${formatDuration(step.passive_min)} waiting` : null
 }
 
+interface StepLineProps {
+  text: string
+  lines: ReadonlyMap<string, IngredientLine>
+  ingredients: ReadonlyMap<string, Ingredient>
+  factor: number
+  techniques?: ReadonlyMap<string, Technique>
+  /** Unique within the page, so each expander controls its own note. */
+  idPrefix: string
+  /** `p` for the step's description, `li` for a substep. */
+  as: 'p' | 'li'
+  className?: string
+}
+
+/**
+ * One line of a step's prose. Techniques marked in it open in place: the note appears directly under this line and
+ * folds away again, and each line keeps its own open state so reading on elsewhere is never disturbed.
+ */
+function StepLine({ text, as, className, idPrefix, techniques, ...rest }: StepLineProps) {
+  const [open, setOpen] = useState<ReadonlySet<string>>(new Set())
+  const toggle = useCallback(
+    (id: string) =>
+      setOpen((prev) => {
+        const next = new Set(prev)
+        if (!next.delete(id)) next.add(id)
+        return next
+      }),
+    [],
+  )
+  const notes = [...new Set(techniqueTokens(text))].flatMap((id) => {
+    const technique = techniques?.get(id)
+    return technique && open.has(id)
+      ? [<TechniqueNote key={id} technique={technique} id={techniqueNoteId(idPrefix, id)} />]
+      : []
+  })
+  const body = (
+    <StepText
+      text={text}
+      techniques={techniques}
+      openTechniques={open}
+      onToggleTechnique={toggle}
+      idPrefix={idPrefix}
+      {...rest}
+    />
+  )
+  if (as === 'li')
+    return (
+      <li className={className}>
+        {body}
+        {notes}
+      </li>
+    )
+  return (
+    <div>
+      <p className={className}>{body}</p>
+      {notes}
+    </div>
+  )
+}
+
 /**
  * One stage of the method. A short headline, then a fuller description; time and temperature sit beside the
  * headline instead of in a footer. The numbered circle carries the step kind's colour and ticks the step off.
  * The whole card selects the step (a stretched button over it), which highlights its ingredients and equipment.
  */
 export function StepCard(props: StepCardProps) {
-  const { step, number, lines, ingredients, factor, slug, imageSrc, done, active } = props
+  const { step, number, lines, ingredients, factor, slug, imageSrc, techniques, done, active } = props
+  const shared = { lines, ingredients, factor, techniques }
   const time = timing(step)
 
   return (
@@ -86,16 +151,18 @@ export function StepCard(props: StepCardProps) {
           </p>
         </div>
 
-        <p className={cn('text-base leading-7', done && 'text-muted-foreground')}>
-          <StepText text={step.text} lines={lines} ingredients={ingredients} factor={factor} />
-        </p>
+        <StepLine
+          as="p"
+          text={step.text}
+          idPrefix={`${step.id}-text`}
+          className={cn('text-base leading-7', done && 'text-muted-foreground')}
+          {...shared}
+        />
 
         {step.substeps.length > 0 ? (
           <ul className="list-disc space-y-1.5 pl-5 text-base leading-7 text-foreground/85 marker:text-muted-foreground">
-            {step.substeps.map((sub) => (
-              <li key={sub}>
-                <StepText text={sub} lines={lines} ingredients={ingredients} factor={factor} />
-              </li>
+            {step.substeps.map((sub, i) => (
+              <StepLine key={sub} as="li" text={sub} idPrefix={`${step.id}-sub${i}`} {...shared} />
             ))}
           </ul>
         ) : null}

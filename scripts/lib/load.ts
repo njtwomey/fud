@@ -13,6 +13,7 @@ import {
   SwapsFile,
   Tag,
   TagsFile,
+  TechniquesFile,
   Tool,
   ToolsFile,
   z,
@@ -120,6 +121,7 @@ export function loadLibrary(opts: { staging?: readonly string[] } = {}): LoadedL
   const tags = readYaml(dataFile('tags.yaml'), TagsFile, 'tags.yaml', issues)
   const swaps = readYaml(dataFile('swaps.yaml'), SwapsFile, 'swaps.yaml', issues)
   const options = readYaml(dataFile('recipe-options.yaml'), RecipeOptionsFile, 'recipe-options.yaml', issues)
+  const techniques = readYaml(dataFile('techniques.yaml'), TechniquesFile, 'techniques.yaml', issues)
   const kitchen = readYaml(dataFile('kitchen.yaml'), Kitchen, 'kitchen.yaml', issues)
 
   const recipes: Recipe[] = []
@@ -151,6 +153,7 @@ export function loadLibrary(opts: { staging?: readonly string[] } = {}): LoadedL
     tools: tools?.tools ?? [],
     tags: tags?.tags ?? [],
     swaps: swaps?.swaps ?? [],
+    techniques: techniques?.techniques ?? [],
     kitchen: kitchen ?? Kitchen.parse({}),
     recipes: recipes.sort((a, b) => a.title.localeCompare(b.title)),
   }

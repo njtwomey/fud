@@ -14,7 +14,7 @@ the types; there is no code generation and no second language.
 
 ```
 data/                 vocabularies and taxonomy (YAML): ingredients (+categories), tools (+categories),
-                      tags (+domains), swaps (+qualities), recipe-options (statuses, source kinds), kitchen
+                      tags (+domains), swaps (+qualities), techniques, recipe-options (statuses, source kinds), kitchen
 recipes/<slug>/       recipe.yaml and images/ (folder name == slug)
 schemas/              generated JSON Schema so editors can validate YAML (make schemas)
 scripts/              tsx scripts: doctor, build-data, format-data, export-schemas, import-mealie
@@ -85,6 +85,13 @@ through"). This is so no ingredient is ever missed.
 **Steps are stages, not micro-actions.** Each step has a short `title` (headline), a `text` description and optional
 `substeps`, aiming for roughly 6 to 10 steps per recipe. Ingredients in step text are always tokens, `{line-id}` for
 quantity and name or `{line-id:name}` for just the name, never hardcoded words, so swaps flow through.
+
+**Techniques explain themselves, on demand.** A method a cook might forget (creaming, stiff peaks) is defined once in
+`data/techniques.yaml` and marked in step `text` or `substeps` as `[[technique-id|words]]`, e.g. "[[creaming|Cream]]
+the {butter:name}". The site shows the words with a dotted underline and chevron; selecting them expands the
+explanation in place, folded by default. Mark genuine techniques only, once per line, and keep recipe-specific advice in
+the step's own text and cue. Add the technique entry first; `make doctor` rejects unknown ids. Currently only
+`iced-gems` uses it; add it to other recipes only when asked.
 
 **Swaps rewrite the recipe.** Choosing a swap (`lib/recipe/swaps.ts`, `applySwaps`) replaces the line's ingredient and
 scales its amount; step text, nutrition, the shopping list and the plan all derive from the swapped recipe. The chosen

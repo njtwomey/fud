@@ -45,7 +45,12 @@
         "title": {
           "type": "string"
         },
+        "author": {
+          "description": "Who wrote or created it.",
+          "type": "string"
+        },
         "url": {
+          "description": "A real web address; the only way a recipe may say where it came from.",
           "type": "string"
         },
         "note": {
@@ -252,7 +257,7 @@
           "text": {
             "type": "string",
             "minLength": 1,
-            "description": "What to do, in a sentence or two. {line-id} inserts the scaled quantity and name; {line-id:name} inserts just the name. Always use tokens for ingredients so swaps flow through."
+            "description": "What to do, in a sentence or two. {line-id} inserts the scaled quantity and name; {line-id:name} inserts just the name. Always use tokens for ingredients so swaps flow through. [[technique-id|words]] shows the words as an expander that explains the technique from techniques.yaml, e.g. '[[creaming|Cream]] the {butter}'."
           },
           "substeps": {
             "default": [],

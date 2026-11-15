@@ -3831,6 +3831,21 @@ ingredients:
       salt_g: 0
     nutrition_source: estimate
 
+  - id: orange-zest
+    name: orange zest
+    category: produce
+    aliases: []
+    nutrition:
+      kcal: 97
+      protein_g: 1.5
+      fat_g: 0.2
+      saturates_g: 0
+      carbs_g: 25
+      sugars_g: 4
+      fibre_g: 10.6
+      salt_g: 0.01
+    nutrition_source: estimate
+
   - id: caster-sugar
     name: caster sugar
     category: sweeteners

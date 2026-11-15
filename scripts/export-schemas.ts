@@ -16,6 +16,7 @@ import {
   RecipeOptionsFile,
   SwapsFile,
   TagsFile,
+  TechniquesFile,
   ToolsFile,
   z,
 } from '../web/src/lib/schema'
@@ -30,6 +31,7 @@ const targets = {
   'recipe-options.schema.json': RecipeOptionsFile,
   'tags.schema.json': TagsFile,
   'swaps.schema.json': SwapsFile,
+  'techniques.schema.json': TechniquesFile,
   'kitchen.schema.json': Kitchen,
 } as const
 

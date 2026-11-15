@@ -1,7 +1,7 @@
 import type { Catalog, Recipe } from '../schema'
 import { estimateNutrition } from './nutrition'
 import { computeSchedule } from './schedule'
-import { textTokens } from './text'
+import { techniqueTokens, textTokens } from './text'
 
 export interface Issue {
   severity: 'error' | 'warning'
@@ -77,6 +77,7 @@ function checkTaxonomy(lib: Catalog, issues: Issue[]): void {
     ['tags.yaml (domains)', lib.tag_domains.map((d) => d.id)],
     ['tags.yaml', lib.tags.map((t) => t.id)],
     ['swaps.yaml (qualities)', lib.swap_qualities.map((q) => q.id)],
+    ['techniques.yaml', lib.techniques.map((t) => t.id)],
     ['recipe-options.yaml (statuses)', lib.recipe_statuses.map((s) => s.id)],
     ['recipe-options.yaml (source_kinds)', lib.source_kinds.map((s) => s.id)],
   ] as const) {
@@ -109,6 +110,13 @@ function checkTaxonomy(lib: Catalog, issues: Issue[]): void {
       if (!qualityIds.has(alt.quality)) error(at, `unknown swap quality '${alt.quality}'`)
     }
   }
+  for (const technique of lib.techniques) {
+    const at = `techniques.yaml:${technique.id}`
+    for (const text of [technique.name, technique.description, ...technique.tips]) {
+      if (PROVENANCE.test(text)) error(at, `mentions where it came from: ${text.slice(0, 80)}`)
+      for (const word of unexplainedCollectives(text)) error(at, `'${word}' hides what is meant: ${text.slice(0, 80)}`)
+    }
+  }
   for (const id of lib.kitchen.tools) if (!toolIds.has(id)) error('kitchen.yaml', `unknown tool '${id}'`)
   for (const ing of lib.ingredients) {
     const at = `ingredients.yaml:${ing.id}`
@@ -129,6 +137,7 @@ function checkRecipe(recipe: Recipe, lib: Catalog, facts: FileFacts, issues: Iss
   const statusIds = new Set(lib.recipe_statuses.map((x) => x.id))
   const sourceKindIds = new Set(lib.source_kinds.map((x) => x.id))
   const qualityIds = new Set(lib.swap_qualities.map((x) => x.id))
+  const techniqueIds = new Set(lib.techniques.map((x) => x.id))
 
   const folder = facts.folderBySlug[recipe.slug]
   if (folder !== undefined && folder !== recipe.slug)
@@ -186,6 +195,9 @@ function checkRecipe(recipe: Recipe, lib: Catalog, facts: FileFacts, issues: Iss
     for (const ref of refs) {
       used.add(ref)
       if (!lines.has(ref)) error(at, `unknown ingredient line '${ref}'`)
+    }
+    for (const id of [...techniqueTokens(step.text), ...step.substeps.flatMap(techniqueTokens)]) {
+      if (!techniqueIds.has(id)) error(at, `unknown technique '${id}'`)
     }
     for (const after of step.after ?? []) if (!stepIds.has(after)) error(at, `unknown step '${after}' in after`)
     for (const st of step.tools) {

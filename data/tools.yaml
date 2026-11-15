@@ -483,6 +483,22 @@ tools:
     category: storage
     substitutes: []
 
+  - id: piping-bag
+    name: piping bag
+    category: prep
+    substitutes: []
+
+  - id: star-piping-nozzle
+    name: open star piping nozzle
+    category: prep
+    substitutes: []
+
+  - id: cling-film
+    name: cling film
+    category: storage
+    substitutes:
+      - baking-paper
+
   - id: baking-paper
     name: baking paper
     category: bakeware

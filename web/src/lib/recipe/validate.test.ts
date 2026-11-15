@@ -18,6 +18,21 @@ describe('validateLibrary', () => {
     expect(validateLibrary(makeCatalog(), facts).filter((i) => i.severity === 'error')).toEqual([])
   })
 
+  it('rejects techniques that are not defined, and accepts ones that are', () => {
+    const marked = (id: string) =>
+      withRecipe((r) => {
+        r.steps[0].text = `[[${id}|Cream]] {garlic}.`
+      })
+    expect(messages(marked('creaming')).filter((m) => m.startsWith('error'))).toEqual([])
+    expect(messages(marked('whipping'))).toContain("error: unknown technique 'whipping'")
+  })
+
+  it('applies the wording rules to technique explanations', () => {
+    const c = structuredClone(makeCatalog())
+    c.techniques[0]!.description = 'Beat everything until pale.'
+    expect(messages(c).some((m) => m.includes("'everything' hides what is meant"))).toBe(true)
+  })
+
   it('rejects ingredients that are not in the taxonomy', () => {
     const c = withRecipe((r) => {
       r.components[0].ingredients[0].ingredient = 'mystery-powder'

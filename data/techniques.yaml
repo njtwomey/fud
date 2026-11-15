@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../schemas/techniques.schema.json
+# Cooking methods a recipe can explain in place. A step marks the word as [[id|words]] (for example
+# "[[creaming|Cream]] the butter"); the site shows it with a small expander that opens `description` and `tips`.
+# Mark a technique only where someone might have forgotten it, once per step. Describe the method in general terms;
+# what a particular recipe wants goes in that step's own text and cue.
+
+techniques:
+  - id: creaming
+    name: Creaming
+    description: Beating soft butter together with sugar so the sugar crystals work tiny pockets of air into the fat. The mixture turns paler, lighter and fluffier, which is what makes a cake or biscuit tender.
+    tips:
+      - Use butter at room temperature, soft enough to dent with a finger but not greasy or melting.
+      - Scrape down the sides of the bowl from time to time so no butter escapes the beaters.
+      - Stop as soon as the mixture looks smooth and combined if the recipe asks for it not to be fluffy.
+
+  - id: stiff-peaks
+    name: Stiff peaks
+    description: Whisking egg whites, or an icing made from them, until the mixture is thick and glossy enough to hold its shape. When you lift the whisk out, the peak that forms stands straight up and does not droop over.
+    tips:
+      - The bowl and whisk must be clean and free of grease, or the whites will not thicken.
+      - Test by lifting the whisk out and turning it upside down, and by tipping the bowl, as a stiff mixture will not slide.
+      - Stop once the peaks hold, because whisking much further makes the mixture grainy.
+
+  - id: piping-rosette
+    name: Piping a rosette
+    description: Piping a ruffled swirl of icing with a star nozzle. Hold the bag upright just above the surface, squeeze from the middle of where the rosette will sit, and spiral outwards in one full turn, then stop squeezing and lift away with a small flick.
+    tips:
+      - Squeeze steadily from the top of the bag with one hand and guide with the other.
+      - Twist the top of the bag shut after filling so the icing cannot escape upwards.
+      - Practise on baking paper first, because the icing can be scraped back into the bag and used again.
