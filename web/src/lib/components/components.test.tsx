@@ -1,5 +1,6 @@
-import { act, render, screen, within } from '@testing-library/react'
+import { act, fireEvent, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { useState } from 'react'
 import { MemoryRouter } from 'react-router'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { estimateNutrition } from '../recipe/nutrition'
@@ -10,6 +11,7 @@ import type { Catalog, SwapOption } from '../schema'
 import { makeCatalog, makeRecipe } from '../testing/fixtures'
 import { CollapsibleSection } from './collapsible-section'
 import { CookingModeToggle } from './cooking-mode-toggle'
+import { CookingView } from './cooking-view'
 import { IngredientPanel } from './ingredient-panel'
 import { KindBadge, KindLabel } from './kind-badge'
 import { NutritionTable } from './nutrition-table'
@@ -574,7 +576,7 @@ describe('CookingModeToggle', () => {
   it('asks the browser to keep the screen on when switched on, and lets go when switched off', async () => {
     const { request, sentinel } = fakeWakeLock()
     render(<CookingModeToggle />)
-    const button = screen.getByRole('button', { name: 'Cooking mode' })
+    const button = screen.getByRole('button', { name: 'Keep screen on' })
     expect(button).toHaveAttribute('aria-pressed', 'false')
     expect(request).not.toHaveBeenCalled()
     await userEvent.click(button)
@@ -582,13 +584,13 @@ describe('CookingModeToggle', () => {
     expect(await screen.findByRole('button', { name: 'Screen staying on' })).toHaveAttribute('aria-pressed', 'true')
     await userEvent.click(screen.getByRole('button', { name: 'Screen staying on' }))
     expect(sentinel.release).toHaveBeenCalled()
-    expect(screen.getByRole('button', { name: 'Cooking mode' })).toHaveAttribute('aria-pressed', 'false')
+    expect(screen.getByRole('button', { name: 'Keep screen on' })).toHaveAttribute('aria-pressed', 'false')
   })
 
   it('asks again when the page comes back to the front after the browser dropped the lock', async () => {
     const { request, dropLock } = fakeWakeLock()
     render(<CookingModeToggle />)
-    await userEvent.click(screen.getByRole('button', { name: 'Cooking mode' }))
+    await userEvent.click(screen.getByRole('button', { name: 'Keep screen on' }))
     expect(request).toHaveBeenCalledTimes(1)
     await act(async () => {
       setVisibility('hidden')
@@ -608,7 +610,7 @@ describe('CookingModeToggle', () => {
       configurable: true,
     })
     render(<CookingModeToggle />)
-    await userEvent.click(screen.getByRole('button', { name: 'Cooking mode' }))
+    await userEvent.click(screen.getByRole('button', { name: 'Keep screen on' }))
     expect(await screen.findByRole('button', { name: 'Screen staying on' })).toHaveAttribute(
       'title',
       'Waiting for the browser to allow it',
@@ -618,8 +620,142 @@ describe('CookingModeToggle', () => {
   it('releases the lock when the page is left', async () => {
     const { sentinel } = fakeWakeLock()
     const { unmount } = render(<CookingModeToggle />)
-    await userEvent.click(screen.getByRole('button', { name: 'Cooking mode' }))
+    await userEvent.click(screen.getByRole('button', { name: 'Keep screen on' }))
     unmount()
     expect(sentinel.release).toHaveBeenCalled()
+  })
+})
+
+describe('CookingView', () => {
+  const techniques = new Map(catalog.techniques.map((t) => [t.id, t]))
+  const steps = recipe.steps.map((s) =>
+    s.id === 'boil'
+      ? {
+          ...s,
+          text: '[[creaming|Cream]] {rice} well.',
+          tools: [{ tool: 'saucepan', alternatives: [], note: 'Large one.' }],
+        }
+      : s,
+  )
+
+  function Harness({ onClose = vi.fn(), initialDone = [] as string[] }) {
+    const [done, setDone] = useState<ReadonlySet<string>>(new Set(initialDone))
+    return (
+      <CookingView
+        title="Garlic Rice"
+        steps={steps}
+        lines={lines}
+        ingredients={ingredients}
+        tools={tools}
+        techniques={techniques}
+        factor={1}
+        slug="garlic-rice"
+        imageSrc={() => ''}
+        done={done}
+        onDoneChange={(id, value) =>
+          setDone((prev) => {
+            const next = new Set(prev)
+            if (value) next.add(id)
+            else next.delete(id)
+            return next
+          })
+        }
+        renderIngredients={({ highlighted, used }) => (
+          <p>
+            <span data-testid="highlighted">{[...highlighted].join(',')}</span>
+            <span data-testid="used">{[...used].join(',')}</span>
+          </p>
+        )}
+        onClose={onClose}
+      />
+    )
+  }
+
+  it('shows one step at a time with its progress, needs and equipment', () => {
+    render(<Harness />)
+    expect(screen.getByRole('dialog', { name: /Garlic Rice/ })).toBeInTheDocument()
+    expect(screen.getByText('Step 1 of 4')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Slice the garlic' })).toBeInTheDocument()
+    const needs = screen.getByRole('region', { name: 'What this step needs' })
+    expect(within(needs).getByText('2 cloves garlic')).toBeInTheDocument()
+    expect(screen.queryByRole('heading', { name: 'Cook the rice' })).not.toBeInTheDocument()
+    expect(screen.getByTestId('highlighted')).toHaveTextContent('garlic')
+  })
+
+  it('moves on and back, ticking steps off and fading their ingredients as it goes', async () => {
+    render(<Harness />)
+    await userEvent.click(screen.getByRole('button', { name: /Next step/ }))
+    expect(screen.getByText('Step 2 of 4')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Cook the rice' })).toBeInTheDocument()
+    expect(screen.getByTestId('used')).toHaveTextContent('')
+    await userEvent.click(screen.getByRole('button', { name: /Next step/ }))
+    expect(screen.getByTestId('used')).toHaveTextContent('rice')
+    await userEvent.click(screen.getByRole('button', { name: /Back/ }))
+    expect(screen.getByText('Step 2 of 4')).toBeInTheDocument()
+    expect(screen.getByTestId('used')).toHaveTextContent('')
+  })
+
+  it('names the equipment with its note', async () => {
+    render(<Harness initialDone={['slice']} />)
+    const needs = screen.getByRole('region', { name: 'What this step needs' })
+    expect(within(needs).getByText('saucepan')).toBeInTheDocument()
+    expect(within(needs).getByText('(Large one)')).toBeInTheDocument()
+  })
+
+  it('starts at the first step that is not done', () => {
+    render(<Harness initialDone={['slice', 'boil']} />)
+    expect(screen.getByText('Step 3 of 4')).toBeInTheDocument()
+  })
+
+  it('can jump to a step from the progress bar and walk with the arrow keys', async () => {
+    render(<Harness />)
+    await userEvent.click(screen.getByRole('button', { name: /Go to step 3: Fry the garlic/ }))
+    expect(screen.getByText('Step 3 of 4')).toBeInTheDocument()
+    fireEvent.keyDown(window, { key: 'ArrowRight' })
+    expect(screen.getByText('Step 4 of 4')).toBeInTheDocument()
+    fireEvent.keyDown(window, { key: 'ArrowLeft' })
+    expect(screen.getByText('Step 3 of 4')).toBeInTheDocument()
+  })
+
+  it('offers Finish on the last step, which closes the view', async () => {
+    const onClose = vi.fn()
+    render(<Harness onClose={onClose} initialDone={['slice', 'boil', 'fry']} />)
+    expect(screen.getByRole('button', { name: /Back/ })).toBeEnabled()
+    await userEvent.click(screen.getByRole('button', { name: 'Finish' }))
+    expect(onClose).toHaveBeenCalled()
+  })
+
+  it('cannot go back from the first step, and closes from the close button', async () => {
+    const onClose = vi.fn()
+    render(<Harness onClose={onClose} />)
+    expect(screen.getByRole('button', { name: /Back/ })).toBeDisabled()
+    await userEvent.click(screen.getByRole('button', { name: 'Close cooking view' }))
+    expect(onClose).toHaveBeenCalled()
+  })
+
+  it('still explains marked techniques in place', async () => {
+    render(<Harness initialDone={['slice']} />)
+    await userEvent.click(screen.getByRole('button', { name: 'Cream' }))
+    expect(screen.getByRole('complementary', { name: /Creaming/ })).toBeInTheDocument()
+  })
+})
+
+describe('IngredientPanel used ingredients', () => {
+  it('marks lines that have been used up so they can fade back', () => {
+    render(
+      <IngredientPanel
+        recipe={recipe}
+        factor={1}
+        ingredients={ingredients}
+        swaps={catalog.swaps}
+        qualities={catalog.swap_qualities}
+        chosen={{}}
+        onSwap={vi.fn()}
+        used={new Set(['rice'])}
+      />,
+    )
+    const rice = screen.getByText('200 g basmati rice').closest('li')
+    expect(rice).toHaveAttribute('data-used', 'true')
+    expect(screen.getByText('2 cloves garlic').closest('li')).not.toHaveAttribute('data-used')
   })
 })

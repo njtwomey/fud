@@ -93,6 +93,12 @@ explanation in place, folded by default. Mark genuine techniques only, once per 
 the step's own text and cue. Add the technique entry first; `make doctor` rejects unknown ids. The library has about 50
 methods ready; only `iced-gems` marks any today, and other recipes get them only when asked.
 
+**Cooking view and progress.** The recipe page's "Start cooking" opens `CookingView`, a full-screen walk through the steps
+in the chosen method order. Progress is the page's single `done` set of step ids, shared by the view and the step list,
+so ticking a step either way gives the same result. `usedLineIds` (`lib/recipe/progress.ts`) derives which ingredient
+lines are used up (every step that mentions the line is done); the ingredient panel fades those, and undoing a step
+brings them back. "Keep screen on" is the separate wake-lock toggle; the view also holds the lock while it is open.
+
 **Swaps rewrite the recipe.** Choosing a swap (`lib/recipe/swaps.ts`, `applySwaps`) replaces the line's ingredient and
 scales its amount; step text, nutrition, the shopping list and the plan all derive from the swapped recipe. The chosen
 swaps are kept with the shopping plan in localStorage.

@@ -23,6 +23,8 @@ interface IngredientPanelProps {
   onSwap: (lineId: string, option: SwapOption | null) => void
   /** Ingredient line ids to emphasise, e.g. those used by the step being read. */
   highlighted?: ReadonlySet<string>
+  /** Ingredient line ids already used up by finished steps. They fade back, and return if a step is undone. */
+  used?: ReadonlySet<string>
 }
 
 interface SwapMenuProps {
@@ -88,6 +90,7 @@ export function IngredientPanel({
   chosen,
   onSwap,
   highlighted,
+  used,
 }: IngredientPanelProps) {
   const [checked, setChecked] = useState<ReadonlySet<string>>(new Set())
   const [openLine, setOpenLine] = useState<string | null>(null)
@@ -126,7 +129,8 @@ export function IngredientPanel({
                   <li
                     key={line.id}
                     data-highlighted={highlighted?.has(line.id) || undefined}
-                    className="flex items-start gap-2 rounded-md px-2 py-1 transition-colors data-[highlighted]:bg-accent"
+                    data-used={used?.has(line.id) || undefined}
+                    className="flex items-start gap-2 rounded-md px-2 py-1 transition-[background-color,opacity] data-[highlighted]:bg-accent data-[used]:opacity-45"
                   >
                     <Checkbox
                       id={`line-${line.id}`}

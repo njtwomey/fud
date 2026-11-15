@@ -3,7 +3,7 @@ import { useWakeLock } from '../hooks/use-wake-lock'
 import { Button } from '../ui/button'
 
 /**
- * "Cooking mode": keeps the screen on so the phone does not go dark mid-recipe. Off by default and reset on each
+ * "Keep screen on": holds the screen on so the phone does not go dark mid-recipe. Off by default and reset on each
  * visit, because holding the screen on costs battery. Renders nothing where the browser cannot do it.
  */
 export function CookingModeToggle() {
@@ -19,7 +19,7 @@ export function CookingModeToggle() {
       onClick={() => setWanted(!wanted)}
     >
       <CookingPot />
-      {wanted ? 'Screen staying on' : 'Cooking mode'}
+      {wanted ? 'Screen staying on' : 'Keep screen on'}
     </Button>
   )
 }

@@ -1,9 +1,10 @@
-import { Check, Clock, Layers, ListOrdered, Scissors, ShoppingBasket } from 'lucide-react'
+import { Check, ChefHat, Clock, Layers, ListOrdered, Scissors, ShoppingBasket } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { useParams } from 'react-router'
 import { imageUrl, useCatalog } from '@/lib/catalog'
 import { CollapsibleSection } from '@/lib/components/collapsible-section'
 import { CookingModeToggle } from '@/lib/components/cooking-mode-toggle'
+import { CookingView } from '@/lib/components/cooking-view'
 import { IngredientPanel } from '@/lib/components/ingredient-panel'
 import { NutritionTable } from '@/lib/components/nutrition-table'
 import { ScrollPanel } from '@/lib/components/scroll-panel'
@@ -26,6 +27,7 @@ import {
   type MethodView,
   stepLineIds,
   totalMinutes,
+  usedLineIds,
 } from '@/lib/recipe'
 import type { Recipe, SwapOption } from '@/lib/schema'
 import { Badge } from '@/lib/ui/badge'
@@ -66,6 +68,7 @@ function RecipeView({ recipe }: { recipe: Recipe }) {
   const [activeStep, setActiveStep] = useState<string | null>(null)
   const [done, setDone] = useState<ReadonlySet<string>>(new Set())
   const [serveAt, setServeAt] = useState('')
+  const [cooking, setCooking] = useState(false)
 
   // Keep the shopping list in step with what is chosen here once the recipe is on it.
   const { add } = plan
@@ -86,12 +89,21 @@ function RecipeView({ recipe }: { recipe: Recipe }) {
   const highlightedLines = useMemo(() => (step ? stepLineIds(step) : undefined), [step])
   const highlightedTools = useMemo(() => (step ? new Set(step.tools.map((t) => t.tool)) : undefined), [step])
   const hero = recipe.images[0]
+  const used = useMemo(() => usedLineIds(recipe.steps, done), [recipe.steps, done])
+  const orderedSteps = useMemo(() => groups.flatMap((g) => g.steps), [groups])
   const ingredientNames = new Map([...ingredients].map(([id, i]) => [id, i.name]))
 
   const toggleDone = (id: string) =>
     setDone((prev) => {
       const next = new Set(prev)
       if (!next.delete(id)) next.add(id)
+      return next
+    })
+  const setStepDone = (id: string, value: boolean) =>
+    setDone((prev) => {
+      const next = new Set(prev)
+      if (value) next.add(id)
+      else next.delete(id)
       return next
     })
   const chooseSwap = (lineId: string, option: SwapOption | null) =>
@@ -122,6 +134,10 @@ function RecipeView({ recipe }: { recipe: Recipe }) {
         ))}
         <div className="ml-auto flex items-center gap-2">
           <CookingModeToggle />
+          <Button size="sm" variant={done.size > 0 ? 'secondary' : 'default'} onClick={() => setCooking(true)}>
+            <ChefHat />
+            {done.size > 0 && done.size < recipe.steps.length ? 'Continue cooking' : 'Start cooking'}
+          </Button>
           <Button
             size="sm"
             variant={planned ? 'secondary' : 'default'}
@@ -150,6 +166,7 @@ function RecipeView({ recipe }: { recipe: Recipe }) {
             chosen={chosen}
             onSwap={chooseSwap}
             highlighted={highlightedLines}
+            used={used}
           />
         </ScrollPanel>
 
@@ -275,6 +292,35 @@ function RecipeView({ recipe }: { recipe: Recipe }) {
           </CollapsibleSection>
         </ScrollPanel>
       </div>
+      {cooking ? (
+        <CookingView
+          title={recipe.title}
+          steps={orderedSteps}
+          lines={lines}
+          ingredients={ingredients}
+          tools={tools}
+          techniques={techniques}
+          factor={factor}
+          slug={recipe.slug}
+          imageSrc={imageUrl}
+          done={done}
+          onDoneChange={setStepDone}
+          onClose={() => setCooking(false)}
+          renderIngredients={(state) => (
+            <IngredientPanel
+              recipe={recipe}
+              factor={factor}
+              ingredients={ingredients}
+              swaps={catalog.swaps}
+              qualities={catalog.swap_qualities}
+              chosen={chosen}
+              onSwap={chooseSwap}
+              highlighted={state.highlighted}
+              used={state.used}
+            />
+          )}
+        />
+      ) : null}
     </div>
   )
 }

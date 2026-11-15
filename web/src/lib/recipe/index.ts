@@ -1,4 +1,5 @@
 export * from './nutrition'
+export * from './progress'
 export * from './schedule'
 export * from './shopping'
 export * from './staging'
