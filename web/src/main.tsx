@@ -10,7 +10,7 @@ import { AppShell } from '@/ux/app-shell'
 import { ErrorState } from '@/ux/states'
 import './index.css'
 
-const title = import.meta.env.VITE_APP_TITLE || 'Fud'
+const title = import.meta.env.VITE_APP_TITLE || 'Füd'
 document.title = title
 
 // Hash routing keeps deep links and refreshes working on static hosts such as GitHub Pages.

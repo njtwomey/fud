@@ -1,4 +1,4 @@
-# Fud
+# Füd
 
 A personal recipe library as a static site. Recipes are YAML files; the site shows ingredients beside the method
 (scaled to servings), a timeline of what to do when, equipment with substitutes, swaps, nutrition estimates and a
