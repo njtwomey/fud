@@ -139,7 +139,7 @@ steps:
     kind: cook
     text: Heat the oil in a large pan on a medium heat and soften the onion and garlic, then stir in {paprika} and {oregano} for a minute.
     substeps:
-      - Finely chop {onion} and mince {garlic}.
+      - Finely chop {onion} and [[mincing|mince]] {garlic}.
       - Heat {oil} in a large frying pan on a medium heat.
       - Add the onion and garlic and fry for 3 to 4 minutes.
       - Stir in {paprika} and {oregano} and cook for another minute.
@@ -171,7 +171,7 @@ steps:
     title: Simmer the tomato sauce
     component: sauce
     kind: cook
-    text: Stir in the passata, sugar and cream, bring to a simmer and cook for 10 minutes, stirring now and then.
+    text: Stir in the passata, sugar and cream, [[simmering|bring to a simmer]] and cook for 10 minutes, stirring now and then.
     substeps:
       - Stir in {passata}, {sugar} and {cream}.
       - Bring to a simmer and cook for 10 minutes, stirring occasionally.
@@ -187,7 +187,7 @@ steps:
     title: Toss with the pasta
     component: sauce
     kind: cook
-    text: Add the cooked pasta to the pan and toss, loosening with a little pasta water if the sauce is too thick.
+    text: Add the cooked pasta to the pan and toss, [[emulsifying|loosening with a little pasta water]] if the sauce is too thick.
     substeps:
       - Add the drained pasta to the pan and toss to combine.
       - If the sauce is too thick, add a little of the reserved pasta water.

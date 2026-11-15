@@ -137,7 +137,7 @@ steps:
     substeps:
       - Heat {oil} in a sauté pan, ideally with a lid, and add {shallot:name} with {salt}.
       - When they turn transparent, turn the heat down and let them caramelise.
-      - Keep watching, adding {water-deglaze} now and then to deglaze the pan so they do not burn.
+      - Keep watching, adding {water-deglaze} now and then to [[deglazing|deglaze the pan]] so they do not burn.
       - After about 45 minutes, add the garlic, ginger and chilli with extra {salt} and {pepper} if needed, and keep going.
     cue: The shallots are deep brown and jammy, after about an hour.
     heat: low
@@ -153,7 +153,7 @@ steps:
     title: Add the tomatoes, coconut and saffron
     component: sauce
     kind: cook
-    text: Stir the tomatoes and stock into the shallots, bring to a simmer, then add the coconut and saffron and turn the heat down.
+    text: Stir the tomatoes and stock into the shallots, [[simmering|bring to a simmer]], then add the coconut and saffron and turn the heat down.
     substeps:
       - Add the diced tomatoes to the shallots and turn the heat up to bring it to a simmer.
       - Add {stock-cubes}.

@@ -234,7 +234,7 @@ steps:
     text: Mix the lentils, spinach, lamb and rice together thoroughly, season with salt and pepper, and serve in a bowl with a large dollop of the yoghurt on top.
     substeps:
       - Mix the lentils, spinach and rice through the pilaf.
-      - Taste and adjust with {lemon-juice}, {salt} and {pepper}.
+      - "[[tasting-and-adjusting|Taste and adjust]] with {lemon-juice}, {salt} and {pepper}."
       - Serve in bowls with a large dollop of the yoghurt mixture on top.
     active_min: 3
     after:

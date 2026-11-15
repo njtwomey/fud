@@ -214,7 +214,7 @@ steps:
     title: Simmer the curry
     component: curry
     kind: cook
-    text: Simmer the curry for 12 to 15 minutes.
+    text: "[[simmering|Simmer]] the curry for 12 to 15 minutes."
     cue: The sauce has thickened slightly and the chicken is cooked through with no pink inside.
     heat: low
     active_min: 3

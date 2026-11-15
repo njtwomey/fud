@@ -78,13 +78,15 @@ export const Technique = z
   .object({
     id: Slug,
     name: z.string().min(1).describe("Title of the explanation, e.g. 'Creaming'."),
+    category: Slug.describe('Category id from `categories` in techniques.yaml.'),
     description: z.string().min(1).describe('What the method is and how it is done, in two or three sentences.'),
+    when: z.array(z.string()).default([]).describe('Situations where you would reach for it, in plain words.'),
     tips: z.array(z.string()).default([]).describe('Short pointers: what it should look like, common slips.'),
   })
   .strict()
 export type Technique = z.infer<typeof Technique>
 
-export const TechniquesFile = z.object({ techniques: z.array(Technique) }).strict()
+export const TechniquesFile = z.object({ categories: z.array(Vocab), techniques: z.array(Technique) }).strict()
 
 /** Use `ingredient` instead. `ratio` multiplies the original amount. */
 export const SwapOption = z

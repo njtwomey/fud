@@ -90,8 +90,8 @@ quantity and name or `{line-id:name}` for just the name, never hardcoded words, 
 `data/techniques.yaml` and marked in step `text` or `substeps` as `[[technique-id|words]]`, e.g. "[[creaming|Cream]]
 the {butter:name}". The site shows the words with a dotted underline and chevron; selecting them expands the
 explanation in place, folded by default. Mark genuine techniques only, once per line, and keep recipe-specific advice in
-the step's own text and cue. Add the technique entry first; `make doctor` rejects unknown ids. Currently only
-`iced-gems` uses it; add it to other recipes only when asked.
+the step's own text and cue. Add the technique entry first; `make doctor` rejects unknown ids. The library has about 50
+methods ready; only `iced-gems` marks any today, and other recipes get them only when asked.
 
 **Swaps rewrite the recipe.** Choosing a swap (`lib/recipe/swaps.ts`, `applySwaps`) replaces the line's ingredient and
 scales its amount; step text, nutrition, the shopping list and the plan all derive from the swapped recipe. The chosen

@@ -94,7 +94,7 @@ steps:
     title: Taste and season
     component: pesto
     kind: prep
-    text: Taste, and add a little more {salt:name} or {pepper:name} if it needs it.
+    text: "[[tasting-and-adjusting|Taste]], and add a little more {salt:name} or {pepper:name} if it needs it."
     active_min: 1
     after:
       - make-pesto

@@ -15,6 +15,7 @@ export const Catalog = z
     tools: z.array(Tool),
     tags: z.array(Tag),
     swaps: z.array(SwapRule),
+    technique_categories: z.array(Vocab),
     techniques: z.array(Technique),
     kitchen: Kitchen,
     recipes: z.array(Recipe),

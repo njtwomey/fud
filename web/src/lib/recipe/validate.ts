@@ -77,6 +77,7 @@ function checkTaxonomy(lib: Catalog, issues: Issue[]): void {
     ['tags.yaml (domains)', lib.tag_domains.map((d) => d.id)],
     ['tags.yaml', lib.tags.map((t) => t.id)],
     ['swaps.yaml (qualities)', lib.swap_qualities.map((q) => q.id)],
+    ['techniques.yaml (categories)', lib.technique_categories.map((c) => c.id)],
     ['techniques.yaml', lib.techniques.map((t) => t.id)],
     ['recipe-options.yaml (statuses)', lib.recipe_statuses.map((s) => s.id)],
     ['recipe-options.yaml (source_kinds)', lib.source_kinds.map((s) => s.id)],
@@ -110,9 +111,11 @@ function checkTaxonomy(lib: Catalog, issues: Issue[]): void {
       if (!qualityIds.has(alt.quality)) error(at, `unknown swap quality '${alt.quality}'`)
     }
   }
+  const techniqueCategoryIds = ids(lib.technique_categories)
   for (const technique of lib.techniques) {
     const at = `techniques.yaml:${technique.id}`
-    for (const text of [technique.name, technique.description, ...technique.tips]) {
+    if (!techniqueCategoryIds.has(technique.category)) error(at, `unknown category '${technique.category}'`)
+    for (const text of [technique.name, technique.description, ...technique.when, ...technique.tips]) {
       if (PROVENANCE.test(text)) error(at, `mentions where it came from: ${text.slice(0, 80)}`)
       for (const word of unexplainedCollectives(text)) error(at, `'${word}' hides what is meant: ${text.slice(0, 80)}`)
     }

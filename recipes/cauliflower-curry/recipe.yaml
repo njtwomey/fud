@@ -121,7 +121,7 @@ steps:
     title: Prepare the ingredients
     component: vegetables
     kind: prep
-    text: Dice {potato}, {carrot}, {onion} and {tomato}, cut {cauliflower} into florets and finely cut {garlic} and {ginger}.
+    text: "[[dicing|Dice]] {potato}, {carrot}, {onion} and {tomato}, cut {cauliflower} into florets and finely cut {garlic} and {ginger}."
     substeps:
       - Dice {potato}, {carrot}, {onion} and {tomato}.
       - Cut {cauliflower} into florets.
@@ -160,7 +160,7 @@ steps:
     kind: cook
     text: Heat the tomatoes in a little oil, then stir in the spice mixture (mustard seeds, cumin seeds, ground cumin, coriander, turmeric and cayenne) and curry leaves and cook on a medium heat for about 10 minutes.
     substeps:
-      - Mix {mustard-seeds}, {cumin-seeds}, {ground-cumin}, {coriander}, {turmeric} and {cayenne} together. The whole seeds may need toasting or grinding first.
+      - Mix {mustard-seeds}, {cumin-seeds}, {ground-cumin}, {coriander}, {turmeric} and {cayenne} together. The whole seeds may need [[toasting-spices|toasting]] or grinding first.
       - Add {oil-tomato} to the same saucepan and heat the chopped tomatoes in it.
       - Once the tomatoes are hot, add the spice mixture and {curry-leaves}.
       - Cook on a medium heat for about 10 minutes.

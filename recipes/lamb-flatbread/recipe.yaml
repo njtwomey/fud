@@ -150,7 +150,7 @@ steps:
     title: Mix, knead and roll the dough
     component: flatbread
     kind: prep
-    text: Bring the dough together in a bowl, knead it briefly and roll it thin, about the size of your frying pan, so it cooks very fast.
+    text: Bring the dough together in a bowl, [[kneading|knead it]] briefly and [[rolling-out|roll it thin]], about the size of your frying pan, so it cooks very fast.
     substeps:
       - Mix {flour}, {water} and {salt} in a bowl.
       - Once it comes together, knead for a minute.

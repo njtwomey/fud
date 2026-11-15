@@ -116,9 +116,9 @@ steps:
     title: Cook the tomatoes and courgette
     component: veg
     kind: cook
-    text: Cook the diced tomatoes and courgette strips in a hot oiled pan until most of the juice has boiled away.
+    text: Cook the diced tomatoes and courgette strips in a hot oiled pan [[reducing|until most of the juice has boiled away]].
     substeps:
-      - Finely dice {tomatoes} and peel and julienne {courgette}.
+      - Finely dice {tomatoes} and peel and [[julienne|julienne]] {courgette}.
       - Put them in a hot pan with {oil} and season with {salt} and {pepper}.
       - Leave on a high heat until most of the tomato juice has boiled away, keeping an eye on it so it does not burn while you do the other steps.
     cue: The juice has mostly gone and the vegetables are soft, with a thick jammy look.
@@ -154,7 +154,7 @@ steps:
     title: Blend the paste
     component: paste
     kind: cook
-    text: While the pasta and vegetables cook, blend the sun-dried tomatoes, olives, basil, parsley and harissa into a paste.
+    text: While the pasta and vegetables cook, [[pureeing|blend]] the sun-dried tomatoes, olives, basil, parsley and harissa into a paste.
     substeps:
       - Roughly chop the basil and parsley first if using a hand blender.
       - Put {sundried}, {olives}, {basil}, {parsley} and {harissa} in a container and blend to a paste.
@@ -177,7 +177,7 @@ steps:
       - Slice {chilli}, deseeding it if needed, and grate {plum-tomato}.
       - Add the paste, the grated tomato and the chilli to the tomato and courgette in the pan and stir thoroughly.
       - If the pan is too dry, add a little water, taking some from the pasta pot if you like.
-      - Taste and season more if needed.
+      - "[[tasting-and-adjusting|Taste and season more]] if needed."
     cue: A loose, glossy sauce coating the vegetables, with no dry patches.
     active_min: 5
     tools:

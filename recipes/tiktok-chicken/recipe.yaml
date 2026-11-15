@@ -176,7 +176,7 @@ steps:
     title: Slice and coat the chicken
     component: chicken
     kind: prep
-    text: Slice the chicken into thin slivers, coat it in the bicarb mix and leave it to sit while you prepare the vegetables and rice.
+    text: Slice the chicken into thin slivers, [[marinating|coat it in the bicarb mix]] and leave it to sit while you prepare the vegetables and rice.
     substeps:
       - Slice {chicken-breast} finely into thin slivers and put it in a bowl.
       - Season with {salt}, {bicarb}, {cornflour} and {curry-powder}, and mix until evenly coated.
@@ -199,7 +199,7 @@ steps:
     substeps:
       - Thickly slice {garlic}.
       - Slice {red-onion}.
-      - Julienne {carrot}.
+      - "[[julienne|Julienne]] {carrot}."
       - Slice {red-pepper}, {yellow-pepper} and {green-pepper}.
       - Slice {broccoli}.
       - Roughly julienne {courgette}.
@@ -229,7 +229,7 @@ steps:
     title: Stir fry the vegetables
     component: vegetables
     kind: cook
-    text: Add the vegetables to a hot pan of oil in order of how long they take, stirring constantly, then coat them in soy and oyster sauce.
+    text: "Add the vegetables to a hot pan of oil in order of how long they take, [[stir-frying|stirring constantly]], then coat them in soy and oyster sauce."
     substeps:
       - Heat {oil-veg} in a large pan or deep dish until hot.
       - Add the {garlic:name} and {red-onion:name} and stir for 3 minutes.

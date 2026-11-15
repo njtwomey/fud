@@ -78,7 +78,7 @@ steps:
     title: Soften the onions and aromatics
     component: sauce
     kind: cook
-    text: Soften the onions, chilli, garlic and coriander stalks in the oil in a frying pan with a lid.
+    text: "[[sweating|Soften]] the onions, chilli, garlic and coriander stalks in the oil in a frying pan with a lid."
     substeps:
       - Chop {onion}, deseed and finely chop {chilli}, and slice {garlic}.
       - Chop the stalks and the leaves of {coriander} separately.
@@ -96,7 +96,7 @@ steps:
     title: Bubble down the tomatoes
     component: sauce
     kind: cook
-    text: Stir in the tomatoes and sugar and bubble for 8 to 10 minutes until thick.
+    text: Stir in the tomatoes and sugar and bubble for 8 to 10 minutes [[reducing|until thick]].
     substeps:
       - Stir in {tomatoes} and {sugar}.
       - Bubble for 8 to 10 minutes.
@@ -114,7 +114,7 @@ steps:
     title: Cook the eggs in the sauce
     component: eggs
     kind: cook
-    text: Make four dips in the sauce, crack an egg into each, cover and cook over a low heat until the eggs are done how you like them.
+    text: Make four dips in the sauce, [[poaching|crack an egg into each]], cover and cook over a low heat until the eggs are done how you like them.
     substeps:
       - Make 4 dips in the sauce with the back of a large spoon.
       - Crack {eggs} into the dips, one in each.

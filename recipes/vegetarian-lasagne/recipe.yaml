@@ -121,7 +121,7 @@ steps:
     text: Heat the oven, then roast the squash in small cubes until cooked through.
     substeps:
       - Heat the oven to 200 °C fan.
-      - Peel {squash} and dice it into small cubes of about 1 cm.
+      - Peel {squash} and [[dicing|dice]] it into small cubes of about 1 cm.
       - Put it in a roasting dish, drizzle with {oil-squash} and season with {salt-squash} and {pepper-squash}, then toss until the squash is coated.
       - Roast for 20 to 30 minutes.
     cue: The cubes are soft right through when pierced with a knife, with some colour at the edges.
@@ -141,9 +141,9 @@ steps:
     title: Cook the red sauce
     component: red-sauce
     kind: cook
-    text: Fry the basil and garlic until the garlic is golden, then add the tomatoes and reduce until thick.
+    text: Fry the basil and garlic until the garlic is golden, then add the tomatoes and [[reducing|reduce until thick]].
     substeps:
-      - Finely dice the {basil:name} leaves and mince {garlic}.
+      - Finely dice the {basil:name} leaves and [[mincing|mince]] {garlic}.
       - Heat {oil-red} in a medium pot and fry the basil and garlic until the garlic turns golden.
       - Add {tomatoes} and season with {salt-red}.
       - Let it reduce for about 20 minutes.
@@ -175,7 +175,7 @@ steps:
     title: Make the white sauce
     component: white-sauce
     kind: cook
-    text: Sweat the leeks, wilt in the spinach, then take the pan off the heat and stir in the ricotta and the roasted squash.
+    text: "[[sweating|Sweat the leeks]], wilt in the spinach, then take the pan off the heat and stir in the ricotta and the roasted squash."
     substeps:
       - Heat {oil-white} in a second saucepan and sweat the leeks for 10 to 15 minutes.
       - Add the spinach and stir for a minute or two until it wilts.

@@ -133,11 +133,11 @@ steps:
     title: Sear the meat
     component: meat
     kind: cook
-    text: Season the beef and sear it in a hot pan until it has a good colour, then add it to the slow cooker.
+    text: Season the beef and [[searing|sear it]] in a hot pan until it has a good colour, then add it to the slow cooker.
     substeps:
       - Season {beef} with {salt} and {pepper}.
       - Sear it in a hot pan until it gets a good colour.
-      - If anything sticks, deglaze the pan with a little of the stock or wine.
+      - If anything sticks, [[deglazing|deglaze the pan]] with a little of the stock or wine.
       - Add the beef (and the pan juices) to the slow cooker.
     cue: The meat is well browned on every side and the pan has a fond that lifts with a splash of liquid.
     heat: high
@@ -167,7 +167,7 @@ steps:
     title: Thicken the stew
     component: thickener
     kind: cook
-    text: Mix the cornflour with about a cup of the juices until smooth, stir it back in and cook for a final 15 minutes or so.
+    text: "[[thickening-with-a-slurry|Mix the cornflour with about a cup of the juices until smooth]], stir it back in and cook for a final 15 minutes or so."
     substeps:
       - Ladle about a cup (240 ml) of the juices out of the slow cooker.
       - Mix {cornflour} into it until there are no lumps.

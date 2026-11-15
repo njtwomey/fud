@@ -128,7 +128,7 @@ steps:
     title: Slice and marinate the beef
     component: beef
     kind: prep
-    text: Cut the ginger into spears, slice the steak thinly and leave it marinating for at least half an hour.
+    text: Cut the ginger into spears, slice the steak thinly and [[marinating|leave it marinating]] for at least half an hour.
     substeps:
       - Slice {ginger} into small spears.
       - Thinly slice {steak}.
@@ -162,7 +162,7 @@ steps:
     title: Brown the beef
     component: beef
     kind: cook
-    text: Brown the beef in a quite hot pan to your desired doneness and set it aside.
+    text: "[[searing|Brown the beef]] in a quite hot pan to your desired doneness and set it aside."
     substeps:
       - Heat a large pan or pot quite hot and add some {oil-pan}.
       - Brown the beef for a few minutes until it gets a nice colour on the outside, cooking to your desired temperature.

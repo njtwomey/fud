@@ -140,7 +140,7 @@ steps:
     title: Flatten and crumb the chicken
     component: chicken
     kind: prep
-    text: Butterfly and pound the chicken thin, then coat it in flour, egg and breadcrumbs.
+    text: "[[butterflying-and-pounding|Butterfly and pound]] the chicken thin, then [[dredging|coat it in flour, egg and breadcrumbs]]."
     substeps:
       - Butterfly {chicken-breast}, wrap in greaseproof paper and pound with a rolling pin to tenderise and flatten.
       - Pat the chicken dry with kitchen paper.
@@ -162,7 +162,7 @@ steps:
     title: Heat the oven and cut the vegetables
     component: sauce
     kind: prep
-    text: Get the oven heating while you finely dice or julienne {onion:name}, {carrot:name}, {garlic:name} and {ginger:name}.
+    text: Get the oven heating while you finely dice or [[julienne|julienne]] {onion:name}, {carrot:name}, {garlic:name} and {ginger:name}.
     substeps:
       - Heat the oven to 220 °C fan (240 °C conventional).
       - Finely dice or julienne {onion}, {carrot} and the garlic and ginger.
@@ -238,7 +238,7 @@ steps:
     title: Finish the sauce
     component: sauce
     kind: cook
-    text: Keep cooking the spiced vegetables for about 10 minutes, then add the coconut milk, mangetout and baby corn and simmer slowly until the rice and chicken are ready.
+    text: Keep cooking the spiced vegetables for about 10 minutes, then add the coconut milk, mangetout and baby corn and [[simmering|simmer slowly]] until the rice and chicken are ready.
     substeps:
       - Continue to cook the spiced vegetables for about 10 minutes.
       - Add {coconut-milk}, {mangetout} and {baby-corn}.

@@ -69,7 +69,7 @@ steps:
     title: Infuse the cream
     component: custard
     kind: cook
-    text: Heat the cream with the split vanilla pod until it reaches boiling point, but do not let it boil.
+    text: "Heat the cream [[infusing|with the split vanilla pod]] until it reaches boiling point, but do not let it boil."
     substeps:
       - Pour {cream} into a saucepan.
       - Split {vanilla} lengthways and add it to the pan.
@@ -101,7 +101,7 @@ steps:
     title: Whisk in the hot cream
     component: custard
     kind: cook
-    text: Slowly pour the hot cream over the yolks, vanilla pod included, whisking continuously.
+    text: "[[tempering-eggs|Slowly pour the hot cream over the yolks]], vanilla pod included, whisking continuously."
     substeps:
       - While whisking continuously, slowly pour the hot vanilla-infused cream over the egg mixture, pod included.
     cue: A smooth, evenly mixed custard with no scrambled flecks of egg.
@@ -153,7 +153,7 @@ steps:
     title: Torch the top and serve
     component: topping
     kind: serve
-    text: Sprinkle the demerara evenly over the surface and caramelise it with a blowtorch until it forms a blistered, golden-brown crust. Serve with the topping cracked with a spoon.
+    text: Sprinkle the demerara evenly over the surface and [[caramelising-sugar|caramelise it with a blowtorch]] until it forms a blistered, golden-brown crust. Serve with the topping cracked with a spoon.
     substeps:
       - Sprinkle {demerara} evenly over the surface.
       - Caramelise with a blowtorch until it forms a blistered, golden-brown crust.

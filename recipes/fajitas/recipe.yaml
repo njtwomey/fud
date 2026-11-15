@@ -116,7 +116,7 @@ steps:
     title: Shred the chicken
     component: filling
     kind: prep
-    text: Put the chicken in a bowl and tear it apart using one fork in each hand.
+    text: Put the chicken in a bowl and [[shredding|tear it apart]] using one fork in each hand.
     substeps:
       - Put {chicken} in a bowl.
       - Tear it apart using one fork in each hand.

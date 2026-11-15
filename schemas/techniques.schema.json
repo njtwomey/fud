@@ -2,6 +2,31 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 80,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "label"
+        ],
+        "additionalProperties": false
+      }
+    },
     "techniques": {
       "type": "array",
       "items": {
@@ -17,10 +42,24 @@
             "minLength": 1,
             "description": "Title of the explanation, e.g. 'Creaming'."
           },
+          "category": {
+            "type": "string",
+            "maxLength": 80,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "description": "Category id from `categories` in techniques.yaml."
+          },
           "description": {
             "type": "string",
             "minLength": 1,
             "description": "What the method is and how it is done, in two or three sentences."
+          },
+          "when": {
+            "default": [],
+            "description": "Situations where you would reach for it, in plain words.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "tips": {
             "default": [],
@@ -34,6 +73,7 @@
         "required": [
           "id",
           "name",
+          "category",
           "description"
         ],
         "additionalProperties": false
@@ -41,6 +81,7 @@
     }
   },
   "required": [
+    "categories",
     "techniques"
   ],
   "additionalProperties": false

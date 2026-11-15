@@ -27,14 +27,14 @@ views, text, shopping, validate).
 
 Composed patterns in `web/src/ux/`:
 
-| Component                                  | Purpose                                                                                                                      |
-| ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
-| `AppShell`                                 | Nav bar plus full-width content, tooltip provider, catalog gate                                                              |
-| `NavBar`                                   | Title, section links, theme toggle                                                                                           |
-| `ThemeToggle`                              | Light / dark / system dropdown                                                                                               |
-| `PageHeader`                               | Title, description, actions slot                                                                                             |
-| `Section`                                  | Titled page block                                                                                                            |
-| `EmptyState`, `ErrorState`, `LoadingState` | Page-level states                                                                                                            |
-| `CatalogGate`                              | Loading and error states until the catalog is ready                                                                          |
-| `TechniqueNote`                            | The muted in-place explanation of a technique: name, description, tips. Placed by `StepCard` under the line that mentions it | `technique`, `id`     |
-| `SourceCredit`                             | Where a recipe comes from: title, author, link for web addresses, note                                                       | `source`, `kindLabel` |
+| Component                                  | Purpose                                                                                                                                      |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AppShell`                                 | Nav bar plus full-width content, tooltip provider, catalog gate                                                                              |
+| `NavBar`                                   | Title, section links, theme toggle                                                                                                           |
+| `ThemeToggle`                              | Light / dark / system dropdown                                                                                                               |
+| `PageHeader`                               | Title, description, actions slot                                                                                                             |
+| `Section`                                  | Titled page block                                                                                                                            |
+| `EmptyState`, `ErrorState`, `LoadingState` | Page-level states                                                                                                                            |
+| `CatalogGate`                              | Loading and error states until the catalog is ready                                                                                          |
+| `TechniqueNote`                            | The muted in-place explanation of a technique: name, description, when to use it, tips. Placed by `StepCard` under the line that mentions it | `technique`, `id`     |
+| `SourceCredit`                             | Where a recipe comes from: title, author, link for web addresses, note                                                                       | `source`, `kindLabel` |

@@ -108,7 +108,7 @@ steps:
     title: Make the pastry
     component: pastry
     kind: cook
-    text: Make the shortbread dough by creaming the butter and sugar, mixing in the egg, then adding the flour gradually until it forms a dough.
+    text: Make the shortbread dough by [[creaming|creaming]] the butter and sugar, mixing in the egg, then adding the flour gradually until it forms a dough.
     substeps:
       - Cream {butter} and {sugar} together until light and fluffy.
       - Mix in {egg}.
@@ -158,7 +158,7 @@ steps:
     title: Roll, fill and seal the tarts
     component: pastry
     kind: cook
-    text: Roll the pastry quite thin, line mini tins with it, fill with the apple and cover with a second layer, crimping the edges to seal.
+    text: "[[rolling-out|Roll]] the pastry quite thin, line mini tins with it, fill with the apple and cover with a second layer, [[crimping|crimping]] the edges to seal."
     substeps:
       - Roll the pastry out quite thin, about half a centimetre, on a floured surface with {flour-dust}.
       - Line the mini tins with it.
@@ -180,7 +180,7 @@ steps:
     title: Egg wash and bake
     component: finish
     kind: cook
-    text: Beat the egg, brush it over the uncooked tarts and bake for 15 to 20 minutes until a nice colour forms.
+    text: Beat the egg, [[egg-wash|brush it over]] the uncooked tarts and bake for 15 to 20 minutes until a nice colour forms.
     substeps:
       - Beat {egg-wash} in a bowl.
       - Brush over the top of each uncooked tart.

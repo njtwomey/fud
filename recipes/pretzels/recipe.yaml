@@ -127,7 +127,7 @@ steps:
     title: Knead the dough
     component: dough
     kind: cook
-    text: Knead for about 10 minutes, without extra flour, until smooth and glossy.
+    text: "[[kneading|Knead]] for about 10 minutes, without extra flour, until smooth and glossy."
     substeps:
       - Turn the dough out onto a worktop. It should not need any extra flour.
       - Knead for about 10 minutes.
@@ -143,7 +143,7 @@ steps:
     title: Prove the dough
     component: dough
     kind: wait
-    text: Cover the bowl with cling film and leave to prove for about 45 minutes until doubled in size.
+    text: Cover the bowl with cling film and [[proving|leave to prove]] for about 45 minutes until doubled in size.
     substeps:
       - Cover the bowl with cling film.
       - Leave to prove for about 45 minutes.
@@ -215,7 +215,7 @@ steps:
     title: Dip in the boiling bath
     component: savoury
     kind: cook
-    text: Dip each pretzel in the boiling bicarbonate water for 5 seconds, then lift out with a slotted spoon onto a lined baking sheet, topping the plain ones while still wet.
+    text: "[[blanching|Dip each pretzel in the boiling bicarbonate water]] for 5 seconds, then lift out with a slotted spoon onto a lined baking sheet, topping the plain ones while still wet."
     substeps:
       - Gently drop a pretzel into the boiling water and leave for 5 seconds.
       - Lift it out carefully with a slotted spoon onto a lined baking sheet.

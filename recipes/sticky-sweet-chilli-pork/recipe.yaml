@@ -163,7 +163,7 @@ steps:
     text: While the pork cooks, cut the green beans and red pepper.
     substeps:
       - Trim and chop {green-beans} into small pieces.
-      - Deseed and dice {red-pepper}.
+      - Deseed and [[dicing|dice]] {red-pepper}.
     active_min: 5
     tools:
       - tool: knife
@@ -208,7 +208,7 @@ steps:
     title: Finish the pork
     component: pork
     kind: cook
-    text: Pour the sauce into the pan with most of the spring onion and half the lime juice and cook until sticky.
+    text: Pour the sauce into the pan with most of the spring onion and half the lime juice and [[reducing|cook until sticky]].
     substeps:
       - Pour the sauce into the pan with most of the sliced spring onion, keeping some for garnish.
       - Squeeze in the juice of half of {lime}.

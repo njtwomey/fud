@@ -56,7 +56,7 @@ steps:
     title: Dice the vegetables
     component: sandwich
     kind: prep
-    text: Dice {red-pepper} and {red-onion} and mix them in a bowl.
+    text: "[[dicing|Dice]] {red-pepper} and {red-onion} and mix them in a bowl."
     substeps:
       - These are just the ingredients I use most of the time. Adjust them to whatever is in the fridge.
     active_min: 6

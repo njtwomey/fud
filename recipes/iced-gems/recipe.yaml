@@ -107,12 +107,14 @@ steps:
     kind: cook
     text: "[[creaming|Cream]] the {butter:name}, {sugar:name} and {zest:name} together until soft and creamy, but not aerated."
     substeps:
-      - Put {butter}, {sugar} and {zest} in the bowl of a stand mixer.
-      - Beat until soft and creamy, scraping down the sides of the bowl from time to time.
+      - Fit the flat beater (the paddle, not the whisk or the dough hook) to the stand mixer.
+      - Put {butter}, {sugar} and {zest} in the bowl.
+      - Beat on low to medium speed until soft and creamy, scraping down the sides of the bowl from time to time.
     cue: Soft, creamy and smooth. It should not be pale and fluffy like a sponge mixture.
     active_min: 5
     tools:
       - tool: stand-mixer
+        note: Flat beater (paddle) attachment.
         alternatives:
           - hand-mixer
           - wooden-spoon
@@ -122,14 +124,16 @@ steps:
     title: Mix in the flour and salt
     component: shortbread
     kind: cook
-    text: Add the {flour:name} and {salt:name} and mix on low speed until the dough comes together.
+    text: Add the {flour:name} and {salt:name} and mix with the same flat beater on low speed until the dough comes together.
     substeps:
+      - Keep the flat beater on the mixer, because the dough hook is for yeast dough and not needed here.
       - Add {flour} and {salt}.
       - Mix on low speed for 1 minute.
     cue: A dough that holds together in one piece.
     active_min: 2
     tools:
       - tool: stand-mixer
+        note: Flat beater (paddle) attachment.
         alternatives:
           - hand-mixer
           - wooden-spoon
@@ -165,15 +169,17 @@ steps:
     title: Whisk the royal icing
     component: icing
     kind: cook
-    text: Whisk the {egg-whites:name} until frothy, then add the {icing-sugar:name} a large spoonful at a time, mixing well between each addition, until the icing is very stiff and stands up in [[stiff-peaks|peaks]].
+    text: Using the whisk attachment, whisk the {egg-whites:name} until frothy, then add the {icing-sugar:name} a large spoonful at a time, mixing well between each addition, until the icing is very stiff and stands up in [[stiff-peaks|peaks]].
     substeps:
-      - Whisk {egg-whites} in the bowl of a stand mixer until frothy.
-      - Add {icing-sugar} a large spoonful at a time, mixing well between each addition.
+      - Swap the flat beater for the whisk attachment (the balloon whisk), and wipe the bowl clean so no butter is left in it.
+      - Whisk {egg-whites} in the bowl until frothy.
+      - Add {icing-sugar} a large spoonful at a time on low speed, mixing well between each addition.
       - Keep whisking until the icing is very stiff and stands up in peaks.
     cue: Very stiff, glossy icing that holds a peak when you lift the whisk.
     active_min: 10
     tools:
       - tool: stand-mixer
+        note: Whisk attachment.
         alternatives:
           - hand-mixer
           - whisk
@@ -295,4 +301,5 @@ notes:
 
 open_questions:
   - The oven preheat time, the cooling time after baking and the time for the icing to set at room temperature are assumed.
+  - The source does not name the mixer attachments. The flat beater for the shortbread and the whisk for the icing are the usual choices, and were added here.
   - The 6 g of orange zest for the zest of 1 orange is an estimate, used for the nutrition figures.

@@ -183,9 +183,9 @@ steps:
     title: Sweat the onion and spices
     component: sauce
     kind: cook
-    text: In the same pan, sweat the onion on a lower heat, then stir in the garlic, chilli, paprika, cumin, coriander and turmeric for a minute.
+    text: In the same pan, [[sweating|sweat]] the onion on a lower heat, then stir in the garlic, chilli, paprika, cumin, coriander and turmeric for a minute.
     substeps:
-      - Finely slice {onion}, mince {garlic} and deseed and finely chop {chilli}.
+      - Finely slice {onion}, [[mincing|mince]] {garlic} and deseed and finely chop {chilli}.
       - Reduce the heat and sweat the onion in the same pan for 10 to 15 minutes.
       - Add the garlic, chilli, {paprika-sauce}, {cumin}, {coriander} and {turmeric}.
       - Stir for a minute.

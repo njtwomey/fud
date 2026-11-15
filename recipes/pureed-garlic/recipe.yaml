@@ -64,7 +64,7 @@ steps:
     title: Massage into a paste
     component: garlic-paste
     kind: cook
-    text: Collect the crushed {garlic:name} into one pile, sprinkle over {salt}, and use the knife to massage it into a paste.
+    text: Collect the crushed {garlic:name} into one pile, sprinkle over {salt}, and use the knife to [[mincing|massage it into a paste]].
     substeps:
       - The salt absorbs the garlic juice released.
     cue: A smooth, wet paste with no lumps of garlic left.

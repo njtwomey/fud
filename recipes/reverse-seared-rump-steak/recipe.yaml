@@ -99,7 +99,7 @@ steps:
     title: Cook in the low oven
     component: steak
     kind: cook
-    text: Put the cold tray straight from the fridge into the oven and cook the steak to 49 °C in the centre, flipping once at 35 °C. Go by the thermometer, not the clock.
+    text: Put the cold tray straight from the fridge into the oven and [[reverse-searing|cook the steak to 49 °C]] in the centre, flipping once at 35 °C. Go by the thermometer, not the clock.
     substeps:
       - Put the tray in cold, straight from the fridge, with the steak on it. Do not preheat the tray, and do not leave the steak on the counter to warm up.
       - Insert the probe through the side, horizontally, so the tip sits in the geometric centre. Check by feel that the reading is at its lowest there.
@@ -123,7 +123,7 @@ steps:
     title: Rest and heat the pan
     component: sear
     kind: wait
-    text: Lift the steak onto a dry plate and rest it uncovered for 5 minutes while the stainless pan heats on your highest heat.
+    text: Lift the steak onto a dry plate and [[resting-meat|rest it uncovered]] for 5 minutes while the stainless pan heats on your highest heat.
     substeps:
       - Remove the tray and lift the steak onto a dry plate or board. Leaving it on the tray keeps it sitting in whatever moisture came out.
       - Set the dry stainless pan over your highest heat for 3 to 4 minutes.
@@ -142,7 +142,7 @@ steps:
     title: Sear hard on every side
     component: sear
     kind: cook
-    text: Oil the pan, pat the steak dry again and sear each face for 45 to 60 seconds, then the edges. Total time in the pan stays under 3 minutes.
+    text: Oil the pan, pat the steak dry again and [[searing|sear each face]] for 45 to 60 seconds, then the edges. Total time in the pan stays under 3 minutes.
     substeps:
       - Add {oil} and swirl to a thin film. It is ready when it thins, shimmers and just begins to send up a wisp of smoke. Open a window and run the extractor first.
       - Pat the steak dry once more with kitchen paper, both faces.
@@ -162,7 +162,7 @@ steps:
     title: Rest and slice
     component: sear
     kind: serve
-    text: Rest the steak uncovered for 5 minutes, check the centre, then slice across the grain.
+    text: "[[resting-meat|Rest the steak]] uncovered for 5 minutes, check the centre, then slice across the grain."
     substeps:
       - Rest uncovered for 5 minutes. Covering traps steam and softens the crust.
       - Check the centre with the probe. It should read 54 to 56 °C.

@@ -90,7 +90,7 @@ steps:
     title: Sear the chicken
     component: chicken
     kind: cook
-    text: Season the chicken and cook it in hot oil until golden brown and cooked through, then rest it and slice it into strips.
+    text: Season the chicken and [[searing|cook it in hot oil]] until golden brown and cooked through, then [[resting-meat|rest it]] and slice it into strips.
     substeps:
       - Heat {oil} in a large frying pan over a medium-high heat.
       - Season {chicken} with {salt} and {pepper} and add to the pan.

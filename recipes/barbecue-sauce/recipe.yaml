@@ -98,7 +98,7 @@ steps:
     title: Soften the onion
     component: sauce
     kind: cook
-    text: Heat the oil in a saucepan and cook the onion over a gentle heat for 4 to 5 minutes until softened.
+    text: Heat the oil in a saucepan and [[sweating|cook the onion over a gentle heat]] for 4 to 5 minutes until softened.
     substeps:
       - Heat {oil} in a saucepan.
       - Add the onion and cook over a gentle heat for 4 to 5 minutes.
@@ -113,7 +113,7 @@ steps:
     title: Add the tomatoes and simmer
     component: sauce
     kind: cook
-    text: Add {tomatoes}, {garlic}, {sugar}, {vinegar}, {worcestershire}, {tomato-puree} and {chilli}, season with {salt} and {pepper}, then bring to the boil and simmer for 20 to 30 minutes until thickened.
+    text: Add {tomatoes}, {garlic}, {sugar}, {vinegar}, {worcestershire}, {tomato-puree} and {chilli}, season with {salt} and {pepper}, then bring to the boil and simmer for 20 to 30 minutes [[reducing|until thickened]].
     substeps:
       - Add {tomatoes}, the garlic, {sugar}, {vinegar}, {worcestershire}, {tomato-puree} and the chilli.
       - Season with {salt} and {pepper} and mix.
@@ -129,7 +129,7 @@ steps:
     title: Blend if you want it smooth
     component: sauce
     kind: cook
-    text: For a smooth sauce, whizz the mixture in a food processor or with a hand blender for a few seconds.
+    text: For a smooth sauce, [[pureeing|whizz]] the mixture in a food processor or with a hand blender for a few seconds.
     substeps:
       - Whizz in a food processor or with a hand blender for a few seconds.
     cue: A smooth sauce with no visible pieces of onion or chilli.

@@ -165,7 +165,7 @@ steps:
     title: Marinate the chicken
     component: chicken
     kind: prep
-    text: Mix the marinade, coat the chicken breasts in it and chill them for a few hours so the flavours develop.
+    text: Mix the marinade, [[marinating|coat the chicken breasts in it]] and chill them for a few hours so the flavours develop.
     substeps:
       - In a bowl, combine {soy-sauce}, {sesame-oil-marinade}, {garlic}, {ginger}, {salt-marinade}, {pepper} and {egg}.
       - Add {chicken} and mix well to coat evenly.
@@ -207,7 +207,7 @@ steps:
     kind: prep
     text: Combine {cabbage:name}, {carrot:name}, {red-onion:name} and {spring-onion:name}, dress them with {sesame-oil-slaw:name} and {rice-vinegar:name}, and keep them cold until serving.
     substeps:
-      - Finely shred {cabbage}, julienne {carrot}, finely slice {red-onion} and {spring-onion}.
+      - "[[shredding|Finely shred]] {cabbage}, [[julienne|julienne]] {carrot}, finely slice {red-onion} and {spring-onion}."
       - Combine them in a large bowl.
       - Drizzle with {sesame-oil-slaw} and {rice-vinegar}, sprinkle with {salt-slaw} and toss well.
       - Set aside or refrigerate until ready to serve.

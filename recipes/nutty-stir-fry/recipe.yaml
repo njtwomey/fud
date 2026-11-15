@@ -180,8 +180,8 @@ steps:
     kind: prep
     text: Cut {carrot}, {ginger} and {garlic} before the pot goes on, so the sauce can be made without stopping.
     substeps:
-      - Julienne {carrot}.
-      - Finely dice {ginger}.
+      - "[[julienne|Julienne]] {carrot}."
+      - "[[dicing|Finely dice]] {ginger}."
       - Puree {garlic}.
     active_min: 10
     make_ahead: true
@@ -232,7 +232,7 @@ steps:
     title: Toast and crush the peanuts
     component: peanuts
     kind: cook
-    text: Toast {peanuts} in a dry frying pan until fragrant, then crush them coarsely.
+    text: "[[toasting-spices|Toast]] {peanuts} in a dry frying pan until fragrant, then crush them coarsely."
     substeps:
       - Toast over a medium heat for 3 to 5 minutes, shaking often.
       - Let them cool briefly.
@@ -258,7 +258,7 @@ steps:
     text: Tip the roasted vegetables and the cooked rice into the pot of sauce and stir until the rice is coated, then stir in {five-spice} and adjust the salt.
     substeps:
       - Stir in {five-spice}.
-      - Taste and adjust the salt.
+      - "[[tasting-and-adjusting|Taste and adjust]] the salt."
     cue: The rice is evenly coated and coloured by the sauce, and tastes seasoned right through.
     active_min: 4
     tools:

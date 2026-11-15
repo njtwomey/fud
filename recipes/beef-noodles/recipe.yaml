@@ -105,7 +105,7 @@ steps:
     title: Slice and marinate the beef
     component: beef
     kind: prep
-    text: Cut the ginger into small spears, slice the steak thinly and leave it in the marinade while you cut the vegetables.
+    text: Cut the ginger into small spears, slice the steak thinly and [[marinating|leave it in the marinade]] while you cut the vegetables.
     substeps:
       - Slice {ginger} into small spears.
       - Thinly slice {steak}.
@@ -161,7 +161,7 @@ steps:
     title: Stir fry the vegetables
     component: stir-fry
     kind: cook
-    text: Stir the chopped vegetables in the same pan until they are steaming and warm.
+    text: "[[stir-frying|Stir the chopped vegetables]] in the same pan until they are steaming and warm."
     substeps:
       - Add the chopped {red-onion:name}, {carrot:name}, {courgette:name}, {baby-corn:name}, {sugar-snap:name} and {pak-choi:name} to the pan.
       - Stir for 5 to 10 minutes.

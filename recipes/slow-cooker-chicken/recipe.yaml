@@ -110,7 +110,7 @@ steps:
     title: Carve or shred
     component: chicken
     kind: serve
-    text: Take the chicken out and carve or shred it as you like.
+    text: Take the chicken out and carve or [[shredding|shred]] it as you like.
     active_min: 10
     tools:
       - tool: knife
@@ -122,7 +122,7 @@ steps:
     title: Simmer a stock from the carcass
     component: stock
     kind: cook
-    text: Once the meat is off the bone, simmer the carcass gently in 2 litres of broth for about 2 hours.
+    text: Once the meat is off the bone, [[simmering|simmer the carcass gently]] in 2 litres of broth for about 2 hours.
     substeps:
       - Put the carcass in a pot with {water}, and any of {carrot}, {onion}, {leek}, {celery}, {garlic}, {salt}, {parsley}, {thyme} and {bay-leaf}.
       - Simmer gently for about 2 hours.

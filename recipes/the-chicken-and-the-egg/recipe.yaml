@@ -226,7 +226,7 @@ steps:
     title: Cool and shred the chicken
     component: chicken
     kind: prep
-    text: Let the chicken cool enough to handle, then shred the meat and set it aside, keeping a few spoonfuls of the cooking liquid.
+    text: Let the chicken cool enough to handle, then [[shredding|shred]] the meat and set it aside, keeping a few spoonfuls of the cooking liquid.
     substeps:
       - Leave until cool enough to handle comfortably.
       - Shred the meat and set it aside.
@@ -246,8 +246,8 @@ steps:
     kind: prep
     text: Cut every vegetable before the pan goes on, keeping the white and green spring onion separate, and beat the eggs.
     substeps:
-      - Julienne {carrot} and {courgette}.
-      - Dice {red-onion}.
+      - "[[julienne|Julienne]] {carrot} and {courgette}."
+      - "[[dicing|Dice]] {red-onion}."
       - Halve {baby-corn} lengthways, then across.
       - Slice {mangetout} on the diagonal.
       - Slice the spring onions, keeping the whites and the greens separate and cutting the greens more finely than the whites.
@@ -268,7 +268,7 @@ steps:
     substeps:
       - Heat {oil-veg} in the large pan over a firm but not fierce heat, until a shred of carrot sizzles on contact.
       - Add {garlic-veg} and cook until it takes light colour, a matter of seconds, as it burns readily.
-      - Add the {carrot:name} and {red-onion:name} at once and stir fry for 2 minutes, until the onion turns translucent at the edges.
+      - Add the {carrot:name} and {red-onion:name} at once and [[stir-frying|stir fry]] for 2 minutes, until the onion turns translucent at the edges.
       - Add the {baby-corn:name} and {courgette:name} and stir fry for a further 5 to 8 minutes, stirring constantly, until the courgette is yielding but the carrot still offers resistance.
       - Add the {mangetout:name} and the spring onion whites ({spring-onion-white}) and cook for 1 minute more.
       - Add {soy-sauce} and {sesame-oil-veg} and turn the vegetables through until evenly coated.
@@ -310,7 +310,7 @@ steps:
     title: Fry the rice
     component: fried-rice
     kind: cook
-    text: Brown the rest of the garlic, fry the cold rice until hot and loose, then fold the vegetables and egg back in off the heat.
+    text: Brown the rest of the garlic, fry the cold rice until hot and loose, then [[folding|fold the vegetables and egg back in]] off the heat.
     substeps:
       - Add {oil-rice} to the pan.
       - Add {garlic-rice} and cook until lightly coloured, again a matter of seconds.
@@ -335,7 +335,7 @@ steps:
     title: Toast the seeds and warm the chicken
     component: finish
     kind: cook
-    text: Toast the sesame seeds in a small dry pan, then toss the shredded chicken through them with the five spice, salt and sesame oil until hot, coloured and coated.
+    text: "[[toasting-spices|Toast the sesame seeds]] in a small dry pan, then toss the shredded chicken through them with the five spice, salt and sesame oil until hot, coloured and coated."
     substeps:
       - Toast {sesame-seeds} in the small dry pan over a moderate heat for 2 to 3 minutes, shaking often.
       - Add the shredded chicken, {five-spice}, {salt-finish} and {sesame-oil-finish}.

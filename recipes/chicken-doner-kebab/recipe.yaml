@@ -126,7 +126,7 @@ steps:
     title: Heat the oven and blend the onion
     component: onion-puree
     kind: prep
-    text: Switch the oven on first, then turn the onion into a smooth purée.
+    text: Switch the oven on first, then turn the onion into a [[pureeing|smooth purée]].
     substeps:
       - Heat the oven to 180 °C fan (200 °C conventional).
       - Peel and quarter {onion-puree}.
@@ -166,7 +166,7 @@ steps:
     title: Roll the mixture thin
     component: chicken
     kind: cook
-    text: Roll the mixture out between two sheets of baking paper to about 5 mm, as even as you can, and slide it onto the baking tray.
+    text: "[[rolling-out|Roll the mixture out]] between two sheets of baking paper to about 5 mm, as even as you can, and slide it onto the baking tray."
     substeps:
       - Lay one sheet of baking paper on the work surface and turn the mixture out onto the centre.
       - Cover with the second sheet.
@@ -203,7 +203,7 @@ steps:
     title: Rest and slice
     component: chicken
     kind: cook
-    text: Rest the chicken briefly, then peel off the top sheet and slice it into thin strips.
+    text: "[[resting-meat|Rest]] the chicken briefly, then peel off the top sheet and slice it into thin strips."
     substeps:
       - Rest on the tray for 2 to 3 minutes.
       - Peel off the top sheet of paper.

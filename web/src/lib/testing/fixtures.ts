@@ -59,10 +59,13 @@ export function makeCatalog(): Catalog {
         alternatives: [{ ingredient: 'jasmine-rice', ratio: 1, quality: 'fine', note: 'Stickier.' }],
       },
     ],
+    technique_categories: [{ id: 'baking', label: 'Baking' }],
     techniques: [
       {
         id: 'creaming',
         name: 'Creaming',
+        category: 'baking',
+        when: ['Making a cake or biscuit mixture.'],
         description: 'Beat soft butter with sugar until pale.',
         tips: ['Start with butter at room temperature.'],
       },

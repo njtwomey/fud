@@ -215,6 +215,8 @@ describe('StepCard techniques', () => {
     const note = screen.getByRole('complementary', { name: /Creaming/ })
     expect(within(note).getByText('Beat soft butter with sugar until pale.')).toBeInTheDocument()
     expect(within(note).getByText('Start with butter at room temperature.')).toBeInTheDocument()
+    expect(within(note).getByText('Use it when')).toBeInTheDocument()
+    expect(within(note).getByText('Making a cake or biscuit mixture.')).toBeInTheDocument()
     expect(term).toHaveAttribute('aria-controls', note.id)
     await userEvent.click(term)
     expect(screen.queryByRole('complementary')).not.toBeInTheDocument()

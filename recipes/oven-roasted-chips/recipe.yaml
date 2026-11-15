@@ -82,7 +82,7 @@ steps:
     title: Dry and par-boil the chips
     component: chips
     kind: cook
-    text: Dry the soaked chips thoroughly, then par-boil them in salted water for about 5 minutes.
+    text: Dry the soaked chips thoroughly, then [[parboiling|par-boil them]] in salted water for about 5 minutes.
     substeps:
       - Toss the chips around in a tea towel, or pat them dry with kitchen paper.
       - Par-boil them in boiling water with {salt-water} for about 5 minutes. You can roast them directly instead, but it takes longer.

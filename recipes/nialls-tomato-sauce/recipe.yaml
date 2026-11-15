@@ -136,7 +136,7 @@ steps:
     title: Roast until reduced
     component: roasting
     kind: wait
-    text: Roast for 2 to 3 hours, stirring now and then, until the liquid has reduced a lot and the vegetables are soft.
+    text: Roast for 2 to 3 hours, stirring now and then, [[reducing|until the liquid has reduced a lot]] and the vegetables are soft.
     substeps:
       - Roast at 180 °C fan for about 2 to 3 hours.
       - Stir occasionally.
@@ -177,7 +177,7 @@ steps:
     title: Blitz the sauce
     component: roasting
     kind: cook
-    text: Move the roasted sauce to a bowl, add a few tablespoons of pasta water and blitz until smooth.
+    text: Move the roasted sauce to a bowl, add a few tablespoons of pasta water and [[pureeing|blitz until smooth]].
     substeps:
       - Take out the roasting dish and remove the bay leaves.
       - Transfer the sauce to another bowl and add a few tablespoons of the pasta water.

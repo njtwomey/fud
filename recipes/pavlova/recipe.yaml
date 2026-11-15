@@ -89,7 +89,7 @@ steps:
     title: Whisk the egg whites
     component: meringue
     kind: cook
-    text: Whisk the egg whites in a large bowl until stiff.
+    text: Whisk the egg whites in a large bowl [[stiff-peaks|until stiff]].
     substeps:
       - Put {whites} in a large, clean bowl.
       - Whisk until stiff.
@@ -171,7 +171,7 @@ steps:
     title: Whip the cream
     component: filling
     kind: cook
-    text: Whip the cream until it holds its structure, then mix in the hazelnuts and chocolate scrapings and chill.
+    text: Whip the cream [[soft-peaks|until it holds its structure]], then mix in the hazelnuts and chocolate scrapings and chill.
     substeps:
       - Put {cream} in a large bowl.
       - Whip until it holds its structure.

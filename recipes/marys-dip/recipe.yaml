@@ -92,7 +92,7 @@ steps:
     title: Blend into a dip
     component: dip
     kind: cook
-    text: Put the prepared ingredients (red peppers, garlic, cashews, olive oil, honey, soy sauce, parsley, chilli and thyme) into a blender or food processor and blend until it has the consistency of a dip.
+    text: Put the prepared ingredients (red peppers, garlic, cashews, olive oil, honey, soy sauce, parsley, chilli and thyme) into a blender or food processor and [[pureeing|blend]] until it has the consistency of a dip.
     cue: A thick, smooth-ish dip with no large pieces of pepper or nut left.
     active_min: 4
     tools:

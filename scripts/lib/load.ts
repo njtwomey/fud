@@ -153,6 +153,7 @@ export function loadLibrary(opts: { staging?: readonly string[] } = {}): LoadedL
     tools: tools?.tools ?? [],
     tags: tags?.tags ?? [],
     swaps: swaps?.swaps ?? [],
+    technique_categories: techniques?.categories ?? [],
     techniques: techniques?.techniques ?? [],
     kitchen: kitchen ?? Kitchen.parse({}),
     recipes: recipes.sort((a, b) => a.title.localeCompare(b.title)),

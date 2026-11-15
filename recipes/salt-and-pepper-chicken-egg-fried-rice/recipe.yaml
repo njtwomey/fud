@@ -214,7 +214,7 @@ steps:
     title: Fry the rice and peas
     component: fried-rice
     kind: cook
-    text: Return the pan to a medium-high heat and fry the cold rice with the peas, sesame oil and soy sauce until combined.
+    text: Return the pan to a medium-high heat and [[stir-frying|fry the cold rice]] with the peas, sesame oil and soy sauce until combined.
     substeps:
       - Heat {oil-rice} in the reserved pan over a medium-high heat.
       - Add the cooled rice, {peas}, {sesame-oil} and {soy-sauce}.

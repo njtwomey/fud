@@ -130,7 +130,7 @@ steps:
     title: Soften the vegetables
     component: veg-base
     kind: cook
-    text: Cook the sliced vegetables in the butter with the thyme leaves for about 15 minutes, until soft.
+    text: "[[sweating|Cook the sliced vegetables]] in the butter with the thyme leaves for about 15 minutes, until soft."
     substeps:
       - Put the sliced vegetables in a large casserole pan over a medium heat with {butter}.
       - Strip in the leaves from {thyme}.
@@ -148,7 +148,7 @@ steps:
     title: Make the white sauce
     component: sauce
     kind: cook
-    text: Stir in the flour, then slowly add the milk and simmer for 10 minutes until thickened.
+    text: "[[making-a-roux|Stir in the flour]], then slowly add the milk and simmer for 10 minutes until thickened."
     substeps:
       - Stir {flour} into the vegetables.
       - Slowly pour in {milk}, stirring as you go.
@@ -182,7 +182,7 @@ steps:
     title: Add the cheese and blend
     component: sauce
     kind: cook
-    text: Grate the parmesan and most of the cheddar into the sauce, then blend with the spinach until smooth, in batches if needed.
+    text: Grate the parmesan and most of the cheddar into the sauce, then [[pureeing|blend with the spinach]] until smooth, in batches if needed.
     substeps:
       - Grate {parmesan} and most of the {cheddar} into the sauce and mix well.
       - Tip into a blender, add {spinach} and blitz until smooth, in batches if needed.

@@ -117,7 +117,7 @@ steps:
     title: Chop the garlic and soffritto
     component: soffritto
     kind: prep
-    text: Finely chop the garlic and, if using the soffritto, dice the carrot, onion and celery very finely.
+    text: Finely chop the garlic and, if using the soffritto, [[dicing|dice]] the carrot, onion and celery very finely.
     substeps:
       - Finely chop {garlic}.
       - For the soffritto, very finely dice {carrot}, {onion} and {celery}.

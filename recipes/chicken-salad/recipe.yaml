@@ -116,7 +116,7 @@ steps:
     title: Sear the chicken
     component: chicken
     kind: cook
-    text: Sear {chicken:name} in a hot pan with a little {oil:name} for 3 to 5 minutes, then turn it over and colour the other side.
+    text: "[[searing|Sear]] {chicken:name} in a hot pan with a little {oil:name} for 3 to 5 minutes, then turn it over and colour the other side."
     cue: Both sides are golden brown.
     heat: high
     active_min: 8
@@ -172,7 +172,7 @@ steps:
     title: Rest and slice the chicken
     component: chicken
     kind: wait
-    text: When the chicken is cooked, let it rest for a few minutes and then slice it into strips.
+    text: When the chicken is cooked, [[resting-meat|let it rest]] for a few minutes and then slice it into strips.
     active_min: 2
     passive_min: 4
     tools:

@@ -84,7 +84,7 @@ steps:
     title: Dice the vegetables
     component: soup
     kind: prep
-    text: Dice {leeks}, {onion} and {potatoes} into small pieces.
+    text: "[[dicing|Dice]] {leeks}, {onion} and {potatoes} into small pieces."
     substeps:
       - The size does not really matter, but smaller potatoes cook quickly if you are in a hurry.
       - Leave the skins on the potatoes, but wash them well.
@@ -98,7 +98,7 @@ steps:
     title: Sweat the leeks and onion
     component: soup
     kind: cook
-    text: Melt {butter} in a large pot, add the leeks and onion with {salt} and {pepper} and sweat for 5 to 10 minutes on a medium heat.
+    text: Melt {butter} in a large pot, add the leeks and onion with {salt} and {pepper} and [[sweating|sweat]] for 5 to 10 minutes on a medium heat.
     substeps:
       - Add some {herbs} here if you would like.
       - While the leeks sweat, soak the diced potatoes in cold water to remove some starch. This is a habit; it may not be strictly necessary.
@@ -117,7 +117,7 @@ steps:
     title: Add the potatoes, stock and milk
     component: soup
     kind: cook
-    text: Add the drained potatoes, then the stock and the milk, and slowly bring up to a light simmer while stirring.
+    text: Add the drained potatoes, then the stock and the milk, and slowly bring up to [[simmering|a light simmer]] while stirring.
     substeps:
       - Drain the potatoes and add them to the pot.
       - Prepare {stock} and add it, then add {milk}.
@@ -166,7 +166,7 @@ steps:
     title: Blend until smooth
     component: soup
     kind: cook
-    text: Once cooked, use a hand blender to make the soup smooth.
+    text: Once cooked, [[pureeing|use a hand blender]] to make the soup smooth.
     cue: Completely smooth, with no lumps of potato or leek.
     active_min: 3
     tools:

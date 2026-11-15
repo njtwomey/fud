@@ -110,7 +110,7 @@ steps:
       - Put {flour} and {salt} in a large bowl and make a well in the middle.
       - Pour the whole yeast mixture into the well.
       - Using a large fork or spoon, slowly stir the contents together, working from the well to the edge of the bowl.
-      - When it starts to come together, switch to your hands and mix and knead.
+      - When it starts to come together, switch to your hands and mix and [[kneading|knead]].
     cue: A soft, cohesive dough with no dry flour left in the bowl.
     active_min: 10
     tools:
@@ -123,7 +123,7 @@ steps:
     title: Prove the dough
     component: dough
     kind: wait
-    text: Leave the dough in a floured bowl under a damp cloth for about an hour.
+    text: "[[proving|Leave the dough in a floured bowl under a damp cloth]] for about an hour."
     substeps:
       - Put the dough in a floured bowl and cover with a damp cloth.
       - Leave for about an hour.
@@ -161,7 +161,7 @@ steps:
     title: Knock back and divide
     component: dough
     kind: prep
-    text: Knock the dough back, knead it a little more and halve it three times to make 8 small balls.
+    text: "[[knocking-back|Knock the dough back]], knead it a little more and halve it three times to make 8 small balls."
     substeps:
       - Knock the dough back and knead it a little more.
       - Halve the dough 3 times to make 8 small balls.
@@ -179,7 +179,7 @@ steps:
     title: Roll out and top
     component: toppings
     kind: cook
-    text: Roll a ball out on a floured surface, cover most of it with passata and add your toppings.
+    text: "[[rolling-out|Roll a ball out]] on a floured surface, cover most of it with passata and add your toppings."
     substeps:
       - Take one ball and roll it out on a floured surface to the shape and size you like.
       - Spread a few tablespoons of {passata} over it until it is mostly covered.

@@ -165,7 +165,7 @@ steps:
     kind: cook
     text: Cook {onion} on a medium heat, add {paprika}, {cumin} and {coriander} after 5 minutes, then {garlic}, {ginger}, {peanut-butter} and {puree}, and work them together.
     substeps:
-      - Finely dice {onion}.
+      - Finely [[dicing|dice]] {onion}.
       - Heat {oil-pot} in the large pot over a medium heat and cook the onion, stirring continuously.
       - After 5 minutes add {paprika}, {cumin} and {coriander}.
       - Turn the heat down slightly and add {garlic}, {ginger}, {peanut-butter} and {puree}.
@@ -201,7 +201,7 @@ steps:
     title: Add the coconut milk
     component: curry
     kind: cook
-    text: Pour the coconut milk into the onion mixture and let it simmer while the sweet potato finishes roasting.
+    text: Pour the coconut milk into the onion mixture and let it [[simmering|simmer]] while the sweet potato finishes roasting.
     substeps:
       - Pour {coconut-milk} into the pot.
       - Let it simmer gently.
@@ -240,7 +240,7 @@ steps:
     kind: serve
     text: Plate the rice and the curry, add {salt:name} and {pepper:name} to taste, and top with yoghurt and fresh coriander if you like.
     substeps:
-      - Taste and adjust {salt} and {pepper}.
+      - "[[tasting-and-adjusting|Taste and adjust]] {salt} and {pepper}."
       - Top with {yoghurt} and {fresh-coriander}.
     active_min: 3
     after:

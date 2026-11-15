@@ -178,7 +178,7 @@ steps:
     title: Cut the vegetables
     component: lamb
     kind: prep
-    text: Cut the onion into petals, the carrot into matchsticks and the spring onions into rings, and slice the rest of the garlic.
+    text: Cut the onion into petals, the carrot into [[julienne|matchsticks]] and the spring onions into rings, and slice the rest of the garlic.
     substeps:
       - Peel {onion} and cut into quarters, then separate the wedges into a pile of onion petals.
       - Top, tail, peel and slice {carrot} into discs on the diagonal, then into matchsticks.
@@ -195,7 +195,7 @@ steps:
     title: Brown the lamb
     component: lamb
     kind: cook
-    text: Brown the lamb mince in a very hot pan, breaking it into large chunks.
+    text: "Brown the lamb mince in a very hot pan, breaking it into large chunks."
     substeps:
       - Heat a large, wide-based pan (preferably non-stick) with {oil} over a high heat.
       - Add {lamb} with {salt-lamb} and cook for 3 to 4 minutes, breaking it up into large chunks with a wooden spoon.

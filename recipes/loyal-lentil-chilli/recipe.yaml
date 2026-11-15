@@ -145,7 +145,7 @@ steps:
     title: Heat the oven and dice the squash
     component: squash
     kind: prep
-    text: Heat the oven first, then peel the squash and cut it into small dice.
+    text: Heat the oven first, then peel the squash and [[dicing|cut it into small dice]].
     substeps:
       - Heat the oven to 200 °C fan (220 °C conventional).
       - Peel {squash} with a potato peeler and dice into cubes about the size of a dice. Splitting it in two, the bulb with the seeds and the solid cylinder, helps.

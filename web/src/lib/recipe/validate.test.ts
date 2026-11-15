@@ -27,6 +27,12 @@ describe('validateLibrary', () => {
     expect(messages(marked('whipping'))).toContain("error: unknown technique 'whipping'")
   })
 
+  it('rejects a technique whose category is not defined', () => {
+    const c = structuredClone(makeCatalog())
+    c.techniques[0]!.category = 'sorcery'
+    expect(messages(c)).toContain("error: unknown category 'sorcery'")
+  })
+
   it('applies the wording rules to technique explanations', () => {
     const c = structuredClone(makeCatalog())
     c.techniques[0]!.description = 'Beat everything until pale.'

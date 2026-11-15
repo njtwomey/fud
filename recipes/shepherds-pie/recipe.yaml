@@ -168,7 +168,7 @@ steps:
     title: Reduce wine, simmer sauce
     component: lamb
     kind: cook
-    text: Boil the red wine down almost to nothing, add the stock and simmer until the sauce thickens. Season to taste.
+    text: "[[reducing|Boil the red wine down]] almost to nothing, add the stock and simmer until the sauce thickens. Season to taste."
     substeps:
       - Pour in {wine} and reduce until almost completely evaporated.
       - Add {stock}, bring to the boil and simmer until the sauce has thickened.
@@ -204,7 +204,7 @@ steps:
     title: Make the Parmesan mash
     component: mash
     kind: cook
-    text: Mash the potato thoroughly, then beat in the egg yolks, cream and butter, followed by some of the Parmesan. Taste and adjust the {salt:name} and {pepper:name}.
+    text: Mash the potato thoroughly, then beat in the egg yolks, cream and butter, followed by some of the Parmesan. [[tasting-and-adjusting|Taste and adjust]] the {salt:name} and {pepper:name}.
     substeps:
       - Mash the potatoes until smooth.
       - Beat in {yolk}, {cream} and {butter}.

@@ -1,30 +1,575 @@
 # yaml-language-server: $schema=../schemas/techniques.schema.json
 # Cooking methods a recipe can explain in place. A step marks the word as [[id|words]] (for example
-# "[[creaming|Cream]] the butter"); the site shows it with a small expander that opens `description` and `tips`.
-# Mark a technique only where someone might have forgotten it, once per step. Describe the method in general terms;
+# "[[creaming|Cream]] the butter"); the site shows it with a small expander that opens the description, when you would
+# use it, and tips. Most of these are not used by a recipe yet: they are here ready for when one needs them.
+#
+# Mark a technique only where someone might have forgotten it, once per line. Describe the method in general terms;
 # what a particular recipe wants goes in that step's own text and cue.
 
+categories:
+  - id: dough
+    label: Dough and pastry
+
+  - id: sweet
+    label: Cakes, biscuits and sweet things
+
+  - id: prep
+    label: Prep and knife work
+
+  - id: heat
+    label: Frying, searing and roasting
+
+  - id: liquids
+    label: Simmering, sauces and stocks
+
+  - id: flavour
+    label: Flavour, coating and resting
+
 techniques:
+  # Dough and pastry
+
+  - id: kneading
+    name: Kneading
+    category: dough
+    description: Working dough by pushing it away from you with the heel of your hand, folding it back over itself and giving it a quarter turn, then repeating. It stretches and strengthens the gluten, which is what gives bread, pizza and flatbread their chew.
+    when:
+      - Making bread, pizza bases, pretzels or flatbreads from yeast or plain flour dough.
+      - A dough has just come together and feels rough, sticky or torn.
+    tips:
+      - Use as little extra flour as you can, because too much makes the dough dry and tough.
+      - Knead for about 8 to 10 minutes by hand for a yeast dough, but only a minute or so for a quick flatbread.
+      - It is ready when the dough is smooth, springs back when poked and stretches thinly without tearing.
+
+  - id: proving
+    name: Proving
+    category: dough
+    description: Leaving shaped or kneaded yeast dough somewhere warm and covered so the yeast makes gas and the dough swells. It is what makes bread light, and it is the rest between kneading and baking.
+    when:
+      - A yeast dough has been kneaded and needs to rise before baking.
+      - Shaped rolls, pizza bases or pretzels have been formed and need a second, shorter rise.
+    tips:
+      - Cover the bowl or tray so the surface does not dry into a skin.
+      - Judge by size and not the clock, because it is ready when roughly doubled, and a gentle poke springs back slowly.
+      - A cold kitchen needs longer, and a very warm one needs less, so check early.
+
+  - id: knocking-back
+    name: Knocking back
+    category: dough
+    description: Pressing the air out of risen dough with your fist or fingertips, then folding it over a few times. It evens out the bubbles and redistributes the yeast so the dough rises well a second time.
+    when:
+      - Bread dough has doubled in size and you are about to shape it.
+    tips:
+      - Be firm but not violent, since you only want to flatten the dough and not tear it.
+      - Let the dough rest for a few minutes afterwards if it springs back when you try to shape it.
+
+  - id: rubbing-in
+    name: Rubbing in
+    category: dough
+    description: Rubbing cold butter into flour between your fingertips until the mixture looks like fine breadcrumbs. The flour coats the fat, which keeps the bake tender and crumbly and not chewy.
+    when:
+      - Making scones, shortcrust pastry, crumble toppings or some biscuits.
+    tips:
+      - Keep the butter cold and cut it into small cubes first.
+      - Lift the mixture up and let it fall through your fingers to keep it light and cool.
+      - Work quickly, because warm hands melt the butter and make the mixture greasy.
+
+  - id: rolling-out
+    name: Rolling out
+    category: dough
+    description: Rolling dough or pastry into an even sheet with a rolling pin. Work from the centre outwards, lifting and giving the dough a quarter turn between passes so it stays round and does not stick.
+    when:
+      - Cutting out biscuits, lining a tart tin or making pastry, pizza or flatbreads.
+    tips:
+      - Dust the work surface and the rolling pin lightly with flour, and brush off the extra before using the dough.
+      - Roll to the thickness the recipe asks for, and check with a ruler the first time.
+      - If the dough sticks or cracks, chill it for a few minutes or let it warm slightly.
+
+  - id: crimping
+    name: Crimping
+    category: dough
+    description: Sealing the edge of a pastry case by pressing it together, either with the tines of a fork or by pinching it between your finger and thumb. It joins the top and the bottom layers so the filling stays inside.
+    when:
+      - Sealing pies, tarts or turnovers with a lid of pastry.
+    tips:
+      - Brush the edge with a little water or egg first, so the layers stick.
+      - Press firmly enough to seal but not so hard that you cut through the pastry.
+
+  - id: blind-baking
+    name: Blind baking
+    category: dough
+    description: Baking a pastry case before the filling goes in, so the base cooks through and stays crisp. The case is lined with baking paper and filled with baking beans or rice to hold its shape.
+    when:
+      - Making a tart or quiche with a wet filling.
+    tips:
+      - Chill the lined case first, so it shrinks less in the oven.
+      - Bake with the weights in, then take them out and bake a few minutes more to dry the base.
+      - Brush the hot base with beaten egg to seal it if the filling is very wet.
+
+  # Cakes, biscuits and sweet things
+
   - id: creaming
     name: Creaming
+    category: sweet
     description: Beating soft butter together with sugar so the sugar crystals work tiny pockets of air into the fat. The mixture turns paler, lighter and fluffier, which is what makes a cake or biscuit tender.
+    when:
+      - Starting a cake, a sponge, cookies or shortbread.
+      - A recipe says to beat the butter and sugar until light and fluffy.
     tips:
       - Use butter at room temperature, soft enough to dent with a finger but not greasy or melting.
       - Scrape down the sides of the bowl from time to time so no butter escapes the beaters.
       - Stop as soon as the mixture looks smooth and combined if the recipe asks for it not to be fluffy.
 
+  - id: whisking
+    name: Whisking
+    category: sweet
+    description: Beating quickly with a whisk to mix ingredients smoothly or to trap air in them. A balloon whisk or an electric whisk does the same job, and the electric one is far less tiring for egg whites and cream.
+    when:
+      - Mixing eggs into a custard or batter without lumps.
+      - Whipping egg whites or cream, or making a smooth sauce.
+    tips:
+      - Use a bowl big enough for the mixture to grow.
+      - Whisk in figure-of-eight movements by hand so you reach the whole bowl.
+
+  - id: soft-peaks
+    name: Soft peaks
+    category: sweet
+    description: Whisking cream or egg whites until they hold their shape loosely. When you lift the whisk out, the peak that forms flops over at the tip. The mixture is thick and billowy but still soft.
+    when:
+      - Whipping cream to spoon over a dessert or fold into a mousse.
+      - Whisking egg whites for a light batter or soufflé.
+    tips:
+      - Chilled cream whips faster and holds better.
+      - Stop as soon as the peaks form, because cream goes grainy and then turns to butter if you carry on.
+
   - id: stiff-peaks
     name: Stiff peaks
+    category: sweet
     description: Whisking egg whites, or an icing made from them, until the mixture is thick and glossy enough to hold its shape. When you lift the whisk out, the peak that forms stands straight up and does not droop over.
+    when:
+      - Making meringues, a pavlova or royal icing.
+      - A recipe says the whites should hold a peak or stand up.
     tips:
       - The bowl and whisk must be clean and free of grease, or the whites will not thicken.
       - Test by lifting the whisk out and turning it upside down, and by tipping the bowl, as a stiff mixture will not slide.
       - Stop once the peaks hold, because whisking much further makes the mixture grainy.
 
+  - id: folding
+    name: Folding
+    category: sweet
+    description: Mixing a light, airy mixture into a heavier one with a large metal spoon or spatula, cutting down through the middle, sweeping along the bottom and lifting over the top. It combines them without knocking out the air.
+    when:
+      - Adding whisked egg whites or whipped cream to a batter or mousse.
+      - Mixing flour into a whisked sponge.
+      - Bringing delicate ingredients through a hot pan or a salad gently.
+    tips:
+      - Add the light mixture in two or three portions, with the first one stirred in firmly to loosen the base.
+      - Turn the bowl as you work and stop when no streaks remain.
+
+  - id: sifting
+    name: Sifting
+    category: sweet
+    description: Passing flour, icing sugar or cocoa through a sieve to break up lumps and add a little air. It makes a smoother batter and a smoother icing.
+    when:
+      - Adding flour to a cake mixture, or making icing, glazes or dusting a finished bake.
+    tips:
+      - Sift from a height, over the bowl, so the powder falls lightly.
+      - Sift baking powder in with the flour so it spreads evenly.
+
+  - id: tempering-eggs
+    name: Tempering eggs
+    category: sweet
+    description: Warming eggs gradually by adding a little hot liquid to them while whisking, before the rest goes in. The eggs thicken a sauce or custard smoothly and do not scramble.
+    when:
+      - Making custards, crème brûlée or ice cream bases from hot cream or milk.
+      - Adding eggs to a hot sauce, such as a carbonara.
+    tips:
+      - Pour the hot liquid in a thin stream and whisk the whole time.
+      - If the sauce is going to be heated further, keep it gentle and stir constantly.
+
+  - id: bain-marie
+    name: Water bath (bain-marie)
+    category: sweet
+    description: Cooking something in a dish set inside a larger tin of hot water. The water keeps the temperature gentle and even, so delicate mixtures set smoothly and do not curdle or crack.
+    when:
+      - Baking custards, crème brûlée or a baked cheesecake.
+      - Melting chocolate gently over a pan of simmering water.
+    tips:
+      - Pour hot water from the kettle into the outer tin once it is in the oven, so it does not spill.
+      - Water around the dish should come about halfway up its sides.
+
+  - id: caramelising-sugar
+    name: Caramelising sugar
+    category: sweet
+    description: Heating sugar until it melts and turns amber, which gives a deep, slightly bitter, toffee flavour. Sprinkled on a custard and heated with a blowtorch or under a hot grill, it sets into a thin, crisp crust.
+    when:
+      - Finishing a crème brûlée or a tart with a glassy sugar top.
+      - Making a caramel sauce or toffee.
+    tips:
+      - Spread an even, thin layer of sugar, because thick patches burn before others have melted.
+      - Keep the flame moving and stop as soon as it is golden brown, since sugar goes from perfect to burnt within seconds.
+
   - id: piping-rosette
     name: Piping a rosette
+    category: sweet
     description: Piping a ruffled swirl of icing with a star nozzle. Hold the bag upright just above the surface, squeeze from the middle of where the rosette will sit, and spiral outwards in one full turn, then stop squeezing and lift away with a small flick.
+    when:
+      - Topping biscuits, cupcakes or a cake with buttercream or royal icing.
     tips:
       - Squeeze steadily from the top of the bag with one hand and guide with the other.
       - Twist the top of the bag shut after filling so the icing cannot escape upwards.
       - Practise on baking paper first, because the icing can be scraped back into the bag and used again.
+
+  # Prep and knife work
+
+  - id: dicing
+    name: Dicing
+    category: prep
+    description: Cutting food into small, even cubes. Slice it into planks, cut the planks into sticks and then across into cubes. Pieces of the same size cook at the same rate.
+    when:
+      - Preparing onions, carrots, peppers and potatoes for a stew, soup, sauce or curry.
+    tips:
+      - Hold the food with your fingertips curled under, so the knife slides against your knuckles and not your fingertips.
+      - Cut a flat edge first, so the food sits steady on the board.
+      - Work to the size in the recipe, such as 1 cm for a quick dish or 2 cm for a long stew.
+
+  - id: mincing
+    name: Mincing
+    category: prep
+    description: Chopping something very finely, until the pieces are almost a paste. Rock the blade through the food in a fan, gathering it back into a pile and repeating.
+    when:
+      - Preparing garlic, ginger, chillies or herbs, so they melt into a sauce.
+    tips:
+      - Sprinkle a pinch of salt over garlic and crush it with the flat of the knife to make a paste.
+      - Keep the tip of the knife on the board and rock the blade down over the food.
+
+  - id: julienne
+    name: Julienne
+    category: prep
+    description: Cutting food into thin, even matchsticks about 3 mm wide. Slice thinly lengthways, stack the slices and cut them into strips.
+    when:
+      - Preparing carrots, peppers, cucumber or spring onions for a stir-fry, a salad or a garnish.
+    tips:
+      - Trim the vegetable into a block first, so the strips come out the same length.
+      - A grater with a julienne blade or a peeler with a julienne blade is a quick alternative.
+
+  - id: chiffonade
+    name: Chiffonade
+    category: prep
+    description: Slicing leafy herbs or greens into thin ribbons. Stack the leaves, roll them tightly like a cigar and slice across the roll.
+    when:
+      - Finishing a dish with basil, mint or spinach, or preparing cabbage or lettuce for a salad.
+    tips:
+      - Use a very sharp knife, since a blunt one bruises and blackens basil.
+      - Cut just before serving, because the edges darken.
+
+  - id: zesting
+    name: Zesting
+    category: prep
+    description: Removing the thin, coloured outer skin of a citrus fruit with a fine grater or microplane. The zest is full of fragrant oil, while the white pith underneath is bitter and should be left behind.
+    when:
+      - Adding lemon, lime or orange flavour to a biscuit, cake, sauce or pasta.
+    tips:
+      - Zest before you juice the fruit, since it is almost impossible the other way round.
+      - Press lightly and turn the fruit as you work, and stop when you reach the white.
+
+  - id: butterflying-and-pounding
+    name: Butterflying and pounding
+    category: prep
+    description: Slicing a thick piece of meat almost in half, so it opens like a book, then flattening it with a rolling pin or mallet between two sheets of baking paper. It makes the meat thin and an even thickness, so it cooks quickly and stays tender.
+    when:
+      - Preparing chicken breast for katsu, schnitzel or a quick pan-fry.
+    tips:
+      - Slice horizontally, keeping the knife level, and stop before you cut right through.
+      - Hit from the centre outwards, with firm, even taps, and stop when the thickness is even.
+
+  - id: shredding
+    name: Shredding
+    category: prep
+    description: Pulling cooked meat apart into thin strands with two forks, or cutting a cabbage or leaves into narrow strips. Shredded meat soaks up sauce and spreads through a dish.
+    when:
+      - Pulling cooked chicken for salads, wraps and sandwiches, or slow-cooked meat for a ragu.
+    tips:
+      - Shred meat while it is still warm, since it comes apart more easily.
+      - Pull along the grain of the meat, not against it.
+
+  - id: pureeing
+    name: Pureeing
+    category: prep
+    description: Blending food until completely smooth, with a stick blender, a blender or a food processor. It turns cooked vegetables into soup and sauce, and a dry mixture into a paste.
+    when:
+      - Making soup, a sauce or a dip.
+    tips:
+      - Let hot food cool a little before using a jug blender and do not fill it more than half full, because steam can push the lid off.
+      - Add a little liquid if it will not turn.
+
+  # Frying, searing and roasting
+
+  - id: searing
+    name: Searing
+    category: heat
+    description: Cooking the surface of meat or fish in a very hot pan until it is deeply browned. The browning gives a savoury flavour and a crust. It does not seal in juices, but it does taste excellent.
+    when:
+      - Browning steak, chicken or lamb before roasting or braising, or finishing a fillet of fish.
+    tips:
+      - Pat the food dry first, because moisture steams it instead of browning it.
+      - Get the pan properly hot before the food goes in, and cook in batches so the pan does not cool.
+      - Leave it alone until it releases easily from the pan.
+
+  - id: reverse-searing
+    name: Reverse searing
+    category: heat
+    description: Cooking a thick cut of meat slowly in a low oven first, then finishing it in a very hot pan to brown the outside. It gives an evenly pink middle with a crisp crust.
+    when:
+      - Cooking a thick steak, about 3 cm or more, to a precise degree of doneness.
+    tips:
+      - Use a probe thermometer and take the meat out of the oven about 10 °C below your target.
+      - Pat the surface dry before it goes in the pan, and sear for about a minute each side.
+      - Rest the steak after searing.
+
+  - id: sauteing
+    name: Sautéing
+    category: heat
+    description: Cooking small pieces of food in a little hot fat, over a medium-high heat, stirring or tossing now and then. It softens and lightly browns the food in a few minutes.
+    when:
+      - Cooking onions, mushrooms, peppers or small pieces of meat.
+    tips:
+      - Keep the pieces about the same size, so they cook together.
+      - Do not overcrowd the pan, or the food steams and turns soggy.
+
+  - id: sweating
+    name: Sweating
+    category: heat
+    description: Cooking vegetables gently in a little fat with the lid on or partly on, so they soften and sweeten without taking on any colour. It is the start of many soups, sauces and stews.
+    when:
+      - Starting a soup, curry, ragu or stew with onion, leek, celery or carrot.
+    tips:
+      - Use a low to medium heat, and stir now and then.
+      - A pinch of salt draws water out of the vegetables and helps them soften.
+      - They are ready when soft and translucent and not browned.
+
+  - id: stir-frying
+    name: Stir-frying
+    category: heat
+    description: Cooking small, even pieces very quickly over a high heat, tossing constantly in a wok or large frying pan. The food stays crisp and keeps its colour.
+    when:
+      - Cooking thinly sliced meat, vegetables, noodles or fried rice.
+    tips:
+      - Chop, measure and stir together the sauce before you start, because the cooking is over in minutes.
+      - Cook in batches if the pan is crowded, and add the foods that need longest first.
+      - Add sauces at the end, so they do not stop the pan sizzling.
+
+  - id: toasting-spices
+    name: Toasting spices
+    category: heat
+    description: Heating whole or ground spices, nuts or seeds in a dry pan until they smell fragrant. The heat wakes up the oils in them and gives a deeper, rounder flavour.
+    when:
+      - Starting a curry or spice rub, or adding crunch and flavour with nuts and seeds.
+    tips:
+      - Use a medium heat, shake the pan often and stop the moment they smell warm and fragrant.
+      - Tip them out onto a plate straight away, as they keep cooking and burn in a hot pan.
+
+  - id: deglazing
+    name: Deglazing
+    category: heat
+    description: Pouring a little liquid, such as stock, wine or water, into a hot pan after browning, then scraping up the sticky brown bits stuck to the bottom. Those bits are packed with flavour and dissolve into the sauce.
+    when:
+      - Making a sauce or gravy after searing meat.
+      - Anything is stuck to the bottom of the pan.
+    tips:
+      - Take the pan off the heat briefly if you are adding alcohol.
+      - Scrape with a wooden spoon while the liquid bubbles, then let it reduce.
+
+  - id: basting
+    name: Basting
+    category: heat
+    description: Spooning hot fat or cooking juices over food as it cooks. It keeps the surface moist and helps it brown evenly.
+    when:
+      - Cooking a roast, chicken, steak or fish in the oven or the pan.
+    tips:
+      - Tilt the pan so the fat gathers, then spoon it over repeatedly.
+      - Add a knob of butter, garlic or herbs to the pan to flavour the fat.
+
+  - id: parboiling
+    name: Parboiling
+    category: heat
+    description: Boiling food briefly, until it is partly cooked, before finishing it another way. For potatoes it roughs up the surface, which turns crisp when roasted or fried.
+    when:
+      - Making roast potatoes or oven chips.
+    tips:
+      - Drain well and let the steam escape, then shake the pan to roughen the edges.
+      - Dry potatoes crisp up better, so let them stand for a few minutes.
+
+  - id: blanching
+    name: Blanching
+    category: heat
+    description: Dropping food into boiling water for a short time, then moving it straight to iced water to stop the cooking. It sets a bright colour, softens it slightly and takes the raw edge off.
+    when:
+      - Preparing green vegetables, or loosening the skins of tomatoes or almonds.
+      - Adding a short boil to something before baking, such as pretzel dough.
+    tips:
+      - Use plenty of boiling water and salt it.
+      - Have the bowl of iced water ready before the food goes in.
+
+  - id: poaching
+    name: Poaching
+    category: heat
+    description: Cooking food gently in liquid that is barely moving, with only a few bubbles rising. It keeps eggs, fish and chicken tender and moist.
+    when:
+      - Cooking eggs, fish or chicken breast gently.
+      - Cooking eggs in a sauce, such as a tomato or pepper sauce.
+    tips:
+      - Keep the liquid below a simmer.
+      - For eggs, make a well in the sauce, crack the egg in, cover and cook until the white sets.
+
+  - id: steaming
+    name: Steaming
+    category: heat
+    description: Cooking food above boiling water in a covered basket or colander, so it cooks in the hot steam without touching the water. It keeps flavour, colour and nutrients.
+    when:
+      - Cooking vegetables, fish, dumplings or rice.
+    tips:
+      - Keep the water below the basket, and top it up if it boils dry.
+      - Do not lift the lid more than you need.
+
+  # Simmering, sauces and stocks
+
+  - id: simmering
+    name: Simmering
+    category: liquids
+    description: Cooking in liquid held just below boiling point, with small bubbles breaking the surface slowly. It is gentler than a boil, so it softens food without toughening it or breaking it up.
+    when:
+      - Cooking curries, stews, soups, sauces, stock and beans.
+    tips:
+      - Bring to the boil first, then turn the heat right down.
+      - Partly cover the pan if the liquid reduces too fast.
+
+  - id: reducing
+    name: Reducing
+    category: liquids
+    description: Boiling or simmering a liquid, uncovered, until some of the water has evaporated. It thickens the liquid and concentrates its flavour.
+    when:
+      - Finishing a sauce, glaze or gravy.
+      - A sauce tastes weak or looks thin.
+    tips:
+      - Use a wide pan, since more surface area makes it reduce faster.
+      - Taste at the end, because the salt becomes more concentrated as well.
+      - It is ready when a spoon dragged across the pan leaves a clear line.
+
+  - id: making-a-roux
+    name: Making a roux
+    category: liquids
+    description: Cooking flour in fat, usually butter or oil, to make a paste that thickens sauces and stews. The longer it cooks, the darker and nuttier it gets and the less thickening power it has.
+    when:
+      - Making a white sauce, a cheese sauce, croquetas or a gumbo.
+    tips:
+      - Stir constantly over a medium heat, because a roux scorches easily.
+      - Add liquid gradually and whisk well, to avoid lumps.
+      - Cook a pale roux for about 2 minutes, or until the raw flour smell has gone.
+
+  - id: thickening-with-a-slurry
+    name: Thickening with a slurry
+    category: liquids
+    description: Stirring cornflour with a little cold water until smooth, then adding it to a hot sauce, which thickens as it simmers. It is a quick fix for a sauce that is too thin.
+    when:
+      - A sauce, stew or gravy is runnier than you want.
+    tips:
+      - Mix with cold water first, because cornflour clumps if added directly to hot liquid.
+      - Stir it in a little at a time, and give it a minute at a simmer before adding more.
+
+  - id: skimming
+    name: Skimming
+    category: liquids
+    description: Removing the foam, scum or excess fat that rises to the surface of a stock, soup or sauce, with a spoon or ladle. It leaves a cleaner flavour and a clearer, less greasy result.
+    when:
+      - Making stock, a ragu, a soup or a stew that cooks for a long time.
+    tips:
+      - Tilt the pan and skim from the side where the fat gathers.
+      - A sheet of kitchen paper laid lightly on the surface takes up extra fat.
+
+  - id: emulsifying
+    name: Emulsifying
+    category: liquids
+    description: Bringing fat and water together into a smooth, glossy sauce that does not split. Whisking or stirring vigorously, often with a little starchy cooking water, holds the two together.
+    when:
+      - Finishing a pasta sauce with cheese, butter or oil, or making a dressing or mayonnaise.
+    tips:
+      - Save a mugful of pasta cooking water before you drain it.
+      - Add the liquid a little at a time, and keep stirring until the sauce looks glossy and clings to the food.
+
+  - id: infusing
+    name: Infusing
+    category: liquids
+    description: Steeping flavourings, such as a vanilla pod, herbs, spices or citrus peel, in hot liquid so their flavour passes into it. The flavourings are usually removed before serving.
+    when:
+      - Making a custard, a syrup, a cream sauce, a tea or a stock.
+    tips:
+      - Heat the liquid gently, then leave it off the heat with the flavourings in, to draw out more flavour.
+      - Split a vanilla pod lengthways and scrape out the seeds before adding both.
+
+  - id: braising
+    name: Braising
+    category: liquids
+    description: Browning meat or vegetables, then cooking them slowly and gently in a small amount of liquid in a covered pot. Long, moist cooking breaks down tough cuts until they are tender and the liquid becomes a rich sauce.
+    when:
+      - Cooking a stew, a casserole, shin, shoulder or any tough cut of meat.
+    tips:
+      - Brown the meat in batches first, since that is where much of the flavour comes from.
+      - The liquid should come only partway up the meat, with the lid on.
+      - Cook it low and slow, in the oven at around 150 °C or on the lowest hob setting.
+
+  # Flavour, coating and resting
+
+  - id: marinating
+    name: Marinating
+    category: flavour
+    description: Soaking meat, fish or vegetables in a seasoned mixture before cooking, so they take on flavour and sometimes become more tender. An acid such as lemon juice, vinegar or yoghurt helps.
+    when:
+      - Preparing chicken, lamb, beef or vegetables for the grill, oven, wok or barbecue.
+    tips:
+      - Use a bowl or a sealed bag, and keep it in the fridge.
+      - Most marinades need from 30 minutes to overnight, but fish and acidic marinades need less.
+      - Wipe off the thick excess before browning, because it can burn.
+
+  - id: tasting-and-adjusting
+    name: Tasting and adjusting
+    category: flavour
+    description: Tasting food as it cooks, and again at the end, then adjusting the salt, pepper, sourness and sweetness until it tastes balanced. It is the step that most separates a good dish from a flat one.
+    when:
+      - A sauce, soup, curry or stew is nearly done.
+      - A dish tastes dull, sharp, too salty or too sweet.
+    tips:
+      - Add salt a pinch at a time, and stir and taste between additions.
+      - If it is flat, try more salt or a squeeze of lemon, and if it is too sharp, try a pinch of sugar.
+      - Tasting hot food is easier when you let it cool on the spoon for a moment.
+
+  - id: dredging
+    name: Dredging and breading
+    category: flavour
+    description: Coating food in flour, then beaten egg, then breadcrumbs, pressing each layer on gently. The coating browns and turns crisp when fried or baked, and protects the food inside.
+    when:
+      - Making katsu, schnitzel, croquettes or fish fingers.
+    tips:
+      - Use one hand for the dry coatings and the other for the wet, so your fingers do not clump.
+      - Shake off the extra flour before the egg, and the extra egg before the crumbs.
+      - Chill the coated food for a few minutes so the coating sticks.
+
+  - id: egg-wash
+    name: Egg wash
+    category: flavour
+    description: Brushing beaten egg, sometimes with a splash of milk or water, over dough or pastry before baking. It gives a glossy, golden-brown finish and helps seeds or sugar stick.
+    when:
+      - Finishing scones, pies, pastries, bread rolls or pretzels.
+    tips:
+      - Brush lightly, and avoid letting it pool or drip down the sides, because it can glue the dough to the tray.
+      - Use only the yolk for a deeper colour.
+
+  - id: resting-meat
+    name: Resting meat
+    category: flavour
+    description: Leaving cooked meat to stand somewhere warm, loosely covered, before cutting. The juices settle back through the meat, so it stays moist when sliced, and it carries on cooking a little from its own heat.
+    when:
+      - Cooking a steak, a roast, chicken, burgers or meatballs.
+    tips:
+      - Rest steaks for about 5 minutes and big roasts for 20 to 30 minutes.
+      - Cover loosely with foil, because a tight cover makes the crust go soft.
+      - Take the meat off the heat a little early, since it keeps cooking as it rests.

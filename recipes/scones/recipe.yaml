@@ -94,7 +94,7 @@ steps:
     title: Rub in the butter
     component: dry
     kind: cook
-    text: Mix the dry ingredients, chop the butter into small cubes and rub it in with your fingers until it looks like breadcrumbs.
+    text: Mix the dry ingredients, chop the butter into small cubes and [[rubbing-in|rub it in]] with your fingers until it looks like breadcrumbs.
     substeps:
       - Put {flour}, {sugar}, {salt} and {baking-powder} in a bowl.
       - Chop {butter} into small cubes and add it.
@@ -141,7 +141,7 @@ steps:
     title: Shape and glaze
     component: dry
     kind: cook
-    text: Lightly knead the dough, add any dried fruit, and divide it into four. Roll each into a sphere, squash it down a little on baking paper and glaze the tops.
+    text: "[[kneading|Lightly knead]] the dough, add any dried fruit, and divide it into four. Roll each into a sphere, squash it down a little on baking paper and [[egg-wash|glaze the tops]]."
     substeps:
       - Flour a dry work surface lightly.
       - Knead the dough lightly and briefly, just to bring it together. This is where you add {fruit}, if using.

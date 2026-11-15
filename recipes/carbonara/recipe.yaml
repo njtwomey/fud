@@ -112,7 +112,7 @@ steps:
     title: Render the bacon
     component: bacon
     kind: cook
-    text: Remove any rind, dice the bacon very small and put it in a large sauté pan, one big enough to hold the pasta too.
+    text: Remove any rind, [[dicing|dice]] the bacon very small and put it in a large sauté pan, one big enough to hold the pasta too.
     substeps:
       - Cut the rind off {bacon} and finely chop it into very small cubes.
       - Put it in a large sauté pan over a medium heat.
@@ -164,7 +164,7 @@ steps:
     title: Toss with the sauce
     component: pasta
     kind: cook
-    text: Take the pan off the heat, stir in the cheese mixture, then add the drained pasta and toss until the pasta is coated in the bacon, butter, garlic and cheese sauce.
+    text: "Take the pan off the heat, stir in the cheese mixture, then add the drained pasta and [[emulsifying|toss]] until the pasta is coated in the bacon, butter, garlic and cheese sauce."
     substeps:
       - Take the sauté pan off the heat and add the cheese and egg mixture.
       - Drain the pasta, keeping some of the cooking water.

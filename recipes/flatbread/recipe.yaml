@@ -59,7 +59,7 @@ steps:
     title: Mix and knead the dough
     component: dough
     kind: prep
-    text: Mix {flour}, {water} and {salt} in a bowl, and knead for a minute once it comes together.
+    text: Mix {flour}, {water} and {salt} in a bowl, and [[kneading|knead]] for a minute once it comes together.
     active_min: 4
     tools:
       - tool: mixing-bowl
@@ -69,7 +69,7 @@ steps:
     title: Roll out the dough
     component: dough
     kind: prep
-    text: Roll the dough out with a rolling pin to about the size of your frying pan, reasonably thin so it cooks very fast.
+    text: "[[rolling-out|Roll the dough out]] with a rolling pin to about the size of your frying pan, reasonably thin so it cooks very fast."
     substeps:
       - "Flavouring, if any, goes in at this stage and depends on what you are putting in the sandwich: {rosemary}, garlic or extra sea salt for texture."
     active_min: 3

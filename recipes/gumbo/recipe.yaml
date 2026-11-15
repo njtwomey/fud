@@ -158,8 +158,8 @@ steps:
     kind: prep
     text: Chop the vegetables, chicken and sausage before you start the roux, because the roux needs constant stirring.
     substeps:
-      - Dice {pepper}, {celery} and {onion}.
-      - Mince {garlic}.
+      - "[[dicing|Dice]] {pepper}, {celery} and {onion}."
+      - "[[mincing|Mince]] {garlic}."
       - Slice {chicken} and the sausage, leaving the fat on the chicken.
       - Tie {thyme} into a bundle (a spare sprig of thyme works as string).
     active_min: 25
@@ -173,7 +173,7 @@ steps:
     title: Cook the roux
     component: roux
     kind: cook
-    text: Melt the lard in a large heavy-based pot over a medium-high heat, whisk in the flour and cook, stirring constantly, to a deep mahogany colour.
+    text: Melt the lard in a large heavy-based pot over a medium-high heat, [[making-a-roux|whisk in the flour and cook]], stirring constantly, to a deep mahogany colour.
     substeps:
       - Melt {lard} in the pot over a medium-high heat.
       - Whisk in {flour} and cook for 15 to 20 minutes, stirring constantly. Be careful, as the mixture is extremely hot.
@@ -195,7 +195,7 @@ steps:
     text: Add {pepper}, {celery} and {onion} to the roux with a little {salt:name} and {black-pepper:name}, then {garlic}.
     substeps:
       - Add the diced pepper, celery and onion and season lightly with {salt} and {black-pepper}.
-      - Sauté for 4 to 5 minutes until beginning to soften.
+      - "[[sauteing|Sauté]] for 4 to 5 minutes until beginning to soften."
       - Add the garlic and cook for a further 2 minutes, stirring frequently so it does not burn.
     cue: The vegetables are starting to soften and the garlic smells fragrant without catching.
     heat: medium
@@ -243,7 +243,7 @@ steps:
     title: Simmer with the sausage
     component: gumbo
     kind: cook
-    text: Add the sausage and simmer uncovered until the gumbo has reduced and thickened slightly.
+    text: Add the sausage and [[reducing|simmer uncovered]] until the gumbo has reduced and thickened slightly.
     substeps:
       - Stir in {sausage}.
       - Simmer uncovered for 35 to 40 minutes.
@@ -277,7 +277,7 @@ steps:
     title: Season and serve
     component: serving
     kind: serve
-    text: Taste and adjust with more {salt:name} and {hot-sauce:name}, then serve in bowls over rice, piled high with spring onions.
+    text: "[[tasting-and-adjusting|Taste and adjust]] with more {salt:name} and {hot-sauce:name}, then serve in bowls over rice, piled high with spring onions."
     substeps:
       - Slice {spring-onion}, using both the green and the white parts.
       - Taste and adjust with more {salt} and {hot-sauce}.

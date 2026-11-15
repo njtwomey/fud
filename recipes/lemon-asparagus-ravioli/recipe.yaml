@@ -161,7 +161,7 @@ steps:
     title: Add the cream
     component: sauce
     kind: cook
-    text: Reduce the heat, stir in the crème fraîche, half the cheese and a splash of pasta water and season. Avoid overheating so it does not curdle.
+    text: Reduce the heat, stir in the crème fraîche, half the cheese and [[emulsifying|a splash of pasta water]] and season. Avoid overheating so it does not curdle.
     substeps:
       - Reduce the heat to medium-low.
       - Add {creme-fraiche}, half of {cheese} and a splash of pasta water.
@@ -181,7 +181,7 @@ steps:
     title: Toss the ravioli in the sauce
     component: ravioli
     kind: cook
-    text: Take the pan off the heat and gently toss in the drained ravioli.
+    text: Take the pan off the heat and [[folding|gently toss in]] the drained ravioli.
     substeps:
       - Remove the pan from the heat.
       - Add the drained ravioli and toss gently to coat in the sauce.

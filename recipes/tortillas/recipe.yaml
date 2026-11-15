@@ -51,7 +51,7 @@ steps:
     title: Knead the dough
     component: dough
     kind: cook
-    text: Combine the flour, oil, salt and warm water, knead to a soft smooth ball, then cover and rest for at least 15 minutes.
+    text: Combine the flour, oil, salt and warm water, [[kneading|knead]] to a soft smooth ball, then cover and rest for at least 15 minutes.
     substeps:
       - Combine {flour}, {oil} and {salt} in a bowl.
       - Pour over {water} and knead to bring the mixture together.
@@ -68,7 +68,7 @@ steps:
     title: Divide and roll out
     component: dough
     kind: cook
-    text: Cut the dough into 6 equal pieces of about 75 g and roll each as thinly as you can.
+    text: Cut the dough into 6 equal pieces of about 75 g and [[rolling-out|roll each]] as thinly as you can.
     substeps:
       - Cut the dough into 6 equal pieces (about 75 g each) and shape into balls.
       - Roll each ball out as thinly as possible on a floured surface, to rounds about 20 cm wide and 2 mm thick.

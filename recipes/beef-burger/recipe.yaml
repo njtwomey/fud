@@ -163,7 +163,7 @@ steps:
     title: Rest and toast the buns
     component: building
     kind: cook
-    text: Put the burgers aside for a few minutes to rest while you toast the buns.
+    text: "Put the burgers aside for a few minutes [[resting-meat|to rest]] while you toast the buns."
     substeps:
       - Set the burgers aside to rest for a few minutes.
       - Toast {buns}.

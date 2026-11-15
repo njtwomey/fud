@@ -143,7 +143,7 @@ steps:
     kind: cook
     text: In the same pan, fry the onion, garlic and carrot on a medium heat until soft.
     substeps:
-      - Dice {onion}, mince {garlic} and finely dice {carrot}.
+      - "[[dicing|Dice]] {onion}, [[mincing|mince]] {garlic} and finely dice {carrot}."
       - Fry them for 10 minutes.
     cue: The onion is soft and translucent and the carrot has lost its rawness.
     heat: medium

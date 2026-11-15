@@ -84,7 +84,7 @@ steps:
     title: Fry the chicken, add flour
     component: filling
     kind: cook
-    text: In another pan, melt the butter and stir the chicken in for a few minutes, then add the flour and stir until it takes on a little golden colour.
+    text: In another pan, melt the butter and stir the chicken in for a few minutes, then [[making-a-roux|add the flour and stir]] until it takes on a little golden colour.
     substeps:
       - Heat {butter} in a second pan and add {chicken}. Stir for a few minutes.
       - Add {flour} and stir well.
@@ -149,7 +149,7 @@ steps:
     title: Shape and coat
     component: coating
     kind: cook
-    text: Roll spoonfuls of the cold mixture into cylinders, then roll each in flour, egg and breadcrumbs in turn.
+    text: Roll spoonfuls of the cold mixture into cylinders, then [[dredging|roll each in flour, egg and breadcrumbs]] in turn.
     substeps:
       - Take a spoonful of mixture into your hand, close your hand and roll it into a cylinder.
       - Put the base in the flour and roll it with a fork.

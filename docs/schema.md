@@ -4,16 +4,16 @@ The Zod definitions in `web/src/lib/schema/` are authoritative. This is the shor
 
 ## Files
 
-| File                         | Holds                                                                                           |
-| ---------------------------- | ----------------------------------------------------------------------------------------------- |
-| `data/ingredients.yaml`      | `categories` (shop aisles in walking order; `spoon_measures` allows tsp/tbsp) and `ingredients` |
-| `data/tools.yaml`            | `categories` and `tools` with `substitutes`                                                     |
-| `data/tags.yaml`             | `domains` and `tags`                                                                            |
-| `data/swaps.yaml`            | `qualities` and general `swaps`                                                                 |
-| `data/techniques.yaml`       | `techniques`: named methods (creaming, stiff peaks) that steps can explain in place             |
-| `data/recipe-options.yaml`   | recipe `statuses` and `source_kinds`                                                            |
-| `data/kitchen.yaml`          | oven type, hob, owned tool ids, notes                                                           |
-| `recipes/<slug>/recipe.yaml` | one recipe; `images/` beside it                                                                 |
+| File                         | Holds                                                                                                |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `data/ingredients.yaml`      | `categories` (shop aisles in walking order; `spoon_measures` allows tsp/tbsp) and `ingredients`      |
+| `data/tools.yaml`            | `categories` and `tools` with `substitutes`                                                          |
+| `data/tags.yaml`             | `domains` and `tags`                                                                                 |
+| `data/swaps.yaml`            | `qualities` and general `swaps`                                                                      |
+| `data/techniques.yaml`       | `categories` and `techniques`: named methods (creaming, stiff peaks) that steps can explain in place |
+| `data/recipe-options.yaml`   | recipe `statuses` and `source_kinds`                                                                 |
+| `data/kitchen.yaml`          | oven type, hob, owned tool ids, notes                                                                |
+| `recipes/<slug>/recipe.yaml` | one recipe; `images/` beside it                                                                      |
 
 Every list of ids and labels is data. References between files are by id and checked by `make doctor`.
 
@@ -38,13 +38,16 @@ Every list of ids and labels is data. References between files are by id and che
 ## Techniques
 
 A technique is a method a cook may not know or may have forgotten, written once in `data/techniques.yaml` (`id`,
-`name`, `description`, optional `tips`) and reused by any recipe. A step marks the word that names it as
+`name`, `category`, `description`, and optional `when` (situations where you would use it) and `tips`) and reused by any recipe. A step marks the word that names it as
 `[[creaming|Cream]]` (id, then the words as they read in the sentence; without `|words` the technique's name is
 shown). On the page the words get a dotted underline and a small chevron; selecting them opens the explanation in
 place under that line, and selecting again folds it away. It is closed by default, so a cook who knows the method
 never has to see it. Mark a technique only where someone could plausibly have forgotten it, once per line. Describe
 the method in general terms; what this recipe wants (for example "not aerated") goes in the step's own text and cue.
-`make doctor` rejects an unknown technique id and applies the wording rules to technique text.
+The library is deliberately larger than what recipes use today (about 50 methods across dough, sweet things, knife work,
+frying and roasting, sauces and resting), so a recipe that needs one can simply mark it. Add a new entry only when a
+recipe needs a method that is not there. `make doctor` rejects an unknown technique id or category and applies the wording
+rules to technique text.
 
 ## Units
 

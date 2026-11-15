@@ -68,7 +68,7 @@ steps:
     title: Cream the butter and sugar
     component: dough
     kind: cook
-    text: Cream the butter and sugar together until light and fluffy, which gives a lighter, more airy biscuit.
+    text: "[[creaming|Cream]] the butter and sugar together until light and fluffy, which gives a lighter, more airy biscuit."
     substeps:
       - Put {butter} and {sugar} in a bowl.
       - Beat until light and fluffy.
@@ -107,7 +107,7 @@ steps:
     title: Roll and cut
     component: dough
     kind: cook
-    text: Roll the dough to the thickness you want on a floured surface and cut it into shapes.
+    text: "[[rolling-out|Roll the dough]] to the thickness you want on a floured surface and cut it into shapes."
     substeps:
       - Dust the work surface with {flour-dust}.
       - Roll out to the desired thickness with a rolling pin.
@@ -143,7 +143,7 @@ steps:
     kind: cook
     text: Bake the shapes in the preheated oven for about 15 minutes.
     substeps:
-      - Optionally brush with egg wash for a shine, if you are not going to dress them with anything such as royal icing later.
+      - Optionally [[egg-wash|brush with egg wash]] for a shine, if you are not going to dress them with anything such as royal icing later.
       - Bake for about 15 minutes.
     temperature:
       celsius: 180
