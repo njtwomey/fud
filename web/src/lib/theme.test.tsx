@@ -4,12 +4,12 @@ import { describe, expect, it, vi } from 'vitest'
 import { ThemeProvider, useTheme } from './theme'
 
 function Probe() {
-  const { theme, resolved, setTheme } = useTheme()
+  const { theme, setTheme, toggleTheme } = useTheme()
   return (
     <>
-      <span data-testid="state">{`${theme}:${resolved}`}</span>
-      <button type="button" onClick={() => setTheme('dark')}>
-        dark
+      <span data-testid="state">{theme}</span>
+      <button type="button" onClick={toggleTheme}>
+        toggle
       </button>
       <button type="button" onClick={() => setTheme('light')}>
         light
@@ -18,52 +18,69 @@ function Probe() {
   )
 }
 
+const prefersDark = (matches: boolean) => {
+  window.matchMedia = ((q: string) => ({
+    matches,
+    media: q,
+    addEventListener() {},
+    removeEventListener() {},
+  })) as never
+}
+
 describe('ThemeProvider', () => {
-  it('defaults to the system preference', () => {
-    render(
-      <ThemeProvider>
-        <Probe />
-      </ThemeProvider>,
-    )
-    expect(screen.getByTestId('state')).toHaveTextContent('system:light')
-    expect(document.documentElement).not.toHaveClass('dark')
-  })
-
-  it('follows a dark system preference', () => {
-    window.matchMedia = ((q: string) => ({
-      matches: true,
-      media: q,
-      addEventListener() {},
-      removeEventListener() {},
-    })) as never
-    render(
-      <ThemeProvider>
-        <Probe />
-      </ThemeProvider>,
-    )
-    expect(screen.getByTestId('state')).toHaveTextContent('system:dark')
-    expect(document.documentElement).toHaveClass('dark')
-  })
-
-  it('applies the dark class, persists the choice and restores it', async () => {
+  it('starts from the OS preference when nothing is saved', () => {
+    prefersDark(false)
     const { unmount } = render(
       <ThemeProvider>
         <Probe />
       </ThemeProvider>,
     )
-    await userEvent.click(screen.getByText('dark'))
+    expect(screen.getByTestId('state')).toHaveTextContent('light')
+    expect(document.documentElement).not.toHaveClass('dark')
+    unmount()
+
+    prefersDark(true)
+    render(
+      <ThemeProvider>
+        <Probe />
+      </ThemeProvider>,
+    )
+    expect(screen.getByTestId('state')).toHaveTextContent('dark')
+    expect(document.documentElement).toHaveClass('dark')
+  })
+
+  it('treats an old saved "system" choice as unset', () => {
+    prefersDark(false)
+    window.localStorage.setItem('theme', 'system')
+    render(
+      <ThemeProvider>
+        <Probe />
+      </ThemeProvider>,
+    )
+    expect(screen.getByTestId('state')).toHaveTextContent('light')
+    window.localStorage.clear()
+  })
+
+  it('toggles the dark class, persists the choice and restores it', async () => {
+    prefersDark(false)
+    const { unmount } = render(
+      <ThemeProvider>
+        <Probe />
+      </ThemeProvider>,
+    )
+    await userEvent.click(screen.getByText('toggle'))
     expect(document.documentElement).toHaveClass('dark')
     expect(window.localStorage.getItem('theme')).toBe('dark')
     await userEvent.click(screen.getByText('light'))
     expect(document.documentElement).not.toHaveClass('dark')
-    await userEvent.click(screen.getByText('dark'))
+    await userEvent.click(screen.getByText('toggle'))
     unmount()
     render(
       <ThemeProvider>
         <Probe />
       </ThemeProvider>,
     )
-    expect(screen.getByTestId('state')).toHaveTextContent('dark:dark')
+    expect(screen.getByTestId('state')).toHaveTextContent('dark')
   })
 
   it('throws a clear error outside the provider', () => {
