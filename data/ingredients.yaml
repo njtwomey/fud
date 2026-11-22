@@ -3889,3 +3889,88 @@ ingredients:
       sugars_g: 98
       salt_g: 0.02
     nutrition_source: estimate
+
+  - id: kecap-manis
+    name: kecap manis
+    category: sauces-condiments
+    aliases:
+      - sweet soy sauce
+    density_g_per_ml: 1.3
+    nutrition:
+      kcal: 220
+      protein_g: 2
+      fat_g: 0
+      saturates_g: 0
+      carbs_g: 52
+      sugars_g: 48
+      fibre_g: 0
+      salt_g: 5
+    nutrition_source: estimate
+
+  - id: shrimp-paste
+    name: shrimp paste
+    category: sauces-condiments
+    aliases:
+      - terasi
+      - belacan
+      - kapi
+    nutrition:
+      kcal: 150
+      protein_g: 20
+      fat_g: 2
+      saturates_g: 0.5
+      carbs_g: 10
+      sugars_g: 1
+      fibre_g: 0
+      salt_g: 16
+    nutrition_source: estimate
+
+  - id: birds-eye-chilli
+    name: bird's eye chilli
+    plural: bird's eye chillies
+    category: produce
+    aliases:
+      - Thai chilli
+    each_g: 3
+    nutrition:
+      kcal: 40
+      protein_g: 2
+      fat_g: 0.4
+      saturates_g: 0.1
+      carbs_g: 8.8
+      sugars_g: 5
+      fibre_g: 1.5
+      salt_g: 0.01
+    nutrition_source: estimate
+
+  - id: salted-peanuts
+    name: salted peanuts
+    category: nuts-seeds
+    aliases: []
+    nutrition:
+      kcal: 600
+      protein_g: 24
+      fat_g: 50
+      saturates_g: 9
+      carbs_g: 11
+      sugars_g: 4
+      fibre_g: 7
+      salt_g: 1.5
+    nutrition_source: estimate
+
+  - id: crispy-shallots
+    name: crispy fried shallots
+    category: other
+    aliases:
+      - fried shallots
+      - crispy onions
+    nutrition:
+      kcal: 560
+      protein_g: 5
+      fat_g: 38
+      saturates_g: 4
+      carbs_g: 47
+      sugars_g: 12
+      fibre_g: 4
+      salt_g: 0.3
+    nutrition_source: estimate

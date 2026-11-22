@@ -1,0 +1,327 @@
+# yaml-language-server: $schema=../../schemas/recipe.schema.json
+slug: nasi-goreng
+title: Nasi Goreng
+summary: Indonesian and Malaysian fried rice built on a pounded paste of shallot, garlic, chilli and shrimp paste, tossed with sweet soy sauce and finished with crisp toppings. Quick to cook once the rice is cold and the paste is made.
+version: 1
+date: 2026-11-22
+status: draft
+servings: 2
+source:
+  kind: web
+  title: How to make nasi goreng
+  author: Felicity Cloake
+  url: https://www.theguardian.com/food/2026/nov/22/how-to-make-nasi-goreng-recipe
+  note: The Guardian, 22 November 2026
+tags:
+  - dinner
+  - indonesian
+  - rice-dish
+  - stir-fry
+  - frying
+
+components:
+  - id: rice
+    title: Rice
+    ingredients:
+      - id: rice
+        ingredient: jasmine-rice
+        quantity:
+          amount: 200
+          unit: g
+        note: or other long-grain rice
+      - id: water
+        ingredient: water
+        quantity:
+          amount: 400
+          unit: ml
+        note: boiling
+
+  - id: paste
+    title: Spice paste
+    ingredients:
+      - id: shallots
+        ingredient: shallot
+        quantity:
+          amount: 50
+          unit: g
+        note: Asian red shallots, about 4
+      - id: paste-garlic
+        ingredient: garlic
+        quantity:
+          amount: 1
+          unit: each
+      - id: paste-chilli
+        ingredient: birds-eye-chilli
+        quantity:
+          amount: 1
+          unit: each
+        note: red
+      - id: paste-oil
+        ingredient: vegetable-oil
+        quantity:
+          amount: 15
+          unit: ml
+      - id: shrimp-paste
+        ingredient: shrimp-paste
+        quantity:
+          amount: 10
+          unit: g
+        note: terasi, about 2 tsp
+
+  - id: stir-fry
+    title: Stir-fry
+    ingredients:
+      - id: oil
+        ingredient: vegetable-oil
+        quantity:
+          amount: 30
+          unit: ml
+      - id: garlic
+        ingredient: garlic
+        quantity:
+          amount: 1
+          unit: each
+      - id: eggs
+        ingredient: egg
+        quantity:
+          amount: 2
+          unit: each
+        optional: true
+      - id: kecap-manis
+        ingredient: kecap-manis
+        quantity:
+          amount: 30
+          unit: ml
+        note: plus more to taste
+      - id: soy-sauce
+        ingredient: soy-sauce
+        quantity:
+          amount: 15
+          unit: ml
+        note: light
+      - id: spring-onion
+        ingredient: spring-onion
+        quantity:
+          amount: 60
+          unit: g
+        note: 4 spring onions
+      - id: chilli-serve
+        ingredient: birds-eye-chilli
+        quantity:
+          amount: 1
+          unit: each
+        note: to serve
+
+  - id: toppings
+    title: Toppings
+    ingredients:
+      - id: crispy-shallots
+        ingredient: crispy-shallots
+        optional: true
+        note: bought or homemade
+      - id: fried-eggs
+        ingredient: egg
+        optional: true
+        note: fried
+      - id: cucumber
+        ingredient: cucumber
+        optional: true
+        note: sliced
+      - id: tomato
+        ingredient: tomato
+        optional: true
+        note: sliced
+      - id: peanuts
+        ingredient: salted-peanuts
+        optional: true
+        note: roughly chopped
+
+steps:
+  - id: cook-rice
+    title: Cook the rice
+    component: rice
+    kind: cook
+    text: Simmer {rice} in {water}, covered, then rest it off the heat so the grains finish steaming.
+    substeps:
+      - Put {rice} in a saucepan with {water} and bring to a simmer, stirring once.
+      - Cover the pan tightly and turn the heat right down.
+      - Cook for 15 minutes, then take the pan off the heat and stand it on a damp tea towel for 5 minutes.
+    cue: The water has been absorbed and the grains are tender.
+    heat: low
+    active_min: 3
+    passive_min: 20
+    make_ahead: true
+    tools:
+      - tool: saucepan
+        note: With a tight lid.
+        alternatives:
+          - rice-cooker
+    after: []
+
+  - id: chill-rice
+    title: Cool and dry the rice
+    component: rice
+    kind: wait
+    text: Fluff the cooked rice, spread it out on a tray and chill it until cold and dry, so the grains stay separate in the wok.
+    substeps:
+      - Fluff the rice with a fork.
+      - Spread it evenly across a baking tray.
+      - Put it in the fridge, ideally overnight, or in the freezer for about 2 hours.
+    cue: Cold, dry grains that feel firm and come apart easily.
+    passive_min: 120
+    make_ahead: true
+    tools:
+      - tool: baking-tray
+      - tool: fridge
+        alternatives:
+          - freezer
+    after:
+      - cook-rice
+
+  - id: make-paste
+    title: Make the spice paste
+    component: paste
+    kind: prep
+    text: Roughly chop {shallots}, {paste-garlic} and {paste-chilli}, then pound or [[pureeing|whizz]] them with {paste-oil} and {shrimp-paste} until smooth.
+    substeps:
+      - Peel and roughly chop {shallots} and {paste-garlic}.
+      - Trim {paste-chilli}, discarding the pith and seeds if you are wary of heat, then roughly chop it.
+      - Put the shallots, garlic and chilli in a mortar or mini chopper.
+      - Add {paste-oil} and {shrimp-paste}.
+      - Pound or whizz until smooth.
+    cue: A smooth, brown paste with no visible pieces of shallot.
+    active_min: 10
+    make_ahead: true
+    tools:
+      - tool: pestle-and-mortar
+        alternatives:
+          - food-processor
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: prep-stir-fry
+    title: Chop the garlic, spring onions and chilli
+    component: stir-fry
+    kind: prep
+    text: Chop {garlic}, {spring-onion} and {chilli-serve}, and set them next to the hob with the sauces, because the frying is over in minutes.
+    substeps:
+      - Peel and finely chop {garlic}.
+      - Trim {spring-onion} and chop it on the diagonal.
+      - Slice {chilli-serve} for serving.
+      - Beat {eggs} in a small bowl, if using.
+      - Measure {kecap-manis} and {soy-sauce} into a small bowl and have the cold rice and the spice paste within reach of the hob.
+    cue: The chopped garlic, spring onions and chilli, the beaten eggs and the two soy sauces are ready within arm's reach.
+    active_min: 7
+    tools:
+      - tool: knife
+      - tool: chopping-board
+      - tool: mixing-bowl
+    after: []
+
+  - id: prep-toppings
+    title: Prepare the toppings
+    component: toppings
+    kind: prep
+    text: Prepare whichever toppings you like, so they are ready when the rice comes out of the wok.
+    substeps:
+      - Slice {cucumber} and {tomato}.
+      - Roughly chop {peanuts}.
+      - Fry the eggs for the topping ({fried-eggs}) in a little oil until the whites are set and the yolks are as runny as you like them.
+      - Put the toppings, with {crispy-shallots}, on a plate.
+    cue: Each topping you have chosen is ready on the plate.
+    active_min: 8
+    tools:
+      - tool: frying-pan
+      - tool: knife
+      - tool: chopping-board
+    after: []
+
+  - id: fry-paste
+    title: Fry the garlic, eggs and paste
+    component: stir-fry
+    kind: cook
+    text: Fry {garlic} in {oil} until lightly golden, scramble in {eggs}, if using, then cook the spice paste until its raw smell goes.
+    substeps:
+      - Heat {oil} in a wok over a high heat.
+      - Fry {garlic} until just lightly golden.
+      - Pour in {eggs}, leave until half set, then break up and keep scrambling until just beginning to brown.
+      - Stir in the spice paste and cook for another minute or so.
+    cue: The scrambled egg is just starting to brown, and the paste smells rich and cooked rather than raw and sharp.
+    heat: high
+    active_min: 4
+    tools:
+      - tool: wok
+        alternatives:
+          - frying-pan
+      - tool: wooden-spoon
+    after:
+      - make-paste
+      - prep-stir-fry
+
+  - id: fry-rice
+    title: Fry the rice
+    component: stir-fry
+    kind: cook
+    text: Sprinkle the cold rice into the wok, breaking up any clumps, and [[stir-frying|stir-fry]] it until hot right through, then stir in {kecap-manis}, {soy-sauce} and {spring-onion}.
+    substeps:
+      - Sprinkle the cold rice into the wok by hand, breaking up any clumps as you go.
+      - Stir-fry, tossing vigorously, until the rice is thoroughly heated through.
+      - Stir in {kecap-manis}, {soy-sauce} and {spring-onion}.
+      - Keep tossing until the grains are brown and evenly coated with sauce.
+    cue: Separate, steaming grains, an even brown colour from the sauce with no pale patches.
+    heat: high
+    active_min: 4
+    tools:
+      - tool: wok
+        alternatives:
+          - frying-pan
+      - tool: wooden-spoon
+    after:
+      - fry-paste
+      - chill-rice
+
+  - id: finish-rice
+    title: Crisp and season
+    component: stir-fry
+    kind: cook
+    text: Fry the rice for another minute or so until it just starts to caramelise and crisp, then [[tasting-and-adjusting|taste and adjust]] with more {kecap-manis} and chilli.
+    substeps:
+      - Keep frying and stirring for another minute or so.
+      - Stop when the rice is just beginning to caramelise and crisp.
+      - Taste, then add more {kecap-manis} for sweetness and savouriness, and a little chopped chilli for heat if you want it.
+    cue: Some grains are catching and crisping at the edges of the wok, and it tastes savoury, sweet and hot in balance.
+    heat: high
+    active_min: 2
+    tools:
+      - tool: wok
+        alternatives:
+          - frying-pan
+    after:
+      - fry-rice
+
+  - id: serve
+    title: Serve
+    component: stir-fry
+    kind: serve
+    text: Divide the nasi goreng between two plates, scatter over {chilli-serve} and top with {crispy-shallots}, {fried-eggs}, {cucumber}, {tomato} and {peanuts}, whichever you have made. Serve immediately.
+    cue: Hot rice on the plate, topped with the toppings you chose.
+    active_min: 1
+    after:
+      - finish-rice
+      - prep-toppings
+
+notes:
+  - "Ready cooked rice: use 525 g of cooked and cooled long-grain rice instead of cooking 200 g of jasmine rice, and skip the first two steps. The amount is flexible, and the recipe scales up or divides easily."
+  - "Shallots: if you cannot find small, fiery Asian shallots, use 75 g of the larger round ones to make up for their milder flavour."
+  - "Shrimp paste: Malaysian belacan, Thai kapi or Vietnamese mắm tôm make good substitutes for terasi. If you can find none of them, use 1½ tsp of fish sauce and two anchovy fillets, or 2 tsp of red miso mixed with 1 tsp of crumbled dried seaweed."
+  - "Kecap manis is a thick, sweet soy sauce sold in specialist Asian food shops and online. To make your own, simmer 60 ml of light soy sauce with 50 g of soft brown sugar until slightly syrupy, then leave it to cool. This makes more than the recipe needs."
+  - "Heat: remove the pith and seeds from the chilli if you are nervous of heat, or use a milder variety."
+  - "Make ahead: the rice and the spice paste both keep, so they can be done the day before and the dish becomes quick assembly."
+  - "Toppings are up to you. Other good ones are lightly blanched vegetables, cooked chicken or prawns, and cubed tofu or tempeh, so it is a good home for leftovers."
+
+open_questions:
+  - "The source says to freeze the rice for 'up to two hours'; this recipe uses about 2 hours as the target."
+  - "Rice cooking and cooling times are taken as written: 15 minutes simmering and 5 minutes resting."
+  - "Quantities for the toppings are not given, so they are unmeasured and optional."
+  - "Spring onions are given as 4, converted here to about 60 g."

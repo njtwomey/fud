@@ -192,6 +192,10 @@ tags:
     label: Thai
     domain: cuisine
 
+  - id: indonesian
+    label: Indonesian
+    domain: cuisine
+
   - id: vegetarian
     label: Vegetarian
     domain: diet
